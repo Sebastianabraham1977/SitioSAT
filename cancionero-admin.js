@@ -22,7 +22,7 @@
 
   const keyFor = (song) => normalize(song.title) + '||' + normalize(song.artist);
   const defaultCoverOverrides = new Map([
-    [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=7a03388']
+    [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=face-ea627ca']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
