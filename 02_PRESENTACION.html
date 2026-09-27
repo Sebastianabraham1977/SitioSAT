@@ -212,6 +212,7 @@ body{font-family:"Instrument Sans",Arial,sans-serif;overflow-x:hidden}
 .index-back{position:fixed !important;z-index:1000001 !important;}
 </style>
 
+
 <style>
 .menu-toggle{
   position:absolute;
@@ -14694,5 +14695,33 @@ html,body{position:relative !important;}
 @media (min-width: 801px) {
   #presentacion>.wrap>main { column-gap: 0 !important; }
   #presentacion .presentation-child-photo { object-position: right top !important; }
+}
+</style>
+<style id="presentacion-texto-izquierda-foto-derecha-mismo-tamano">
+@media (min-width: 801px) {
+  #presentacion>.wrap>main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    column-gap: 0 !important;
+    align-items: stretch !important;
+  }
+  #presentacion .presentation-story,
+  #presentacion .presentation-child-photo {
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: min(56svh, 520px) !important;
+    min-height: min(56svh, 520px) !important;
+    max-height: min(56svh, 520px) !important;
+    box-sizing: border-box !important;
+  }
+  #presentacion .presentation-story {
+    grid-column: 1 !important;
+  }
+  #presentacion .presentation-child-photo {
+    grid-column: 2 !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    align-self: stretch !important;
+  }
 }
 </style>
