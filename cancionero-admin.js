@@ -40,7 +40,12 @@
     [keyFor({ title: 'OYE COMO VA', artist: 'Santana' }), './assets/covers/santana.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'PRONTA ENTREGA', artist: 'Virus' }), './assets/covers/virus.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'HIJO DE LA LUNA', artist: 'Mecano' }), './assets/covers/mecano.jpg?v=artist-focus-20260927'],
-    [keyFor({ title: 'ME CUESTA TANTO OLVIDARTE', artist: 'Mecano' }), './assets/covers/mecano.jpg?v=artist-focus-20260927']
+    [keyFor({ title: 'ME CUESTA TANTO OLVIDARTE', artist: 'Mecano' }), './assets/covers/mecano.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'COMO HEMOS CAMBIADO', artist: 'Presuntos Implicados' }), 'https://pics.filmaffinity.com/Presuntos_Implicados_Caomo_hemos_cambiado_Vaideo_musical-499414912-large.jpg?v=artist-focus-2-20260927'],
+    [keyFor({ title: 'LA JOYA DEL PACIFICO', artist: 'Lucho Barrios' }), './assets/covers/lucho-barrios.jpg?v=artist-focus-2-20260927'],
+    [keyFor({ title: 'MALDITO AMOR', artist: 'Supernova' }), './assets/covers/supernova.jpg?v=artist-focus-2-20260927'],
+    [keyFor({ title: 'MORE THAN WORDS', artist: 'Xtreme' }), 'https://iscale.iheart.com/catalog/album/836315?v=artist-focus-2-20260927'],
+    [keyFor({ title: 'SIGUES DANDO VUELTAS', artist: 'La Rue Morgue' }), './assets/covers/la-rue-morgue.jpg?v=artist-focus-2-20260927']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
