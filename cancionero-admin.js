@@ -21,6 +21,9 @@
     .trim();
 
   const keyFor = (song) => normalize(song.title) + '||' + normalize(song.artist);
+  const defaultCoverOverrides = new Map([
+    [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=7a03388']
+  ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
 
@@ -179,11 +182,15 @@
   function applyLocalImages() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-      if (!saved || !Array.isArray(saved.songs)) return;
-      songs = mergeSongs(saved.songs);
+      if (saved && Array.isArray(saved.songs)) songs = mergeSongs(saved.songs);
     } catch (error) {
       // The page remains usable if browser storage is unavailable.
     }
+    songs.forEach((song) => {
+      const defaultCover = defaultCoverOverrides.get(keyFor(song));
+      if (defaultCover) song.image = defaultCover;
+    });
+    if (defaultCoverOverrides.size) saveLocalImages();
   }
 
   function setStatus(message) {
