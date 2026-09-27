@@ -14303,3 +14303,11 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
 }
 html,body{position:relative !important;}
 </style>
+<style id="cancionero-menu-navigation-fix">
+/* Mantén el panel por encima del cancionero y sus controles clicables. */
+#menuPanel{z-index:2147483000!important;pointer-events:none!important}
+#menuToggle:checked~#menuPanel{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#menuPanel .menu-links,#menuPanel .menu-links a{pointer-events:auto!important}
+#menuPanel::before{pointer-events:none!important}
+body>.topbar{z-index:2147482999!important}
+</style>

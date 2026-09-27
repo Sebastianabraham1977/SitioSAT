@@ -444,7 +444,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 
 
 
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet"></head>
 
 <body>
 
@@ -658,7 +658,7 @@ font-size: clamp(1.3rem, 4.5vw, 2.5rem);
 <p>Comencé mis estudios de piano a los 4 años. Tras mi etapa de clases particulares, estudié durante 12 años en el Conservatorio de Piano de la Pontificia Universidad Católica de Chile.</p>
 <p>Me titulé en Composición y Arreglos en Música Popular en la Escuela Moderna de Música. He participado en diversos proyectos y bandas, desarrollando una trayectoria que une la interpretación<br>y los arreglos musicales. También hago piano bar en <span style="white-space:nowrap">restaurantes, donde el público puede pedir del<br>cancionero y cantar junto al piano.</span></p>
 <p>Para eventos, me presento en distintos formatos: como solista, en dúo con cello,<br>en dúo con voz y en otros formatos musicales.</p>
-<p>Además, compongo y produzco música para<br>proyectos<br>audiovisuales.</p>
+<p>Además, compongo y produzco música para<br>proyectos audiovisuales.</p>
 </div>
 <img class="presentation-child-photo" src="./assets/sebastian-nino-piano.jpg" alt="Sebastián de niño tocando el piano">
 </div>
@@ -14427,5 +14427,272 @@ html,body{position:relative !important;}
     width:31%!important;
     max-width:190px!important;
   }
+}
+</style>
+<style id="clases-piano-mas-separadas-de-la-foto">
+/* Baja la sección completa para despejar la foto de presentación. */
+.presentation-page .clases-piano{margin-top:150px!important}
+@media(max-width:600px){.presentation-page .clases-piano{margin-top:110px!important}}
+</style>
+<style id="presentacion-completa-en-primer-pantallazo">
+@media (min-width: 801px) {
+  #presentacion>.wrap {
+    width: min(1280px, calc(100% - 80px)) !important;
+    max-width: 1280px !important;
+    margin: 96px auto 0 !important;
+  }
+  #presentacion>.wrap>header { padding: 0 !important; }
+  #presentacion>.wrap>header>h1 {
+    margin: 0 0 16px !important;
+    font-size: clamp(32px, 4vw, 42px) !important;
+  }
+  #presentacion>.wrap>main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(28px, 5vw, 72px) !important;
+    row-gap: 18px !important;
+    padding: 0 0 24px !important;
+    align-items: start !important;
+  }
+  #presentacion .card { display: contents !important; }
+  #presentacion .presentation-story {
+    position: static !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    color: #f0f0f0 !important;
+    font-size: clamp(14px, 1.12vw, 16px) !important;
+    line-height: 1.34 !important;
+    text-shadow: none !important;
+    align-self: start !important;
+  }
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:first-of-type,
+  #presentacion .presentation-story p:nth-of-type(n) {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 10px !important;
+    color: #f0f0f0 !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: 400 !important;
+    -webkit-text-stroke: 0 !important;
+  }
+  #presentacion .presentation-child-photo {
+    position: static !important;
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+    display: block !important;
+    width: 100% !important;
+    height: min(65svh, 590px) !important;
+    max-height: calc(100svh - 180px) !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    margin: 0 !important;
+    align-self: start !important;
+  }
+  #presentacion .clases-piano {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 8px 0 0 !important;
+    padding: 0 !important;
+  }
+  #presentacion .clases-piano .clases-subtitle {
+    margin: 0 0 8px !important;
+    font-size: 1.2rem !important;
+  }
+  #presentacion .clases-piano p {
+    margin: 0 0 8px !important;
+    font-size: clamp(13px, 1.03vw, 15px) !important;
+    line-height: 1.32 !important;
+  }
+}
+</style>
+<style id="presentacion-texto-foto-misma-altura-clases-debajo">
+@media (min-width: 801px) {
+  #presentacion>.wrap>main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(28px, 5vw, 72px) !important;
+    row-gap: 24px !important;
+    align-items: stretch !important;
+  }
+  #presentacion .presentation-story {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    height: min(56svh, 520px) !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  #presentacion .presentation-child-photo {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: min(56svh, 520px) !important;
+    max-height: calc(100svh - 180px) !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    justify-self: stretch !important;
+  }
+  #presentacion .clases-piano {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+</style>
+<style id="presentacion-columnas-iguales-y-clases-legibles">
+@media (min-width: 801px) {
+  #presentacion>.wrap>main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+  #presentacion .presentation-story,
+  #presentacion .presentation-child-photo {
+    height: min(56svh, 520px) !important;
+    min-height: min(56svh, 520px) !important;
+  }
+  #presentacion .clases-piano p {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+  }
+}
+</style>
+<style id="presentacion-texto-sobre-fondo-crema">
+#presentacion .presentation-story {
+  box-sizing: border-box !important;
+  padding: clamp(18px, 2.2vw, 28px) !important;
+  background: #e9dfce !important;
+  color: #111 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+#presentacion .presentation-story p {
+  color: #111 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+@media (max-width: 600px) {
+  #presentacion .presentation-story { padding: 20px !important; }
+}
+</style>
+<style id="presentacion-panel-crema-contiguo-a-foto">
+@media (min-width: 801px) {
+  #presentacion>.wrap>main { column-gap: 0 !important; }
+  #presentacion .presentation-child-photo { object-position: left top !important; }
+  #presentacion .presentation-story {
+    background: #e6dfd6 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+<style id="presentacion-texto-negro-solido">
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  opacity: 1 !important;
+}
+</style>
+<style id="presentacion-texto-mas-grande-y-aprovecha-fondo">
+@media (min-width: 801px) {
+  #presentacion .presentation-story {
+    padding: 18px !important;
+    font-size: 17px !important;
+    line-height: 1.38 !important;
+  }
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n) {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 12px !important;
+    font-size: 17px !important;
+    line-height: 1.38 !important;
+  }
+}
+</style>
+<style id="presentacion-fondo-crema-coincide-con-foto">
+#presentacion .presentation-story { background: #d2cbc5 !important; }
+</style>
+<style id="presentacion-texto-rojo-short">
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  color: #b5121b !important;
+  -webkit-text-fill-color: #b5121b !important;
+}
+</style>
+<style id="presentacion-sin-lineas-vacias-entre-parrafos">
+#presentacion .presentation-story p,
+#presentacion .presentation-story p:nth-of-type(n) {
+  margin-block: 0 !important;
+}
+</style>
+<style id="presentacion-fondo-color-piano">
+#presentacion .presentation-story { background: #efeee9 !important; }
+</style>
+<style id="presentacion-fondo-blanco-puro">
+#presentacion .presentation-story { background: #fff !important; }
+</style>
+<style id="presentacion-texto-negro-sobre-blanco">
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+</style>
+<style id="presentacion-fondo-dorado">
+#presentacion .presentation-story { background: #d9b76a !important; }
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+</style>
+<style id="presentacion-tipografia-clasica">
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+</style>
+<style id="presentacion-tipografia-bailarina">
+#presentacion .presentation-story,
+#presentacion .presentation-story * {
+  font-family: "Dancing Script", "Apple Chancery", cursive !important;
+}
+</style>
+<style id="presentacion-caligrafia-ocupa-panel">
+@media (min-width: 801px) {
+  #presentacion .presentation-story,
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .presentation-story span {
+    font-size: 22px !important;
+    line-height: 1.26 !important;
+  }
+  #presentacion .presentation-story { padding: 16px !important; }
+}
+</style>
+<style id="presentacion-fondo-tono-piernas">
+#presentacion .presentation-story { background: #d8b09b !important; }
+</style>
+<style id="presentacion-foto-izquierda-texto-derecha">
+@media (min-width: 801px) {
+  #presentacion .presentation-child-photo { grid-column: 1 !important; }
+  #presentacion .presentation-story { grid-column: 2 !important; }
+}
+</style>
+<style id="presentacion-foto-sin-franja-junto-al-texto">
+@media (min-width: 801px) {
+  #presentacion>.wrap>main { column-gap: 0 !important; }
+  #presentacion .presentation-child-photo { object-position: right top !important; }
 }
 </style>
