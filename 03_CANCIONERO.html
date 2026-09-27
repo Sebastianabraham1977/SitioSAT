@@ -14206,7 +14206,7 @@ Quiero un sombrero
 De guano, una bandera
 Quiero una guayabera
 Y un son para bailar...</div></details><div class="song"><a href="https://www.google.com/search?q=site%3Acifraclub.com%20%22UN%20COMPROMISO%22%20%22Cecilia%22" rel="noopener" target="_blank"><span>UN COMPROMISO</span><span class="artist">Cecilia</span></a></div></section><div class="empty" id="empty">No encontramos esa canción.</div><div class="note">Las canciones están integradas en el repertorio y sus botones abren una búsqueda de la letra.</div></div>
-<a aria-label="Volver al comienzo del Cancionero" class="top-btn" href="#cancionero" id="topBtn" title="Volver al comienzo del Cancionero" onclick="event.preventDefault();var c=document.getElementById('cancionero');if(c){window.scrollTo({top:c.getBoundingClientRect().top+window.pageYOffset,behavior:'smooth'});}return false;">↑</a>
+<a aria-label="Volver al comienzo del Cancionero" class="top-btn" href="#cancionero" id="topBtn" title="Volver al comienzo del Cancionero" onclick="event.preventDefault();document.querySelectorAll('#cancionero details[open]').forEach(function(d){d.open=false;});var m=document.getElementById('lyricsModal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}var c=document.getElementById('cancionero');if(c){window.scrollTo({top:c.getBoundingClientRect().top+window.pageYOffset,behavior:'smooth'});}return false;">↑</a>
 
 <div aria-hidden="true" class="lyrics-modal" id="lyricsModal">
 <div aria-labelledby="lyricsTitle" aria-modal="true" class="lyrics-box" role="dialog">
