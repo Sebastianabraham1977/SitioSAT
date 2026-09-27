@@ -14698,31 +14698,42 @@ html,body{position:relative !important;}
 }
 </style>
 <style id="presentacion-texto-izquierda-foto-derecha-mismo-tamano">
-@media (min-width: 601px) {
+@media (min-width: 801px) {
   #presentacion>.wrap>main {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     column-gap: 0 !important;
     align-items: stretch !important;
+    width: min(960px, calc(100vw - 48px)) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   #presentacion .card { display: contents !important; }
-  #presentacion .presentation-story,
-  #presentacion .presentation-child-photo {
+  #presentacion .presentation-story {
     grid-row: 1 !important;
     width: 100% !important;
-    height: min(56svh, 520px) !important;
-    min-height: min(56svh, 520px) !important;
-    max-height: min(56svh, 520px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1206 / 1478 !important;
     box-sizing: border-box !important;
+    align-self: stretch !important;
+  }
+  #presentacion .presentation-child-photo {
+    grid-row: 1 !important;
+    grid-column: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1206 / 1478 !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    box-sizing: border-box !important;
+    align-self: stretch !important;
   }
   #presentacion .presentation-story {
     grid-column: 1 !important;
-  }
-  #presentacion .presentation-child-photo {
-    grid-column: 2 !important;
-    object-fit: contain !important;
-    object-position: center top !important;
-    align-self: stretch !important;
   }
 }
 </style>
