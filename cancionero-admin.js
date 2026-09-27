@@ -23,7 +23,9 @@
   const keyFor = (song) => normalize(song.title) + '||' + normalize(song.artist);
   const defaultCoverOverrides = new Map([
     [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=face-ea627ca'],
-    [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927']
+    [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927'],
+    [keyFor({ title: 'CHICA LIGHT', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
+    [keyFor({ title: 'ENAMORADO DE TI', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
