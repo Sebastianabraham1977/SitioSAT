@@ -41,7 +41,7 @@
     [keyFor({ title: 'PRONTA ENTREGA', artist: 'Virus' }), './assets/covers/virus.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'HIJO DE LA LUNA', artist: 'Mecano' }), 'https://musitecadiscos.com/wp-content/uploads/2025/06/mecano-descanso-dominical-lado-a-lpu.jpg?v=artist-focus-3-20260927'],
     [keyFor({ title: 'ME CUESTA TANTO OLVIDARTE', artist: 'Mecano' }), 'https://musitecadiscos.com/wp-content/uploads/2025/06/mecano-descanso-dominical-lado-a-lpu.jpg?v=artist-focus-3-20260927'],
-    [keyFor({ title: 'COMO HEMOS CAMBIADO', artist: 'Presuntos Implicados' }), 'https://pics.filmaffinity.com/Presuntos_Implicados_Caomo_hemos_cambiado_Vaideo_musical-499414912-large.jpg?v=artist-focus-2-20260927'],
+    [keyFor({ title: 'COMO HEMOS CAMBIADO', artist: 'Presuntos Implicados' }), './assets/covers/presuntos-implicados.webp?v=artist-focus-4-20260927'],
     [keyFor({ title: 'LA JOYA DEL PACIFICO', artist: 'Lucho Barrios' }), './assets/covers/lucho-barrios.jpg?v=artist-focus-2-20260927'],
     [keyFor({ title: 'MALDITO AMOR', artist: 'Supernova' }), './assets/covers/supernova.jpg?v=artist-focus-2-20260927'],
     [keyFor({ title: 'MORE THAN WORDS', artist: 'Xtreme' }), 'https://iscale.iheart.com/catalog/album/836315?v=artist-focus-2-20260927'],
