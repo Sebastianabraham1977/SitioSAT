@@ -25,7 +25,22 @@
     [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=face-ea627ca'],
     [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927'],
     [keyFor({ title: 'CHICA LIGHT', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
-    [keyFor({ title: 'ENAMORADO DE TI', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927']
+    [keyFor({ title: 'ENAMORADO DE TI', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
+    [keyFor({ title: 'ARMONIA DE AMOR', artist: 'Gondwana' }), './assets/covers/gondwana.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'CON UNA PALA Y UN SOMBRERO', artist: 'Gervasio' }), './assets/covers/gervasio.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'CRAZY LITTLE THING CALLED LOVE', artist: 'Queen' }), './assets/covers/queen.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: "DON'T STOP ME NOW", artist: 'Queen' }), './assets/covers/queen.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'WE ARE THE CHAMPIONS', artist: 'Queen' }), './assets/covers/queen.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'DULCE CONDENA', artist: 'Los Rodríguez' }), './assets/covers/los-rodriguez.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'MI ENFERMEDAD', artist: 'Los Rodríguez' }), './assets/covers/los-rodriguez.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'SIN DOCUMENTOS', artist: 'Los Rodríguez' }), './assets/covers/los-rodriguez.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'HOTEL CALIFORNIA', artist: 'Eagles' }), './assets/covers/eagles.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'MAMMA MIA', artist: 'ABBA' }), './assets/covers/abba.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'MI GRAN NOCHE', artist: 'RAPHAEL' }), './assets/covers/raphael.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'OYE COMO VA', artist: 'Santana' }), './assets/covers/santana.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'PRONTA ENTREGA', artist: 'Virus' }), './assets/covers/virus.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'HIJO DE LA LUNA', artist: 'Mecano' }), './assets/covers/mecano.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'ME CUESTA TANTO OLVIDARTE', artist: 'Mecano' }), './assets/covers/mecano.jpg?v=artist-focus-20260927']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
