@@ -127,3 +127,22 @@ Registro de fuentes y licencias de las imágenes. La misma fotografía se usa pa
 Fotos incorporadas: 119 de 123 artistas.
 
 | Juan Luis Guerra | Alex Cancino (Acancino) | [File:Juan Luis Guerra AC (cropped).jpg](https://commons.wikimedia.org/wiki/File:Juan_Luis_Guerra_AC_(cropped).jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [archivo](./assets/covers/juan-luis-guerra-ac.jpg) |
+## Imágenes añadidas en la actualización del cancionero (2026-09-28)
+
+Estas imágenes provienen de las páginas enlazadas; los derechos pertenecen a sus respectivos autores o medios.
+
+| Artista | Crédito / fuente | Archivo |
+|---|---|---|
+| Gustavo Cerati | [Página/12](https://www.pagina12.com.ar/449585-gustavo-cerati-el-recuerdo-del-cantante-a-5-anos-de-su-muert/) | [archivo](./assets/covers/gustavo-cerati-closeup.jpg) |
+| Daniela Romo | [Sitio oficial](https://danielaromo.com.mx/discografia/danielaromo.html) | [archivo](./assets/covers/daniela-romo-studio.jpg) |
+| Los Rodríguez | [Rock.com.ar](https://rock.com.ar/artistas/los-rodriguez/) | [archivo](./assets/covers/los-rodriguez-close.jpg) |
+| Faith No More | [FNM Followers](https://www.fnmfollowers.com/post/faith-no-more-first-played-in-chile-30-years-ago) | [archivo](./assets/covers/faith-no-more-studio.jpg) |
+| Ana Belén | [RTVE](https://www.rtve.es/television/20210527/ana-belen-70-aniversario-cumpleanos/2094022.shtml) | [archivo](./assets/covers/ana-belen-young.jpg) |
+| Andrés Calamaro | [Museo Nacional de Bellas Artes](https://www.bellasartes.gob.ar/) | [archivo](./assets/covers/andres-calamaro-close.jpg) |
+| Charly García | [Rock & Pop](https://www.rockandpop.cl/2019/06/10-datos-curiosos-que-tal-vez-no-sabias-de-charly-garcia/) | [archivo](./assets/covers/charly-garcia-close.jpg) |
+| Michael Jackson | [Wikimedia Commons, imagen de prensa de 1983](https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg) | [archivo](./assets/covers/michael-jackson-close.jpg) |
+| Los Bunkers | [OCESA Seitrack](https://www.seitrack.mx/los-bunkers) | [archivo](./assets/covers/los-bunkers-studio.png) |
+| Los Auténticos Decadentes | [El Informador](https://www.informador.mx/entretenimiento/Los-Autenticos-Decadentes-se-dan-unos-Golpes-en-el-corazon-20211014-0003.html) | [archivo](./assets/covers/los-autenticos-decadentes-group.jpg) |
+| Café Tacvba | [KCRW](https://www.kcrw.com/shows/morning-becomes-eclectic/stories/cafe-tacvba) | [archivo](./assets/covers/cafe-tacvba-studio.png) |
+| Miranda! | [Efemérides Musicales](https://efemeridesynoticiasmusicales.blogspot.com/2012/07/miranda-un-27-de-julio-es-creada-la.html) | [archivo](./assets/covers/miranda-studio.jpg) |
+| Soda Stereo | [El Heraldo de México](https://heraldodemexico.com.mx/espectaculos/2020/11/26/de-coleccion-revelan-manuscrito-de-nada-personal-hecho-por-gustavo-cerati-229476.html) | [archivo](./assets/covers/soda-stereo-studio.jpg) |

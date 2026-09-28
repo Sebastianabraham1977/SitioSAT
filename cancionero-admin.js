@@ -181,6 +181,8 @@
     image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
     image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
     image.classList.toggle('song-cover-cerati-face', artistKey === 'gustavo cerati');
+    image.classList.toggle('song-cover-lucho-face', artistKey === 'lucho barrios');
+    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo'].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
