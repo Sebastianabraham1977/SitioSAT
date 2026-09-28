@@ -146,3 +146,8 @@ Estas imágenes provienen de las páginas enlazadas; los derechos pertenecen a s
 | Café Tacvba | [KCRW](https://www.kcrw.com/shows/morning-becomes-eclectic/stories/cafe-tacvba) | [archivo](./assets/covers/cafe-tacvba-studio.png) |
 | Miranda! | [Efemérides Musicales](https://efemeridesynoticiasmusicales.blogspot.com/2012/07/miranda-un-27-de-julio-es-creada-la.html) | [archivo](./assets/covers/miranda-studio.jpg) |
 | Soda Stereo | [El Heraldo de México](https://heraldodemexico.com.mx/espectaculos/2020/11/26/de-coleccion-revelan-manuscrito-de-nada-personal-hecho-por-gustavo-cerati-229476.html) | [archivo](./assets/covers/soda-stereo-studio.jpg) |
+
+| Los Rodríguez | Rock.com.ar | https://rock.com.ar/artistas/los-rodriguez/ | Retrato grupal de los integrantes | [archivo](./assets/covers/los-rodriguez-close.jpg) |
+| Ana Belén | Web oficial de Ana Belén | https://anabelen.es/biografia/su-consolidacion-como-solista | Retrato para el álbum Géminis (1984) | [archivo](./assets/covers/ana-belen-geminis.jpg) |
+| Michael Jackson | Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg | Retrato de primer plano (1983) | [archivo](./assets/covers/michael-jackson-close.jpg) |
+| Bart Howard | Greater Burlington Partnership | https://www.greaterburlington.com/media-resources/blogs/bart-howard-gift-to-the-great-american-songbook | Retrato fotográfico | [archivo](./assets/covers/bart-howard-portrait.jpg) |

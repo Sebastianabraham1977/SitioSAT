@@ -520,7 +520,7 @@
     {
       "artist": "Los Rodríguez",
       "externalUrl": null,
-      "image": "./assets/covers/los-rodriguez-close.jpg",
+      "image": "./assets/covers/los-rodriguez-close.jpg?v=portraits-20260928",
       "lyrics": "Cada vez que toco un poco fondo,\nCada vez que el tiempo vuela,\nUn recuerdo (mas que) pasajero,\nOtra ilusión que llega.\nCada corazón merece una oportundidad\nY esta perdida sola en medio de la ciudad\nSoy el que lo piensa por los dos,\nHasta que sale el sol.\n\nCada sensación o sentir vulgar,\nUna sola cosa, un solo lugar,\nUn recuerdo más que pasajero,\nSera como empezar otra vez de cero,\nCada corazón merece una oportunidad.\nY esta perdida sola en medio de la ciudad.\nSoy el que lo piensa por los dos,\nHasta que sale el sol.\n\nNo importa el problema, no importa la solución.\nMe quedo con lo poco que queda, entero en el corazón.\nMe gustan los problemas, no existe otra explicación,\nEsta (si) es una dulce condena!\n\nCada vez que toco un poco fondo,\nCada vez que el tiempo vuela,\nUn recuerdo (mas que) pasajero.\nOtra ilusión que llega.\nCada corazón merece una oportunidad,\nY está perdida sola en medio de la ciudad,\nSoy el que lo piensa por los dos,\nHasta que sale el sol.\nNo importa el problema, no importa la solución,\nMe quedo con lo poco que queda, entero en el corazón.\nMe gustan los problemas, no encuentro otra explicación.\nEsta si es una dulce condena, una dulce rendición.\nCada sensación o sentir vulgar,\nUna sola cosa, un solo lugar.",
       "title": "DULCE CONDENA",
       "imageCredit": "Rock.com.ar",
@@ -586,12 +586,12 @@
     {
       "artist": "Ana Belén",
       "externalUrl": null,
-      "image": "./assets/covers/ana-belen-young.jpg",
+      "image": "./assets/covers/ana-belen-geminis.jpg?v=portraits-20260928",
       "lyrics": "Esta es la historia de un sábado\nDe no importa que mes\nY de un hombre sentado al piano\nDe no importa que viejo café\n\nToma el vaso y le tiemblan las manos\nApestando entre humo y sudor\nY se agarra a su tabla de náufrago\nVolviendo a su eterna canción\nLa, la, la, la, la, la, la\n\nToca otra vez, viejo perdedor\nHaces que me sienta bien\nEs tan triste la noche que tu canción\nSabe a derrota y a miel\n\nCada vez que el espejo de la pared\nLe devuelve más joven la piel\nSe le encienden los ojos y su niñez\nViene a tocar junto a él\n\nPero siempre hay borrachos con babas\nQue le recuerdan quién fue\nEl más joven maestro al piano\nVencido por una mujer\nLa, ra, la, la, la, la, la, la\n\nElla siempre temió echar raíces\nQue pudieran sus alas cortar\nY en la jaula metida, la vida se le iba\nY quiso sus fuerzas probar\n\nNo lamenta que de malos pasos\nAunque nunca desea su mal\nPero a ratos con furia golpea el piano\nY hay algunos que le han visto llorar\nLa, ra, la, la, la, la, la, la\n\nToca otra vez viejo perdedor\nHaces que me sienta bien\nEs tan triste la noche que tu canción\nSabe a derrota y a miel\n\nEl micrófono huele a cerveza\nY el calor se podría cortar\nSolitarios oscuros buscando pareja\nApurándose un sábado más\n\nHay un hombre aferrado a un piano\nLa emoción empapada en alcohol\nY una voz que le dice: Pareces cansado\nY aún no ha salido ni el Sol\nLa, ra, la, la, la, la, la, la\n\nToca otra vez viejo perdedor\nHaces que me sienta bien\nEs tan triste la noche que tu canción\nSabe a derrota y a miel",
       "title": "EL HOMBRE DEL PIANO",
-      "imageCredit": "RTVE",
-      "imageSource": "https://www.rtve.es/television/20210527/ana-belen-70-aniversario-cumpleanos/2094022.shtml",
-      "imageTitle": "Ana Belén joven, fotograma de Españolas en París (1971)"
+      "imageCredit": "Ana Belén, web oficial",
+      "imageSource": "https://anabelen.es/biografia/su-consolidacion-como-solista",
+      "imageTitle": "Ana Belén, retrato de estudio para Géminis (1984)"
     },
     {
       "artist": "Myriam Hernández",
@@ -661,9 +661,12 @@
     {
       "artist": "Bart Howard",
       "externalUrl": null,
-      "image": null,
+      "image": "./assets/covers/bart-howard-portrait.jpg?v=portrait-20260928",
       "lyrics": "Fly me to the Moon\nLet me swing among the stars\nLet me see what spring is like\nOn Jupiter and Mars\nIn other words, hold my hand\nIn other words, baby, kiss me\n\nFill my heart with song\nAnd let me sing for evermore\nYou are all I long for\nAll I worship and adore\nIn other words, please, be true\nIn other words, I love you\n\nWhy don't you fill my heart with song?\nLet me sing for evermore\nBecause you are all I long for\nAll I worship and adore\nIn other words, please, be true\nIn other words, in other words\nI love you",
-      "title": "FLY ME TO THE MOON"
+      "title": "FLY ME TO THE MOON",
+      "imageCredit": "Greater Burlington Partnership",
+      "imageTitle": "Bart Howard, retrato fotográfico",
+      "imageSource": "https://www.greaterburlington.com/media-resources/blogs/bart-howard-gift-to-the-great-american-songbook"
     },
     {
       "artist": "Led Zeppelin",
@@ -750,7 +753,7 @@
     {
       "artist": "Michael Jackson",
       "externalUrl": null,
-      "image": "./assets/covers/michael-jackson-close.jpg",
+      "image": "./assets/covers/michael-jackson-close.jpg?v=portrait-close-20260928",
       "lyrics": "There's a place in your heart\nAnd I know that it is love\nAnd this place could be\nMuch brighter than tomorrow\n\nAnd if you really try\nYou'll find there's no need to cry\nIn this place you'll feel\nThere's no hurt or sorrow\n\nThere are ways to get there\nIf you care enough for the living\nMake a little space\nMake a better place\n\nHeal the world\nMake it a better place\nFor you and for me\nAnd the entire human race\nThere are people dying\nIf you care enough for the living\nMake it a better place\nFor you and for me\n\nIf you want to know why\nThere's love that cannot lie\nLove is strong\nIt only cares of joyful giving\n\nIf we try, we shall see\nIn this bliss\nWe cannot feel fear or dread\nWe stop existing and start living\n\nThen it feels that always\nLove's enough for us growing\nSo make a better world\nMake a better world\n\nHeal the world\nMake it a better place\nFor you and for me\nAnd the entire human race\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\n\nAnd the dream we were conceived in\nWill reveal a joyful face\nAnd the world we once believed in\nWill shine again in grace\nThen why do we keep strangling life\nWound this Earth, crucify its soul\nThough it's plain to see\nThis world is heavenly, be God's glow\n\nWe could fly so high\nLet our spirits never die\nIn my heart I feel\nYou are all my brothers\nCreate a world with no fear\nTogether, we'll cry happy tears\n\nSee the nations turn their swords\nInto plowshares\nWe could really get there\nIf you cared enough for the living\nMake a little space\nTo make a better place\n\nHeal the world\nMake it a better place\nFor you and for me\nAnd the entire human race\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\n\nHeal the world\nMake it a better place\nFor you and for me\nAnd the entire human race\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\n\nHeal the world\nMake it a better place\nFor you and for me\nAnd the entire human race\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\n\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\nThere are people dying\nIf you care enough for the living\nMake a better place\nFor you and for me\nYou and for me\n(Make a better place)\nYou and for me\n(Make a better place)\nYou and for me\n(Make a better place)\nYou and for me\n(Heal the world we live in)\nYou and for me\n(Save it for our children)\nYou and for me\n(Heal the world we live in)\nYou and for me\n(Save it for our children)\nYou and for me\n(Heal the world we live in)\nYou and for me\n(Save it for our children)\nYou and for me\n(Heal the world we live in)\nYou and for me\n(Save it for our children)",
       "title": "HEAL THE WORLD",
       "imageCredit": "Wikimedia Commons",
@@ -1246,7 +1249,7 @@
     {
       "artist": "Los Rodríguez",
       "externalUrl": null,
-      "image": "./assets/covers/los-rodriguez-close.jpg",
+      "image": "./assets/covers/los-rodriguez-close.jpg?v=portraits-20260928",
       "lyrics": "Estoy vencido porque el mundo me hizo así\nno puedo cambiar\nsoy el remedio sin receta y tu amor\nmi enfermedad\nestoy vencido porque el cuerpo de los dos\nes mi debilidad\nesta vez el dolor va a terminar\n\nParece que la fiesta terminó\nperdimos en el túnel del amor\ny dicen las hojas del libro que más leo yo\nesta vez el esclavo se escapó\n\nMe entrego al vino porque el mundo me hizo así\nno puedo cambiar\nsoy el remedio sin receta y tu amor\nmi enfermedad\nestoy vencido porque el cuerpo de los dos\nes mi debilidad\nesta vez el dolor va a terminar\n\nDe nuestro árbol una hoja se cayó\nen mi boca la manzana se pudrió\ntendrías que aprender a pedir perdón\nesta vez la cadena se rompió\ntendrías que aprender a pedir perdón\nesta vez la cadena se rompió\n\nEstoy vencido porque el mundo me hizo así\nno puedo cambiar\nsoy el remedio sin receta y tu amor\nmi enfermedad\nestoy vencido porque el cuerpo de los dos\nes mi debilidad\nesta vez el dolor va a terminar\nesta vez el dolor va a terminar",
       "title": "MI ENFERMEDAD",
       "imageCredit": "Rock.com.ar",
@@ -1711,7 +1714,7 @@
     {
       "artist": "Los Rodríguez",
       "externalUrl": null,
-      "image": "./assets/covers/los-rodriguez-close.jpg",
+      "image": "./assets/covers/los-rodriguez-close.jpg?v=portraits-20260928",
       "lyrics": "Déjame atravesar el viento sin documentos\nQue lo haré por el tiempo que tuvimos\nPorque no queda salida\nPorque pareces dormida\nPorque buscando tu sonrisa estaría toda mi vida\n\nQuiero ser el único que te muerda la boca\nQuiero saber que la vida contigo no va a terminar\n\nDéjame que te cierre esta noche los ojos\nY mañana vendré con un cigarro a la cama\nPorque no tengo más intenciones\nQue seguir bebiendo de esta copa\nQue no está tan rota\n\nQuiero ser el único que te muerda la boca\nQuiero saber que la vida contigo no va a terminar\n\nPorque sí, porque sí, porque sí\nPorque en esta vida no quiero pasar\nUn día entero sin ti, uuh\nPorque sí, porque sí, porque sí\nPorque mientras te espero por ti me muero\nY no quiero seguir así, uuh\n\nDéjame atravesar el viento sin documentos\nQue lo haré por el tiempo que tuvimos\nPorque no queda salida\nPorque pareces dormida\nPorque buscando tu sonrisa estaría toda mi vida\n\nQuiero ser el único que te muerda la boca\nQuiero saber que la vida contigo no va a terminar\n\nPorque sí, porque sí, porque sí\nPorque en esta vida no quiero pasar\nMás de un día entero sin ti, uuh\nPorque sí, porque sí, porque sí\nPorque mientras te espero por ti me muero\nY no quiero seguir así, uuh\n\nQuiero ser el único que te muerda la boca\nQuiero saber que la vida contigo no va a terminar\nAy, quiero ser el único que te muerda la boca\nQuiero saber que la vida contigo no va a terminar\n\nPorque sí, porque sí\nPorque en esta vida no quiero pasar\nMás de un día entero sin ti, uuh\nPorque sí, porque sí\nPorque mientras te espero por ti me muero\nY no quiero seguir así",
       "title": "SIN DOCUMENTOS",
       "imageCredit": "Rock.com.ar",
