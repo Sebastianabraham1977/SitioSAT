@@ -48,9 +48,9 @@
     [keyFor({ title: 'SIGUES DANDO VUELTAS', artist: 'La Rue Morgue' }), './assets/covers/la-rue-morgue.jpg?v=artist-focus-2-20260927'],
     [keyFor({ title: 'LA CHICA DE HUMO', artist: 'Emmanuel' }), 'https://fracturerecords.com.mx/25654-large_default/emmanuel-toda-la-vida-vinyl.jpg?v=artist-focus-3-20260927'],
     [keyFor({ title: 'TODA LA VIDA', artist: 'Emmanuel' }), 'https://fracturerecords.com.mx/25654-large_default/emmanuel-toda-la-vida-vinyl.jpg?v=artist-focus-3-20260927'],
-    [keyFor({ title: 'BÉSAME MUCHO', artist: 'Los Panchos' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Los_Panchos_en_1954.jpg?width=500&v=artist-focus-3-20260927'],
-    [keyFor({ title: 'SABOR A MÍ ( LUIS MIGUEL)', artist: 'Los Panchos' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Los_Panchos_en_1954.jpg?width=500&v=artist-focus-3-20260927'],
-    [keyFor({ title: 'SOLAMENTE UNA VEZ', artist: 'Los Panchos' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Los_Panchos_en_1954.jpg?width=500&v=artist-focus-3-20260927'],
+    [keyFor({ title: 'BÉSAME MUCHO', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
+    [keyFor({ title: 'SABOR A MÍ ( LUIS MIGUEL)', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
+    [keyFor({ title: 'SOLAMENTE UNA VEZ', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'COLD HEART (FEAT. DUA LIPA)', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
     [keyFor({ title: 'ROCKET MAN', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
     [keyFor({ title: 'YOUR SONG', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
@@ -60,7 +60,10 @@
     ['fito paez', './assets/covers/fito-paez-1992.jpg?v=full-face-20260927'],
     ['luis miguel', './assets/covers/luis-miguel-young.jpg?v=close-face-20260927'],
     ['los tres', './assets/covers/los-tres-full-band.jpg?v=all-members-20260927'],
-    ['amy winehouse', './assets/covers/amy-winehouse.jpg?v=face-focus-20260927']
+    ['amy winehouse', './assets/covers/amy-winehouse.jpg?v=face-focus-20260927'],
+    ['cecilia', './assets/covers/cecilia-pantoja-2016.jpg?v=cecilia-pantoja-20260928'],
+    ['juan luis guerra 4.40', './assets/covers/juan-luis-guerra-ac.jpg?v=juan-luis-guerra-20260928'],
+    ['los panchos', './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
@@ -102,6 +105,9 @@
     const validIncoming = incoming.filter((song) => keyFor(song) !== keyFor({
       title: 'ARMONÍA DE AMOR',
       artist: 'Godwana'
+    }) && keyFor(song) !== keyFor({
+      title: 'COLD HEART (FEAT. DUA LIPA)',
+      artist: 'Elton John'
     }));
     const byKey = new Map(validIncoming.map((song) => [keyFor(song), song]));
     const merged = songs.map((base) => {
@@ -174,7 +180,7 @@
     const artistKey = normalize(song.artist);
     image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
     image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
-    image.classList.toggle('song-cover-full-band', artistKey === 'los tres');
+    image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
     summary.classList.add('has-cover');
