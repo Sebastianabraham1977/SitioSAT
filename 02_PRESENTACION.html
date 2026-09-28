@@ -214,6 +214,7 @@ body{font-family:"Instrument Sans",Arial,sans-serif;overflow-x:hidden}
 
 
 
+
 <style>
 .menu-toggle{
   position:absolute;
@@ -14803,5 +14804,30 @@ html,body{position:relative !important;}
 #presentacion .presentation-story * {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
+}
+</style>
+<style id="presentacion-fundido-papiro-hacia-foto">
+@media (min-width: 801px) {
+  #presentacion .presentation-story {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  #presentacion .presentation-story::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -14%;
+    width: 14%;
+    height: 100%;
+    pointer-events: none;
+    background-color: #ad7954;
+    background-image:
+      linear-gradient(rgba(92, 51, 30, .46), rgba(92, 51, 30, .46)),
+      url("./assets/papyrus-natural.png");
+    background-size: auto 100%;
+    background-position: right center;
+    -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+  }
 }
 </style>

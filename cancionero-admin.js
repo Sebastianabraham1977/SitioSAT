@@ -180,6 +180,7 @@
     const artistKey = normalize(song.artist);
     image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
     image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
+    image.classList.toggle('song-cover-cerati-face', artistKey === 'gustavo cerati');
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
