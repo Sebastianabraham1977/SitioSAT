@@ -54,7 +54,13 @@
     [keyFor({ title: 'COLD HEART (FEAT. DUA LIPA)', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
     [keyFor({ title: 'ROCKET MAN', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
     [keyFor({ title: 'YOUR SONG', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
-    [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Juan_Gabriel_in_1985.jpg?width=500&v=artist-focus-3-20260927']
+    [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927']
+  ]);
+  const artistCoverOverrides = new Map([
+    ['fito paez', './assets/covers/fito-paez-1992.jpg?v=full-face-20260927'],
+    ['luis miguel', './assets/covers/luis-miguel-young.jpg?v=close-face-20260927'],
+    ['los tres', './assets/covers/los-tres-full-band.jpg?v=all-members-20260927'],
+    ['amy winehouse', './assets/covers/amy-winehouse.jpg?v=face-focus-20260927']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
@@ -93,13 +99,17 @@
 
   function mergeSongs(incoming) {
     if (!Array.isArray(incoming)) return songs;
-    const byKey = new Map(incoming.map((song) => [keyFor(song), song]));
+    const validIncoming = incoming.filter((song) => keyFor(song) !== keyFor({
+      title: 'ARMONÍA DE AMOR',
+      artist: 'Godwana'
+    }));
+    const byKey = new Map(validIncoming.map((song) => [keyFor(song), song]));
     const merged = songs.map((base) => {
       const saved = byKey.get(keyFor(base));
       return saved ? Object.assign({}, base, saved) : base;
     });
     const known = new Set(merged.map(keyFor));
-    incoming.forEach((song) => {
+    validIncoming.forEach((song) => {
       if (song && !known.has(keyFor(song))) merged.push(song);
     });
     return merged;
@@ -143,8 +153,10 @@
     const summary = detail.querySelector('summary');
     if (!summary) return;
     let image = summary.querySelector('.song-cover-thumbnail');
+    let frame = summary.querySelector('.song-cover-frame');
     if (!detail.open || !song || !song.image) {
-      if (image) image.remove();
+      if (frame) frame.remove();
+      else if (image) image.remove();
       summary.classList.remove('has-cover');
       return;
     }
@@ -153,9 +165,18 @@
       image.className = 'song-cover-thumbnail';
       image.alt = 'Carátula de ' + song.title;
     }
+    if (!frame) {
+      frame = document.createElement('span');
+      frame.className = 'song-cover-frame';
+      frame.appendChild(image);
+    }
     image.src = song.image;
+    const artistKey = normalize(song.artist);
+    image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
+    image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
+    image.classList.toggle('song-cover-full-band', artistKey === 'los tres');
     const text = summary.querySelector('.song-summary-text');
-    if (text) summary.insertBefore(image, text);
+    if (text) summary.insertBefore(frame, text);
     summary.classList.add('has-cover');
   }
 
@@ -219,6 +240,8 @@
       // The page remains usable if browser storage is unavailable.
     }
     songs.forEach((song) => {
+      const artistCover = artistCoverOverrides.get(normalize(song.artist));
+      if (artistCover) song.image = artistCover;
       const defaultCover = defaultCoverOverrides.get(keyFor(song));
       if (defaultCover) song.image = defaultCover;
     });
