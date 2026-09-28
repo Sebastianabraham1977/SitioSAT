@@ -61,7 +61,7 @@
     ['luis miguel', './assets/covers/luis-miguel-young.jpg?v=close-face-20260927'],
     ['los tres', './assets/covers/los-tres-full-band.jpg?v=all-members-20260927'],
     ['amy winehouse', './assets/covers/amy-winehouse.jpg?v=face-focus-20260927'],
-    ['cecilia', './assets/covers/cecilia-pantoja-2016.jpg?v=cecilia-pantoja-20260928'],
+    ['cecilia', './assets/covers/cecilia-pantoja-young.jpg?v=young-cecilia-20260928'],
     ['juan luis guerra 4.40', './assets/covers/juan-luis-guerra-ac.jpg?v=juan-luis-guerra-20260928'],
     ['los panchos', './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928']
   ]);
