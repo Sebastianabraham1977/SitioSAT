@@ -711,7 +711,9 @@ body:has(section#rock:target) .cover, body:has(section#baladas:target) .cover, b
 </style>
 <section id="cancionero">
 
-<div class="wrap"><header class="hero"><h1 class="cancionero-page-title">Cancionero y Piano Bar</h1><div class="hero-content"><div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
+<div class="wrap"><h1 class="cancionero-page-title">Cancionero y Piano Bar</h1><header class="hero"><div class="hero-content"><div class="kicker">Piano Bar</div>
+<h1>🎹 Piano Bar</h1>
+<div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
 <div class="badge">ELIGE · ESCUCHA · DISFRUTA</div>
 </div></header>
 <div class="search-box"><input id="search" placeholder="🔎 Buscar canción o artista..."/>
@@ -14201,5 +14203,35 @@ body>.topbar{z-index:2147482999!important}
     width: min(72%, 360px);
     font-size: clamp(24px, 6.5vw, 32px);
   }
+}
+</style>
+<style id="cancionero-titulo-arriba-y-foto-debajo">
+body:has(#cancionero:target) #cancionero .wrap { padding-top: 82px !important; }
+#cancionero .wrap > .cancionero-page-title {
+  position: relative !important;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  margin: 0 auto 18px !important;
+  color: #f1d27a !important;
+  font: 600 clamp(27px, 4vw, 42px)/1.08 "Instrument Sans", Arial, sans-serif !important;
+  text-align: center;
+  white-space: normal !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.8);
+}
+#cancionero .wrap > .cancionero-page-title::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin: 10px auto 0;
+  background: #ff3b3b;
+}
+#cancionero .hero .hero-content > .kicker,
+#cancionero .hero .hero-content > h1 { visibility: hidden !important; }
+@media (max-width: 520px) {
+  body:has(#cancionero:target) #cancionero .wrap { padding-top: 82px !important; }
+  body:has(#cancionero:target) #cancionero::before { top: 144px !important; height: 594px !important; }
+  #cancionero .wrap > .cancionero-page-title { font-size: clamp(24px, 6.5vw, 32px) !important; margin-bottom: 18px !important; }
 }
 </style>
