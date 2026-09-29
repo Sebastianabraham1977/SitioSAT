@@ -14875,3 +14875,24 @@ body:has(#presentacion:target) header.topbar {
   font-family: "Dancing Script", "Apple Chancery", cursive !important;
 }
 </style>
+<style id="presentacion-parrafos-mismo-tamano">
+@media (min-width: 801px) {
+  #presentacion .presentation-story,
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .clases-piano p,
+  #presentacion .clases-piano p:nth-of-type(n) {
+    font-size: clamp(23px, calc(13px + 1.05vw), 28px) !important;
+    line-height: 1.36 !important;
+  }
+}
+@media (max-width: 800px) {
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .clases-piano p,
+  #presentacion .clases-piano p:nth-of-type(n) {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+}
+</style>
