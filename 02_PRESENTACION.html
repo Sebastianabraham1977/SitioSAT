@@ -215,6 +215,7 @@ body{font-family:"Instrument Sans",Arial,sans-serif;overflow-x:hidden}
 
 
 
+
 <style>
 .menu-toggle{
   position:absolute;
@@ -14872,6 +14873,42 @@ body:has(#presentacion:target) header.topbar {
   #presentacion .clases-piano p,
   #presentacion .clases-piano p:nth-of-type(n) {
     font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+}
+</style>
+<style id="presentacion-letra-y-titulo-un-poco-mas-grandes">
+@media (min-width: 801px) {
+  #presentacion > .wrap > header > h1 {
+    font-size: clamp(36px, 5.8vw, 48px) !important;
+    line-height: 1.08 !important;
+  }
+  #presentacion .presentation-story,
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .presentation-story span {
+    font-size: clamp(25px, calc(14px + 1.1vw), 30px) !important;
+    line-height: 1.36 !important;
+  }
+  #presentacion .presentation-story {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    align-self: start !important;
+  }
+  #presentacion .presentation-child-photo {
+    align-self: start !important;
+  }
+  #presentacion .presentation-story span { white-space: normal !important; }
+}
+@media (max-width: 800px) {
+  #presentacion > .wrap > header > h1 {
+    font-size: clamp(34px, 8vw, 42px) !important;
+  }
+  #presentacion .presentation-story,
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n) {
+    font-size: 19px !important;
     line-height: 1.5 !important;
   }
 }
