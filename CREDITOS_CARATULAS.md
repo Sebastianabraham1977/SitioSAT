@@ -151,3 +151,5 @@ Estas imágenes provienen de las páginas enlazadas; los derechos pertenecen a s
 | Ana Belén | Web oficial de Ana Belén | https://anabelen.es/biografia/su-consolidacion-como-solista | Retrato para el álbum Géminis (1984) | [archivo](./assets/covers/ana-belen-geminis.jpg) |
 | Michael Jackson | Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg | Retrato de primer plano (1983) | [archivo](./assets/covers/michael-jackson-close.jpg) |
 | Bart Howard | Greater Burlington Partnership | https://www.greaterburlington.com/media-resources/blogs/bart-howard-gift-to-the-great-american-songbook | Retrato fotográfico | [archivo](./assets/covers/bart-howard-portrait.jpg) |
+
+| Gondwana | La Cuarta | https://www.lacuarta.com/el-faro/noticia/no-ha-sido-muy-reconocido-nuestro-aporte-a-la-musica-chilena-gondwana-prepara-su-cumpleanos-35/JB7G4N34PZFNDJ3NDRFMFUAHAU/ | Retrato grupal de los músicos | [archivo](./assets/covers/gondwana-band-portrait.jpg) |

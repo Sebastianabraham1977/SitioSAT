@@ -29,7 +29,7 @@
     [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927'],
     [keyFor({ title: 'CHICA LIGHT', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
     [keyFor({ title: 'ENAMORADO DE TI', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
-    [keyFor({ title: 'ARMONIA DE AMOR', artist: 'Gondwana' }), './assets/covers/gondwana.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'ARMONIA DE AMOR', artist: 'Gondwana' }), './assets/covers/gondwana-band-portrait.jpg?v=close-band-20260928'],
     [keyFor({ title: 'CON UNA PALA Y UN SOMBRERO', artist: 'Gervasio' }), './assets/covers/gervasio.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'CRAZY LITTLE THING CALLED LOVE', artist: 'Queen' }), './assets/covers/queen.jpg?v=artist-focus-20260927'],
     [keyFor({ title: "DON'T STOP ME NOW", artist: 'Queen' }), './assets/covers/queen.jpg?v=artist-focus-20260927'],
