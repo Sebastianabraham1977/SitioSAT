@@ -14842,12 +14842,13 @@ html,body{position:relative !important;}
 }
 </style>
 <style id="presentacion-cafe-oscuro-en-toda-la-pagina">
-body:has(#presentacion:target),
-body:has(#presentacion:target) #presentacion,
-body:has(#presentacion:target) #presentacion > .wrap {
+html,
+body,
+#presentacion,
+#presentacion > .wrap {
   background-color: #140808 !important;
 }
-body:has(#presentacion:target) > .topbar {
+body > .topbar {
   background-color: #140808 !important;
 }
 </style>
