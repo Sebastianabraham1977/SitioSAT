@@ -711,9 +711,7 @@ body:has(section#rock:target) .cover, body:has(section#baladas:target) .cover, b
 </style>
 <section id="cancionero">
 
-<div class="wrap"><header class="hero"><div class="hero-content"><div class="kicker">Piano Bar</div>
-<h1>🎹 Piano Bar</h1>
-<div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
+<div class="wrap"><header class="hero"><h1 class="cancionero-page-title">Cancionero y Piano Bar</h1><div class="hero-content"><div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
 <div class="badge">ELIGE · ESCUCHA · DISFRUTA</div>
 </div></header>
 <div class="search-box"><input id="search" placeholder="🔎 Buscar canción o artista..."/>
@@ -14173,4 +14171,35 @@ body>.topbar{z-index:2147482999!important}
 <style id="cancionero-retratos-de-cerca">
 .song-cover-thumbnail.song-cover-lucho-face{transform:translate(25%,27%) scale(2.35);transform-origin:25% 23%}
 .song-cover-thumbnail.song-cover-group-portrait{object-fit:contain!important;background:#080808}
+</style>
+<style id="cancionero-titulo-superior-integrado">
+#cancionero .hero { isolation: isolate; }
+#cancionero .hero .cancionero-page-title {
+  position: absolute;
+  z-index: 2;
+  top: 68px;
+  left: clamp(24px, 4vw, 48px);
+  width: min(62%, 560px);
+  margin: 0;
+  color: #f1d27a;
+  font: 600 clamp(27px, 4vw, 42px)/1.08 "Instrument Sans", Arial, sans-serif;
+  white-space: normal;
+  text-shadow: 0 2px 14px rgba(0,0,0,.9), 0 0 3px #000;
+}
+#cancionero .hero .cancionero-page-title::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin-top: 10px;
+  background: #d9b76a;
+}
+@media (max-width: 600px) {
+  #cancionero .hero .cancionero-page-title {
+    top: 68px;
+    left: 22px;
+    width: min(72%, 360px);
+    font-size: clamp(24px, 6.5vw, 32px);
+  }
+}
 </style>
