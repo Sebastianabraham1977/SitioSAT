@@ -216,6 +216,7 @@ body{font-family:"Instrument Sans",Arial,sans-serif;overflow-x:hidden}
 
 
 
+
 <style>
 .menu-toggle{
   position:absolute;
@@ -14910,6 +14911,20 @@ body:has(#presentacion:target) header.topbar {
   #presentacion .presentation-story p:nth-of-type(n) {
     font-size: 19px !important;
     line-height: 1.5 !important;
+  }
+}
+</style>
+<style id="fundido-lateral-foto-presentacion">
+@media (min-width: 801px) {
+  #presentacion .presentation-child-photo {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.16) 9%, rgba(0,0,0,.68) 22%, #000 36%) !important;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.16) 9%, rgba(0,0,0,.68) 22%, #000 36%) !important;
+  }
+}
+@media (max-width: 800px) {
+  #presentacion .presentation-child-photo {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
   }
 }
 </style>
