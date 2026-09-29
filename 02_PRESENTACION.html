@@ -14845,16 +14845,17 @@ html,body{position:relative !important;}
 html,
 body,
 #presentacion,
-#presentacion > .wrap {
+#presentacion > .wrap,
+.presentation-page,
+.presentation-page > .wrap,
+.presentation-page > .wrap > header,
+.presentation-page > .wrap > main,
+.presentation-page .card,
+.presentation-page .clases-piano,
+.presentation-page .presentation-child-photo {
   background-color: #140808 !important;
 }
 body > .topbar {
-  background-color: #140808 !important;
-}
-body:has(#presentacion:target) #presentacion,
-body:has(#presentacion:target) .presentation-page,
-body:has(#presentacion:target) #presentacion > .wrap,
-body:has(#presentacion:target) > .topbar {
-  background-color: #140808 !important;
+  background: #140808 !important;
 }
 </style>
