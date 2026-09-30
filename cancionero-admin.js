@@ -84,7 +84,7 @@
     ['silvio rodriguez', './assets/covers/silvio-rodriguez-1969.jpg?v=young-face-20260929'],
     ['stone temple pilots', './assets/covers/stone-temple-pilots-1993.jpg?v=1993-band-portrait-20260929'],
     ['billy joel', './assets/covers/billy-joel-young.jpg?v=young-face-20260929'],
-    ['francisca valenzuela', './assets/covers/francisca-valenzuela-close.jpg?v=face-portrait-20260929'],
+    ['francisca valenzuela', './assets/covers/francisca-valenzuela-full-face.jpg?v=full-face-20260929'],
     ['santana', './assets/covers/carlos-santana-1971.jpg?v=young-face-20260929'],
     ["guns n' roses", './assets/covers/guns-n-roses-1987.jpg?v=classic-lineup-20260929']
   ]);
