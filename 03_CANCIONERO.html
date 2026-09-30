@@ -14109,7 +14109,6 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
   var count = document.querySelector('.search-box .count');
   var originalCount = count ? count.textContent : rows.length + ' canciones';
   var jumpTimer = null;
-  var autoOpened = null;
 
   function normalize(value) {
     return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -14122,18 +14121,12 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
   function goToFirst(matches) {
     if (!matches.length) return;
     var first = matches[0];
-    if (first.tagName === 'DETAILS') first.open = true;
-    autoOpened = first.tagName === 'DETAILS' ? first : null;
     first.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function search() {
     var query = normalize(input.value);
     if (jumpTimer) window.clearTimeout(jumpTimer);
-    if (autoOpened) {
-      autoOpened.open = false;
-      autoOpened = null;
-    }
 
     var matches = rows.filter(function (row) {
       var matchesQuery = !query || normalize(labelFor(row).textContent).includes(query);
@@ -14143,11 +14136,7 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
 
     if (count) count.textContent = query ? matches.length + (matches.length === 1 ? ' resultado' : ' resultados') : originalCount;
     if (empty) empty.style.display = query && !matches.length ? 'block' : 'none';
-    if (!query) {
-      if (autoOpened) autoOpened.open = false;
-      autoOpened = null;
-      return;
-    }
+    if (!query) return;
     if (matches.length) {
       jumpTimer = window.setTimeout(function () { goToFirst(matches); }, 650);
     }
