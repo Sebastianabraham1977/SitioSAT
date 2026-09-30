@@ -60,6 +60,8 @@
     [keyFor({ title: 'THE SCIENTIST', artist: 'Coldplay' }), './assets/covers/coldplay-band-close.jpg?v=all-members-close-20260929'],
     [keyFor({ title: 'STARMAN', artist: 'David Bowie' }), './assets/covers/david-bowie-aladdin-sane.jpg?v=painted-face-20260929'],
     [keyFor({ title: 'TABACO Y CHANEL', artist: 'Bacilos' }), './assets/covers/bacilos-trio-close.jpg?v=trio-portrait-20260929'],
+    [keyFor({ title: 'PRONTA ENTREGA', artist: 'Virus' }), './assets/covers/virus-80s-band.jpg?v=1980s-lineup-20260929'],
+    [keyFor({ title: 'OTRA COMO TÚ', artist: 'Eros Ramazzotti' }), './assets/covers/eros-ramazzotti.jpg?v=full-head-20260929'],
     [keyFor({ title: 'BÉSAME MUCHO', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'SABOR A MÍ ( LUIS MIGUEL)', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'SOLAMENTE UNA VEZ', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
@@ -75,7 +77,16 @@
     ['amy winehouse', './assets/covers/amy-winehouse.jpg?v=face-focus-20260927'],
     ['cecilia', './assets/covers/cecilia-pantoja-early-years.jpg?v=cecilia-centered-20260928'],
     ['juan luis guerra 4.40', './assets/covers/juan-luis-guerra-ac.jpg?v=juan-luis-guerra-20260928'],
-    ['los panchos', './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928']
+    ['los panchos', './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
+    ['miguel bose', './assets/covers/miguel-bose-young.jpg?v=young-face-20260929'],
+    ['charly garcia', './assets/covers/charly-garcia-1982-close.jpg?v=close-portrait-20260929'],
+    ['duo dinamico', './assets/covers/duo-dinamico-close.png?v=duo-portrait-20260929'],
+    ['silvio rodriguez', './assets/covers/silvio-rodriguez-1969.jpg?v=young-face-20260929'],
+    ['stone temple pilots', './assets/covers/stone-temple-pilots-1993.jpg?v=1993-band-portrait-20260929'],
+    ['billy joel', './assets/covers/billy-joel-young.jpg?v=young-face-20260929'],
+    ['francisca valenzuela', './assets/covers/francisca-valenzuela-close.jpg?v=face-portrait-20260929'],
+    ['santana', './assets/covers/carlos-santana-1971.jpg?v=young-face-20260929'],
+    ["guns n' roses", './assets/covers/guns-n-roses-1987.jpg?v=classic-lineup-20260929']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
@@ -199,9 +210,13 @@
     image.classList.toggle('song-cover-christina-face', artistKey === 'cristina y los subterraneos');
     image.classList.toggle('song-cover-sabina-face', artistKey === 'joaquin sabina');
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
-    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay'].includes(artistKey));
+    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'duo dinamico', 'stone temple pilots', 'virus', "guns n' roses"].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     image.classList.toggle('song-cover-bacilos', artistKey === 'bacilos');
+    image.classList.toggle('song-cover-miguel-face', artistKey === 'miguel bose');
+    image.classList.toggle('song-cover-silvio-face', artistKey === 'silvio rodriguez');
+    image.classList.toggle('song-cover-eros-head', artistKey === 'eros ramazzotti');
+    image.classList.toggle('song-cover-billy-face', artistKey === 'billy joel');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
     summary.classList.add('has-cover');
