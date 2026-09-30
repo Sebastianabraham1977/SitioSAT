@@ -192,9 +192,11 @@
     image.classList.toggle('song-cover-cerati-face', artistKey === 'gustavo cerati');
     image.classList.toggle('song-cover-lucho-face', artistKey === 'lucho barrios');
     image.classList.toggle('song-cover-paulina-face', artistKey === 'paulina rubio');
+    image.classList.toggle('song-cover-emmanuel-face', artistKey === 'emmanuel');
+    image.classList.toggle('song-cover-christina-face', artistKey === 'cristina y los subterraneos');
     image.classList.toggle('song-cover-sabina-face', artistKey === 'joaquin sabina');
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
-    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo'].includes(artistKey));
+    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay'].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
