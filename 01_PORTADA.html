@@ -14288,11 +14288,12 @@ document.addEventListener('click',function(e){var a=e.target.closest('.menu-pane
 <style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="portada-video-card-style">
 .portada-video{position:relative;z-index:2;display:flex;justify-content:flex-end;align-items:flex-end;padding:10px 20px 18px;background:#090909;color:#f7f2e8}
 .portada-video h2{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.portada-video-card{display:flex;width:72px;aspect-ratio:1;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid rgba(217,183,106,.58);border-radius:6px;background:#000;color:#f7f2e8;text-decoration:none;box-shadow:0 5px 16px rgba(0,0,0,.4);transition:transform .2s ease,border-color .2s ease}
+.portada-video-card{display:flex;width:88px;aspect-ratio:1;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px solid rgba(217,183,106,.58);border-radius:6px;background:#000;color:#f7f2e8;text-decoration:none;box-shadow:0 5px 16px rgba(0,0,0,.4);transition:transform .2s ease,border-color .2s ease}
 .portada-video-card:hover,.portada-video-card:focus-visible{transform:translateY(-2px);border-color:#d9b76a;outline:2px solid #d9b76a;outline-offset:3px}
-.portada-video-play{display:grid;width:32px;height:32px;place-items:center;padding-left:2px;border:1px solid #d9b76a;border-radius:50%;color:#d9b76a;font-size:14px}
-.portada-video-label{font-size:10px;letter-spacing:.04em}
+.portada-video-play{display:grid;width:38px;height:38px;place-items:center;padding-left:2px;border:1px solid #d9b76a;border-radius:50%;color:#d9b76a;font-size:16px}
+.portada-video-label{font-size:11px;letter-spacing:.04em}
 body:has(#presentacion:target) #portada-video{display:none!important}
+@media(max-width:600px){.portada-video-card{width:82px}.portada-video-play{width:36px;height:36px}}
 @media(prefers-reduced-motion:reduce){.portada-video-card{transition:none}}
 </style><style id="portada-black-photo-continuity">html,body,main.cover,.cover-photo,#portada-video{background-color:#000!important}#portada-video{background:#000!important}</style></body>
 
