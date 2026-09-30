@@ -46,7 +46,7 @@
     [keyFor({ title: 'HOTEL CALIFORNIA', artist: 'Eagles' }), './assets/covers/eagles.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'MAMMA MIA', artist: 'ABBA' }), './assets/covers/abba.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'MI GRAN NOCHE', artist: 'RAPHAEL' }), './assets/covers/raphael.jpg?v=artist-focus-20260927'],
-    [keyFor({ title: 'OYE COMO VA', artist: 'Santana' }), './assets/covers/santana.jpg?v=artist-focus-20260927'],
+    [keyFor({ title: 'OYE COMO VA', artist: 'Santana' }), './assets/covers/carlos-santana-1971.jpg?v=young-face-priority-20260929'],
     [keyFor({ title: 'PRONTA ENTREGA', artist: 'Virus' }), './assets/covers/virus.jpg?v=artist-focus-20260927'],
     [keyFor({ title: 'HIJO DE LA LUNA', artist: 'Mecano' }), 'https://musitecadiscos.com/wp-content/uploads/2025/06/mecano-descanso-dominical-lado-a-lpu.jpg?v=artist-focus-3-20260927'],
     [keyFor({ title: 'ME CUESTA TANTO OLVIDARTE', artist: 'Mecano' }), 'https://musitecadiscos.com/wp-content/uploads/2025/06/mecano-descanso-dominical-lado-a-lpu.jpg?v=artist-focus-3-20260927'],
@@ -217,6 +217,7 @@
     image.classList.toggle('song-cover-silvio-face', artistKey === 'silvio rodriguez');
     image.classList.toggle('song-cover-eros-head', artistKey === 'eros ramazzotti');
     image.classList.toggle('song-cover-billy-face', artistKey === 'billy joel');
+    image.classList.toggle('song-cover-francisca-face', artistKey === 'francisca valenzuela');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
     summary.classList.add('has-cover');
