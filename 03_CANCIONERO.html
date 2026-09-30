@@ -716,7 +716,7 @@ body:has(section#rock:target) .cover, body:has(section#baladas:target) .cover, b
 <div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
 <div class="badge">ELIGE · ESCUCHA · DISFRUTA</div>
 </div></header>
-<div class="search-box"><input id="search" placeholder="🔎 Buscar canción o artista..."/>
+<div class="search-box"><input id="search" type="search" aria-label="Buscar canción o artista" placeholder="🔎 Buscar canción o artista..."/>
 <div class="count">201 canciones</div><div class="styles-title">EXPLORA POR ESTILO</div>
 <div class="style-grid">
 <a href="#rock">🎸<span>Rock</span></a>
@@ -14098,6 +14098,76 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
 body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(section#rock:target)):not(:has(section#baladas:target)):not(:has(section#pop:target)):not(:has(section#otros:target)) #cancionero{display:none!important;}
 </style>
 <script>window.addEventListener("DOMContentLoaded",function(){if(location.hash!=="#cancionero"){history.replaceState(null,"",location.pathname+"#cancionero");location.reload();}});</script>
+<script id="cancionero-search-fix">
+(function () {
+  var input = document.getElementById('search');
+  var repertoire = document.getElementById('all-songs');
+  var empty = document.getElementById('empty');
+  if (!input || !repertoire) return;
+
+  var rows = Array.prototype.slice.call(repertoire.querySelectorAll('details.song-details, .song'));
+  var count = document.querySelector('.search-box .count');
+  var originalCount = count ? count.textContent : rows.length + ' canciones';
+  var jumpTimer = null;
+  var autoOpened = null;
+
+  function normalize(value) {
+    return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  function labelFor(row) {
+    return row.querySelector('summary') || row.querySelector('a') || row;
+  }
+
+  function goToFirst(matches) {
+    if (!matches.length) return;
+    var first = matches[0];
+    if (first.tagName === 'DETAILS') first.open = true;
+    autoOpened = first.tagName === 'DETAILS' ? first : null;
+    first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function search() {
+    var query = normalize(input.value);
+    if (jumpTimer) window.clearTimeout(jumpTimer);
+    if (autoOpened) {
+      autoOpened.open = false;
+      autoOpened = null;
+    }
+
+    var matches = rows.filter(function (row) {
+      var matchesQuery = !query || normalize(labelFor(row).textContent).includes(query);
+      row.style.display = matchesQuery ? '' : 'none';
+      return matchesQuery;
+    });
+
+    if (count) count.textContent = query ? matches.length + (matches.length === 1 ? ' resultado' : ' resultados') : originalCount;
+    if (empty) empty.style.display = query && !matches.length ? 'block' : 'none';
+    if (!query) {
+      if (autoOpened) autoOpened.open = false;
+      autoOpened = null;
+      return;
+    }
+    if (matches.length) {
+      jumpTimer = window.setTimeout(function () { goToFirst(matches); }, 650);
+    }
+  }
+
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (jumpTimer) window.clearTimeout(jumpTimer);
+      var query = normalize(input.value);
+      if (!query) return;
+      var matches = rows.filter(function (row) { return normalize(labelFor(row).textContent).includes(query); });
+      goToFirst(matches);
+    }
+  });
+  if (count) count.setAttribute('aria-live', 'polite');
+  if (empty) empty.style.display = 'none';
+})();
+</script>
 <script src="./cancionero-admin.js?v=artist-cover-refresh-20260929-songbook-refresh"></script><style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style></body>
 </html>
 
