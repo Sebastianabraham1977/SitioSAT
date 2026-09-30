@@ -93,17 +93,17 @@
 .moral-subtitle{margin:0 0 28px;color:#c7c1b4;font-size:clamp(17px,2.4vw,22px);letter-spacing:.06em}
 .moral-collage{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(190px,1fr));gap:16px;max-width:900px}
 .moral-media-card{position:relative;display:block;min-height:180px;overflow:hidden;border:1px solid rgba(217,183,106,.52);border-radius:5px;background:#111;color:#fff;text-decoration:none;isolation:isolate}
-.moral-media-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;transition:transform .25s ease;z-index:-1}
+.moral-media-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;transition:transform .25s ease;z-index:0}
 .moral-media-card:hover img,.moral-media-card:focus-visible img{transform:scale(1.035)}
 .moral-media-card:focus-visible{outline:2px solid #d9b76a;outline-offset:4px}
 .moral-photo-feature{grid-column:1;grid-row:1 / span 2;min-height:390px}.moral-photo-card{aspect-ratio:4/3;min-height:220px}
 .moral-video-card{aspect-ratio:4/3;min-height:220px;background:radial-gradient(circle at center,#302719,#101010 72%)}
-.moral-play{position:absolute;inset:0;display:grid;place-items:center;color:#d9b76a;font-size:40px;text-shadow:0 2px 12px #000}
+.moral-play{position:absolute;z-index:1;inset:0;display:grid;place-items:center;color:#d9b76a;font-size:40px;text-shadow:0 2px 12px #000}
 .moral-video-player{display:none}
 .moral-video-player:target{position:fixed;inset:0;z-index:1000005;display:flex;align-items:center;justify-content:center;padding:70px 18px 24px;background:rgba(0,0,0,.95)}
 .moral-video-player video{display:block;width:min(100%,960px);max-height:82vh;background:#000;object-fit:contain}
 .moral-player-close{position:absolute;top:18px;right:24px;color:#f7f2e8;text-decoration:none;font:300 42px/1 Arial,sans-serif}
-.moral-media-caption{position:absolute;left:15px;bottom:14px;font-weight:650;text-shadow:0 1px 8px #000}
+.moral-media-caption{position:absolute;z-index:1;left:15px;bottom:14px;font-weight:650;text-shadow:0 1px 8px #000}
 @media(max-width:600px){.moral-page{padding-top:92px!important}.moral-collage{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:10px}.moral-photo-feature{grid-column:1 / -1;grid-row:auto;min-height:0;aspect-ratio:4/3}.moral-photo-card,.moral-video-card{min-height:0;aspect-ratio:1/1}.moral-media-caption{left:10px;bottom:10px;font-size:14px}}
 @media(prefers-reduced-motion:reduce){.moral-media-card img{transition:none}}
 </style></body></html>
