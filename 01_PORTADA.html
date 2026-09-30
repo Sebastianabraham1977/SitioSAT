@@ -388,6 +388,13 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     </div>
   </section>
 </main>
+<section id="portada-video" class="portada-video" aria-labelledby="portada-video-title">
+  <h2 id="portada-video-title">Video</h2>
+  <a class="portada-video-card" href="./assets/videos/video-portada.mp4" target="_blank" rel="noopener noreferrer" aria-label="Abrir y reproducir el video enviado">
+    <span class="portada-video-play" aria-hidden="true">▶</span>
+    <span class="portada-video-label">Ver video</span>
+  </a>
+</section>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
 
 <nav id="menuPanel" class="menu-panel" aria-label="Menú principal">
@@ -14278,7 +14285,16 @@ body:has(#musica-audiovisual:target) #musica-audiovisual-preview-section{display
 <script id="preview-menu-hash-fix">
 document.addEventListener('click',function(e){var a=e.target.closest('.menu-panel a');if(a&&a.getAttribute('href')&&a.getAttribute('href').charAt(0)==='#'){var t=a.getAttribute('href').slice(1);var cb=document.getElementById('menuToggle');if(cb)cb.checked=false;if(t==='bandas'||t==='musica-audiovisual'||t==='presentacion'||t==='cancionero'){setTimeout(function(){location.hash=t;},0);}}});
 </script>
-<style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style></body>
+<style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="portada-video-card-style">
+.portada-video{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;padding:44px 20px 64px;background:#090909;color:#f7f2e8;text-align:center}
+.portada-video h2{margin:0;font:600 18px/1.2 "Instrument Sans",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.portada-video-card{display:flex;width:min(68vw,220px);aspect-ratio:1;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px solid rgba(217,183,106,.58);border-radius:8px;background:radial-gradient(ellipse at 50% 35%,#393021 0%,#17130e 46%,#080808 100%);color:#f7f2e8;text-decoration:none;box-shadow:0 12px 32px rgba(0,0,0,.4);transition:transform .2s ease,border-color .2s ease}
+.portada-video-card:hover,.portada-video-card:focus-visible{transform:translateY(-3px);border-color:#d9b76a;outline:2px solid #d9b76a;outline-offset:4px}
+.portada-video-play{display:grid;width:60px;height:60px;place-items:center;padding-left:4px;border:1px solid #d9b76a;border-radius:50%;color:#d9b76a;font-size:24px}
+.portada-video-label{font-size:14px;letter-spacing:.04em}
+body:has(#presentacion:target) #portada-video{display:none!important}
+@media(prefers-reduced-motion:reduce){.portada-video-card{transition:none}}
+</style></body>
 
 <style id="separacion-grande-boton-presentacion-recuperada">
 /* Recupera la separación grande entre el botón rojo y Presentación */
