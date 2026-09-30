@@ -27,6 +27,8 @@
     [keyFor({ title: 'ALWAYS REMEMBER US THIS WAY', artist: 'Lady Gaga' }), './assets/covers/lady-gaga.jpg?v=bad-romance-20260928'],
     [keyFor({ title: 'SHALLOW (FEAT. BRADLEY COOPER)', artist: 'Lady Gaga' }), './assets/covers/lady-gaga.jpg?v=bad-romance-20260928'],
     [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927'],
+    [keyFor({ title: 'A LITTLE RESPECT', artist: 'Erasure' }), './assets/covers/erasure.jpg?v=duo-faces-clear-20260930'],
+    [keyFor({ title: 'A PRIMERA VISTA', artist: 'Pedro Aznar' }), 'https://cdn.rock.com.ar/wp-content/uploads/2023/05/pedro-aznar.jpeg?v=1982-portrait-20260930'],
     [keyFor({ title: 'CHICA LIGHT', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
     [keyFor({ title: 'ENAMORADO DE TI', artist: 'Glup!' }), './assets/covers/glup.jpg?v=glup-band-20260927'],
     [keyFor({ title: 'ARMONIA DE AMOR', artist: 'Gondwana' }), './assets/covers/gondwana-band-portrait.jpg?v=close-band-20260928'],
@@ -210,7 +212,7 @@
     image.classList.toggle('song-cover-christina-face', artistKey === 'cristina y los subterraneos');
     image.classList.toggle('song-cover-sabina-face', artistKey === 'joaquin sabina');
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
-    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'duo dinamico', 'stone temple pilots', 'virus', "guns n' roses"].includes(artistKey));
+    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'duo dinamico', 'erasure', 'stone temple pilots', 'virus', "guns n' roses"].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     image.classList.toggle('song-cover-bacilos', artistKey === 'bacilos');
     image.classList.toggle('song-cover-miguel-face', artistKey === 'miguel bose');
