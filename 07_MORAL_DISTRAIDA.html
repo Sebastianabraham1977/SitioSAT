@@ -57,14 +57,6 @@
       <img src="./assets/moral-distraida-gallery-photo.jpg" alt="Moral Distraída actuando frente al público">
       <span class="moral-media-caption">Foto 1</span>
     </a>
-    <a class="moral-media-card moral-video-card" href="#moral-video-player-1" aria-label="Reproducir video 1 de Moral Distraída">
-      <img src="./assets/moral-distraida-grupo-exterior.jpg" alt="">
-      <span class="moral-play" aria-hidden="true">▶</span><span class="moral-media-caption">Video 1</span>
-    </a>
-    <a class="moral-media-card moral-video-card" href="#moral-video-player-2" aria-label="Reproducir video 2 de Moral Distraída">
-      <img src="./assets/moral-distraida-grupo-estudio.jpg" alt="">
-      <span class="moral-play" aria-hidden="true">▶</span><span class="moral-media-caption">Video 2</span>
-    </a>
     <a class="moral-media-card moral-photo-card" href="./assets/moral-distraida-grupo-exterior.jpg" target="_blank" rel="noopener noreferrer" aria-label="Abrir foto 2 de Moral Distraída">
       <img src="./assets/moral-distraida-grupo-exterior.jpg" alt="Integrantes de Moral Distraída reunidos al aire libre">
       <span class="moral-media-caption">Foto 2</span>
@@ -82,14 +74,6 @@
       <span class="moral-media-caption">Foto 5</span>
     </a>
   </div>
-  <section id="moral-video-player-1" class="moral-video-player" aria-label="Reproductor del video 1">
-    <a class="moral-player-close" href="#moral-media" aria-label="Volver a Videos y fotos">×</a>
-    <video controls playsinline preload="none" poster="./assets/moral-distraida-gallery-photo.jpg"><source src="./assets/videos/moral-distraida.mp4" type="video/mp4"></video>
-  </section>
-  <section id="moral-video-player-2" class="moral-video-player" aria-label="Reproductor del video 2">
-    <a class="moral-player-close" href="#moral-media" aria-label="Volver a Videos y fotos">×</a>
-    <video controls playsinline preload="none" poster="./assets/moral-distraida-gallery-photo.jpg"><source src="./assets/videos/moral-distraida-clip.mov" type="video/quicktime"></video>
-  </section>
 </main><input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú"><header class="topbar"><span class="site-brand">Sebastián Abraham <span>Teare</span></span><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header><nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-close" for="menuToggle" aria-label="Cerrar menú"></label><div class="menu-links"><a href="./01_PORTADA.html">Portada</a><a href="./02_PRESENTACION.html">Presentación</a><a href="./06_CLASES_DE_PIANO.html">Clases de piano</a><a href="./04_BANDAS.html" aria-current="page">Bandas</a><a href="./05_MUSICA_AUDIOVISUAL.html">Música audiovisual</a><a href="./03_CANCIONERO.html">Cancionero y Piano Bar</a><div class="menu-note">SEBASTIÁN ABRAHAM TEARE</div></div></nav><style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style><style id="bandas-title-mucho-mas-arriba">
 .page h1{top:-76px!important}
 @media(max-width:600px){.page h1{top:-64px!important}}
@@ -104,14 +88,7 @@
 .moral-media-card:hover img,.moral-media-card:focus-visible img{transform:scale(1.035)}
 .moral-media-card:focus-visible{outline:2px solid #d9b76a;outline-offset:4px}
 .moral-photo-feature{grid-column:1;grid-row:1 / span 2;min-height:390px}.moral-photo-card{aspect-ratio:4/3;min-height:220px}
-.moral-video-card{aspect-ratio:16/9}
-.moral-video-card img{filter:brightness(.78)}
 .moral-media-caption{position:absolute;left:15px;bottom:14px;font-weight:650;text-shadow:0 1px 8px #000}
-.moral-play{position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:36px;text-shadow:0 2px 12px #000;background:linear-gradient(transparent 40%,rgba(0,0,0,.55))}
-.moral-video-player{display:none}
-.moral-video-player:target{position:fixed;inset:0;z-index:1000005;display:flex;align-items:center;justify-content:center;padding:70px 18px 24px;background:rgba(0,0,0,.95)}
-.moral-video-player video{display:block;width:min(100%,960px);max-height:82vh;background:#000;object-fit:contain}
-.moral-player-close{position:absolute;top:18px;right:24px;color:#f7f2e8;text-decoration:none;font:300 42px/1 Arial,sans-serif}
-@media(max-width:600px){.moral-page{padding-top:92px!important}.moral-collage{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:10px}.moral-photo-feature{grid-column:1 / -1;grid-row:auto;min-height:0;aspect-ratio:4/3}.moral-photo-card{min-height:0;aspect-ratio:1/1}.moral-video-card{min-height:0;aspect-ratio:1/1}.moral-media-caption{left:10px;bottom:10px;font-size:14px}}
+@media(max-width:600px){.moral-page{padding-top:92px!important}.moral-collage{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:10px}.moral-photo-feature{grid-column:1 / -1;grid-row:auto;min-height:0;aspect-ratio:4/3}.moral-photo-card{min-height:0;aspect-ratio:1/1}.moral-media-caption{left:10px;bottom:10px;font-size:14px}}
 @media(prefers-reduced-motion:reduce){.moral-media-card img{transition:none}}
 </style></body></html>
