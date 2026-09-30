@@ -52,15 +52,23 @@
   <a class="moral-gallery-back" href="./04_BANDAS.html">← Volver a Bandas</a>
   <h2 id="moral-videos-title">Moral Distraída</h2>
   <div class="moral-video-grid">
-    <a class="moral-video-card" href="./assets/videos/moral-distraida.mp4" target="_blank" rel="noopener noreferrer">
+    <a class="moral-video-card" href="#moral-video-player-1" aria-label="Abrir reproductor del video 1 de Moral Distraída">
       <img src="./assets/moral-distrada-banda.jpg" alt="Moral Distraída en el escenario">
-      <span class="moral-card-play" aria-hidden="true">▶</span><span class="moral-card-label">Ver video</span>
+      <span class="moral-card-play" aria-hidden="true">▶</span><span class="moral-card-label">Video 1</span>
     </a>
-    <a class="moral-video-card" href="./assets/videos/moral-distraida-clip.mov" target="_blank" rel="noopener noreferrer">
+    <a class="moral-video-card" href="#moral-video-player-2" aria-label="Abrir reproductor del video 2 de Moral Distraída">
       <img src="./assets/moral-distrada-banda.jpg" alt="Moral Distraída en el escenario">
-      <span class="moral-card-play" aria-hidden="true">▶</span><span class="moral-card-label">Video nuevo</span>
+      <span class="moral-card-play" aria-hidden="true">▶</span><span class="moral-card-label">Video 2</span>
     </a>
   </div>
+</section>
+<section id="moral-video-player-1" class="moral-video-player" aria-label="Reproductor de video 1">
+  <a class="moral-player-close" href="#moral-distraida-videos" aria-label="Volver a las portadas">×</a>
+  <video controls playsinline preload="none" poster="./assets/moral-distrada-banda.jpg"><source src="./assets/videos/moral-distraida.mp4" type="video/mp4"></video>
+</section>
+<section id="moral-video-player-2" class="moral-video-player" aria-label="Reproductor de video 2">
+  <a class="moral-player-close" href="#moral-distraida-videos" aria-label="Volver a las portadas">×</a>
+  <video controls playsinline preload="none" poster="./assets/moral-distrada-banda.jpg"><source src="./assets/videos/moral-distraida-clip.mov" type="video/quicktime"></video>
 </section></main><input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú"><header class="topbar"><span class="site-brand">Sebastián Abraham <span>Teare</span></span><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header><nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-close" for="menuToggle" aria-label="Cerrar menú"></label><div class="menu-links"><a href="./01_PORTADA.html">Portada</a><a href="./02_PRESENTACION.html">Presentación</a><a href="./06_CLASES_DE_PIANO.html">Clases de piano</a><a href="./04_BANDAS.html" aria-current="page">Bandas</a><a href="./05_MUSICA_AUDIOVISUAL.html">Música audiovisual</a><a href="./03_CANCIONERO.html">Cancionero y Piano Bar</a><div class="menu-note">SEBASTIÁN ABRAHAM TEARE</div></div></nav><style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style><style id="bandas-title-mucho-mas-arriba">
 .page h1{top:-76px!important}
 @media(max-width:600px){.page h1{top:-64px!important}}
@@ -78,6 +86,12 @@ body:has(#moral-distraida-videos:target) .page>h1,body:has(#moral-distraida-vide
 .moral-card-play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:36px;text-shadow:0 2px 14px #000;background:linear-gradient(transparent 45%,rgba(0,0,0,.72))}
 .moral-card-label{position:absolute;left:14px;bottom:14px;font-weight:600}
 @media(max-width:520px){.moral-video-grid{grid-template-columns:1fr 1fr;gap:12px}.moral-video-gallery{padding-inline:16px}}
+</style><style id="moral-gallery-inline-players">
+.moral-video-player{display:none}
+.moral-video-player:target{position:fixed;inset:0;z-index:1000005;display:flex;align-items:center;justify-content:center;padding:70px 18px 24px;background:rgba(0,0,0,.94)}
+.moral-video-player video{display:block;width:min(100%,960px);max-height:82vh;background:#000;object-fit:contain}
+.moral-player-close{position:absolute;top:18px;right:24px;color:#f7f2e8;text-decoration:none;font:300 42px/1 Arial,sans-serif}
+.moral-player-close:focus-visible{outline:2px solid #d9b76a;outline-offset:4px}
 </style></body></html>
 <style id="botones-volver-IGUALES-A-BANDAS">
 /* Los cuatro botones son exactamente como el botón de BANDAS */
