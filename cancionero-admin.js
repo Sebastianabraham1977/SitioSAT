@@ -58,6 +58,8 @@
     [keyFor({ title: 'LA CHICA DE HUMO', artist: 'Emmanuel' }), './assets/covers/emmanuel-singer.jpg?v=face-close-20260929'],
     [keyFor({ title: 'TODA LA VIDA', artist: 'Emmanuel' }), './assets/covers/emmanuel-singer.jpg?v=face-close-20260929'],
     [keyFor({ title: 'THE SCIENTIST', artist: 'Coldplay' }), './assets/covers/coldplay-band-close.jpg?v=all-members-close-20260929'],
+    [keyFor({ title: 'STARMAN', artist: 'David Bowie' }), './assets/covers/david-bowie-aladdin-sane.jpg?v=painted-face-20260929'],
+    [keyFor({ title: 'TABACO Y CHANEL', artist: 'Bacilos' }), './assets/covers/bacilos-trio-close.jpg?v=trio-portrait-20260929'],
     [keyFor({ title: 'BÉSAME MUCHO', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'SABOR A MÍ ( LUIS MIGUEL)', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'SOLAMENTE UNA VEZ', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
@@ -199,6 +201,7 @@
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
     image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay'].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
+    image.classList.toggle('song-cover-bacilos', artistKey === 'bacilos');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
     summary.classList.add('has-cover');
