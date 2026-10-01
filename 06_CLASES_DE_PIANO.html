@@ -50,14 +50,14 @@
       .menu-links a { margin-bottom: 72px; font-size: 20px; letter-spacing: .04em; }
     }
   </style>
-</head>
+<style id="menu-tap-outside-close">body>.menu-panel>.menu-outside{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;background:transparent}.menu-panel .menu-links{z-index:2!important}.menu-panel .menu-close{z-index:30!important}</style></head>
 <body>
   <input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú">
   <header class="topbar">
     <span class="site-brand">Sebastián Abraham <span>Teare</span></span>
     <label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label>
   </header>
-  <nav id="menuPanel" class="menu-panel" aria-label="Menú principal">
+  <nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label>
     <label class="menu-close" for="menuToggle" aria-label="Cerrar menú"></label>
     <div class="menu-links">
       <a href="./01_PORTADA.html?v=home-20261001">Home</a>
