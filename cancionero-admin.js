@@ -202,8 +202,9 @@
       frame.className = 'song-cover-frame';
       frame.appendChild(image);
     }
-    image.src = song.image;
     const artistKey = normalize(song.artist);
+    frame.classList.toggle('song-cover-wide-frame', artistKey === 'coldplay' || artistKey === "guns n' roses");
+    image.src = song.image;
     image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
     image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
     image.classList.toggle('song-cover-cerati-face', artistKey === 'gustavo cerati');
