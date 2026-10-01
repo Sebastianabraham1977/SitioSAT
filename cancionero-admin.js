@@ -68,8 +68,10 @@
     [keyFor({ title: 'SABOR A MÍ ( LUIS MIGUEL)', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'SOLAMENTE UNA VEZ', artist: 'Los Panchos' }), './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     [keyFor({ title: 'COLD HEART (FEAT. DUA LIPA)', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
-    [keyFor({ title: 'ROCKET MAN', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
-    [keyFor({ title: 'YOUR SONG', artist: 'Elton John' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/Elton_john_cher_show_1975.JPG?width=500&v=artist-focus-3-20260927'],
+    [keyFor({ title: 'ROCKET MAN', artist: 'Elton John' }), './assets/covers/elton-john.jpg?v=elton-portrait-1971-20261001'],
+    [keyFor({ title: 'YOUR SONG', artist: 'Elton John' }), './assets/covers/elton-john.jpg?v=elton-portrait-1971-20261001'],
+    [keyFor({ title: 'HAY QUE VENIR AL SUR', artist: 'Raffaella Carrà' }), './assets/covers/raffaella-carra.jpg?v=raffaella-74-20261001'],
+    [keyFor({ title: 'YO NO TE PIDO LA LUNA', artist: 'Daniela Romo' }), './assets/covers/daniela-romo-studio.jpg?v=daniela-80s-20261001'],
     [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927']
   ]);
   const artistCoverOverrides = new Map([
