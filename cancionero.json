@@ -829,23 +829,20 @@
     {
       "artist": "Café Tacvba",
       "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22INGRATA%22%20%22Caf%C3%A9%20Tacvba%22",
-      "image": "./assets/covers/cafe-tacvba-studio.png",
+      "image": "./assets/covers/cafe-tacvba-close.jpg?v=four-faces-close-20261001",
       "lyrics": null,
       "title": "INGRATA",
-      "imageTitle": "Café Tacvba, retrato promocional de estudio",
-      "imageCredit": "KCRW",
-      "imageSource": "https://www.kcrw.com/shows/morning-becomes-eclectic/stories/cafe-tacvba"
+      "imageCredit": "Emol",
+      "imageSource": "https://www.emol.com/noticias/Espectaculos/2019/11/10/966639/Bios-Cafe-Tacvba-Francisca-Valenzuela.html"
     },
     {
       "artist": "Roxette",
       "externalUrl": null,
-      "image": "./assets/covers/roxette.jpg",
+      "image": "./assets/covers/roxette-close.jpg?v=two-faces-close-20261001",
       "lyrics": "(It must have been love, but it's over now)\n\nLay a whisper on my pillow\nLeave the winter on the ground\nI wake up lonely, there's air of silence\nIn the bedroom and all around (and all around)\n\nTouch me now\nI close my eyes\nAnd dream away\n\nIt must have been love, but it's over now\nIt must have been good, but I lost it somehow\nIt must have been love, but it's over now\nFrom the moment we touched till the time had run out\n\nMake-believing we're together\nThat I'm sheltered by your heart\nBut in and outside, I've turned to water\nLike a teardrop in your palm\n\nAnd it's a hard\nWinter's day\nI dream away\n\nIt must have been love, but it's over now\n(It must have been love, but it's over now)\nIt was all that I wanted, now I'm living without\nIt must have been love, but it's over now\n(It must have been love, the wind blows)\nIt's where the water flows\nIt's where the wind blows\n\nIt must have been love, but it's over now\n(It must have been love, but it's over now)\nIt must have been good, but I lost it somehow\nIt must have been love, but it's over now\n(It must have been love, but it's over now)\nFrom the moment we touched till the time had run out\n\nYeah, it must have been love, but it's over now\n(It must have been love, but it's over now)\nIt was all that I wanted, now I'm living without\nIt must have been love, but it's over now\n(The wind blows)\nIt's where the water flows\nIt's where the wind blows\n\n(It must have been love, but it's over now)\nBut it's over now\nNow\n(It must have been love, but it's over now)\n(It must have been love, but it's over now)\nNow",
       "title": "IT MUST HAVE BEEN LOVE",
-      "imageCredit": "Colinvdbel",
-      "imageTitle": "File:Roxette-Roxette at Bospop festival The Netherlands 2011.jpg",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3ARoxette-Roxette_at_Bospop_festival_The_Netherlands_2011.jpg"
+      "imageCredit": "Vanity Fair",
+      "imageSource": "https://www.revistavanityfair.es/cultura/entretenimiento/articulos/roxette-esa-cosa-magica-que-per-y-marie-compartian-fuera-de-su-vida-privada/47972"
     },
     {
       "artist": "Fugees",
@@ -894,13 +891,11 @@
     {
       "artist": "Jarabe de Palo",
       "externalUrl": null,
-      "image": "./assets/covers/jarabe-de-palo.jpg",
+      "image": "./assets/covers/jarabe-de-palo-close.jpg?v=group-faces-close-20261001",
       "lyrics": "En la vida, conocí\nMujer igual a la flaca\nCoral negro de la Habana\nTremendísima mulata\nCien libras de piel y hueso\nCuarenta kilos de salsa\nY, en la cara, dos soles\nQue, sin palabras, hablan\nQue, sin palabras, hablan\n\nLa flaca duerme de día\nDice que así el hambre engaña\nY cuando cae la noche\nBaja a bailar a la tasca\nY bailar y bailar\nY tomar y tomar\nUna cerveza tras otra\nPero ella nunca engorda\nPero ella nunca engorda\n\nPor un beso de la flaca, daría lo que fuera\nPor un beso de ella, aunque solo uno fuera\nPor un beso de la flaca, daría lo que fuera\nPor un beso de ella, aunque solo uno fuera\n\nAunque solo uno fuera\n\nMojé mis sábanas blancas\nComo dice la canción\nRecordando las caricias\nQue me brindó el primer día\nY enloquezco de ganas\nDe dormir a su ladito\nPorque, Dios, que esta flaca\nA mí me tiene loquito, oh\nA mí me tiene loquito\n\nPor un beso de la flaca, yo daría lo que fuera\nPor un beso de ella, aunque solo uno fuera\nPor un beso de la flaca, yo daría lo que fuera\nPor un beso de ella, aunque solo uno fuera\n\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera\n\nAunque solo uno fuera\nAunque solo uno fuera\n\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera\n\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera\n\nAunque solo uno fuera\nAunque solo uno fuera\nAunque solo uno fuera",
       "title": "LA FLACA",
-      "imageCredit": "Javier Mediavilla Ezquibela",
-      "imageTitle": "File:Jarabe de Palo.jpg",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3AJarabe_de_Palo.jpg"
+      "imageCredit": "El Comercio",
+      "imageSource": "https://elcomercio.pe/mag/fama/pau-dones-asi-se-vivio-su-ultimo-concierto-en-lima-con-jarabe-de-palo-espana-nndc-nnes-noticia/"
     },
     {
       "artist": "Rocío Durcal",
@@ -927,12 +922,11 @@
     {
       "artist": "Café Tacuba",
       "externalUrl": null,
-      "image": "./assets/covers/cafe-tacvba-studio.png",
+      "image": "./assets/covers/cafe-tacvba-close.jpg?v=four-faces-close-20261001",
       "lyrics": "Ingrata\nNo me digas que me quieres\nNo me digas que me adoras\nQue me amas, que me extrañas\nQue ya no te creo nada\n\nIngrata\n¿Qué no ves que estoy sufriendo?\nPor favor hoy no me digas\nQue sin mi te estás muriendo\nQue tus lágrimas son falsas\n\nIngrata\nNo me digas que me adoras\nSe te nota que en tus labios\nYa no hay nada que tu puedas\nOfrecer a esta boca\n\nPor eso ahora yo sé que veniste\nPorque te acuerdas de mi cariño\nPor eso ahora que estoy tan triste\nNo quiero que nadie me mire sufrir\n\nOy, oy, oy, oy, oy, oy, ingrata\nNo me digas que me quieres\nTu desprecias mis palabras\nY mis besos, los que alguna vez\nHicieron que soñaras\n\nIngrata\nNo te olvides que si quiero\nPues si puedo hacerte daño\nSolo falta que yo quiera\nLastimarte y humillarte\n\nIngrata\nAunque quieras tu dejarme\nLos recuerdos de esos días\nDe las noches tan oscuras\nTu jamás podrás borrarte\n\nNo me digas que me quieres\nQue me adoras, que me extrañas\nQue ya no te creo nada\n\nPor eso ahora yo sé que veniste\nPorque te acuerdas de mi cariño\nY no me importa si lloro un poquito\nPorque ese poquito será por tu amor\n\nNo vengas para pedirme\nQue tenga compasión de ti\nY vienes luego a decirme\nQue quieres estar lejos de mi\n\nTe pido que no regreses\nSi no es para darme un poquito de amor\nTe pido y te lo suplico\nPor el cariño que un día nos unió\n\nIngrata\nNo me digas que me quieres\nNo me digas que me adoras\nQue me amas, que me extrañas\nQue ya no te creo nada\n\nIngrata\n¿Qué no ves que estoy sufriendo?\nPor favor hoy no me digas\nQue sin mi te estás muriendo\nQue tus lágrimas son falsas\nTu desprecias mis palabras\nY mis besos\nPues si quiero hacerte daño\nSolo falta que yo quiera lastimarte\nY humillarte\n\nIngrata\nAunque quieras tu dejarme\nLos recuerdos de esos días\nDe las noches tan oscuras\nTu jamás podrás borrarte\n\nPor eso ahora tendré que obsequiarte\nUn par de balazos, pa' que te duela\nY aunque estoy triste por ya no tenerte\nVoy a estar contigo en tu funeral",
       "title": "LA INGRATA",
-      "imageCredit": "KCRW",
-      "imageTitle": "Café Tacvba, retrato promocional de estudio",
-      "imageSource": "https://www.kcrw.com/shows/morning-becomes-eclectic/stories/cafe-tacvba"
+      "imageCredit": "Emol",
+      "imageSource": "https://www.emol.com/noticias/Espectaculos/2019/11/10/966639/Bios-Cafe-Tacvba-Francisca-Valenzuela.html"
     },
     {
       "artist": "Lucho Barrios",
@@ -969,13 +963,11 @@
     {
       "artist": "Enanitos Verdes",
       "externalUrl": null,
-      "image": "./assets/covers/los-enanitos-verdes.jpg",
+      "image": "./assets/covers/enanitos-verdes-close.jpg?v=faces-close-20261001",
       "lyrics": "Me quieren agitar, me incitan a gritar\nSoy como una roca, palabras no me tocan\nAdentro hay un volcán, que pronto va a estallar\nYo quiero estar tranquilo\n\nEs mi situación, una desolación\nSoy como un lamento, lamento boliviano\nQue un día empezó y no va a terminar\nYa nadie hace daño\n\nUoh\nYo', yo', yo'\nEh, eh, eh\nYo'\n\nY yo estoy aquí\nBorracho y loco\nY mi corazón idiota\nSiempre brillará (siempre brillará)\n\nY yo te amaré\nTe amaré por siempre\nNena, no te peines en la cama\nQue los viajantes se van a atrasar\n\nUoh\nYo', yo', yo'\nEh, eh, eh\nYo'\n\nY hoy estoy aquí\nBorracho y loco\nY mi corazón idiota\nSiempre brillará (siempre brillará)\n\nY yo te amaré\nTe amaré por siempre\nNena, no te peines en la cama\nQue los viajantes se van a atrasar\n\nY yo estoy aquí\nBorracho y loco\nY mi corazón idiota\nSiempre brillará (siempre brillará)\n\nY yo te amaré\nTe amaré por siempre\nNena, no te peines en la cama\nQue los viajantes se van a atrasar",
       "title": "LAMENTO BOLIVIANO",
-      "imageCredit": "Robertoe",
-      "imageTitle": "File:Enanitos Verdes - Rosario - 2012.JPG",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3AEnanitos_Verdes_-_Rosario_-_2012.JPG"
+      "imageCredit": "Cifra Club",
+      "imageSource": "https://www.cifraclub.com/blog/biografia-de-los-enanitos-verdes/"
     },
     {
       "artist": "Eric Clapton",

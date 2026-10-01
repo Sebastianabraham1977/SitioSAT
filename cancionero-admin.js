@@ -92,7 +92,12 @@
     ["guns n' roses", './assets/covers/guns-n-roses-1987.jpg?v=classic-lineup-20260929'],
     ['la ley', './assets/covers/la-ley-band-close.jpg?v=la-ley-close-20261001'],
     ['miranda!', './assets/covers/miranda-duo-close.jpg?v=miranda-close-20261001'],
-    ['los bunkers', './assets/covers/los-bunkers-close.jpg?v=los-bunkers-close-20261001']
+    ['los bunkers', './assets/covers/los-bunkers-close.jpg?v=los-bunkers-close-20261001'],
+    ['enanitos verdes', './assets/covers/enanitos-verdes-close.jpg?v=faces-close-20261001'],
+    ['cafe tacvba', './assets/covers/cafe-tacvba-close.jpg?v=four-faces-close-20261001'],
+    ['cafe tacuba', './assets/covers/cafe-tacvba-close.jpg?v=four-faces-close-20261001'],
+    ['jarabe de palo', './assets/covers/jarabe-de-palo-close.jpg?v=group-faces-close-20261001'],
+    ['roxette', './assets/covers/roxette-close.jpg?v=two-faces-close-20261001']
   ]);
   let songs = readSongsFromPage();
   let pendingImage = '';
@@ -206,7 +211,7 @@
       frame.appendChild(image);
     }
     const artistKey = normalize(song.artist);
-    frame.classList.toggle('song-cover-wide-frame', artistKey === 'coldplay' || artistKey === "guns n' roses" || artistKey === 'la ley' || artistKey === 'miranda!' || artistKey === 'los bunkers');
+    frame.classList.toggle('song-cover-wide-frame', artistKey === 'coldplay' || artistKey === "guns n' roses" || artistKey === 'la ley' || artistKey === 'miranda!' || artistKey === 'los bunkers' || artistKey === 'enanitos verdes' || artistKey === 'cafe tacvba' || artistKey === 'cafe tacuba' || artistKey === 'jarabe de palo' || artistKey === 'roxette' || artistKey === 'fugees');
     image.src = song.image;
     image.classList.toggle('song-cover-amy-face', artistKey === 'amy winehouse');
     image.classList.toggle('song-cover-juan-face', artistKey === 'juan gabriel');
@@ -217,7 +222,7 @@
     image.classList.toggle('song-cover-christina-face', artistKey === 'cristina y los subterraneos');
     image.classList.toggle('song-cover-sabina-face', artistKey === 'joaquin sabina');
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
-    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'la ley', 'los bunkers', 'duo dinamico', 'erasure', 'stone temple pilots', 'virus', "guns n' roses"].includes(artistKey));
+    image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'la ley', 'los bunkers', 'duo dinamico', 'erasure', 'stone temple pilots', 'virus', 'fugees', 'roxette', 'enanitos verdes', 'jarabe de palo', "guns n' roses"].includes(artistKey));
     image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
     image.classList.toggle('song-cover-bacilos', artistKey === 'bacilos');
     image.classList.toggle('song-cover-miguel-face', artistKey === 'miguel bose');
