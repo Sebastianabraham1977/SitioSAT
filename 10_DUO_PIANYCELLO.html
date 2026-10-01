@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dúo PianyCello — Sebastián Abraham Teare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--gold:#d9b76a;--paper:#f7f2e8}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#000;color:var(--paper);font-family:"Instrument Sans",Arial,sans-serif}
+    .page{min-height:100vh;max-width:1080px;margin:auto;padding:110px clamp(20px,5vw,52px) 70px}
+    .back{display:inline-block;color:var(--gold);text-decoration:none;font-size:14px;font-weight:600}
+    h1{margin:34px 0 12px;color:#f1ce70;font-size:clamp(32px,5.2vw,42px);line-height:1.08;font-weight:600}
+    h1:after{content:"";display:block;width:64px;height:2px;margin:12px 0 0;background:#e3001d}
+    .profile{display:inline-block;margin-top:8px;color:var(--gold);font-size:16px;text-decoration:none;letter-spacing:.02em}
+    .profile:hover,.profile:focus-visible,.back:hover,.back:focus-visible{text-decoration:underline;text-underline-offset:4px}
+    .topbar{position:fixed;z-index:10;top:0;left:0;right:0;min-height:54px;display:flex;justify-content:flex-end;align-items:center;padding:8px 22px;background:#0008;backdrop-filter:blur(5px)}
+    .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;color:var(--paper);font:500 clamp(13px,3.7vw,18px)/1.05 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.09em;text-shadow:0 1px 8px #000a}.brand span{color:var(--gold)}
+    .menu-toggle{position:absolute;width:1px;height:1px;opacity:0}
+    .menu-button{width:48px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;cursor:pointer}.menu-button span{width:31px;height:2px;background:#fff}
+    .menu-panel{position:fixed;z-index:20;inset:0;background:#09090999;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}.menu-toggle:checked~.menu-panel{opacity:1;visibility:visible}
+    .menu-panel:before{content:"";position:absolute;top:0;right:0;width:min(82vw,560px);height:100%;background:#242424;box-shadow:-18px 0 40px #0005}
+    .menu-links{position:absolute;top:0;right:0;width:min(82vw,560px);height:100%;display:flex;flex-direction:column;align-items:flex-start;padding:130px 48px 46px}
+    .menu-links a{margin:0 0 38px;color:#fff;text-decoration:none;font-size:14px;letter-spacing:.05em;text-transform:uppercase}.menu-links a:hover,.menu-links a:focus-visible{color:var(--gold)}
+    .close{position:absolute;z-index:2;top:22px;right:24px;width:46px;height:46px;cursor:pointer}.close:before,.close:after{content:"";position:absolute;top:22px;left:7px;width:32px;height:2px;background:#fff;transform:rotate(45deg)}.close:after{transform:rotate(-45deg)}
+    @media(max-width:600px){.page{padding-top:100px}.menu-links{padding:126px 30px 40px}.menu-links a{margin-bottom:30px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="./04_BANDAS.html?v=band-profiles-20261001">← Bandas</a>
+    <h1>Dúo PianyCello</h1>
+    <a class="profile" href="https://www.instagram.com/pianycello?stkn=MXh1czk4c290Y3ZvNQ==" target="_blank" rel="noopener noreferrer">Instagram · @pianycello</a>
+  </main>
+  <input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú">
+  <header class="topbar"><span class="brand">Sebastián Abraham <span>Teare</span></span><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
+  <nav class="menu-panel" aria-label="Menú principal"><label class="close" for="menuToggle" aria-label="Cerrar menú"></label><div class="menu-links"><a href="./01_PORTADA.html">Home</a><a href="./02_PRESENTACION.html">Presentación</a><a href="./06_CLASES_DE_PIANO.html">Clases de piano</a><a href="./04_BANDAS.html" aria-current="page">Bandas</a><a href="./05_MUSICA_AUDIOVISUAL.html">Audiovisual</a><a href="./03_CANCIONERO.html">Cancionero y Piano Bar</a></div></nav>
+</body>
+</html>
