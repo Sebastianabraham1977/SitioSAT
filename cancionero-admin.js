@@ -81,6 +81,7 @@
     ['juan luis guerra 4.40', './assets/covers/juan-luis-guerra-ac.jpg?v=juan-luis-guerra-20260928'],
     ['los panchos', './assets/covers/los-panchos-1954-cropped.jpg?v=los-panchos-trio-20260928'],
     ['miguel bose', './assets/covers/miguel-bose-young.jpg?v=young-face-20260929'],
+    ['coldplay', './assets/covers/coldplay-band-close.jpg?v=close-faces-20261001'],
     ['charly garcia', './assets/covers/charly-garcia-1982-close.jpg?v=close-portrait-20260929'],
     ['duo dinamico', './assets/covers/duo-dinamico-close.png?v=duo-portrait-20260929'],
     ['silvio rodriguez', './assets/covers/silvio-rodriguez-1969.jpg?v=young-face-20260929'],
