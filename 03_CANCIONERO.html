@@ -14064,7 +14064,7 @@ Quiero un sombrero
 De guano, una bandera
 Quiero una guayabera
 Y un son para bailar...</div></details></section><div class="empty" id="empty">No encontramos esa canción.</div><div class="note">Las canciones están integradas en el repertorio y sus botones abren una búsqueda de la letra.</div></div>
-<a aria-label="Ir a la primera canción del Cancionero" class="top-btn" href="#first-song" id="topBtn" title="Ir a la primera canción" onclick="event.preventDefault();document.querySelectorAll('#cancionero details[open]').forEach(function(d){d.open=false;});var m=document.getElementById('lyricsModal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}var first=document.getElementById('first-song');if(first){window.scrollTo({top:first.getBoundingClientRect().top+window.pageYOffset-20,behavior:'smooth'});}return false;">↑</a>
+<a aria-label="Ir a la primera canción del Cancionero" class="top-btn" href="#first-song" id="topBtn" title="Ir a la primera canción" onclick="event.preventDefault();document.querySelectorAll('#cancionero details[open]').forEach(function(d){d.open=false;});var m=document.getElementById('lyricsModal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}var first=document.getElementById('first-song');if(first){window.scrollTo({top:first.getBoundingClientRect().top+window.pageYOffset-(window.innerWidth<=600?100:20),behavior:'smooth'});}return false;">↑</a>
 
 <div aria-hidden="true" class="lyrics-modal" id="lyricsModal">
 <div aria-labelledby="lyricsTitle" aria-modal="true" class="lyrics-box" role="dialog">
