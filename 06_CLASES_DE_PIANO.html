@@ -50,7 +50,12 @@
       .menu-links a { margin-bottom: 72px; font-size: 20px; letter-spacing: .04em; }
     }
   </style>
-<style id="menu-tap-outside-close">body>.menu-panel>.menu-outside{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;background:transparent}.menu-panel .menu-links{z-index:2!important;box-sizing:border-box!important;pointer-events:auto!important}.menu-panel .menu-close{z-index:30!important}.menu-panel .menu-outside{pointer-events:auto!important}</style></head>
+<style id="menu-tap-outside-close">body>.menu-panel>.menu-outside{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;background:transparent}.menu-panel .menu-links{z-index:2!important;box-sizing:border-box!important;pointer-events:auto!important}.menu-panel .menu-close{z-index:30!important}.menu-panel .menu-outside{pointer-events:auto!important}</style><style id="menu-checkbox-open-fix">
+#menuToggle:checked~#menuPanel{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#menuToggle:not(:checked)~#menuPanel{pointer-events:none!important}
+#menuPanel .menu-outside,#menuPanel .menu-close,#menuPanel .menu-links,#menuPanel .menu-links a{pointer-events:auto!important}
+</style>
+</head>
 <body>
   <input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú">
   <header class="topbar">

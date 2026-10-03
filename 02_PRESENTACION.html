@@ -449,7 +449,12 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet"><style id="menu-tap-outside-close">body>.menu-panel>.menu-outside{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;background:transparent}.menu-panel .menu-links{z-index:2!important;box-sizing:border-box!important;pointer-events:auto!important}.menu-panel .menu-close{z-index:30!important}.menu-panel .menu-outside{pointer-events:auto!important}</style></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet"><style id="menu-tap-outside-close">body>.menu-panel>.menu-outside{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;background:transparent}.menu-panel .menu-links{z-index:2!important;box-sizing:border-box!important;pointer-events:auto!important}.menu-panel .menu-close{z-index:30!important}.menu-panel .menu-outside{pointer-events:auto!important}</style><style id="menu-checkbox-open-fix">
+#menuToggle:checked~#menuPanel{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#menuToggle:not(:checked)~#menuPanel{pointer-events:none!important}
+#menuPanel .menu-outside,#menuPanel .menu-close,#menuPanel .menu-links,#menuPanel .menu-links a{pointer-events:auto!important}
+</style>
+</head>
 
 <body>
 
