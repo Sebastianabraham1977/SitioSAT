@@ -412,7 +412,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
         <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="lazy" allow="autoplay"></iframe>
         <div class="home-piano-key-links" aria-label="Teclas con accesos a las secciones"></div>
       </div>
-      <a class="home-virtual-piano-credit" href="https://pianoaura.app/tools/keyboard/" target="_blank" rel="noopener noreferrer">Piano Aura</a>
+      <small class="home-virtual-piano-credit"><a href="https://pianoaura.app/tools/keyboard/" target="_blank" rel="noopener noreferrer">Piano Aura</a><span aria-hidden="true"> · </span><a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">Salamander · Alexander Holm · CC BY 3.0</a></small>
     </div>
   </div>
 </section>
@@ -430,7 +430,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:210px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.86);font:600 14px/1.25 Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;box-shadow:0 2px 9px rgba(0,0,0,.35)}
 .piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
 .piano-prompt:hover{filter:brightness(1.2)}
-.home-virtual-piano-credit{position:absolute;right:9px;bottom:5px;margin:0;font:8px/1 Arial,sans-serif;color:rgba(255,235,205,.7);text-decoration:none;text-underline-offset:2px}
+.home-virtual-piano-credit{position:absolute;right:9px;bottom:5px;margin:0;font:7px/1 Arial,sans-serif;color:rgba(255,235,205,.7);white-space:nowrap}
+.home-virtual-piano-credit a{color:inherit;text-decoration:none;text-underline-offset:2px}
 .home-virtual-piano-credit:hover{text-decoration:underline}
 @media(max-width:640px){
 .home-virtual-piano-frame{padding:50px 0 62px}
@@ -452,13 +453,28 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  for(let i=positions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[positions[i],positions[j]]=[positions[j],positions[i]]}
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[...notes].sort(()=>Math.random()-.5).slice(0,4);
+ const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();let audioContext=null,samplesReady=null;
+ const loadSamples=()=>{
+  const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return Promise.resolve(false);
+  if(!audioContext)audioContext=new Audio();
+  if(!samplesReady)samplesReady=Promise.all(Object.entries(sampleNotes).map(async([midi,name])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error('No se pudo cargar una muestra');sampleBuffers.set(+midi,await audioContext.decodeAudioData(await response.arrayBuffer()))})).then(()=>true).catch(()=>false);
+  return samplesReady;
+ };
+ loadSamples();
+ const playLinkedNote=async midi=>{
+  if(!audioContext)return false;
+  const resume=audioContext.state==='running'?Promise.resolve():audioContext.resume();
+  if(!await Promise.all([resume,loadSamples()]).then(values=>values.every(Boolean)))return false;
+  let base=null;for(const candidate of sampleBuffers.keys())if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;if(base===null)return false;
+  const source=audioContext.createBufferSource(),gain=audioContext.createGain();source.buffer=sampleBuffers.get(base);source.playbackRate.value=Math.pow(2,(midi-base)/12);gain.gain.value=.78;source.connect(gain);gain.connect(audioContext.destination);source.start();return true;
+ };
  prompts.forEach((prompt,i)=>{
   Object.assign(prompt.style,positions[i]);
   const note=chosen[i],key=document.createElement('a');
   prompt.dataset.note=String(note);key.className='home-piano-key-link';key.href=byDestination[prompt.dataset.destination];key.dataset.note=String(note);key.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);
   key.style.left=`${notes.indexOf(note)*100/14}%`;key.style.width=`${100/14}%`;layer.appendChild(key);
  });
- layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();window.location.assign(key.href)});
+ layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();const href=key.href,note=+key.dataset.note;let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,1800);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,650)}})});
  const draw=()=>{
   const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
   prompts.forEach(prompt=>{
