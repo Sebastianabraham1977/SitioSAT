@@ -417,17 +417,14 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 <style>
 .home-piano-stage{position:relative;width:min(96vw,820px);margin:auto;padding-bottom:70px;isolation:isolate}
 .home-piano-photo{isolation:isolate}
-.home-piano-photo img{width:220%!important;max-width:none!important;height:100%!important;object-fit:fill;transform:translateX(-27.27%)}
+.home-piano-photo img{width:286%!important;max-width:none!important;height:100%!important;object-fit:fill;transform:translateX(-42.86%)}
 .home-piano-keys{position:absolute;inset:0;z-index:4}
-.home-piano-keybed{position:absolute;left:0;right:0;top:43%;height:44%;z-index:0;border-radius:2px;background:linear-gradient(90deg,#100e0c,#27221d 8%,#12100e 92%,#080706);box-shadow:inset 0 2px 6px rgba(0,0,0,.9),inset 0 -2px 3px rgba(255,255,255,.12)}
-.home-piano-key{position:absolute;top:49%;height:36%;box-sizing:border-box;padding:0;appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transform-origin:top center;transition:transform .09s ease-out,box-shadow .09s ease;background:none}
-.home-piano-key.white{z-index:1;border:1px solid rgba(58,48,37,.7);border-top-color:rgba(255,255,255,.96);border-radius:0 0 4px 4px;background:linear-gradient(90deg,#b5aea2 0%,#f2eee5 13%,#fff 48%,#f4f0e8 83%,#aaa297 100%);box-shadow:inset 0 -8px 7px rgba(67,56,42,.18),0 2px 2px rgba(0,0,0,.34)}
-.home-piano-key.white::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12%;border-radius:0 0 3px 3px;background:linear-gradient(180deg,rgba(110,99,82,.05),rgba(90,79,62,.28));box-shadow:inset 0 1px 1px rgba(255,255,255,.65)}
-.home-piano-key.black{top:43%;height:22%;z-index:2;border:1px solid #080706;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#050505,#292826 30%,#111 76%,#020202);box-shadow:inset 0 -5px 3px rgba(255,255,255,.1),0 5px 6px rgba(0,0,0,.75)}
-.home-piano-key.black::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;border-radius:0 0 3px 3px;background:linear-gradient(180deg,#111,#030303);box-shadow:inset 0 1px 1px rgba(255,255,255,.1)}
-.home-piano-key:hover{filter:brightness(1.04)}
-.home-piano-key.white.is-pressed{transform:translateY(7px);box-shadow:inset 0 4px 8px rgba(67,56,42,.34),0 0 0 rgba(0,0,0,0)}
-.home-piano-key.black.is-pressed{transform:translateY(6px);box-shadow:inset 0 4px 5px rgba(0,0,0,.85),0 1px 2px rgba(0,0,0,.5)}
+.home-piano-key{position:absolute;box-sizing:border-box;padding:0;appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transform-origin:top center;transition:transform .09s ease-out,filter .09s ease;background-image:url('./assets/home-piano-wood-keys.png?v=wooden-keys-20261004');background-repeat:no-repeat;border:0;outline:none}
+.home-piano-key.white{top:58%;height:20%;z-index:1;border-radius:0 0 2px 2px;background-size:4004% 500%;clip-path:polygon(3% 0,97% 0,100% 100%,0 100%)}
+.home-piano-key.black{top:38%;height:22%;z-index:2;background-size:4004% 454.55%;clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}
+.home-piano-key:hover{filter:brightness(1.06)}
+.home-piano-key.white.is-pressed{transform:translateY(5px);filter:brightness(.88)}
+.home-piano-key.black.is-pressed{transform:translateY(4px);filter:brightness(.82)}
 .home-piano-key:focus-visible{outline:2px solid #fff;outline-offset:1px}
 .home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
 .home-piano-arrows>path{fill:none;stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 3px #000)}
@@ -439,7 +436,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:600px){
 .home-piano-stage{padding-bottom:62px}
- .home-piano-key.white.is-pressed{transform:translateY(5px)}
+ .home-piano-key.white.is-pressed{transform:translateY(4px)}
 .piano-prompt{width:30%;max-width:125px;padding:3px 4px;font-size:10px}
 .home-piano-hint{font-size:10px;margin-top:-52px}
 }
@@ -451,7 +448,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const prompts=[...stage.querySelectorAll('.piano-prompt')];
  const arrowSvg=stage.querySelector('.home-piano-arrows');
  const keyboard=stage.querySelector('.home-piano-keys');
- keyboard.innerHTML='<div class="home-piano-keybed" aria-hidden="true"></div>';
+ keyboard.replaceChildren();
  const audioContext=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;window.__homePianoAudio=window.__homePianoAudio||new C();return window.__homePianoAudio};
  const pianoSamples={C4:60,Ds4:63,Fs4:66,A4:69,C5:72,Ds5:75,Fs5:78,A5:81};let sampleBuffers=null,sampleLoading=null;
  const loadPianoSamples=()=>{if(sampleBuffers)return Promise.resolve(sampleBuffers);if(sampleLoading)return sampleLoading;const ctx=audioContext();if(!ctx)return Promise.reject(new Error('Web Audio no disponible'));sampleLoading=Promise.all(Object.entries(pianoSamples).map(async([name,note])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error(`No se pudo cargar ${name}`);const buffer=await ctx.decodeAudioData(await response.arrayBuffer());return[note,buffer]})).then(entries=>(sampleBuffers=new Map(entries)));return sampleLoading};
@@ -466,8 +463,10 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const whiteMidi=[];const whiteSteps=[0,2,4,5,7,9,11];
  for(let octave=0;octave<3;octave++)for(const step of whiteSteps){const note=12*(3+octave)+step;if(note>=48&&whiteMidi.length<14)whiteMidi.push(note)}
  const keys=[];whiteMidi.forEach((note,index)=>{keys.push({note,index,black:false});if(index<whiteMidi.length-1&&!([4,11].includes(note%12)))keys.push({note:note+1,index,black:true})});
- keys.filter(item=>!item.black).forEach(item=>{const button=document.createElement('button');button.type='button';button.className='home-piano-key white';button.dataset.note=String(item.note);button.dataset.pianoKey=`piano-note-${keys.indexOf(item)}`;const noteNames=['Do','Do sostenido','Re','Re sostenido','Mi','Fa','Fa sostenido','Sol','Sol sostenido','La','La sostenido','Si'];button.setAttribute('aria-label',`Tecla blanca ${noteNames[item.note%12]} ${Math.floor(item.note/12)-1}`);button.title='Toca para escuchar';button.style.left=`${item.index*100/14}%`;button.style.width=`${100/14}%`;keyboard.appendChild(button);item.element=button});
- keys.filter(item=>item.black).forEach(item=>{const button=document.createElement('button');button.type='button';button.className='home-piano-key black';button.dataset.note=String(item.note);button.dataset.pianoKey=`piano-note-${keys.indexOf(item)}`;const noteNames=['Do','Do sostenido','Re','Re sostenido','Mi','Fa','Fa sostenido','Sol','Sol sostenido','La','La sostenido','Si'];button.setAttribute('aria-label',`Tecla negra ${noteNames[item.note%12]} ${Math.floor(item.note/12)-1}`);button.title='Toca para escuchar';button.style.left=`${item.index*100/14+(100/14*.69)}%`;button.style.width=`${100/14*.62}%`;keyboard.appendChild(button);item.element=button});
+ const pianoImageWidth=2.86,whiteStep=1/14,visibleCropStart=.4286;
+ const setPhotoTexture=(button,item,black)=>{const offset=visibleCropStart+(item.index+(black?.69:0))*whiteStep;const position=offset/(pianoImageWidth-(black?whiteStep*.62:whiteStep));button.style.backgroundPosition=`${position*100}% ${black?48.72:72.5}%`};
+ keys.filter(item=>!item.black).forEach(item=>{const button=document.createElement('button');button.type='button';button.className='home-piano-key white';button.dataset.note=String(item.note);button.dataset.pianoKey=`piano-note-${keys.indexOf(item)}`;const noteNames=['Do','Do sostenido','Re','Re sostenido','Mi','Fa','Fa sostenido','Sol','Sol sostenido','La','La sostenido','Si'];button.setAttribute('aria-label',`Tecla blanca ${noteNames[item.note%12]} ${Math.floor(item.note/12)-1}`);button.title='Toca para escuchar';button.style.left=`${item.index*100/14}%`;button.style.width=`${100/14}%`;setPhotoTexture(button,item,false);keyboard.appendChild(button);item.element=button});
+ keys.filter(item=>item.black).forEach(item=>{const button=document.createElement('button');button.type='button';button.className='home-piano-key black';button.dataset.note=String(item.note);button.dataset.pianoKey=`piano-note-${keys.indexOf(item)}`;const noteNames=['Do','Do sostenido','Re','Re sostenido','Mi','Fa','Fa sostenido','Sol','Sol sostenido','La','La sostenido','Si'];button.setAttribute('aria-label',`Tecla negra ${noteNames[item.note%12]} ${Math.floor(item.note/12)-1}`);button.title='Toca para escuchar';button.style.left=`${item.index*100/14+(100/14*.69)}%`;button.style.width=`${100/14*.62}%`;setPhotoTexture(button,item,true);keyboard.appendChild(button);item.element=button});
  const shuffled=[...keys];for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]}const linked=shuffled.slice(0,4);
  linked.forEach((item,i)=>{const target=destinations[i];item.element.dataset.href=target.href;item.element.title=`${target.label}: toca para escuchar y entrar`;item.element.setAttribute('aria-label',`Tocar nota y entrar a ${target.label}`);const prompt=prompts.find(p=>p.dataset.key===target.key);if(prompt)prompt.dataset.targetId=item.element.dataset.pianoKey});
  const slots=[
