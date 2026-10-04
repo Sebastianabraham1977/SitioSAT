@@ -354,7 +354,7 @@
 
   var reactIs_development = createCommonjsModule(function (module, exports) {
 
-  if (process.env.NODE_ENV !== "production") {
+  if ("production" !== "production") {
     (function () {
 
       Object.defineProperty(exports, '__esModule', {
@@ -617,7 +617,7 @@
 
   var reactIs = createCommonjsModule(function (module) {
 
-  if (process.env.NODE_ENV === 'production') {
+  if ("production" === 'production') {
     module.exports = reactIs_production_min;
   } else {
     module.exports = reactIs_development;
@@ -731,7 +731,7 @@
 
   var printWarning = function () {};
 
-  if (process.env.NODE_ENV !== 'production') {
+  if ("production" !== 'production') {
     var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
 
     var loggedTypeFailures = {};
@@ -766,7 +766,7 @@
 
 
   function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-    if (process.env.NODE_ENV !== 'production') {
+    if ("production" !== 'production') {
       for (var typeSpecName in typeSpecs) {
         if (has(typeSpecs, typeSpecName)) {
           var error; // Prop type validation may throw. In case they do, we don't want to
@@ -810,7 +810,7 @@
 
 
   checkPropTypes.resetWarningCache = function () {
-    if (process.env.NODE_ENV !== 'production') {
+    if ("production" !== 'production') {
       loggedTypeFailures = {};
     }
   };
@@ -821,7 +821,7 @@
 
   var printWarning$1 = function () {};
 
-  if (process.env.NODE_ENV !== 'production') {
+  if ("production" !== 'production') {
     printWarning$1 = function (text) {
       var message = 'Warning: ' + text;
 
@@ -978,7 +978,7 @@
     PropTypeError.prototype = Error.prototype;
 
     function createChainableTypeChecker(validate) {
-      if (process.env.NODE_ENV !== 'production') {
+      if ("production" !== 'production') {
         var manualPropTypeCallCache = {};
         var manualPropTypeWarningCount = 0;
       }
@@ -993,7 +993,7 @@
             var err = new Error('Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use `PropTypes.checkPropTypes()` to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
             err.name = 'Invariant Violation';
             throw err;
-          } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          } else if ("production" !== 'production' && typeof console !== 'undefined') {
             // Old behavior for people using React.PropTypes
             var cacheKey = componentName + ':' + propName;
 
@@ -1122,7 +1122,7 @@
 
     function createEnumTypeChecker(expectedValues) {
       if (!Array.isArray(expectedValues)) {
-        if (process.env.NODE_ENV !== 'production') {
+        if ("production" !== 'production') {
           if (arguments.length > 1) {
             printWarning$1('Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' + 'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).');
           } else {
@@ -1188,7 +1188,7 @@
 
     function createUnionTypeChecker(arrayOfTypeCheckers) {
       if (!Array.isArray(arrayOfTypeCheckers)) {
-        process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+        "production" !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
         return emptyFunctionThatReturnsNull;
       }
 
@@ -1502,7 +1502,7 @@
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  if (process.env.NODE_ENV !== 'production') {
+  if ("production" !== 'production') {
     var ReactIs = reactIs; // By explicitly using `prop-types` you are opting into new development behavior.
     // http://fb.me/prop-types-in-prod
 
