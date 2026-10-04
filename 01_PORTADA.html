@@ -408,12 +408,22 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 <a href="./03_CANCIONERO.html#cancionero" aria-label="Cancionero y Piano Bar" title="Cancionero y Piano Bar" style="position:absolute;left:54%;top:37%;width:19%;height:38%;z-index:2"></a>
 <a href="./05_MUSICA_AUDIOVISUAL.html" aria-label="Música audiovisual" title="Música audiovisual" style="position:absolute;left:79%;top:37%;width:17%;height:38%;z-index:2"></a>
 </div>
-<nav aria-label="Explora con el piano" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:760px;margin:12px auto 0">
-<a href="./06_CLASES_DE_PIANO.html" style="color:#f1d27a;text-align:center;text-decoration:none;font:500 13px/1.35 Arial,sans-serif;padding:8px 4px">¿Quieres tomar clases de piano?</a>
-<a href="./04_BANDAS.html" style="color:#f1d27a;text-align:center;text-decoration:none;font:500 13px/1.35 Arial,sans-serif;padding:8px 4px">¿Quieres música en vivo para tu evento privado?</a>
-<a href="./03_CANCIONERO.html#cancionero" style="color:#f1d27a;text-align:center;text-decoration:none;font:500 13px/1.35 Arial,sans-serif;padding:8px 4px">¿Quieres cantar junto al piano?</a>
-<a href="./05_MUSICA_AUDIOVISUAL.html" style="color:#f1d27a;text-align:center;text-decoration:none;font:500 13px/1.35 Arial,sans-serif;padding:8px 4px">¿Quieres conocer mi música audiovisual?</a>
-</nav><style>@media(max-width:600px){.home-piano nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}.home-piano nav a{font-size:12px!important}}</style>
+<p class="home-piano-hint">Elige y pulsa una tecla</p>
+<nav class="home-piano-links" aria-label="Explora con el piano">
+<a class="home-piano-link piano-link-lessons" href="./06_CLASES_DE_PIANO.html">¿Quieres tomar clases de piano? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
+<a class="home-piano-link piano-link-live" href="./04_BANDAS.html">¿Quieres música en vivo para tu evento privado? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
+<a class="home-piano-link piano-link-sing" href="./03_CANCIONERO.html#cancionero">¿Quieres cantar junto al piano? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
+<a class="home-piano-link piano-link-video" href="./05_MUSICA_AUDIOVISUAL.html">¿Quieres conocer mi música audiovisual? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
+</nav>
+<style>
+.home-piano-hint{max-width:760px;margin:12px auto 4px;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.home-piano-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:760px;margin:0 auto}
+.home-piano-link{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;text-decoration:none;font:600 13px/1.35 Arial,sans-serif;padding:8px 5px;transition:filter .18s ease,transform .18s ease}
+.home-piano-link:hover,.home-piano-link:focus-visible{filter:brightness(1.25);transform:translateY(-2px);outline:2px solid currentColor;outline-offset:2px}
+.piano-step-arrow{width:22px;height:28px;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:3 3}
+.piano-link-lessons{color:#f1d27a}.piano-link-live{color:#ff8278}.piano-link-sing{color:#84d9c3}.piano-link-video{color:#c5a3ff}
+@media(max-width:600px){.home-piano-links{grid-template-columns:repeat(2,minmax(0,1fr))}.home-piano-link{font-size:12px}}
+</style>
 </section>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
 
