@@ -196,7 +196,7 @@
     if (!summary) return;
     let image = summary.querySelector('.song-cover-thumbnail');
     let frame = summary.querySelector('.song-cover-frame');
-    if (!detail.open || !song || !song.image) {
+    if ((!detail.open && !(song && song.title === 'BABY ONE MORE TIME')) || !song || !song.image) {
       if (frame) frame.remove();
       else if (image) image.remove();
       summary.classList.remove('has-cover');
