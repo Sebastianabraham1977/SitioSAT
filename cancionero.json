@@ -36,12 +36,13 @@
     {
       "artist": "Pedro Aznar",
       "externalUrl": null,
-      "image": "./assets/covers/pedro-aznar.jpg",
+      "image": "./assets/covers/pedro-aznar-color.jpg?v=color-portrait-2018-20261004",
       "lyrics": "Cuando no tenía nada, deseé\nCuando todo era ausencia, esperé\nCuando tuve frío, temblé\nCuando tuve coraje, llamé\n\nCuando llegó carta, la abrí\nCuando escuché a Prince, bailé\nCuando el ojo brilló, entendí\nCuando me crecieron alas, volé\n\nCuando me llamó, allá fui\nCuando me di cuenta, estaba ahí\nCuando te encontré, me perdí\nEn cuanto te vi, me enamoré\n\nAmara-daia soieh\nDaia-daia\nA-hín ña-han\n\nOoh, amara-daia soieh\nDaia-daia\nA-hín ña-han\n\nCuando llegó carta, la abrí\nCuando oí a Salif Keita, bailé\nCuando el ojo brilló, entendí\nCuando me crecieron alas, volé\n\nCuando me llamó, allá fui\nCuando me di cuenta, estaba ahí\nCuando te encontré, me perdí\nEn cuanto te vi, me enamoré\n\nAmara-daia soieh\nDaia-daia\nA-hín ña-han\n\nOoh, amara-daia soieh\nDaia-daia\nA-hín ña-han\n\nOoh, amara-daia soieh\nDaia-daia\nA-hín ña-han\n\nOoh, amara-daia soieh\nDaia-daia",
       "title": "A PRIMERA VISTA",
-      "imageCredit": "Nicolasaravena",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3APedro_Aznar.jpg"
+      "imageCredit": "Secretaría de Cultura de la Ciudad de México",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Pedro_Aznar_2018.jpg",
+      "imageTitle": "Pedro Aznar en retrato a color, 2018"
     },
     {
       "artist": "Fito Páez",
@@ -231,17 +232,21 @@
       "image": "./assets/covers/cher-young.jpg?v=cher-young-1970s-20261004",
       "lyrics": null,
       "title": "BELIEVE",
-      "imageCredit": "Gage Skidmore",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Cher_by_Gage_Skidmore.jpg",
+      "imageCredit": "Mondadori Collection",
+      "imageLicenseUrl": null,
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Cher_-_Casablanca_(cropped).jpg",
       "imageTitle": "Cher en un retrato de sus primeros años"
     },
     {
       "artist": "Riccardo Cocciante",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22BELLA%20SIN%20ALMA%20%28CUERPO%20SIN%20ALMA%29%22%20%22Riccardo%20Cocciante%22",
-      "image": null,
+      "externalUrl": "https://music.apple.com/us/song/272537775",
+      "image": "./assets/covers/riccardo-cocciante-1975.jpg?v=face-portrait-1975-20261004",
       "lyrics": null,
-      "title": "BELLA SIN ALMA (CUERPO SIN ALMA)"
+      "title": "BELLA SIN ALMA (CUERPO SIN ALMA)",
+      "imageCredit": "Mondadori Publishers",
+      "imageLicenseUrl": "https://commons.wikimedia.org/wiki/File:Riccardo_Cocciante_1975.jpg",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Riccardo_Cocciante_1975.jpg",
+      "imageTitle": "Retrato de Riccardo Cocciante, 1975"
     },
     {
       "artist": "Los Panchos",
@@ -1910,12 +1915,13 @@
     {
       "artist": "Pedro Aznar",
       "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22YA%20NO%20HAY%20FORMA%20DE%20PEDIR%20PERD%C3%93N%22%20%22Pedro%20Aznar%22",
-      "image": "./assets/covers/pedro-aznar.jpg",
+      "image": "./assets/covers/pedro-aznar-color.jpg?v=color-portrait-2018-20261004",
       "lyrics": null,
       "title": "YA NO HAY FORMA DE PEDIR PERDÓN",
-      "imageCredit": "Nicolasaravena",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3APedro_Aznar.jpg"
+      "imageCredit": "Secretaría de Cultura de la Ciudad de México",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Pedro_Aznar_2018.jpg",
+      "imageTitle": "Pedro Aznar en retrato a color, 2018"
     },
     {
       "artist": "Paulina Rubio",
