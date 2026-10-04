@@ -401,10 +401,16 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   </a>
 </section>
 <section class="home-virtual-piano" aria-label="Piano virtual interactivo">
-  <div class="home-virtual-piano-frame">
+  <div class="home-virtual-piano-frame" id="homePianoStage">
+    <svg class="home-piano-arrows" aria-hidden="true" preserveAspectRatio="none"><defs></defs></svg>
+    <a class="piano-prompt piano-prompt-lessons" data-destination="lessons" href="./06_CLASES_DE_PIANO.html">¿Quieres tomar clases de piano?</a>
+    <a class="piano-prompt piano-prompt-live" data-destination="live" href="./04_BANDAS.html">¿Quieres música en vivo para tu evento privado?</a>
+    <a class="piano-prompt piano-prompt-sing" data-destination="sing" href="./03_CANCIONERO.html#cancionero">¿Quieres cantar junto al piano?</a>
+    <a class="piano-prompt piano-prompt-video" data-destination="video" href="./05_MUSICA_AUDIOVISUAL.html">¿Quieres conocer mi música audiovisual?</a>
     <div class="home-piano-cabinet" aria-label="Mueble de piano clásico de madera">
       <div class="home-piano-key-window">
         <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="lazy" allow="autoplay"></iframe>
+        <div class="home-piano-key-links" aria-label="Teclas con accesos a las secciones"></div>
       </div>
       <a class="home-virtual-piano-credit" href="https://pianoaura.app/tools/keyboard/" target="_blank" rel="noopener noreferrer">Piano Aura</a>
     </div>
@@ -412,19 +418,61 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 </section>
 <style>
 .home-virtual-piano{box-sizing:border-box;width:min(100%,844px);margin:34px auto 56px;padding:0 12px}
-.home-virtual-piano-frame{width:100%}
+.home-virtual-piano-frame{position:relative;width:100%;box-sizing:border-box;padding:60px 0 70px;isolation:isolate}
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 .home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top}
+.home-piano-key-links{position:absolute;z-index:3;left:0;right:0;top:49%;bottom:0;display:flex}
+.home-piano-key-link{position:absolute;top:0;bottom:0;display:block;background:transparent;-webkit-tap-highlight-color:transparent}
+.home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
+.home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000)}
+.piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:210px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.86);font:600 14px/1.25 Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;box-shadow:0 2px 9px rgba(0,0,0,.35)}
+.piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
+.piano-prompt:hover{filter:brightness(1.2)}
 .home-virtual-piano-credit{position:absolute;right:9px;bottom:5px;margin:0;font:8px/1 Arial,sans-serif;color:rgba(255,235,205,.7);text-decoration:none;text-underline-offset:2px}
 .home-virtual-piano-credit:hover{text-decoration:underline}
 @media(max-width:640px){
+.home-virtual-piano-frame{padding:50px 0 62px}
 .home-piano-cabinet{height:260px;background-size:100% 178%}
 .home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
 .home-piano-key-window iframe{left:calc(50% - 12px);top:-209px;transform:translateX(-50%) scaleX(1.15)}
+.piano-prompt{width:32%;max-width:145px;padding:4px 5px;font-size:11px}
+.home-piano-arrows path{stroke-width:2;stroke-dasharray:6 6}
 }
 @media(max-width:360px){.home-piano-key-window iframe{transform:translateX(-50%) scaleX(.85)}}
 </style>
+<script>
+(()=>{
+ const stage=document.getElementById('homePianoStage');
+ if(!stage)return;
+ const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),prompts=[...stage.querySelectorAll('.piano-prompt')];
+ const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
+ const positions=[{left:'2%',top:'3px'},{right:'1%',top:'29px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
+ for(let i=positions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[positions[i],positions[j]]=[positions[j],positions[i]]}
+ const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
+ const chosen=[...notes].sort(()=>Math.random()-.5).slice(0,4);
+ prompts.forEach((prompt,i)=>{
+  Object.assign(prompt.style,positions[i]);
+  const note=chosen[i],key=document.createElement('a');
+  prompt.dataset.note=String(note);key.className='home-piano-key-link';key.href=byDestination[prompt.dataset.destination];key.dataset.note=String(note);key.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);
+  key.style.left=`${notes.indexOf(note)*100/14}%`;key.style.width=`${100/14}%`;layer.appendChild(key);
+ });
+ layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();window.location.assign(key.href)});
+ const draw=()=>{
+  const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);
+  prompts.forEach(prompt=>{
+   const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`);if(!key)return;
+   const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
+   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+2;
+   const bend=above?Math.min(y2-10,y1+Math.max(14,(y2-y1)*.55)):Math.max(y2+12,y1-Math.max(14,(y1-y2)*.55));
+   const color=getComputedStyle(prompt).color,id=`home-piano-arrow-${prompt.dataset.destination}`,marker=document.createElementNS('http://www.w3.org/2000/svg','marker'),head=document.createElementNS('http://www.w3.org/2000/svg','path'),path=document.createElementNS('http://www.w3.org/2000/svg','path');
+   marker.id=id;marker.setAttribute('markerWidth','9');marker.setAttribute('markerHeight','9');marker.setAttribute('refX','7');marker.setAttribute('refY','3.5');marker.setAttribute('orient','auto');head.setAttribute('d','M0,0 L7,3.5 L0,7');head.setAttribute('fill',color);marker.appendChild(head);defs.appendChild(marker);
+   path.setAttribute('d',`M${x1},${y1} V${bend} H${x2} V${y2}`);path.setAttribute('stroke',color);path.setAttribute('marker-end',`url(#${id})`);svg.appendChild(path);
+  });
+ };
+ requestAnimationFrame(draw);window.addEventListener('resize',()=>requestAnimationFrame(draw));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(draw)).observe(stage);
+})();
+</script>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
 
 <nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label>
