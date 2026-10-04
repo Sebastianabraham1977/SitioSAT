@@ -401,28 +401,41 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   </a>
 </section>
 <section class="home-piano" aria-label="Piano interactivo: elige una sección" style="margin:34px auto 56px;padding:0 12px;width:100%;position:relative;z-index:2">
-<div class="home-piano-photo" style="position:relative;width:min(96vw,820px);margin:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.6));line-height:0">
+<div class="home-piano-stage">
+<div class="home-piano-photo" style="position:relative;width:100%;margin:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.6));line-height:0">
 <img src="./assets/home-piano-wood-keys.png?v=wooden-keys-20261004" alt="Primer plano de un teclado de piano con acabado de madera" style="display:block;width:100%;height:auto">
-<a href="./06_CLASES_DE_PIANO.html" aria-label="Clases de piano" title="Clases de piano" style="position:absolute;left:4%;top:37%;width:19%;height:38%;z-index:2"></a>
-<a href="./04_BANDAS.html" aria-label="Música en vivo para tu evento" title="Música en vivo para tu evento" style="position:absolute;left:29%;top:37%;width:19%;height:38%;z-index:2"></a>
-<a href="./03_CANCIONERO.html#cancionero" aria-label="Cancionero y Piano Bar" title="Cancionero y Piano Bar" style="position:absolute;left:54%;top:37%;width:19%;height:38%;z-index:2"></a>
-<a href="./05_MUSICA_AUDIOVISUAL.html" aria-label="Música audiovisual" title="Música audiovisual" style="position:absolute;left:79%;top:37%;width:17%;height:38%;z-index:2"></a>
+<a href="./06_CLASES_DE_PIANO.html" aria-label="Clases de piano" title="Clases de piano" style="position:absolute;left:4%;top:37%;width:19%;height:38%;z-index:3"></a>
+<a href="./04_BANDAS.html" aria-label="Música en vivo para tu evento" title="Música en vivo para tu evento" style="position:absolute;left:29%;top:37%;width:19%;height:38%;z-index:3"></a>
+<a href="./03_CANCIONERO.html#cancionero" aria-label="Cancionero y Piano Bar" title="Cancionero y Piano Bar" style="position:absolute;left:54%;top:37%;width:19%;height:38%;z-index:3"></a>
+<a href="./05_MUSICA_AUDIOVISUAL.html" aria-label="Música audiovisual" title="Música audiovisual" style="position:absolute;left:79%;top:37%;width:17%;height:38%;z-index:3"></a>
+<span class="piano-prompt piano-prompt-lessons">¿Quieres tomar clases de piano?<svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></span>
+<span class="piano-prompt piano-prompt-live">¿Quieres música en vivo para tu evento privado?<svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></span>
+<span class="piano-prompt piano-prompt-sing">¿Quieres cantar junto al piano?<svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></span>
 </div>
-<p class="home-piano-hint">Elige y pulsa una tecla</p>
-<nav class="home-piano-links" aria-label="Explora con el piano">
-<a class="home-piano-link piano-link-lessons" href="./06_CLASES_DE_PIANO.html">¿Quieres tomar clases de piano? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
-<a class="home-piano-link piano-link-live" href="./04_BANDAS.html">¿Quieres música en vivo para tu evento privado? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
-<a class="home-piano-link piano-link-sing" href="./03_CANCIONERO.html#cancionero">¿Quieres cantar junto al piano? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
-<a class="home-piano-link piano-link-video" href="./05_MUSICA_AUDIOVISUAL.html">¿Quieres conocer mi música audiovisual? <svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></a>
-</nav>
+<span class="piano-prompt piano-prompt-video">¿Quieres conocer mi música audiovisual?<svg class="piano-step-arrow" viewBox="0 0 32 40" aria-hidden="true"><path d="M4 37V5H26V29"/><path d="m20 23 6 6 6-6"/></svg></span>
+</div>
+<p class="home-piano-hint">Pulsa la tecla que señala cada flecha</p>
 <style>
-.home-piano-hint{max-width:760px;margin:12px auto 4px;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-.home-piano-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:760px;margin:0 auto}
-.home-piano-link{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;text-decoration:none;font:600 13px/1.35 Arial,sans-serif;padding:8px 5px;transition:filter .18s ease,transform .18s ease}
-.home-piano-link:hover,.home-piano-link:focus-visible{filter:brightness(1.25);transform:translateY(-2px);outline:2px solid currentColor;outline-offset:2px}
-.piano-step-arrow{width:22px;height:28px;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:3 3}
-.piano-link-lessons{color:#f1d27a}.piano-link-live{color:#ff8278}.piano-link-sing{color:#84d9c3}.piano-link-video{color:#c5a3ff}
-@media(max-width:600px){.home-piano-links{grid-template-columns:repeat(2,minmax(0,1fr))}.home-piano-link{font-size:12px}}
+.home-piano-stage{position:relative;width:min(96vw,820px);margin:auto;padding-bottom:72px;isolation:isolate}
+.home-piano-photo{isolation:isolate}
+.piano-prompt{position:absolute;z-index:4;display:flex;align-items:center;gap:3px;max-width:23%;font:600 12px/1.2 Arial,sans-serif;text-align:center;line-height:1.25;text-shadow:0 1px 5px #000;pointer-events:none}
+.piano-prompt-lessons{left:2%;top:3%;width:21%;color:#f1d27a}
+.piano-prompt-live{left:27%;top:12%;width:22%;color:#ff8278}
+.piano-prompt-sing{left:52%;top:3%;width:21%;color:#84d9c3}
+.piano-prompt-video{right:1%;bottom:5px;width:24%;color:#c5a3ff;flex-direction:row-reverse}
+.piano-step-arrow{width:20px;height:29px;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:3 3;filter:drop-shadow(0 1px 2px #000)}
+.piano-prompt-video .piano-step-arrow{transform:rotate(180deg)}
+.home-piano-hint{max-width:760px;margin:-65px auto 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+@media(max-width:600px){
+.home-piano-stage{padding-bottom:62px}
+.piano-prompt{font-size:9px;gap:1px;max-width:24%;text-shadow:0 1px 4px #000}
+.piano-step-arrow{width:13px;height:22px}
+.piano-prompt-lessons{left:1%;top:4%;width:22%}
+.piano-prompt-live{left:26%;top:15%;width:23%}
+.piano-prompt-sing{left:51%;top:4%;width:23%}
+.piano-prompt-video{right:1%;bottom:3px;width:25%}
+.home-piano-hint{font-size:10px;margin-top:-55px}
+}
 </style>
 </section>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
