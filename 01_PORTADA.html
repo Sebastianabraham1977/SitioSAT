@@ -413,6 +413,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 <span class="piano-prompt piano-prompt-video" data-key="video">¿Quieres conocer mi música audiovisual?</span>
 </div>
 <p class="home-piano-hint">Toca cualquier tecla para escuchar; sigue una flecha para entrar</p>
+<p class="home-piano-credit">Sonido: <a href="https://github.com/Tonejs/audio/tree/master/salamander" target="_blank" rel="noopener">Salamander Grand Piano V2, grabaciones de Alexander Holm</a> · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a></p>
 <style>
 .home-piano-stage{position:relative;width:min(96vw,820px);margin:auto;padding-bottom:70px;isolation:isolate}
 .home-piano-photo{isolation:isolate}
@@ -431,6 +432,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:220px;padding:4px 7px;border-radius:5px;background:rgba(0,0,0,.7);font:600 12px/1.25 Arial,sans-serif;text-align:center;text-shadow:0 1px 4px #000;pointer-events:none}
 .piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
 .home-piano-hint{max-width:760px;margin:-58px auto 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.home-piano-credit{margin:6px auto 0;text-align:center;color:rgba(255,255,255,.48);font:10px/1.4 Arial,sans-serif}
+.home-piano-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:600px){
 .home-piano-stage{padding-bottom:62px}
  .home-piano-key.white.is-pressed{transform:translateY(5px) scaleY(.97)}
@@ -446,7 +449,10 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const arrowSvg=stage.querySelector('.home-piano-arrows');
  const keyboard=stage.querySelector('.home-piano-keys');
  const audioContext=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;window.__homePianoAudio=window.__homePianoAudio||new C();return window.__homePianoAudio};
- const playNote=async midi=>{const ctx=audioContext();if(!ctx)return;try{if(ctx.state!=='running')await ctx.resume()}catch(_){return}const now=ctx.currentTime+.004,freq=440*Math.pow(2,(midi-69)/12),partials=[1,2,3,4,5,6],levels=[.46,.2,.1,.055,.032,.017],master=ctx.createGain(),decay=Math.max(1.1,2.1*Math.pow(440/freq,.2));master.gain.setValueAtTime(.68,now);master.connect(ctx.destination);partials.forEach((harmonic,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain(),duration=decay/(1+i*.2);osc.type='sine';osc.frequency.value=freq*harmonic*Math.sqrt(1+.00008*harmonic*harmonic);gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(levels[i],now+.006);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);osc.connect(gain);gain.connect(master);osc.start(now);osc.stop(now+duration+.02)});const n=Math.max(1,Math.floor(ctx.sampleRate*.018)),buffer=ctx.createBuffer(1,n,ctx.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<n;i++)data[i]=(Math.random()*2-1)*(1-i/n);const hit=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),hitGain=ctx.createGain();hit.buffer=buffer;filter.type='highpass';filter.frequency.value=1800;hitGain.gain.setValueAtTime(.045,now);hitGain.gain.exponentialRampToValueAtTime(.0001,now+.018);hit.connect(filter);filter.connect(hitGain);hitGain.connect(master);hit.start(now)};
+ const pianoSamples={C4:60,Ds4:63,Fs4:66,A4:69,C5:72,Ds5:75,Fs5:78,A5:81};let sampleBuffers=null,sampleLoading=null;
+ const loadPianoSamples=()=>{if(sampleBuffers)return Promise.resolve(sampleBuffers);if(sampleLoading)return sampleLoading;const ctx=audioContext();if(!ctx)return Promise.reject(new Error('Web Audio no disponible'));sampleLoading=Promise.all(Object.entries(pianoSamples).map(async([name,note])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error(`No se pudo cargar ${name}`);const buffer=await ctx.decodeAudioData(await response.arrayBuffer());return[note,buffer]})).then(entries=>(sampleBuffers=new Map(entries)));return sampleLoading};
+ loadPianoSamples().catch(()=>{});
+ const playNote=async midi=>{const ctx=audioContext();if(!ctx)return;try{if(ctx.state!=='running')await ctx.resume();const samples=await loadPianoSamples();let baseNote=null;for(const note of samples.keys())if(baseNote===null||Math.abs(midi-note)<Math.abs(midi-baseNote))baseNote=note;const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=samples.get(baseNote);source.playbackRate.setValueAtTime(Math.pow(2,(midi-baseNote)/12),ctx.currentTime);gain.gain.setValueAtTime(.82,ctx.currentTime);source.connect(gain);gain.connect(ctx.destination);source.start()}catch(_){}};
  const destinations=[
   {key:'lessons',label:'Clases de piano',href:'./06_CLASES_DE_PIANO.html'},
   {key:'live',label:'Música en vivo',href:'./04_BANDAS.html'},
@@ -492,7 +498,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
    let releaseTimer;
    const press=()=>{key.classList.add('is-pressed');clearTimeout(releaseTimer);releaseTimer=window.setTimeout(()=>key.classList.remove('is-pressed'),180)};
    key.addEventListener('pointerdown',press);
-   key.addEventListener('click',()=>{press();playNote(Number(key.dataset.note));if(key.dataset.href)window.setTimeout(()=>window.location.assign(key.dataset.href),680)});
+   key.addEventListener('click',async()=>{press();await playNote(Number(key.dataset.note));if(key.dataset.href)window.setTimeout(()=>window.location.assign(key.dataset.href),900)});
   });
 })();
 </script>

@@ -1,0 +1,11 @@
+Piano recordings used by the interactive keyboard
+
+Salamander Grand Piano V2
+Recorded by Alexander Holm on a Yamaha C5 grand piano.
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+License text: https://creativecommons.org/licenses/by/3.0/
+Source samples: https://tonejs.github.io/audio/salamander/
+Source and instrument information: https://github.com/Tonejs/audio/tree/master/salamander
+
+The website plays these recordings at their recorded notes and transposes them
+by small intervals to cover the keyboard's full two-octave range.
