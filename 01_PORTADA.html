@@ -415,13 +415,13 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 <p class="home-piano-hint">Toca cualquier tecla para escuchar; sigue una flecha para entrar</p>
 <p class="home-piano-credit">Sonido: <a href="https://github.com/Tonejs/audio/tree/master/salamander" target="_blank" rel="noopener">Salamander Grand Piano V2, grabaciones de Alexander Holm</a> · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a></p>
 <style>
-.home-piano-stage{position:relative;width:min(100%,820px);max-width:100%;margin:auto;padding-bottom:70px;isolation:isolate;overflow:hidden}
+.home-piano-stage{position:relative;width:min(100%,820px);max-width:100%;margin:auto;padding-bottom:84px;isolation:isolate;overflow:hidden}
 .home-piano-photo{isolation:isolate}
 .home-piano-photo img{width:286%!important;max-width:none!important;height:100%!important;object-fit:fill;transform:translateX(-42.86%)}
 .home-piano-keys{position:absolute;inset:0;z-index:4}
 .home-piano-key{position:absolute;box-sizing:border-box;padding:0;appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transform-origin:top center;transition:transform .09s ease-out,filter .09s ease;background-image:url('./assets/home-piano-wood-keys.png?v=wooden-keys-20261004');background-repeat:no-repeat;border:0;outline:none}
 .home-piano-key.white{top:58%;height:20%;z-index:1;border-radius:0 0 2px 2px;background-size:4004% 500%;clip-path:polygon(3% 0,97% 0,100% 100%,0 100%)}
-.home-piano-key.black{top:38%;height:22%;z-index:2;background-size:4004% 454.55%;clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}
+.home-piano-key.black{top:38%;height:22%;z-index:2;background-size:6458% 454.55%;clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}
 .home-piano-key:hover{filter:brightness(1.06)}
 .home-piano-key.white.is-pressed{transform:translateY(5px);filter:brightness(.88)}
 .home-piano-key.black.is-pressed{transform:translateY(4px);filter:brightness(.82)}
@@ -431,14 +431,14 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-arrows marker path{stroke:none;stroke-dasharray:none;filter:none}
 .piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:220px;padding:4px 7px;border-radius:5px;background:rgba(0,0,0,.7);font:600 12px/1.25 Arial,sans-serif;text-align:center;text-shadow:0 1px 4px #000;pointer-events:none}
 .piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
-.home-piano-hint{max-width:760px;margin:-58px auto 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.home-piano-hint{max-width:760px;margin:12px auto 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
 .home-piano-credit{margin:6px auto 0;text-align:center;color:rgba(255,255,255,.48);font:10px/1.4 Arial,sans-serif}
 .home-piano-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:600px){
-.home-piano-stage{padding-bottom:62px}
+.home-piano-stage{padding-bottom:100px}
  .home-piano-key.white.is-pressed{transform:translateY(4px)}
 .piano-prompt{width:30%;max-width:125px;padding:3px 4px;font-size:10px}
-.home-piano-hint{font-size:10px;margin-top:-52px}
+.home-piano-hint{font-size:10px;margin-top:12px}
 }
 </style>
 <script>
