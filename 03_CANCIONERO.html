@@ -390,7 +390,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     </div>
   </section>
 </main>
-<header class="topbar"><span class="site-brand">Sebastián Abraham <span>Teare</span></span><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
+<header class="topbar"><span class="site-brand">Sebastián Abraham <span>Teare</span></span><button class="menu-button" type="button" aria-label="Abrir menú" aria-controls="menuPanel" aria-expanded="false"><span></span><span></span><span></span></button></header>
 
 <nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label>
   <label class="menu-close" for="menuToggle" aria-label="Cerrar menú" role="button" tabindex="0"></label>
@@ -14692,6 +14692,9 @@ body>.topbar{z-index:2147483647!important;pointer-events:auto!important}
 body>.topbar .menu-button{position:relative!important;z-index:2147483647!important;pointer-events:auto!important;cursor:pointer!important}
 body>.topbar .menu-button span{pointer-events:none!important}
 </style>
+<style id="cancionero-menu-button-touch-fix">
+body>.topbar .menu-button{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:inherit;font:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+</style>
 
 <script id="cancionero-menu-button-fix">
 (function(){
@@ -14701,10 +14704,12 @@ body>.topbar .menu-button span{pointer-events:none!important}
   button.addEventListener('click',function(event){
     event.preventDefault();
     toggle.checked=!toggle.checked;
+    button.setAttribute('aria-expanded',String(toggle.checked));
+    button.setAttribute('aria-label',toggle.checked?'Cerrar menú':'Abrir menú');
     toggle.dispatchEvent(new Event('change',{bubbles:true}));
   });
   document.addEventListener('keydown',function(event){
-    if(event.key==='Escape'&&toggle.checked){toggle.checked=false;}
+    if(event.key==='Escape'&&toggle.checked){toggle.checked=false;button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Abrir menú');}
   });
 })();
 </script>
