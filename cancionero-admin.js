@@ -197,10 +197,10 @@
     if (!summary) return;
     let image = summary.querySelector('.song-cover-thumbnail');
     let frame = summary.querySelector('.song-cover-frame');
-    let credit = summary.querySelector('.song-cover-credit');
     if (!detail.open || !song || !song.image) {
       if (frame) frame.remove();
       else if (image) image.remove();
+      const credit = summary.querySelector('.song-cover-credit');
       if (credit) credit.remove();
       summary.classList.remove('has-cover');
       return;
@@ -239,24 +239,8 @@
     image.classList.toggle('song-cover-francisca-face', artistKey === 'francisca valenzuela');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
-    if (song.imageCredit && song.imageSource && song.imageLicenseUrl) {
-      if (!credit) {
-        credit = document.createElement('a');
-        credit.className = 'song-cover-credit';
-        credit.target = '_blank';
-        credit.rel = 'noopener noreferrer';
-        credit.style.cssText = 'display:block;max-width:120px;margin:4px 10px 0 0;color:inherit;font-size:10px;line-height:1.25;text-decoration:underline;';
-      }
-      credit.href = song.imageSource;
-      credit.innerHTML = '';
-      credit.append(document.createTextNode('Foto: ' + song.imageCredit + ' · '));
-      const license = document.createElement('span');
-      license.textContent = 'CC BY-SA 4.0';
-      credit.appendChild(license);
-      if (text) summary.insertBefore(credit, text);
-    } else if (credit) {
-      credit.remove();
-    }
+    const credit = summary.querySelector('.song-cover-credit');
+    if (credit) credit.remove();
     summary.classList.add('has-cover');
   }
 
