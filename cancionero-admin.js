@@ -235,6 +235,7 @@
     image.classList.toggle('song-cover-silvio-face', artistKey === 'silvio rodriguez');
     image.classList.toggle('song-cover-eros-head', artistKey === 'eros ramazzotti');
     image.classList.toggle('song-cover-billy-face', artistKey === 'billy joel');
+    image.classList.toggle('song-cover-sergio-face', artistKey === 'sergio dalma');
     image.classList.toggle('song-cover-francisca-face', artistKey === 'francisca valenzuela');
     const text = summary.querySelector('.song-summary-text');
     if (text) summary.insertBefore(frame, text);
