@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090807">
+  <title>Administrador local · Cancionero</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0a09;--panel:#171411;--line:#403126;--gold:#e0bd79;--muted:#aaa197;--green:#8fd7ad;--red:#ff998e}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#39281c 0,transparent 55%),var(--bg);color:#f4eee5;font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+    header{padding:24px clamp(16px,4vw,44px) 16px;border-bottom:1px solid var(--line)}h1{margin:0;color:var(--gold);font-size:clamp(25px,4vw,36px)}header p{margin:8px 0 0;color:var(--muted);max-width:900px}
+    .notice{margin:18px auto;padding:12px 15px;max-width:1450px;border:1px solid #6f5636;border-radius:10px;background:#20170f;color:#ead9ba}.notice strong{color:#ffdc9b}
+    main{display:grid;grid-template-columns:minmax(250px,340px) minmax(0,1fr);gap:18px;max-width:1450px;margin:0 auto;padding:0 18px 32px}
+    .panel{background:rgba(23,20,17,.96);border:1px solid var(--line);border-radius:12px;min-width:0}.library{overflow:hidden;display:flex;flex-direction:column;max-height:calc(100vh - 230px);position:sticky;top:14px}.library-head{padding:14px;border-bottom:1px solid var(--line)}.counts{color:var(--muted);font-size:13px;margin:0 0 10px}.controls{display:flex;gap:8px;flex-wrap:wrap}
+    input,textarea,select,button{font:inherit}input[type=search],input[type=text],input[type=url],textarea,select{width:100%;background:#0d0c0b;border:1px solid #574638;border-radius:8px;color:#fff;padding:10px 11px}input:focus,textarea:focus,select:focus{outline:2px solid #ba9255;outline-offset:1px}button,.button{border:1px solid #85663f;background:#261c12;color:#f7e7c8;border-radius:8px;padding:9px 12px;cursor:pointer;text-align:center}button:hover,.button:hover{background:#382818}button.primary{background:#76542e;border-color:#be965e;color:#fff}button:disabled{opacity:.5;cursor:wait}
+    .song-list{overflow:auto;padding:5px 8px 12px}.song-row{width:100%;border:0;border-bottom:1px solid #302820;background:transparent;text-align:left;border-radius:0;padding:10px 7px;color:#f4eee5}.song-row.active{background:#302316}.song-row small{display:block;color:var(--muted);font-size:12px}.song-row.pending::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#e3a17d;margin-right:7px}.song-row.complete::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#7ac99a;margin-right:7px}
+    .editor{padding:clamp(14px,2vw,24px)}.editor-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}.editor-top h2{font-size:20px;margin:0;color:var(--gold)}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:grid;gap:6px}.field label{color:#d4c9ba;font-size:13px}.field.full{grid-column:1/-1}textarea{min-height:330px;resize:vertical;line-height:1.55;white-space:pre-wrap}.lyrics-help,.help{font-size:12px;color:var(--muted);margin:3px 0 0}.cover-line{display:flex;gap:14px;align-items:center}.cover-preview{width:94px;height:94px;object-fit:cover;border:1px solid var(--line);border-radius:8px;background:#080706}.cover-actions{display:grid;gap:8px}.cover-actions input[type=file]{max-width:100%;font-size:12px;color:#ddd}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}#status{color:var(--green);font-size:13px;flex:1 1 100%}.empty{padding:30px;color:var(--muted)}.source-link{display:inline-block;margin-top:7px;color:#dbbd87;font-size:13px}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap}.file-button{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:7px}.file-button input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+    @media(max-width:850px){main{grid-template-columns:1fr}.library{position:static;max-height:40vh}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.editor{padding:15px}textarea{min-height:260px}}
+  </style>
+</head>
+<body>
+  <header><h1>Administrador del Cancionero</h1><p>Editor local para completar fichas y carátulas. Los cambios quedan en este navegador; descarga el JSON para guardarlo en el proyecto.</p></header>
+  <div class="notice"><strong>Uso de letras:</strong> pega textos propios, de dominio público o que tengas autorización para publicar. Para las demás canciones, guarda un enlace a una fuente autorizada. Este administrador no busca ni copia letras comerciales automáticamente.</div>
+  <main>
+    <aside class="panel library" aria-label="Biblioteca de canciones">
+      <div class="library-head"><p class="counts" id="counts">Cargando base de datos…</p><input id="search" type="search" placeholder="Buscar canción o artista" aria-label="Buscar canción o artista"><div class="controls" style="margin-top:9px"><select id="filter" aria-label="Filtrar canciones"><option value="all">Todas</option><option value="missing">Falta texto</option><option value="complete">Con texto</option></select><button id="new-song" type="button">＋ Nueva</button></div></div>
+      <div class="song-list" id="song-list" role="listbox" aria-label="Canciones"></div>
+    </aside>
+    <section class="panel editor" aria-label="Editar canción"><div id="editor-content" class="empty">Cargando cancionero…</div></section>
+  </main>
+  <script src="./admin-cancionero.js?v=20261004"></script>
+</body>
+</html>
