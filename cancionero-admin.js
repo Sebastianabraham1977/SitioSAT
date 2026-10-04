@@ -73,7 +73,7 @@
     [keyFor({ title: 'HAY QUE VENIR AL SUR', artist: 'Raffaella Carrà' }), './assets/covers/raffaella-carra.jpg?v=raffaella-74-20261001'],
     [keyFor({ title: 'YO NO TE PIDO LA LUNA', artist: 'Daniela Romo' }), './assets/covers/daniela-romo-studio.jpg?v=daniela-80s-20261001'],
     [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927'],
-    [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-2011.jpg?v=20261004']
+    [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-schoolgirl.jpg?v=schoolgirl-20261004']
   ]);
   const artistCoverOverrides = new Map([
     ['fito paez', './assets/covers/fito-paez-1992.jpg?v=full-face-20260927'],
