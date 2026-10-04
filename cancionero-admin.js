@@ -23,7 +23,7 @@
   const keyFor = (song) => normalize(song.title) + '||' + normalize(song.artist);
   const defaultCoverOverrides = new Map([
     [keyFor({ title: 'HALO', artist: 'Beyoncé' }), './assets/covers/beyonce.jpg?v=face-ea627ca'],
-    [keyFor({ title: 'BAD ROMANCE', artist: 'Lady Gaga' }), './assets/covers/lady-gaga.jpg?v=bad-romance-20260928'],
+    [keyFor({ title: 'BAD ROMANCE', artist: 'Lady Gaga' }), 'https://img.youtube.com/vi/qrO4YZeyl0I/maxresdefault.jpg?v=bad-romance-official-video-20261004'],
     [keyFor({ title: 'ALWAYS REMEMBER US THIS WAY', artist: 'Lady Gaga' }), './assets/covers/lady-gaga.jpg?v=bad-romance-20260928'],
     [keyFor({ title: 'SHALLOW (FEAT. BRADLEY COOPER)', artist: 'Lady Gaga' }), './assets/covers/lady-gaga.jpg?v=bad-romance-20260928'],
     [keyFor({ title: 'A FUEGO LENTO', artist: 'Rosana Arbelo' }), './assets/covers/rosana-arbelo.jpg?v=rosana-face-20260927'],
@@ -73,7 +73,8 @@
     [keyFor({ title: 'HAY QUE VENIR AL SUR', artist: 'Raffaella Carrà' }), './assets/covers/raffaella-carra.jpg?v=raffaella-74-20261001'],
     [keyFor({ title: 'YO NO TE PIDO LA LUNA', artist: 'Daniela Romo' }), './assets/covers/daniela-romo-studio.jpg?v=daniela-80s-20261001'],
     [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927'],
-    [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-schoolgirl.jpg?v=schoolgirl-20261004']
+    [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-schoolgirl.jpg?v=schoolgirl-20261004'],
+    [keyFor({ title: 'BELIEVE', artist: 'Cher' }), './assets/covers/cher-young.jpg?v=cher-young-1970s-20261004']
   ]);
   const artistCoverOverrides = new Map([
     ['fito paez', './assets/covers/fito-paez-1992.jpg?v=full-face-20260927'],
