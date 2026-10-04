@@ -402,48 +402,30 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 </section>
 <section class="home-virtual-piano" aria-label="Piano virtual interactivo">
   <div class="home-virtual-piano-frame">
-    <div class="home-piano-stage" aria-label="Teclado virtual de dos octavas">
-      <div class="home-piano-photo"><div id="homePianoKeyboard" class="home-piano-mount"></div></div>
+    <div class="home-piano-cabinet" aria-label="Mueble de piano clásico de madera">
+      <div class="home-piano-key-window">
+        <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="lazy" allow="autoplay"></iframe>
+      </div>
     </div>
   </div>
-  <p class="home-virtual-piano-hint">Toca las teclas para escuchar el piano</p>
-  <p class="home-virtual-piano-credit">Sonido: <a href="https://github.com/Tonejs/audio/tree/master/salamander" target="_blank" rel="noopener noreferrer">Salamander Grand Piano V2</a>, grabaciones de Alexander Holm · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a> · Teclado: <a href="https://github.com/kevinsqi/react-piano" target="_blank" rel="noopener noreferrer">react-piano (MIT)</a></p>
+  <p class="home-virtual-piano-credit"><a href="https://pianoaura.app/tools/keyboard/" target="_blank" rel="noopener noreferrer">Piano Aura — tocar piano online</a></p>
 </section>
-<link rel="stylesheet" href="./assets/vendor/react-piano/styles.css">
-<script src="./assets/vendor/react-piano/react.production.min.js"></script>
-<script src="./assets/vendor/react-piano/react-dom.production.min.js"></script>
-<script src="./assets/vendor/react-piano/react-piano.umd.js?v=33fd6ff"></script>
 <style>
-.home-virtual-piano{box-sizing:border-box;width:min(100%,720px);margin:34px auto 56px;padding:0 12px}
-.home-virtual-piano-frame{padding:8px;border:1px solid #241209;border-radius:12px;background:linear-gradient(90deg,#291309,#85552f 6%,#48230f 12%,#9b643a 22%,#46220f 34%,#85532e 52%,#3b1c0d 68%,#9b643a 84%,#35180b);box-shadow:inset 0 1px 3px rgba(255,226,183,.45),inset 0 -5px 10px rgba(0,0,0,.58),0 12px 26px rgba(0,0,0,.55)}
-.home-piano-stage{position:relative;width:100%;margin:auto;overflow:hidden;border-radius:5px}
-.home-piano-photo{position:relative;width:100%;aspect-ratio:2.2/1;overflow:hidden;background:#100a07 url('./assets/piano-walnut-cabinet.jpg?v=walnut-real-20261004') center 50%/100% 155% no-repeat;box-shadow:inset 0 0 8px #000}
-.home-piano-mount{position:absolute;left:3%;right:3%;top:34%;bottom:18%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
-.home-piano-mount .ReactPiano__Keyboard{width:100%;height:100%;overflow:visible;touch-action:none}
-.home-piano-mount .ReactPiano__Key{box-sizing:border-box;outline:none;touch-action:none;-webkit-tap-highlight-color:transparent;transition:transform .12s cubic-bezier(.2,.7,.35,1),filter .12s ease-out}
-.home-piano-mount .ReactPiano__Key--natural{position:relative;z-index:0;flex:1;min-width:0;margin:0;border:0;border-right:1px solid #b8b5ae;border-radius:0 0 2px 2px;background:linear-gradient(90deg,#d2d0ca 0%,#fff 8%,#faf9f5 88%,#d2d0ca 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.98),inset 0 -7px 0 rgba(80,76,69,.2),0 2px 3px rgba(0,0,0,.48)}
-.home-piano-mount .ReactPiano__Key--natural:last-child{border-right:0}
-.home-piano-mount .ReactPiano__Key--accidental{z-index:1;height:62%;border:1px solid #101010;border-top:0;border-radius:0 0 3px 3px;background:linear-gradient(90deg,#070707,#252525 32%,#090909 84%);box-shadow:inset 0 1px 1px rgba(255,255,255,.22),inset 0 -4px 0 rgba(0,0,0,.85),0 4px 5px rgba(0,0,0,.7)}
-.home-piano-mount .ReactPiano__Key--active{transform:translateY(7px);filter:brightness(.87)}
-.home-virtual-piano-hint{margin:9px 0 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase}
-.home-virtual-piano-credit{margin:5px 0 0;text-align:center;font:10px/1.4 Arial,sans-serif;color:rgba(255,255,255,.58)}
+.home-virtual-piano{box-sizing:border-box;width:min(100%,844px);margin:34px auto 56px;padding:0 12px}
+.home-virtual-piano-frame{width:100%}
+.home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
+.home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
+.home-piano-key-window iframe{position:absolute;left:50%;top:-225px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top}
+.home-virtual-piano-credit{margin:7px 0 0;text-align:center;font:11px/1.4 Arial,sans-serif;color:rgba(255,255,255,.58)}
 .home-virtual-piano-credit a{color:inherit;text-underline-offset:2px}
-@media(max-width:600px){.home-virtual-piano-frame{padding:5px;border-radius:8px}.home-virtual-piano-hint{font-size:10px}.home-virtual-piano-credit{font-size:9px}}
+@media(max-width:640px){
+.home-piano-cabinet{height:260px;background-size:100% 178%}
+.home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
+.home-piano-key-window iframe{left:calc(50% - 12px);top:-203px;transform:translateX(-50%) scaleX(1.02)}
+.home-virtual-piano-credit{font-size:10px}
+}
+@media(max-width:360px){.home-piano-key-window iframe{transform:translateX(-50%) scaleX(.85)}}
 </style>
-<script>
-(()=>{
- const mount=document.getElementById('homePianoKeyboard');
- if(!mount||!window.React||!window.ReactDOM||!window.ReactPiano)return;
- const firstNote=60,lastNote=83;
- const samples={C4:60,Ds4:63,Fs4:66,A4:69,C5:72,Ds5:75,Fs5:78,A5:81};
- let context=null,buffers=null,loading=null;
- const getContext=()=>{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return null;context=context||new Audio();return context};
- const loadSamples=()=>{if(buffers)return Promise.resolve(buffers);if(loading)return loading;const ctx=getContext();if(!ctx)return Promise.reject(new Error('Web Audio no disponible'));loading=Promise.all(Object.entries(samples).map(async([name,note])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error(`No se pudo cargar ${name}`);return[note,await ctx.decodeAudioData(await response.arrayBuffer())]})).then(entries=>(buffers=new Map(entries)));return loading};
- const playNote=async midi=>{const ctx=getContext();if(!ctx)return;try{if(ctx.state!=='running')await ctx.resume();const bank=await loadSamples();let base=null;for(const note of bank.keys())if(base===null||Math.abs(midi-note)<Math.abs(midi-base))base=note;const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=bank.get(base);source.playbackRate.setValueAtTime(Math.pow(2,(midi-base)/12),ctx.currentTime);gain.gain.setValueAtTime(.8,ctx.currentTime);source.connect(gain);gain.connect(ctx.destination);source.start()}catch(error){console.error('No se pudo reproducir el piano',error)}};
- const render=()=>{const width=Math.max(280,Math.round(mount.getBoundingClientRect().width)),height=Math.max(90,Math.round(mount.getBoundingClientRect().height));const shortcuts=window.ReactPiano.KeyboardShortcuts.create({firstNote,lastNote,keyboardConfig:window.ReactPiano.KeyboardShortcuts.HOME_ROW});window.ReactDOM.render(window.React.createElement(window.ReactPiano.Piano,{noteRange:{first:firstNote,last:lastNote},playNote,stopNote:()=>{},width,keyWidthToHeight:(width/14)/height,keyboardShortcuts:shortcuts,useTouchEvents:true}),mount)};
- render();window.addEventListener('resize',()=>requestAnimationFrame(render));
-})();
-</script>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
 
 <nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label>
