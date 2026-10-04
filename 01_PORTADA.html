@@ -400,14 +400,11 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     <span class="portada-video-label">Video</span>
   </a>
 </section>
-<section class="home-piano" aria-label="Piano interactivo: toca una tecla para elegir una sección" style="margin:34px auto 56px;padding:0 12px;width:100%;position:relative;z-index:2">
+<section class="home-piano" aria-label="Piano interactivo: toca cualquier tecla para escuchar; las flechas señalan accesos a secciones" style="margin:34px auto 56px;padding:0 12px;width:100%;position:relative;z-index:2">
 <div class="home-piano-stage">
-<div class="home-piano-photo" style="position:relative;width:100%;margin:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.6));line-height:0">
+<div class="home-piano-photo" style="position:relative;width:100%;margin:auto;aspect-ratio:2.2/1;overflow:hidden;filter:drop-shadow(0 12px 18px rgba(0,0,0,.6));line-height:0">
 <img src="./assets/home-piano-wood-keys.png?v=wooden-keys-20261004" alt="Primer plano de un teclado de piano con acabado de madera" style="display:block;width:100%;height:auto">
-<a class="home-piano-key piano-key-lessons" href="./06_CLASES_DE_PIANO.html" aria-label="Tocar tecla para entrar a Clases de piano" title="Clases de piano"></a>
-<a class="home-piano-key piano-key-live" href="./04_BANDAS.html" aria-label="Tocar tecla para entrar a Música en vivo" title="Música en vivo"></a>
-<a class="home-piano-key piano-key-sing" href="./03_CANCIONERO.html#cancionero" aria-label="Tocar tecla para entrar a Cancionero y Piano Bar" title="Cancionero y Piano Bar"></a>
-<a class="home-piano-key piano-key-video" href="./05_MUSICA_AUDIOVISUAL.html" aria-label="Tocar tecla para entrar a Música audiovisual" title="Música audiovisual"></a>
+<div class="home-piano-keys" aria-label="Teclado interactivo"></div>
 </div>
 <svg class="home-piano-arrows" aria-hidden="true" preserveAspectRatio="none"><defs></defs></svg>
 <span class="piano-prompt piano-prompt-lessons" data-key="lessons">¿Quieres tomar clases de piano?</span>
@@ -415,16 +412,20 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 <span class="piano-prompt piano-prompt-sing" data-key="sing">¿Quieres cantar junto al piano?</span>
 <span class="piano-prompt piano-prompt-video" data-key="video">¿Quieres conocer mi música audiovisual?</span>
 </div>
-<p class="home-piano-hint">Toca la tecla que señala cada flecha</p>
+<p class="home-piano-hint">Toca cualquier tecla para escuchar; sigue una flecha para entrar</p>
 <style>
 .home-piano-stage{position:relative;width:min(96vw,820px);margin:auto;padding-bottom:70px;isolation:isolate}
 .home-piano-photo{isolation:isolate}
-.home-piano-key{position:absolute;top:43%;height:34%;z-index:4;width:9%;border-radius:5px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.piano-key-lessons{left:9%}.piano-key-live{left:34%}.piano-key-sing{left:59%}.piano-key-video{left:84%}
-.home-piano-key::after{content:"";position:absolute;left:28%;right:28%;top:0;bottom:0;border-radius:3px;transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
-.home-piano-key:hover::after,.home-piano-key:focus-visible::after{background:rgba(255,255,255,.16);outline:1px solid rgba(255,255,255,.75);outline-offset:1px}
-.home-piano-key:active::after,.home-piano-key.is-pressed::after{transform:translateY(5px) scaleY(.96);background:rgba(60,40,25,.36);box-shadow:inset 0 5px 9px rgba(0,0,0,.48)}
-.home-piano-key:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.home-piano-photo img{width:220%!important;max-width:none!important;height:100%!important;object-fit:fill;transform:translateX(-27.27%)}
+.home-piano-keys{position:absolute;inset:0;z-index:4}
+.home-piano-key{position:absolute;top:49%;height:36%;padding:0;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;background:transparent;transform-origin:top center}
+.home-piano-key.white{border-radius:0 0 3px 3px}
+.home-piano-key.black{top:49%;height:20%;z-index:2;border-radius:0 0 4px 4px}
+.home-piano-key.white:hover,.home-piano-key.white:focus-visible{background:rgba(255,255,255,.19);box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)}
+.home-piano-key.black:hover,.home-piano-key.black:focus-visible{background:rgba(255,255,255,.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)}
+.home-piano-key.white.is-pressed{transform:translateY(6px) scaleY(.97);background:rgba(64,42,23,.38);box-shadow:inset 0 5px 10px rgba(0,0,0,.45)}
+.home-piano-key.black.is-pressed{transform:translateY(5px) scaleY(.96);background:rgba(190,165,128,.3);box-shadow:inset 0 3px 7px rgba(0,0,0,.8)}
+.home-piano-key:focus-visible{outline:2px solid #fff;outline-offset:1px}
 .home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
 .home-piano-arrows>path{fill:none;stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 3px #000)}
 .home-piano-arrows marker path{stroke:none;stroke-dasharray:none;filter:none}
@@ -433,8 +434,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-hint{max-width:760px;margin:-58px auto 0;text-align:center;color:#fff;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
 @media(max-width:600px){
 .home-piano-stage{padding-bottom:62px}
-.home-piano-key{width:12%;top:43%;height:34%}
-.piano-key-lessons{left:7.5%}.piano-key-live{left:32.5%}.piano-key-sing{left:57.5%}.piano-key-video{left:82.5%}
+ .home-piano-key.white.is-pressed{transform:translateY(5px) scaleY(.97)}
 .piano-prompt{width:30%;max-width:125px;padding:3px 4px;font-size:10px}
 .home-piano-hint{font-size:10px;margin-top:-52px}
 }
@@ -445,6 +445,21 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  if(!stage)return;
  const prompts=[...stage.querySelectorAll('.piano-prompt')];
  const arrowSvg=stage.querySelector('.home-piano-arrows');
+ const keyboard=stage.querySelector('.home-piano-keys');
+ const audioContext=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;window.__homePianoAudio=window.__homePianoAudio||new C();if(window.__homePianoAudio.state==='suspended')window.__homePianoAudio.resume();return window.__homePianoAudio};
+ const playNote=midi=>{const ctx=audioContext();if(!ctx)return;const now=ctx.currentTime,freq=440*Math.pow(2,(midi-69)/12),partials=[1,2,3,4,5,6],levels=[.23,.105,.055,.027,.014,.008];partials.forEach((harmonic,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=freq*harmonic;gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(levels[i],now+.009);gain.gain.exponentialRampToValueAtTime(.0001,now+Math.max(.28,2.4-i*.28));osc.connect(gain);gain.connect(ctx.destination);osc.start(now);osc.stop(now+Math.max(.3,2.5-i*.28))})};
+ const destinations=[
+  {key:'lessons',label:'Clases de piano',href:'./06_CLASES_DE_PIANO.html'},
+  {key:'live',label:'Música en vivo',href:'./04_BANDAS.html'},
+  {key:'sing',label:'Cancionero y Piano Bar',href:'./03_CANCIONERO.html#cancionero'},
+  {key:'video',label:'Música audiovisual',href:'./05_MUSICA_AUDIOVISUAL.html'}
+ ];
+ const whiteMidi=[];const whiteSteps=[0,2,4,5,7,9,11];
+ for(let octave=0;octave<3;octave++)for(const step of whiteSteps){const note=12*(3+octave)+step;if(note>=48&&whiteMidi.length<14)whiteMidi.push(note)}
+ const keys=[];whiteMidi.forEach((note,index)=>{keys.push({note,index,black:false});if(index<whiteMidi.length-1&&!([4,11].includes(note%12)))keys.push({note:note+1,index,black:true})});
+ keys.forEach((item,i)=>{const button=document.createElement('button');button.type='button';button.className=`home-piano-key ${item.black?'black':'white'}`;button.dataset.note=String(item.note);button.dataset.pianoKey=`piano-note-${i}`;const noteNames=['Do','Do sostenido','Re','Re sostenido','Mi','Fa','Fa sostenido','Sol','Sol sostenido','La','La sostenido','Si'];button.setAttribute('aria-label',`${item.black?'Tecla negra':'Tecla blanca'} ${noteNames[item.note%12]} ${Math.floor(item.note/12)-1}`);button.title='Toca para escuchar';button.style.left=`${item.index*100/14+(item.black?100/14*.69:0)}%`;button.style.width=`${100/14*(item.black?.62:1)}%`;keyboard.appendChild(button);item.element=button});
+ const shuffled=[...keys];for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]}const linked=shuffled.slice(0,4);
+ linked.forEach((item,i)=>{const target=destinations[i];item.element.dataset.href=target.href;item.element.title=`${target.label}: toca para escuchar y entrar`;item.element.setAttribute('aria-label',`Tocar nota y entrar a ${target.label}`);const prompt=prompts.find(p=>p.dataset.key===target.key);if(prompt)prompt.dataset.targetId=item.element.dataset.pianoKey});
  const slots=[
   {left:'2%',top:'3%',bottom:'auto'},
   {left:'73%',top:'13%',bottom:'auto'},
@@ -457,7 +472,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const rect=stage.getBoundingClientRect(),w=stage.clientWidth,h=stage.clientHeight;
   const defs=arrowSvg.querySelector('defs');defs.replaceChildren();arrowSvg.setAttribute('viewBox',`0 0 ${w} ${h}`);arrowSvg.replaceChildren(defs);
   prompts.forEach(prompt=>{
-   const key=stage.querySelector(`.piano-key-${prompt.dataset.key}`);
+   const key=stage.querySelector(`[data-piano-key="${prompt.dataset.targetId}"]`);
    if(!key)return;
    const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect();
    const down=b.top>a.bottom;
@@ -474,18 +489,12 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  };
  requestAnimationFrame(drawArrows);window.addEventListener('resize',drawArrows);
  if('ResizeObserver'in window)new ResizeObserver(drawArrows).observe(stage);
- stage.querySelectorAll('.home-piano-key').forEach(key=>{
-  key.addEventListener('click',event=>{
-   if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-   event.preventDefault();key.classList.add('is-pressed');
-   window.setTimeout(()=>window.location.assign(key.href),180);
+  stage.querySelectorAll('.home-piano-key').forEach(key=>{
+   let releaseTimer;
+   const press=()=>{key.classList.add('is-pressed');clearTimeout(releaseTimer);releaseTimer=window.setTimeout(()=>key.classList.remove('is-pressed'),180)};
+   key.addEventListener('pointerdown',press);
+   key.addEventListener('click',()=>{press();playNote(Number(key.dataset.note));if(key.dataset.href)window.setTimeout(()=>window.location.assign(key.dataset.href),680)});
   });
-  key.addEventListener('keydown',event=>{
-   if(event.code!=='Space')return;
-   event.preventDefault();key.classList.add('is-pressed');
-   window.setTimeout(()=>window.location.assign(key.href),180);
-  });
- });
 })();
 </script>
 </section>
