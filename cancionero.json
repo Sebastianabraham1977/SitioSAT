@@ -194,9 +194,13 @@
     {
       "artist": "Sergio Dalma",
       "externalUrl": null,
-      "image": null,
+      "image": "./assets/covers/sergio-dalma.jpg?v=bailar-pegados-cover-20261004",
       "lyrics": "Bailar de lejos no es bailar\nEs como estar bailando solo\nTú bailando en tu volcán\nY a dos metros de ti\nBailando yo en el polo\n\nProbemos una sola vez\nBailar pegados, como a fuego\nAbrazados al compás\nSin separar jamás\nTu cuerpo de mi cuerpo\n\nBailar pegados es bailar\nIgual que baila el mar\nCon los delfines\nCorazón con corazón\nEn un solo salón\nDos bailarines\n\nAbrazadísimos los dos\nAcariciándonos\nSintiéndonos la piel\nNuestra balada va a sonar\nVamos a probar\nProbar el arte de volar\n\nBailar pegados es bailar\nBailar pegados es bailar\nEs bailar\n\nVerás, la música después\nTe va pidiendo un beso a gritos\nY te sube por los pies\nUn algo que no ves\nLo que nunca se ha escrito, oh\n\nBailar pegados es bailar\nIgual que baila el mar\nCon los delfines\nCorazón con corazón\nEn un solo salón\nDos bailarines\n\nAbrazadísimos los dos\nAcariciándonos\nSintiéndonos la piel\nNuestra balada va a sonar\nVamos a probar\nProbar el arte de volar\n\nBailar pegados es bailar\nBailar pegados es bailar\nEs bailar",
-      "title": "BAILAR PEGADOS"
+      "title": "BAILAR PEGADOS",
+      "imageCredit": "Rubén Ortega",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Sergio_Dalma_7.jpg",
+      "imageTitle": "Sergio Dalma en concierto en Valladolid, 2015"
     },
     {
       "artist": "La Renga",
@@ -223,9 +227,13 @@
     {
       "artist": "Cher",
       "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22BELIEVE%22%20%22Cher%22",
-      "image": null,
+      "image": "./assets/covers/cher.jpg?v=believe-cover-20261004",
       "lyrics": null,
-      "title": "BELIEVE"
+      "title": "BELIEVE",
+      "imageCredit": "Gage Skidmore",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Cher_by_Gage_Skidmore.jpg",
+      "imageTitle": "Cher en un evento en Phoenix, 2020"
     },
     {
       "artist": "Riccardo Cocciante",
