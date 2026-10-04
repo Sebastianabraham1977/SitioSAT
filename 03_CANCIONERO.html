@@ -14360,8 +14360,26 @@ html,body{position:relative !important;}
 #menuToggle:checked~#menuPanel{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
 #menuPanel .menu-links,#menuPanel .menu-links a{pointer-events:auto!important}
 #menuPanel::before{pointer-events:none!important}
-body>.topbar{z-index:2147482999!important}
+body>.topbar{z-index:2147483647!important;pointer-events:auto!important}
+body>.topbar .menu-button{position:relative!important;z-index:2147483647!important;pointer-events:auto!important;cursor:pointer!important}
+body>.topbar .menu-button span{pointer-events:none!important}
 </style>
+
+<script id="cancionero-menu-button-fix">
+(function(){
+  var toggle=document.getElementById('menuToggle');
+  var button=document.querySelector('body > .topbar .menu-button');
+  if(!toggle||!button)return;
+  button.addEventListener('click',function(event){
+    event.preventDefault();
+    toggle.checked=!toggle.checked;
+    toggle.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape'&&toggle.checked){toggle.checked=false;}
+  });
+})();
+</script>
 
 <style id="cancionero-retrato-encuadres">
 .song-cover-frame{display:block;width:84px;height:84px;overflow:hidden;background:#080808;border-radius:3px}.song-cover-thumbnail.song-cover-amy-face{object-position:center top!important;transform:scale(1.35);transform-origin:50% 4%}.song-cover-thumbnail.song-cover-cerati-face{object-position:center top!important;transform:scale(2.05);transform-origin:50% 31%}.song-cover-thumbnail.song-cover-juan-face{object-fit:cover!important;object-position:center 18%!important;transform:scale(1.45);transform-origin:50% 16%;background:#000}.song-cover-full-band{object-fit:contain!important;background:#080808}@media(max-width:600px){.song-cover-frame{width:70px;height:70px}}
