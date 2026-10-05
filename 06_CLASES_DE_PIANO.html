@@ -33,6 +33,7 @@
     main { position: relative; isolation: isolate; width: min(100% - 48px, 980px); margin: 0 auto; padding: clamp(132px,18vh,190px) 0 80px; }
     .beethoven-watermark { position: absolute; z-index: 0; top: 18px; right: 0; width: min(42vw, 390px); height: 390px; background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Beethoven_1820.jpg/500px-Beethoven_1820.jpg") center 16% / auto 205% no-repeat; opacity: .38; filter: blur(1px) brightness(1.2); mask-image: radial-gradient(ellipse at center, #000 54%, transparent 100%); pointer-events: none; }
     .hector-watermark { position: absolute; z-index: 0; top: 430px; left: 0; width: min(42vw, 360px); height: 370px; background: url("https://historia-biografia.com/wp-content/uploads/2017/02/hector_lavoe.webp") center 28% / cover no-repeat; opacity: .24; filter: blur(1.5px) brightness(1.12); mask-image: radial-gradient(ellipse at center, #000 48%, transparent 100%); pointer-events: none; }
+    .michael-watermark { position: absolute; z-index: 0; top: 760px; right: -4px; width: min(42vw, 360px); height: 370px; background: url("https://upload.wikimedia.org/wikipedia/commons/8/8c/Michael_Jackson_with_the_Reagans_%282x3_cropped%29.jpg") center 30% / cover no-repeat; opacity: .22; filter: blur(1.5px) brightness(1.12); mask-image: radial-gradient(ellipse at center, #000 48%, transparent 100%); pointer-events: none; }
     main h1, main .class-copy { position: relative; z-index: 1; }
     h1 { margin: 0 0 28px; color: #f1ce70; font: 500 clamp(38px,6vw,54px)/1.1 "Instrument Sans",Arial,sans-serif; }
     h1::after { content: ""; display: block; width: 64px; height: 2px; margin-top: 14px; background: #e3001d; }
@@ -45,6 +46,7 @@
       main { width: calc(100% - 40px); padding-top: 112px; }
       .beethoven-watermark { top: 10px; right: -8px; width: min(62vw, 300px); height: 310px; opacity: .34; filter: blur(1px) brightness(1.2); background-size: auto 210%; background-position: center 13%; }
       .hector-watermark { top: 420px; left: -10px; width: min(66vw, 280px); height: 320px; opacity: .22; }
+      .michael-watermark { top: 740px; right: -8px; width: min(66vw, 280px); height: 320px; opacity: .20; }
       .class-copy { font-size: 18px; line-height: 1.6; }
     }
   </style>
@@ -82,6 +84,7 @@
   <main>
     <div class="beethoven-watermark" aria-hidden="true"></div>
     <div class="hector-watermark" aria-hidden="true" title="Héctor Lavoe · fotografía de Wolly101, CC BY-SA 3.0"></div>
+    <div class="michael-watermark" aria-hidden="true" title="Michael Jackson con Ronald y Nancy Reagan, fotografía de Jack Kightlinger, White House Photo Office, 1984"></div>
     <h1>Clases de piano</h1>
     <div class="class-copy">
       <p>Ofrezco clases de piano a domicilio y en modalidad online, para quienes quieran aprender, desarrollar su técnica y disfrutar de la música. Trabajo con alumnos desde nivel inicial hasta niveles más avanzados, adaptando los contenidos, la técnica, la lectura musical y el repertorio a cada persona.</p>
