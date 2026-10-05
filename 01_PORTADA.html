@@ -447,6 +447,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  if(!stage)return;
  const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),keyboard=stage.querySelector('.home-piano-key-window iframe'),prompts=[...stage.querySelectorAll('.piano-prompt')];
  const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
+ const keyNudges={lessons:.15,live:.18,sing:-.15,video:.06};
   const positions=[{left:'2%',top:'3px'},{right:'1%',top:'29px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,69,72];
@@ -472,7 +473,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  });
  const alignKeys=()=>{
   const pianoRect=keyboard.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!layerRect.width)return;const whiteKeyWidth=pianoRect.width/14;
-  prompts.forEach(prompt=>{const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=pianoRect.left+index*whiteKeyWidth;key.style.left=`${(left-layerRect.left)/layerRect.width*100}%`;key.style.width=`${whiteKeyWidth/layerRect.width*100}%`});
+  prompts.forEach(prompt=>{const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=pianoRect.left+(index+keyNudges[prompt.dataset.destination])*whiteKeyWidth;key.style.left=`${(left-layerRect.left)/layerRect.width*100}%`;key.style.width=`${whiteKeyWidth/layerRect.width*100}%`});
  };
  const activateLink=(key,event)=>{if(!key)return;event.preventDefault();if(key.dataset.busy==='true')return;key.dataset.busy='true';key.classList.add('is-pressed');const href=key.href,note=+key.dataset.note;window.setTimeout(()=>key.classList.remove('is-pressed'),260);let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,2400);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,1100)}})};
  layer.addEventListener('pointerdown',event=>{const key=event.target.closest('.home-piano-key-link');if(key)activateLink(key,event)});
