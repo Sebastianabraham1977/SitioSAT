@@ -449,7 +449,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
   const positions=[{left:'2%',top:'3px'},{right:'1%',top:'29px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
- const chosen=[65,77,69,74];
+ const chosen=[65,77,69,72];
  const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();let audioContext=null,samplesReady=null;
  const loadSamples=()=>{
   const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return Promise.resolve(false);
