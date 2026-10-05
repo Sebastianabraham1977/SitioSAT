@@ -479,7 +479,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  notes.forEach((note,index)=>{
   const key=document.createElement('button');key.type='button';key.className='home-piano-play-key home-piano-play-key-white';key.dataset.note=String(note);key.setAttribute('aria-label',`Tocar nota ${note}`);layer.appendChild(key);whitePlayKeys.push({key,index});
  });
- const blackBoundaries=[1,2,4,5,6,8,9,11,12,13],blackNotes=[61,63,66,68,70,73,75,78,80,82];
+ const blackBoundaries=[.5,1.5,3.5,4.5,5.5,7.5,8.5,10.5,11.5,12.5],blackNotes=[61,63,66,68,70,73,75,78,80,82];
  const blackPlayKeys=blackNotes.map((note,index)=>{const key=document.createElement('button');key.type='button';key.className='home-piano-play-key home-piano-play-key-black';key.dataset.note=String(note);key.setAttribute('aria-label',`Tocar nota ${note}`);layer.appendChild(key);return{key,boundary:blackBoundaries[index]} });
  const alignKeys=()=>{
   const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
