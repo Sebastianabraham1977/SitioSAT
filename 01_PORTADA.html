@@ -476,7 +476,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const pianoRect=keyboard.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!layerRect.width)return;const whiteKeyWidth=pianoRect.width/14;
   prompts.forEach(prompt=>{const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=pianoRect.left+index*whiteKeyWidth;key.style.left=`${(left-layerRect.left)/layerRect.width*100}%`;key.style.width=`${whiteKeyWidth/layerRect.width*100}%`});
  };
- layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();const href=key.href,note=+key.dataset.note;let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,1800);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,650)}})});
+ layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();const href=key.href,note=+key.dataset.note;let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,2600);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,1250)}})});
  const draw=()=>{
   const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
   prompts.forEach(prompt=>{
