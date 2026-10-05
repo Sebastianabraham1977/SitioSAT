@@ -30,7 +30,9 @@
     .menu-close { position: absolute; z-index: 3; top: 16px; right: 18px; width: 48px; height: 48px; cursor: pointer; }
     .menu-close::before, .menu-close::after { content: ""; position: absolute; left: 9px; top: 23px; width: 30px; height: 2px; background: #fff; transform: rotate(45deg); }
     .menu-close::after { transform: rotate(-45deg); }
-    main { width: min(100% - 48px, 980px); margin: 0 auto; padding: clamp(132px,18vh,190px) 0 80px; }
+    main { position: relative; isolation: isolate; width: min(100% - 48px, 980px); margin: 0 auto; padding: clamp(132px,18vh,190px) 0 80px; }
+    .beethoven-watermark { position: absolute; z-index: 0; top: 82px; right: 0; width: min(38vw, 360px); height: 360px; background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Beethoven_3.jpg/500px-Beethoven_3.jpg") center 24% / cover no-repeat; opacity: .2; filter: blur(5px); mask-image: radial-gradient(ellipse at center, #000 32%, transparent 78%); pointer-events: none; }
+    main h1, main .class-copy { position: relative; z-index: 1; }
     h1 { margin: 0 0 28px; color: #f1ce70; font: 500 clamp(38px,6vw,54px)/1.1 "Instrument Sans",Arial,sans-serif; }
     h1::after { content: ""; display: block; width: 64px; height: 2px; margin-top: 14px; background: #e3001d; }
     .class-copy { max-width: 850px; color: #f7f2e8; font: 400 clamp(18px,2vw,20px)/1.65 "Instrument Sans",Arial,sans-serif; }
@@ -40,6 +42,7 @@
       .menu-links { padding: 100px 28px 34px; }
       .menu-links a { margin-bottom: 27px; font-size: 14px; }
       main { width: calc(100% - 40px); padding-top: 112px; }
+      .beethoven-watermark { top: 54px; right: -8px; width: min(58vw, 280px); height: 285px; opacity: .17; filter: blur(4px); }
       .class-copy { font-size: 18px; line-height: 1.6; }
     }
   </style>
@@ -75,6 +78,7 @@
     </div>
   </nav>
   <main>
+    <div class="beethoven-watermark" aria-hidden="true"></div>
     <h1>Clases de piano</h1>
     <div class="class-copy">
       <p>Ofrezco clases de piano a domicilio y en modalidad online, para quienes quieran aprender, desarrollar su técnica y disfrutar de la música. Trabajo con alumnos desde nivel inicial hasta niveles más avanzados, adaptando los contenidos, la técnica, la lectura musical y el repertorio a cada persona.</p>
