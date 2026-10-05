@@ -422,7 +422,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 .home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top}
 .home-piano-key-links{position:absolute;z-index:3;left:3.7%;right:3.7%;top:49%;bottom:0;display:flex;pointer-events:none}
-.home-piano-key-link{position:absolute;top:0;bottom:0;display:block;background:transparent;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.home-piano-key-link{position:absolute;top:0;bottom:0;display:block;background:transparent;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .12s ease,background-color .12s ease,box-shadow .12s ease}
+.home-piano-key-link.is-pressed{transform:translateY(7px);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.24));box-shadow:inset 1px 0 rgba(255,255,255,.28),inset -1px 0 rgba(0,0,0,.22),inset 0 -5px 7px rgba(0,0,0,.27)}
 .home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
 .home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000)}
 .home-piano-arrows marker path{fill:currentColor;stroke:none;stroke-dasharray:none;filter:none}
@@ -459,8 +460,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  loadSamples();
  const playLinkedNote=async midi=>{
   if(!audioContext)return false;
-  const resume=audioContext.state==='running'?Promise.resolve():audioContext.resume();
-  if(!await Promise.all([resume,loadSamples()]).then(values=>values.every(Boolean)))return false;
+  try{const resume=audioContext.state==='running'?Promise.resolve():audioContext.resume();if(!await Promise.all([resume,loadSamples()]).then(values=>values.every(Boolean)))return false}catch{return false}
   let base=null;for(const candidate of sampleBuffers.keys())if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;if(base===null)return false;
   const source=audioContext.createBufferSource(),gain=audioContext.createGain();source.buffer=sampleBuffers.get(base);source.playbackRate.value=Math.pow(2,(midi-base)/12);gain.gain.value=.78;source.connect(gain);gain.connect(audioContext.destination);source.start();return true;
  };
@@ -474,7 +474,10 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const pianoRect=keyboard.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!layerRect.width)return;const whiteKeyWidth=pianoRect.width/14;
   prompts.forEach(prompt=>{const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=pianoRect.left+index*whiteKeyWidth;key.style.left=`${(left-layerRect.left)/layerRect.width*100}%`;key.style.width=`${whiteKeyWidth/layerRect.width*100}%`});
  };
- layer.addEventListener('click',event=>{const key=event.target.closest('.home-piano-key-link');if(!key)return;event.preventDefault();const href=key.href,note=+key.dataset.note;let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,2600);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,1250)}})});
+ const activateLink=(key,event)=>{if(!key)return;event.preventDefault();if(key.dataset.busy==='true')return;key.dataset.busy='true';key.classList.add('is-pressed');const href=key.href,note=+key.dataset.note;window.setTimeout(()=>key.classList.remove('is-pressed'),260);let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,2400);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,1100)}})};
+ layer.addEventListener('pointerdown',event=>{const key=event.target.closest('.home-piano-key-link');if(key)activateLink(key,event)});
+ layer.addEventListener('click',event=>{if(event.target.closest('.home-piano-key-link'))event.preventDefault()});
+ layer.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('.home-piano-key-link'))activateLink(event.target,event)});
  const draw=()=>{
   const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
   prompts.forEach(prompt=>{
