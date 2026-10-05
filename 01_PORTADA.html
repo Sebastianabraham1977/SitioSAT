@@ -480,7 +480,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
    const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
    const x2=b.left-frame.left+b.width/2,y1=(above?a.bottom:a.top)-frame.top,y2=b.top-frame.top+b.height/2;
    const promptLeft=a.left-frame.left+8,promptRight=a.right-frame.left-8,x1=Math.max(promptLeft,Math.min(x2,promptRight));
-   const bend=above?Math.min(y2-12,y1+18):Math.max(y2+12,y1-18);
+   const bend=above?Math.min(y2-10,y1+Math.max(14,(y2-y1)*.55)):Math.max(y2+12,y1-Math.max(14,(y1-y2)*.55));
    const color=getComputedStyle(prompt).color,id=`home-piano-arrow-${prompt.dataset.destination}`,marker=document.createElementNS('http://www.w3.org/2000/svg','marker'),head=document.createElementNS('http://www.w3.org/2000/svg','path'),path=document.createElementNS('http://www.w3.org/2000/svg','path');
    marker.id=id;marker.setAttribute('markerWidth','9');marker.setAttribute('markerHeight','9');marker.setAttribute('refX','7');marker.setAttribute('refY','3.5');marker.setAttribute('orient','auto');head.setAttribute('d','M0,0 L7,3.5 L0,7');head.style.fill=color;head.style.stroke='none';marker.appendChild(head);defs.appendChild(marker);
    path.setAttribute('d',`M${x1},${y1} V${bend} H${x2} V${y2}`);path.setAttribute('stroke',color);path.setAttribute('marker-end',`url(#${id})`);svg.appendChild(path);
