@@ -478,7 +478,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   prompts.forEach(prompt=>{
    const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`);if(!key)return;
    const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
-   const x2=b.left-frame.left+b.width/2,y1=(above?a.bottom:a.top)-frame.top,y2=b.top-frame.top+Math.max(14,b.height*.28);
+   const x2=b.left-frame.left+b.width/2,y1=(above?a.bottom:a.top)-frame.top,y2=b.top-frame.top+b.height/2;
    const promptLeft=a.left-frame.left+8,promptRight=a.right-frame.left-8,x1=Math.max(promptLeft,Math.min(x2,promptRight));
    const bend=above?Math.min(y2-12,y1+18):Math.max(y2+12,y1-18);
    const color=getComputedStyle(prompt).color,id=`home-piano-arrow-${prompt.dataset.destination}`,marker=document.createElementNS('http://www.w3.org/2000/svg','marker'),head=document.createElementNS('http://www.w3.org/2000/svg','path'),path=document.createElementNS('http://www.w3.org/2000/svg','path');
