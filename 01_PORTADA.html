@@ -464,7 +464,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const ctx=getAudioContext(),unlock=ctx&&ctx.state!=='running'?ctx.resume():Promise.resolve();
   let base=null;for(const candidate of Object.keys(sampleNotes).map(Number))if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;
   if(base!==null){
-   try{let sample=samplePlayers.get(base);if(!sample){sample=new Audio(`./assets/piano/salamander/${sampleNotes[base]}.mp3`);sample.preload='auto';samplePlayers.set(base,sample)}const player=sample.cloneNode();player.volume=.95;player.playbackRate=Math.pow(2,(midi-base)/12);const playing=player.play();if(playing&&typeof playing.then==='function')await playing;return true}catch{}
+   try{let sample=samplePlayers.get(base);if(!sample){sample=new Audio(`./assets/piano/salamander/${sampleNotes[base]}.mp3`);sample.preload='auto';samplePlayers.set(base,sample)}const player=sample.cloneNode();player.volume=.95;player.playbackRate=Math.pow(2,(midi-base)/12);if('preservesPitch'in player)player.preservesPitch=false;if('webkitPreservesPitch'in player)player.webkitPreservesPitch=false;if('mozPreservesPitch'in player)player.mozPreservesPitch=false;const playing=player.play();if(playing&&typeof playing.then==='function')await playing;return true}catch{}
   }
   try{await unlock}catch{}
   return playFallbackNote(midi);
