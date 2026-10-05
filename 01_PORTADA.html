@@ -421,7 +421,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 .home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:none!important}
-.home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;pointer-events:none}
+.home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;pointer-events:auto}
 .home-piano-play-key{position:absolute;z-index:2;display:block;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:transparent;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .home-piano-play-key-white{inset-block:0}
 .home-piano-play-key-black{z-index:4;top:0;bottom:50%}
@@ -456,16 +456,19 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,69,72];
  const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();let audioContext=null,samplesReady=null;
+ const getAudioContext=()=>{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return null;if(!audioContext)audioContext=new Audio();return audioContext};
  const loadSamples=()=>{
-  const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return Promise.resolve(false);
-  if(!audioContext)audioContext=new Audio();
-  if(!samplesReady)samplesReady=Promise.all(Object.entries(sampleNotes).map(async([midi,name])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error('No se pudo cargar una muestra');sampleBuffers.set(+midi,await audioContext.decodeAudioData(await response.arrayBuffer()))})).then(()=>true).catch(()=>false);
+  if(!getAudioContext())return Promise.resolve(false);
+  if(!samplesReady)samplesReady=Promise.all(Object.entries(sampleNotes).map(async([midi,name])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error('No se pudo cargar una muestra');sampleBuffers.set(+midi,await audioContext.decodeAudioData(await response.arrayBuffer()))})).then(()=>true).catch(()=>{samplesReady=null;return false});
   return samplesReady;
  };
  loadSamples();
+ const playFallbackNote=midi=>{try{const ctx=getAudioContext();if(!ctx)return false;const now=ctx.currentTime,fundamental=440*Math.pow(2,(midi-69)/12),gain=ctx.createGain(),filter=ctx.createBiquadFilter();gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.24,now+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+1.35);filter.type='lowpass';filter.frequency.setValueAtTime(4200,now);filter.connect(gain);gain.connect(ctx.destination);[1,2,3,4].forEach((partial,index)=>{const osc=ctx.createOscillator(),partialGain=ctx.createGain();osc.type=index===0?'triangle':'sine';osc.frequency.setValueAtTime(fundamental*partial,now);partialGain.gain.value=[1,.32,.14,.06][index];osc.connect(partialGain);partialGain.connect(filter);osc.start(now);osc.stop(now+1.4)});return true}catch{return false}};
  const playLinkedNote=async midi=>{
-  if(!audioContext)return false;
-  try{const resume=audioContext.state==='running'?Promise.resolve():audioContext.resume();if(!await Promise.all([resume,loadSamples()]).then(values=>values.every(Boolean)))return false}catch{return false}
+  const ctx=getAudioContext();if(!ctx)return false;
+  const resume=ctx.state==='running'?Promise.resolve():ctx.resume();
+  try{await resume}catch{return playFallbackNote(midi)}
+  if(!await loadSamples())return playFallbackNote(midi);
   let base=null;for(const candidate of sampleBuffers.keys())if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;if(base===null)return false;
   const source=audioContext.createBufferSource(),gain=audioContext.createGain();source.buffer=sampleBuffers.get(base);source.playbackRate.value=Math.pow(2,(midi-base)/12);gain.gain.value=.78;source.connect(gain);gain.connect(audioContext.destination);source.start();return true;
  };
