@@ -448,10 +448,9 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  if(!stage)return;
  const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),prompts=[...stage.querySelectorAll('.piano-prompt')];
  const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
- const positions=[{left:'2%',top:'3px'},{right:'1%',top:'29px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
- for(let i=positions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[positions[i],positions[j]]=[positions[j],positions[i]]}
+  const positions=[{left:'2%',top:'3px'},{right:'1%',top:'29px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
- const chosen=[...notes].sort(()=>Math.random()-.5).slice(0,4);
+ const chosen=[64,67,71,74];
  const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();let audioContext=null,samplesReady=null;
  const loadSamples=()=>{
   const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return Promise.resolve(false);
@@ -479,7 +478,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   prompts.forEach(prompt=>{
    const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`);if(!key)return;
    const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
-   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+2;
+   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+Math.max(14,b.height*.28);
    const bend=above?Math.min(y2-10,y1+Math.max(14,(y2-y1)*.55)):Math.max(y2+12,y1-Math.max(14,(y1-y2)*.55));
    const color=getComputedStyle(prompt).color,id=`home-piano-arrow-${prompt.dataset.destination}`,marker=document.createElementNS('http://www.w3.org/2000/svg','marker'),head=document.createElementNS('http://www.w3.org/2000/svg','path'),path=document.createElementNS('http://www.w3.org/2000/svg','path');
    marker.id=id;marker.setAttribute('markerWidth','9');marker.setAttribute('markerHeight','9');marker.setAttribute('refX','7');marker.setAttribute('refY','3.5');marker.setAttribute('orient','auto');head.setAttribute('d','M0,0 L7,3.5 L0,7');head.style.fill=color;head.style.stroke='none';marker.appendChild(head);defs.appendChild(marker);
