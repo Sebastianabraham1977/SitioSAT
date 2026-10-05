@@ -421,13 +421,14 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 .home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:auto}
-.home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:hidden;pointer-events:none}
+.home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:visible;pointer-events:none}
 .home-piano-play-key{position:absolute;z-index:2;display:block;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:transparent;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer}
 .home-piano-play-key-white{inset-block:0}
 .home-piano-play-key-white,.home-piano-key-link{background:linear-gradient(90deg,#d8d6d0 0%,#f7f6f2 9%,#fff 52%,#f2f0eb 92%,#c9c6bf 100%);border-left:1px solid rgba(31,23,17,.7);border-right:1px solid rgba(31,23,17,.7);border-bottom:2px solid rgba(36,25,16,.65);border-radius:0 0 8px 8px;box-shadow:inset 1px 0 rgba(255,255,255,.72),inset -2px 0 rgba(80,68,55,.16),0 2px 2px rgba(0,0,0,.24);transition:transform .11s ease,filter .11s ease,box-shadow .11s ease}
 .home-piano-play-key-black{z-index:4;top:0;bottom:50%;border:1px solid #090909;border-top:0;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#080808 0%,#333 38%,#101010 78%,#050505 100%);box-shadow:inset 1px 0 rgba(255,255,255,.18),inset -2px 0 rgba(0,0,0,.8),0 5px 5px rgba(0,0,0,.62);transition:transform .11s ease,filter .11s ease,box-shadow .11s ease}
 .home-piano-key-link{position:absolute;z-index:3;top:0;bottom:0;display:block;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .home-piano-play-key,.home-piano-key-link{background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;pointer-events:none!important}
+.home-piano-key-link{visibility:visible!important;pointer-events:auto!important}
 .home-piano-play-key.is-pressed,.home-piano-key-link.is-pressed{transform:none!important}
 .home-piano-play-key-white.is-pressed,.home-piano-key-link.is-pressed{transform:translateY(8px);filter:brightness(.88);box-shadow:inset 1px 0 rgba(255,255,255,.34),inset -2px 0 rgba(0,0,0,.24),inset 0 -8px 10px rgba(0,0,0,.34),0 1px 1px rgba(0,0,0,.18)}
 .home-piano-play-key-black.is-pressed{transform:translateY(6px);filter:brightness(.78);box-shadow:inset 1px 0 rgba(255,255,255,.08),inset -2px 0 rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.62)}
@@ -452,7 +453,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 (()=>{
  const stage=document.getElementById('homePianoStage');
  if(!stage)return;
- const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),keyboard=stage.querySelector('.home-piano-key-window iframe'),prompts=[...stage.querySelectorAll('.piano-prompt')];layer.setAttribute('aria-hidden','true');
+ const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),keyboard=stage.querySelector('.home-piano-key-window iframe'),prompts=[...stage.querySelectorAll('.piano-prompt')];
  const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
  const keyNudges={lessons:.15,live:.23,sing:-.20,video:.06};
  const desktopKeySlots={lessons:5,live:8,sing:3,video:7};
