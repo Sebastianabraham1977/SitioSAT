@@ -457,22 +457,17 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const positions=[{left:'2%',top:'3px'},{right:'1%',top:'5px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,69,72];
- const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();let audioContext=null,samplesReady=null;
- const getAudioContext=()=>{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return null;if(!audioContext)audioContext=new Audio();return audioContext};
- const loadSamples=()=>{
-  if(!getAudioContext())return Promise.resolve(false);
-  if(!samplesReady)samplesReady=Promise.all(Object.entries(sampleNotes).map(async([midi,name])=>{const response=await fetch(`./assets/piano/salamander/${name}.mp3`);if(!response.ok)throw new Error('No se pudo cargar una muestra');sampleBuffers.set(+midi,await audioContext.decodeAudioData(await response.arrayBuffer()))})).then(()=>true).catch(()=>{samplesReady=null;return false});
-  return samplesReady;
- };
- loadSamples();
+ const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},samplePlayers=new Map();
+ let audioContext=null;const getAudioContext=()=>{const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return null;if(!audioContext)audioContext=new AudioContextClass();return audioContext};
  const playFallbackNote=midi=>{try{const ctx=getAudioContext();if(!ctx)return false;const now=ctx.currentTime,fundamental=440*Math.pow(2,(midi-69)/12),gain=ctx.createGain(),filter=ctx.createBiquadFilter();gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.24,now+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+1.35);filter.type='lowpass';filter.frequency.setValueAtTime(4200,now);filter.connect(gain);gain.connect(ctx.destination);[1,2,3,4].forEach((partial,index)=>{const osc=ctx.createOscillator(),partialGain=ctx.createGain();osc.type=index===0?'triangle':'sine';osc.frequency.setValueAtTime(fundamental*partial,now);partialGain.gain.value=[1,.32,.14,.06][index];osc.connect(partialGain);partialGain.connect(filter);osc.start(now);osc.stop(now+1.4)});return true}catch{return false}};
  const playLinkedNote=async midi=>{
-  const ctx=getAudioContext();if(!ctx)return false;
-  const resume=ctx.state==='running'?Promise.resolve():ctx.resume();
-  try{await resume}catch{return playFallbackNote(midi)}
-  if(!await loadSamples())return playFallbackNote(midi);
-  let base=null;for(const candidate of sampleBuffers.keys())if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;if(base===null)return false;
-  const source=audioContext.createBufferSource(),gain=audioContext.createGain();source.buffer=sampleBuffers.get(base);source.playbackRate.value=Math.pow(2,(midi-base)/12);gain.gain.value=.78;source.connect(gain);gain.connect(audioContext.destination);source.start();return true;
+  const ctx=getAudioContext(),unlock=ctx&&ctx.state!=='running'?ctx.resume():Promise.resolve();
+  let base=null;for(const candidate of Object.keys(sampleNotes).map(Number))if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;
+  if(base!==null){
+   try{let sample=samplePlayers.get(base);if(!sample){sample=new Audio(`./assets/piano/salamander/${sampleNotes[base]}.mp3`);sample.preload='auto';samplePlayers.set(base,sample)}const player=sample.cloneNode();player.volume=.95;player.playbackRate=Math.pow(2,(midi-base)/12);const playing=player.play();if(playing&&typeof playing.then==='function')await playing;return true}catch{}
+  }
+  try{await unlock}catch{}
+  return playFallbackNote(midi);
  };
  prompts.forEach((prompt,i)=>{
   Object.assign(prompt.style,positions[i]);
@@ -496,16 +491,16 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   if(desktop){const prompt=stage.querySelector('.piano-prompt-sing'),key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),keyRect=key.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();prompt.style.left=`${keyRect.left+keyRect.width/2-stageRect.left-prompt.offsetWidth/2}px`;prompt.style.right='auto'}
  };
  const activateLink=(key,event)=>{if(!key)return;event.preventDefault();if(key.dataset.busy==='true')return;key.dataset.busy='true';key.classList.add('is-pressed');const href=key.href,note=+key.dataset.note;window.setTimeout(()=>key.classList.remove('is-pressed'),260);let navigated=false;const go=()=>{if(navigated)return;navigated=true;window.location.assign(href)};const fallback=window.setTimeout(go,2400);playLinkedNote(note).then(played=>{if(played){window.clearTimeout(fallback);window.setTimeout(go,1100)}})};
- layer.addEventListener('pointerdown',event=>{const link=event.target.closest('.home-piano-key-link');if(link){activateLink(link,event);return}const key=event.target.closest('.home-piano-play-key');if(key){event.preventDefault();key.classList.add('is-pressed');playLinkedNote(+key.dataset.note)}});
- ['pointerup','pointercancel','pointerleave'].forEach(type=>layer.addEventListener(type,event=>{const key=event.target.closest('.home-piano-play-key');if(key)key.classList.remove('is-pressed')}));
- layer.addEventListener('click',event=>{if(event.target.closest('.home-piano-key-link'))event.preventDefault()});
- layer.addEventListener('keydown',event=>{if(event.key!=='Enter'&&event.key!==' ')return;if(event.target.matches('.home-piano-key-link'))activateLink(event.target,event);else if(event.target.matches('.home-piano-play-key')){event.preventDefault();event.target.classList.add('is-pressed');playLinkedNote(+event.target.dataset.note)}});
+ layer.addEventListener('pointerdown',event=>{const link=event.target.closest('.home-piano-key-link');if(link){activateLink(link,event);return}const key=event.target.closest('.home-piano-play-key');if(key){event.preventDefault();key.dataset.pressedAt=String(Date.now());key.dataset.lastPlayed=key.dataset.pressedAt;key.classList.add('is-pressed');playLinkedNote(+key.dataset.note)}});
+ ['pointerup','pointercancel','pointerleave'].forEach(type=>layer.addEventListener(type,event=>{const key=event.target.closest('.home-piano-play-key');if(key){const elapsed=Date.now()-(+key.dataset.pressedAt||0);window.setTimeout(()=>key.classList.remove('is-pressed'),Math.max(0,130-elapsed))}}));
+ layer.addEventListener('click',event=>{const link=event.target.closest('.home-piano-key-link');if(link){event.preventDefault();return}const key=event.target.closest('.home-piano-play-key');if(key&&Date.now()-(+key.dataset.lastPlayed||0)>500){key.dataset.lastPlayed=String(Date.now());key.classList.add('is-pressed');playLinkedNote(+key.dataset.note);window.setTimeout(()=>key.classList.remove('is-pressed'),150)}});
+ layer.addEventListener('keydown',event=>{if(event.key!=='Enter'&&event.key!==' ')return;if(event.target.matches('.home-piano-key-link'))activateLink(event.target,event);else if(event.target.matches('.home-piano-play-key')){event.preventDefault();event.target.classList.add('is-pressed');playLinkedNote(+event.target.dataset.note);window.setTimeout(()=>event.target.classList.remove('is-pressed'),150)}});
  const draw=()=>{
   const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
   prompts.forEach(prompt=>{
    const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`);if(!key)return;
    const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
-   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+b.height/2;
+   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+b.height/2+(window.matchMedia('(max-width: 640px)').matches?28:0);
    const color=getComputedStyle(prompt).color,path=document.createElementNS('http://www.w3.org/2000/svg','path');
    const desktop=window.matchMedia('(min-width: 641px)').matches;
    const purpleTurn=desktop&&prompt.dataset.destination==='video';
