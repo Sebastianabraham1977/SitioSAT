@@ -454,6 +454,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 #menuToggle:not(:checked)~#menuPanel{pointer-events:none!important}
 #menuPanel .menu-outside,#menuPanel .menu-close,#menuPanel .menu-links,#menuPanel .menu-links a{pointer-events:auto!important}
 </style>
+<link rel="stylesheet" href="./assets/site-whatsapp-dock.css">
 </head>
 
 <body>
@@ -14322,7 +14323,8 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
 body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(section#rock:target)):not(:has(section#baladas:target)):not(:has(section#pop:target)):not(:has(section#otros:target)) #cancionero{display:none!important;}
 </style>
 <script>window.addEventListener("DOMContentLoaded",function(){if(location.hash!=="#presentacion"){history.replaceState(null,"",location.pathname+"#presentacion");location.reload();}});</script>
-<style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style></body>
+<style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style><aside class="site-whatsapp-dock" aria-label="Contacto por WhatsApp"><a class="site-whatsapp-dock__link" href="https://wa.me/56993332757?text=Hola%20Sebasti%C3%A1n%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20conversar%20contigo." target="_blank" rel="noopener noreferrer" aria-label="Escríbele a Sebastián Abraham Teare por WhatsApp al más cincuenta y seis, nueve, nueve tres tres tres, dos siete cinco siete"><span class="site-whatsapp-dock__label">WhatsApp</span><span class="site-whatsapp-dock__divider" aria-hidden="true">·</span><span class="site-whatsapp-dock__number">+56 9 9333 2757</span></a></aside>
+</body>
 
 <style id="separacion-grande-boton-presentacion-recuperada">
 /* Recupera la separación grande entre el botón rojo y Presentación */
