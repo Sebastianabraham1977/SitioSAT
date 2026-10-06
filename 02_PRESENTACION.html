@@ -14388,6 +14388,41 @@ body:not(:has(#presentacion:target)):not(:has(#cancionero:target)):not(:has(sect
 @media(max-width:700px){.menu-panel .menu-links{padding:72px 28px max(28px,env(safe-area-inset-bottom,0px))!important}}
 
 #menuToggle:checked ~ .topbar .menu-button{visibility:hidden!important;pointer-events:none!important}</style>
+
+<style id="uniform-inner-page-title-system-20261006">
+/* Shared inner-page rule: consistent title color, type, scale, and top spacing on mobile and desktop. */
+:root { --inner-page-title-top-space: 132px; --inner-page-title-color: #f1ce70; }
+main.page { padding-top: var(--inner-page-title-top-space) !important; }
+main.page > h1,
+body > main:not(.cover) > h1,
+main:not(.cover) > h1,
+#presentacion > .wrap > header > h1,
+#cancionero .wrap > .cancionero-page-title {
+  position: static !important;
+  top: auto !important;
+  margin-top: 0 !important;
+  color: var(--inner-page-title-color) !important;
+  font-family: "Instrument Sans", Arial, sans-serif !important;
+  font-size: clamp(32px, 5.2vw, 42px) !important;
+  font-weight: 600 !important;
+  line-height: 1.08 !important;
+}
+/* Anchor-based pages account for their 72px fixed-header scroll offset. */
+body:has(#presentacion:target) #presentacion > .wrap {
+  margin-top: 0 !important;
+  padding-top: 60px !important;
+}
+body:has(#presentacion:target) #presentacion > .wrap > header { padding-top: 0 !important; }
+body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
+@media (max-width: 700px) {
+  main.page { padding-top: var(--inner-page-title-top-space) !important; }
+  body:has(#presentacion:target) #presentacion > .wrap {
+    margin-top: 0 !important;
+    padding-top: 60px !important;
+  }
+  body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
+}
+</style>
 </body>
 
 <style id="separacion-grande-boton-presentacion-recuperada">
