@@ -467,6 +467,17 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   .site-whatsapp-dock__number{color:#d9b76a;font-size:12px;letter-spacing:.01em}
   .site-whatsapp-dock__link:focus-visible,.site-instagram-dock__link:focus-visible{outline:2px solid #d9b76a;outline-offset:-2px;border-radius:4px}
 }
+
+@media(min-width:701px){
+  body{padding-bottom:32px!important;scroll-padding-bottom:40px}
+  body>.site-whatsapp-dock{position:fixed!important;inset:auto 0 0!important;z-index:2147483647!important;display:flex!important;justify-content:center;align-items:center;gap:clamp(36px,10vw,46px);width:100%;min-height:30px;padding:0 12px;box-sizing:border-box;background:#050505;border-top:1px solid rgba(217,183,106,.34);box-shadow:0 -7px 24px rgba(0,0,0,.32)}
+  .site-whatsapp-dock__link,.site-instagram-dock__link{display:flex;align-items:center;gap:6px;flex:0 1 auto;min-width:0;min-height:28px;color:#f7f2e8;text-decoration:none;font:500 12px/1.1 "Instrument Sans",Arial,sans-serif;letter-spacing:.005em;white-space:nowrap}
+  .site-whatsapp-dock__link{justify-content:flex-start}
+  .site-instagram-dock__link{justify-content:flex-end;font-size:11px}
+  .site-whatsapp-dock__icon{display:block;width:18px;height:18px;flex:0 0 auto}
+  .site-whatsapp-dock__number{color:#d9b76a;font-size:12px;letter-spacing:.01em}
+  .site-whatsapp-dock__link:focus-visible,.site-instagram-dock__link:focus-visible{outline:2px solid #d9b76a;outline-offset:-2px;border-radius:4px}
+}
 </style>
 <style id="mobile-menu-scroll-fix">
 @media(max-width:700px){
