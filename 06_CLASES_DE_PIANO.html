@@ -89,7 +89,9 @@
     main .hector-watermark, main .michael-watermark, main .violeta-watermark { opacity: .40; filter: blur(.7px) brightness(1.12); -webkit-mask-image: radial-gradient(ellipse farthest-side at center, #000 42%, rgba(0,0,0,.58) 75%, transparent 100%); mask-image: radial-gradient(ellipse farthest-side at center, #000 42%, rgba(0,0,0,.58) 75%, transparent 100%); }
   }
   main .beethoven-watermark, main .hector-watermark, main .michael-watermark, main .violeta-watermark { transform: scale(1.08); transform-origin: center; }
-  main .michael-watermark { background-position: center 30%; }
+  main .michael-watermark { background-size: auto 110%; background-position: center top; -webkit-mask-image: radial-gradient(ellipse farthest-side at center 42%, #000 42%, rgba(0,0,0,.58) 75%, transparent 100%); mask-image: radial-gradient(ellipse farthest-side at center 42%, #000 42%, rgba(0,0,0,.58) 75%, transparent 100%); }
+  @media (min-width: 601px) { main .michael-watermark { top: 580px; height: 270px; } }
+  @media (max-width: 600px) { main .michael-watermark { top: 855px; height: 195px; } }
 </style>
 </head>
 <body>
