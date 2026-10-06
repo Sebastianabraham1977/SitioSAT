@@ -204,3 +204,15 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 108px !important; 
 <style id="contact-title-underline-aligned-20261006">
 body > main:not(.cover) > h1::after { margin-left: 0 !important; margin-right: auto !important; }
 </style>
+
+<style id="contact-form-desktop-refine-20261006">
+@media (min-width: 701px) {
+  body > main .contact-form {
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+  body > main .contact-form textarea {
+    min-height: clamp(230px, 34vh, 350px);
+  }
+}
+</style>
