@@ -221,5 +221,27 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
   body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
 }
 </style>
+
+<style id="uniform-title-alignment-spacing-correction-20261006">
+/* Every interior-page heading shares the same left alignment and top offset. */
+body > main:not(.cover) { padding-top: 132px !important; }
+main.page > h1,
+body > main:not(.cover) > h1,
+#presentacion > .wrap > header > h1,
+#cancionero .wrap > .cancionero-page-title {
+  text-align: left !important;
+  margin-top: 0 !important;
+  position: static !important;
+  top: auto !important;
+  color: #f1ce70 !important;
+  font-family: "Instrument Sans", Arial, sans-serif !important;
+  font-size: clamp(32px, 5.2vw, 42px) !important;
+  font-weight: 600 !important;
+  line-height: 1.08 !important;
+}
+@media (max-width: 700px) {
+  body > main:not(.cover) { padding-top: 132px !important; }
+}
+</style>
 </body>
 </html>
