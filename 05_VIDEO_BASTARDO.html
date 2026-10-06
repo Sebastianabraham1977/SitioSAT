@@ -82,3 +82,36 @@ body > main:not(.cover) > h1,
 }
 </style>
 </body></html>
+<style id="final-title-spacing-and-alignment-20261006">
+/* Final shared rule placed after legacy trailing styles so every page honors it. */
+:root { --inner-page-title-top-space: 132px; }
+body > main:not(.cover) { padding-top: 132px !important; }
+main.page > h1,
+body > main:not(.cover) > h1,
+#presentacion > .wrap > header > h1,
+#cancionero .wrap > .cancionero-page-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  top: auto !important;
+  margin-top: 0 !important;
+  text-align: left !important;
+  color: #f1ce70 !important;
+  font-family: "Instrument Sans", Arial, sans-serif !important;
+  font-size: clamp(32px, 5.2vw, 42px) !important;
+  font-weight: 600 !important;
+  line-height: 1.08 !important;
+}
+body:has(#presentacion:target) #presentacion > .wrap {
+  margin-top: 0 !important;
+  padding-top: 132px !important;
+}
+body:has(#presentacion:target) #presentacion > .wrap > header { padding-top: 0 !important; }
+body:has(#cancionero:target) #cancionero .wrap { padding-top: 132px !important; }
+@media (max-width: 700px) {
+  body > main:not(.cover) { padding-top: 132px !important; }
+  body:has(#presentacion:target) #presentacion > .wrap { margin-top: 0 !important; padding-top: 132px !important; }
+  body:has(#cancionero:target) #cancionero .wrap { padding-top: 132px !important; }
+}
+</style>
