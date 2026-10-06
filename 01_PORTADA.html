@@ -423,7 +423,6 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
       <div class="gold-line"></div>
     </div>
   </section>
-</main>
 <section id="portada-video" class="portada-video" aria-labelledby="portada-video-title">
   <h2 id="portada-video-title">Video</h2>
   <a class="portada-video-card" href="./assets/videos/video-portada.mp4" target="_blank" rel="noopener noreferrer" aria-label="Abrir y reproducir el video enviado">
@@ -431,6 +430,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     <span class="portada-video-label">Video</span>
   </a>
 </section>
+</main>
+
 <section class="home-virtual-piano" aria-label="Piano virtual interactivo">
   <div class="home-virtual-piano-frame" id="homePianoStage">
     <svg class="home-piano-arrows" aria-hidden="true" preserveAspectRatio="none"><defs></defs></svg>
@@ -14573,4 +14574,26 @@ body>.topbar .menu-button span{pointer-events:none!important}
   body > .site-whatsapp-dock .site-whatsapp-dock__icon { width: 20px !important; height: 20px !important; }
   body > .site-whatsapp-dock .site-whatsapp-dock__number { font-size: 13px !important; }
 }
+</style>
+
+<style id="home-video-over-photo-20261006">
+/* Keep the related video attached to the cover photo, clear of the fixed contact dock. */
+body main.cover { position: relative !important; }
+body main.cover #portada-video {
+  position: absolute !important;
+  right: clamp(18px, 4vw, 42px) !important;
+  bottom: 82px !important;
+  z-index: 4 !important;
+  display: block !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+body main.cover #portada-video .portada-video-card { width: 88px !important; }
+@media (max-width: 600px) {
+  body main.cover #portada-video { right: 16px !important; bottom: 70px !important; }
+  body main.cover #portada-video .portada-video-card { width: 82px !important; }
+}
+body:has(#presentacion:target) main.cover #portada-video { display: none !important; }
 </style>
