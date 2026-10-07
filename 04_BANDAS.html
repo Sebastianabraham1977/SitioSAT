@@ -261,10 +261,16 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 108px !important; 
 </style>
 <style id="desktop-contact-dock-refine-20261006">
 @media (min-width: 701px) {
-  body { padding-bottom: 58px !important; scroll-padding-bottom: 62px !important; }
-  body > .site-whatsapp-dock { bottom: 12px !important; min-height: 44px !important; gap: clamp(60px, 9vw, 78px) !important; }
+  body { padding-bottom: 82px !important; scroll-padding-bottom: 86px !important; }
+  body > .site-whatsapp-dock {
+    bottom: 12px !important;
+    min-height: 68px !important;
+    padding: 0 clamp(28px, 4vw, 56px) !important;
+    gap: 40px !important;
+    justify-content: flex-end !important;
+  }
   body > .site-whatsapp-dock .site-whatsapp-dock__link,
-  body > .site-whatsapp-dock .site-instagram-dock__link { min-height: 40px !important; font-size: 14px !important; }
+  body > .site-whatsapp-dock .site-instagram-dock__link { min-height: 56px !important; font-size: 14px !important; }
   body > .site-whatsapp-dock .site-whatsapp-dock__icon { width: 20px !important; height: 20px !important; }
   body > .site-whatsapp-dock .site-whatsapp-dock__number { font-size: 13px !important; }
 }
@@ -300,4 +306,8 @@ body > main.page > h1::after {
     margin: 12px 0 0 !important; background: #e3001d !important;
   }
 }
+</style>
+
+<style id="bandas-menu-icon-black-desktop-20261007">
+@media (min-width: 701px) { #menuToggle + .topbar .menu-button span { background: #000 !important; } }
 </style>
