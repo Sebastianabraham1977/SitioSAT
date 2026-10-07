@@ -314,11 +314,16 @@ body > main.page > h1::after {
 <style id="bandas-title-full-width-desktop-20261007">
 @media (min-width: 701px) {
   body > main.page > h1 {
-    width: 100vw !important;
-    max-width: none !important;
-    margin-left: calc(50% - 50vw) !important;
-    padding-left: clamp(24px, 5vw, 72px) !important;
+    position: fixed !important;
+    top: 8px !important;
+    left: clamp(24px, 4vw, 56px) !important;
+    z-index: 1000003 !important;
+    width: fit-content !important;
+    max-width: 32vw !important;
+    margin: 0 !important;
+    transform: none !important;
     text-align: left !important;
   }
+  body .site-brand { color: #000 !important; text-shadow: 0 1px 5px rgba(255,255,255,.75) !important; }
 }
 </style>
