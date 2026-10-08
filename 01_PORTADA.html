@@ -14598,6 +14598,9 @@ body main.cover #portada-video {
 }
 body main.cover #portada-video .portada-video-card { width: 88px !important; }
 body main.cover #portada-video .portada-video-label { display: none !important; }
+@media (min-width: 601px) {
+  body main.cover #portada-video { left: max(18px, calc((100vw - 844px) / 2 + 18px)) !important; right: auto !important; }
+}
 @media (max-width: 600px) {
   body main.cover #portada-video { right: 36px !important; bottom: 140px !important; }
   body main.cover #portada-video .portada-video-card { width: 66px !important; }
