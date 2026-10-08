@@ -356,8 +356,16 @@ body p { text-align: justify !important; text-align-last: left !important; text-
   main .class-copy {
     width: 64% !important;
     max-width: none !important;
-    margin-left: 0 !important;
+    margin-left: auto !important;
     margin-right: auto !important;
+  }
+  main .beethoven-watermark,
+  main .hector-watermark,
+  main .michael-watermark,
+  main .violeta-watermark {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) scale(1.08) !important;
   }
   main .class-copy p {
     width: 100% !important;
