@@ -15269,8 +15269,23 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 </style>
 <style id="presentacion-parrafos-movil-borde-derecho-20261008">
 @media (max-width: 700px) {
+  #presentacion .presentation-story {
+    width: min(100%, 320px) !important;
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
   #presentacion .presentation-story p,
-  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .presentation-story p:nth-of-type(n) {
+    width: 100% !important;
+    max-width: none !important;
+    text-align: justify !important;
+    text-align-last: right !important;
+    text-justify: inter-word !important;
+    -webkit-hyphens: auto !important;
+    hyphens: auto !important;
+    word-spacing: -.025em !important;
+  }
   #presentacion .clases-piano p,
   #presentacion .clases-piano p:nth-of-type(n) {
     width: 86% !important;
