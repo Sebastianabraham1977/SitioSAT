@@ -441,7 +441,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     <a class="piano-prompt piano-prompt-video" data-destination="video" href="./05_MUSICA_AUDIOVISUAL.html">¿Quieres conocer mi música para proyectos audiovisuales?</a>
     <div class="home-piano-cabinet" aria-label="Mueble de piano clásico de madera">
       <div class="home-piano-key-window">
-        <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="lazy" allow="autoplay"></iframe>
+        <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="eager" fetchpriority="high" allow="autoplay"></iframe>
         <div class="home-piano-key-links" aria-label="Teclas con accesos a las secciones"></div>
       </div>
     </div>
@@ -555,7 +555,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
    const point=document.createElementNS('http://www.w3.org/2000/svg','circle');point.setAttribute('cx',x2);point.setAttribute('cy',y2);point.setAttribute('r','5');point.setAttribute('fill',color);point.setAttribute('stroke','#fff');point.setAttribute('stroke-width','1.5');svg.appendChild(point);
   });
  };
- const layout=()=>{alignKeys();draw()};requestAnimationFrame(layout);window.addEventListener('resize',()=>requestAnimationFrame(layout));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(layout)).observe(stage);
+ const layout=()=>{alignKeys();draw()};requestAnimationFrame(layout);keyboard.addEventListener('load',()=>requestAnimationFrame(layout));window.addEventListener('resize',()=>requestAnimationFrame(layout));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(layout)).observe(stage);
 })();
 </script>
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
