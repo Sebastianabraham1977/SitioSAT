@@ -14609,8 +14609,9 @@ body main.cover #portada-video .portada-video-label { display: none !important; 
 }
 @media (max-width: 600px) {
   body main.cover #portada-video { right: 36px !important; bottom: 140px !important; }
-  body main.cover #portada-video .portada-video-card { width: 66px !important; background: #000 !important; border-color: #d9b76a !important; }
-  body main.cover #portada-video .portada-video-play { background: transparent !important; border-color: #d9b76a !important; color: #d9b76a !important; box-shadow: none !important; }
+  body main.cover #portada-video .portada-video-card { width: 66px !important; aspect-ratio: 1 !important; display: flex !important; align-items: center !important; justify-content: center !important; background: #000 !important; border: 1px solid #d9b76a !important; border-radius: 6px !important; }
+  body main.cover #portada-video .portada-video-play { display: grid !important; width: 38px !important; height: 38px !important; place-items: center !important; padding: 0 !important; border: 1px solid #d9b76a !important; border-radius: 50% !important; background: transparent !important; color: #d9b76a !important; font-size: 16px !important; line-height: 1 !important; box-shadow: none !important; }
+  body main.cover #portada-video .portada-video-label { display: none !important; }
 }
 body:has(#presentacion:target) main.cover #portada-video { display: none !important; }
 </style>
