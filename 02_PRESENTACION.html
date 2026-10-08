@@ -15200,4 +15200,57 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 108px !important; 
 
 <style id="global-paragraph-justification-20261008">
 body p { text-align: justify !important; text-align-last: left !important; text-justify: inter-word !important; -webkit-hyphens: auto !important; hyphens: auto !important; word-spacing: -.025em !important; }
+@media (max-width: 700px) {
+  body p {
+    max-width: 94% !important;
+    text-align: left !important;
+    text-align-last: left !important;
+    text-justify: auto !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-spacing: normal !important;
+  }
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .clases-piano p,
+  #presentacion .clases-piano p:nth-of-type(n) {
+    width: 86% !important;
+    max-width: none !important;
+    text-align: left !important;
+    text-align-last: left !important;
+    text-justify: auto !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-spacing: normal !important;
+  }
+  main .class-copy { width: 86% !important; }
+}
+</style>
+
+<style id="presentacion-escritorio-scroll-completo-20261008">
+@media (min-width: 801px) {
+  body:has(#presentacion:target) {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+  }
+  body:has(#presentacion:target) #presentacion {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding-bottom: 150px !important;
+  }
+  #presentacion > .wrap,
+  #presentacion > .wrap > main,
+  #presentacion .card,
+  #presentacion .presentation-story {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    aspect-ratio: auto !important;
+  }
+  #presentacion > .wrap > main { align-items: start !important; }
+  #presentacion .presentation-story { align-self: start !important; }
+}
 </style>
