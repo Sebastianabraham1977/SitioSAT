@@ -221,26 +221,28 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 @media (max-width: 700px) {
   body p {
     max-width: 94% !important;
-    text-align: left !important;
+    text-align: justify !important;
     text-align-last: left !important;
-    text-justify: auto !important;
-    -webkit-hyphens: none !important;
-    hyphens: none !important;
-    word-spacing: normal !important;
+    text-justify: inter-word !important;
+    -webkit-hyphens: auto !important;
+    hyphens: auto !important;
+    word-spacing: -.035em !important;
   }
   #presentacion .presentation-story p,
   #presentacion .presentation-story p:nth-of-type(n),
   #presentacion .clases-piano p,
-  #presentacion .clases-piano p:nth-of-type(n) {
+  #presentacion .clases-piano p:nth-of-type(n),
+  .presentation-page .presentation-story p,
+  .presentation-page .clases-piano p {
     width: 86% !important;
     max-width: none !important;
-    text-align: left !important;
+    text-align: justify !important;
     text-align-last: left !important;
-    text-justify: auto !important;
-    -webkit-hyphens: none !important;
-    hyphens: none !important;
-    word-spacing: normal !important;
+    text-justify: inter-word !important;
+    -webkit-hyphens: auto !important;
+    hyphens: auto !important;
+    word-spacing: -.035em !important;
   }
-  main .class-copy { width: 86% !important; }
+  main .class-copy { width: 82% !important; }
 }
 </style>
