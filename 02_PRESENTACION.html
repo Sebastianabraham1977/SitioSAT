@@ -15322,24 +15322,36 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 
 <style id="presentacion-movil-margenes-laterales-iguales-final">
 @media (max-width: 700px) {
+  #presentacion > .wrap > main {
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
   #presentacion .card {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
-    justify-items: center !important;
-    width: 100vw !important;
-    max-width: none !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
+    justify-items: stretch !important;
+    width: min(520px, calc(100vw - 48px)) !important;
+    max-width: calc(100vw - 48px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     padding: 0 !important;
     box-sizing: border-box !important;
   }
   #presentacion .presentation-story,
   #presentacion .presentation-child-photo {
-    width: min(520px, calc(100vw - 48px)) !important;
-    max-width: calc(100vw - 48px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    justify-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-self: stretch !important;
     box-sizing: border-box !important;
   }
   #presentacion .presentation-story {
