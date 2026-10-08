@@ -86,38 +86,53 @@
         <div class="video-caption">Video del dúo · toca la portada para abrir Instagram</div>
       </article>
       <article class="video-card uploaded-video-card">
-        <video class="uploaded-video" controls playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-01.jpg" aria-label="Video 1 del Dúo con Liz Pacho">
+        <div class="uploaded-video-frame">
+          <video class="uploaded-video" playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-01.jpg" aria-label="Video 1 del Dúo con Liz Pacho">
           <source src="./assets/bands/liz-pacho-video-01.mov" type="video/quicktime">
           Tu navegador no puede reproducir este video.
-        </video>
+          </video>
+          <button class="uploaded-video-play" type="button" aria-label="Reproducir video 1"></button>
+        </div>
         <div class="video-caption">Video 1 · Dúo con Liz Pacho</div>
       </article>
       <article class="video-card uploaded-video-card">
-        <video class="uploaded-video" controls playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-02.jpg" aria-label="Video 2 del Dúo con Liz Pacho">
+        <div class="uploaded-video-frame">
+          <video class="uploaded-video" playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-02.jpg" aria-label="Video 2 del Dúo con Liz Pacho">
           <source src="./assets/bands/liz-pacho-video-02.mov" type="video/quicktime">
           Tu navegador no puede reproducir este video.
-        </video>
+          </video>
+          <button class="uploaded-video-play" type="button" aria-label="Reproducir video 2"></button>
+        </div>
         <div class="video-caption">Video 2 · Dúo con Liz Pacho</div>
       </article>
       <article class="video-card uploaded-video-card">
-        <video class="uploaded-video" controls playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-03.jpg" aria-label="Video 3 del Dúo con Liz Pacho">
+        <div class="uploaded-video-frame">
+          <video class="uploaded-video" playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-03.jpg" aria-label="Video 3 del Dúo con Liz Pacho">
           <source src="./assets/bands/liz-pacho-video-03.mov" type="video/quicktime">
           Tu navegador no puede reproducir este video.
-        </video>
+          </video>
+          <button class="uploaded-video-play" type="button" aria-label="Reproducir video 3"></button>
+        </div>
         <div class="video-caption">Video 3 · Dúo con Liz Pacho</div>
       </article>
       <article class="video-card uploaded-video-card">
-        <video class="uploaded-video" controls playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-04.jpg" aria-label="Video 4 del Dúo con Liz Pacho">
+        <div class="uploaded-video-frame">
+          <video class="uploaded-video" playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-04.jpg" aria-label="Video 4 del Dúo con Liz Pacho">
           <source src="./assets/bands/liz-pacho-video-04.mov" type="video/quicktime">
           Tu navegador no puede reproducir este video.
-        </video>
+          </video>
+          <button class="uploaded-video-play" type="button" aria-label="Reproducir video 4"></button>
+        </div>
         <div class="video-caption">Video 4 · Dúo con Liz Pacho</div>
       </article>
       <article class="video-card uploaded-video-card">
-        <video class="uploaded-video" controls playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-05.jpg" aria-label="Video 5 del Dúo con Liz Pacho">
+        <div class="uploaded-video-frame">
+          <video class="uploaded-video" playsinline preload="metadata" poster="./assets/bands/liz-pacho-poster-05.jpg" aria-label="Video 5 del Dúo con Liz Pacho">
           <source src="./assets/bands/liz-pacho-video-05.mov" type="video/quicktime">
           Tu navegador no puede reproducir este video.
-        </video>
+          </video>
+          <button class="uploaded-video-play" type="button" aria-label="Reproducir video 5"></button>
+        </div>
         <div class="video-caption">Video 5 · Dúo con Liz Pacho</div>
       </article>
       <a class="photo-card" href="./assets/bands/liz-pacho-01.jpg" target="_blank" rel="noopener noreferrer" aria-label="Abrir foto 1 del Dúo con Liz Pacho"><img src="./assets/bands/liz-pacho-01.jpg" alt="Selfie de Sebastián y Liz Pacho" loading="lazy"></a>
@@ -234,6 +249,26 @@ body > main:not(.cover) > h1,
 .gallery>.uploaded-video-card{width:min(100%,220px);justify-self:center}
 @media(max-width:700px){.gallery>.video-card:first-child{width:min(100%,360px)}.gallery>.uploaded-video-card{grid-column:auto;width:100%;max-width:170px}}
 </style>
+<style id="white-play-overlay-for-uploaded-videos">
+.uploaded-video-frame{position:relative;width:100%;line-height:0;background:#000}
+.uploaded-video{display:block;width:100%;height:auto;max-height:70vh;background:#000}
+.uploaded-video-play{position:absolute;inset:0;display:grid;place-items:center;padding:0;border:0;background:transparent;color:#fff;cursor:pointer}
+.uploaded-video-play::before{content:"";position:absolute;width:48px;height:48px;border:2px solid rgba(255,255,255,.95);border-radius:50%}
+.uploaded-video-play::after{content:"";width:0;height:0;margin-left:4px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}
+.uploaded-video-play:focus-visible{outline:2px solid #fff;outline-offset:-5px}
+.uploaded-video-play[hidden]{display:none!important}
+</style>
+<script>
+document.querySelectorAll('.uploaded-video-frame').forEach(frame=>{
+  const video=frame.querySelector('video');
+  const play=frame.querySelector('.uploaded-video-play');
+  play.addEventListener('click',()=>{video.controls=true;video.play().catch(()=>{video.controls=false;});});
+  video.addEventListener('playing',()=>{play.hidden=true;});
+  const restorePlay=()=>{video.controls=false;play.hidden=false;};
+  video.addEventListener('pause',restorePlay);
+  video.addEventListener('ended',restorePlay);
+});
+</script>
 </body>
 
 
