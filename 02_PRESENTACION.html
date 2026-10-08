@@ -15140,6 +15140,18 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 108px !important; 
 }
 </style>
 <style id="presentacion-movil-misma-letra-que-clases-20261008">
+@media (min-width: 801px) {
+  #presentacion .presentation-story p,
+  #presentacion .presentation-story p:nth-of-type(n),
+  #presentacion .clases-piano p,
+  #presentacion .clases-piano p:nth-of-type(n) {
+    width: 90% !important;
+    max-width: none !important;
+    margin-right: auto !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+  }
+}
 @media (max-width: 800px) {
   .presentation-page main {
     padding-left: 0 !important;
@@ -15172,7 +15184,7 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 108px !important; 
     font-style: normal !important;
     line-height: 1.6 !important;
     letter-spacing: 0 !important;
-    width: 100% !important;
+    width: 90% !important;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
