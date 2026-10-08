@@ -94,11 +94,11 @@
     </a>
     <a class="moral-media-card moral-video-card" href="#moral-video-player" aria-label="Reproducir video de Moral Distraída">
       <img src="./assets/moral-distraida-video-cover.jpg" alt="Captura del video de Moral Distraída">
-      <span class="moral-play" aria-hidden="true">▶</span>
+      <span class="moral-play" aria-hidden="true"></span>
     </a>
     <a class="moral-media-card moral-video-card moral-youtube-card" href="https://www.youtube.com/watch?v=NItLQGFtUdc" target="_blank" rel="noopener noreferrer" aria-label="Ver Moral Distraída tuvo un exitoso debut en Olmué, Festival del Huaso de Olmué 2018, en YouTube">
       <img src="https://img.youtube.com/vi/NItLQGFtUdc/hqdefault.jpg" alt="Portada de YouTube: Moral Distraída tuvo un exitoso debut en Olmué, Festival del Huaso de Olmué 2018">
-      <span class="moral-play" aria-hidden="true">▶</span>
+      <span class="moral-play" aria-hidden="true"></span>
       <span class="moral-media-caption moral-youtube-title">Olmué 2018</span>
     </a>
     <a class="moral-media-card moral-photo-card" href="./assets/moral-distraida-grupo-estudio.jpg" target="_blank" rel="noopener noreferrer" aria-label="Abrir foto 3 de Moral Distraída">
@@ -136,7 +136,8 @@
 .moral-media-card:focus-visible{outline:2px solid #d9b76a;outline-offset:4px}
 .moral-photo-feature{grid-column:1;grid-row:1 / span 2;min-height:390px}.moral-photo-card{aspect-ratio:4/3;min-height:220px}
 .moral-video-card{aspect-ratio:4/3;min-height:220px;background:radial-gradient(circle at center,#302719,#101010 72%)}
-.moral-play{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:1px solid rgba(255,255,255,.65);border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-size:18px;line-height:1;text-shadow:none}
+.moral-play{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:2px solid rgba(255,255,255,.95);border-radius:50%;background:transparent;display:grid;place-items:center}
+.moral-play:after{content:"";width:0;height:0;margin-left:4px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}
 .moral-video-player{display:none}
 .moral-video-player:target{position:fixed;inset:0;z-index:1000005;display:flex;align-items:center;justify-content:center;padding:70px 18px 24px;background:rgba(0,0,0,.95)}
 .moral-video-player video{display:block;width:min(100%,960px);max-height:82vh;background:#000;object-fit:contain}
