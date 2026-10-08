@@ -230,6 +230,11 @@ body > main:not(.cover) > h1,
 </style>
 
 <style id="mobile-band-media-spacing">@media(max-width:700px){.page>.subtitle{margin-bottom:54px!important}}</style>
+<style id="liz-pacho-feature-and-small-videos">
+.gallery>.video-card:first-child{grid-column:1/-1;width:min(100%,500px);justify-self:center}
+.gallery>.uploaded-video-card{width:min(100%,220px);justify-self:center}
+@media(max-width:700px){.gallery>.video-card:first-child{width:min(100%,360px)}.gallery>.uploaded-video-card{grid-column:auto;width:100%;max-width:170px}}
+</style>
 </body>
 
 
