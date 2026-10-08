@@ -455,9 +455,12 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 @media(min-width:641px){.home-piano-key-window{height:190px}}
 .home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:auto}
 @media(min-width:641px){
- .home-piano-cabinet{background-position:center calc(50% - 30px)!important}
- .home-piano-key-window{top:98px!important;height:190px!important}
+ .home-piano-cabinet{background-position:center calc(50% - 40px)!important}
+ .home-piano-key-window{top:106px!important;height:190px!important}
  .home-piano-key-window iframe{top:-259px;transform:translateX(-50%) scaleX(1.08) scaleY(1.12)}
+ .home-piano-key-window::before,.home-piano-key-window::after{content:"";position:absolute;top:0;bottom:0;width:12px;background:#000;z-index:5;pointer-events:none}
+ .home-piano-key-window::before{left:0}
+ .home-piano-key-window::after{right:0}
 }
 .home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:visible;pointer-events:none}
 .home-piano-play-key{position:absolute;z-index:2;display:block;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:transparent;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer}
