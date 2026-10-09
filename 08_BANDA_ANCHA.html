@@ -97,7 +97,7 @@
     </a>
     <div class="banda-ancha-fotos-card banda-ancha-video-card" aria-label="Portada del video de Banda Ancha">
       <img class="banda-ancha-video-thumbnail" src="./assets/banda-ancha-video-cover.jpg" alt="Fotograma del video de Banda Ancha">
-      <span class="banda-ancha-video-play" aria-hidden="true">▶</span>
+      <span class="banda-ancha-video-play" aria-hidden="true"></span>
       <a class="banda-ancha-cover-link" href="https://www.instagram.com/reel/Ctb1M5wtOUS/?stkn=N2Y5cjNoY2ZrOXZk" target="_blank" rel="noopener noreferrer" aria-label="Abrir video de Banda Ancha en Instagram"></a>
     </div>
   </div>
@@ -188,6 +188,10 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
   }
   body:has(#cancionero:target) #cancionero .wrap { padding-top: 60px !important; }
 }
+</style>
+<style id="banda-ancha-white-play-standard">
+.banda-ancha-video-card .banda-ancha-video-play{inset:auto!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:5!important;width:48px!important;height:48px!important;padding:0!important;border:2px solid rgba(255,255,255,.95)!important;border-radius:50%!important;background:transparent!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;display:grid!important;place-items:center!important;pointer-events:none!important}
+.banda-ancha-video-card .banda-ancha-video-play::after{content:"";width:0;height:0;margin-left:4px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}
 </style>
 
 <style id="band-social-profile-style">
