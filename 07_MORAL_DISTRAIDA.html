@@ -110,7 +110,7 @@
           <span class="moral-music-note" aria-hidden="true">♫</span><span>Escuchar música</span><span class="moral-music-source">Spotify</span>
         </button>
         <div class="moral-music-now-playing" id="moralNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="moralCurrentTrack">Al Mal Tiempo</strong></div>
-        <div class="moral-music-embed is-preloaded" id="moralSpotifyPlayer"></div>
+        <div class="moral-music-embed is-preloaded" id="moralSpotifyPlayer"><div id="moralSpotifyFrame"></div></div>
       </div>
     </div>
   </div>
@@ -274,9 +274,10 @@ body > main:not(.cover) > h1,
 (()=>{
   const button=document.getElementById('moralMusicToggle');
   const player=document.getElementById('moralSpotifyPlayer');
+  const frame=document.getElementById('moralSpotifyFrame');
   const nowPlaying=document.getElementById('moralNowPlaying');
   const currentTrack=document.getElementById('moralCurrentTrack');
-  if(!button||!player||!nowPlaying||!currentTrack)return;
+  if(!button||!player||!frame||!nowPlaying||!currentTrack)return;
   const tracks=[
     {id:'0V1S4aJ7NrtrsJNudnR4k2',title:'Al Mal Tiempo'},
     {id:'0LRCzfOWfVoUXVHqRGCf53',title:'Los Hombres No Lloran'},
@@ -285,7 +286,7 @@ body > main:not(.cover) > h1,
   let api=null,controller=null,opened=false,advancing=false,currentIndex=0;
   const showPlayer=()=>{
     if(!api||controller)return;
-    api.createController(player,{uri:`spotify:track:${tracks[0].id}`,width:'100%',height:152},created=>{
+    api.createController(frame,{uri:`spotify:track:${tracks[0].id}`,width:'100%',height:152},created=>{
       controller=created;
       if(opened){player.classList.remove('is-preloaded');try{controller.play();}catch(error){}}
       controller.addListener('playback_started',event=>{
