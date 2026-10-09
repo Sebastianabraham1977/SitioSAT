@@ -85,6 +85,9 @@
 .audiovisual-music-toggle:hover,.audiovisual-music-toggle:focus-visible{background:rgba(217,183,106,.22);border-color:#f1ce70;outline:2px solid rgba(241,206,112,.45);outline-offset:3px}
 .audiovisual-music-note{color:#d9b76a;font-size:18px;line-height:1}
 .audiovisual-music-source{color:#d9b76a;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.audiovisual-music-close{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;margin-left:8px;border:1px solid rgba(217,183,106,.55);border-radius:999px;background:transparent;color:#f7f2e8;font:600 12px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;vertical-align:middle}
+.audiovisual-music-close:hover,.audiovisual-music-close:focus-visible{border-color:#f1ce70;color:#f1ce70;outline:2px solid rgba(241,206,112,.35);outline-offset:2px}
+.audiovisual-music-close[hidden]{display:none!important}
 .audiovisual-music-embed{width:min(250px,90vw);margin-top:12px;overflow:hidden;border-radius:12px;background:#121212}
 .audiovisual-music-embed[hidden]{display:none!important}
 .audiovisual-music-embed.is-preloaded{position:absolute!important;left:-10000px!important;top:0!important;visibility:hidden!important;pointer-events:none!important}
@@ -96,7 +99,7 @@
 .audiovisual-full-track{display:inline-block;margin-top:10px;color:#d9b76a;font:600 12px/1.4 "Instrument Sans",Arial,sans-serif;text-decoration:underline;text-underline-offset:3px}
 </style>
 </head><body><main class="page"><h1>Música para proyectos audiovisuales</h1><div class="card">Creo música original para películas, series y documentales. Junto a Alekos Vuskovic, compongo y produzco música para distintos proyectos. Grabamos instrumentos y exploramos sonidos, trabajando en conjunto con las productoras y los equipos creativos para que la música acompañe las imágenes y aporte emoción, atmósfera y carácter a cada proyecto.</div><div class="audiovisual-music-widget">
-<button class="audiovisual-music-toggle" id="audiovisualMusicToggle" type="button" aria-expanded="false" aria-controls="audiovisualSpotifyPlayer"><span class="audiovisual-music-note" aria-hidden="true">♫</span><span id="audiovisualMusicButtonLabel">Escuchar música</span><span class="audiovisual-music-source">Spotify</span></button>
+<button class="audiovisual-music-toggle" id="audiovisualMusicToggle" type="button" aria-expanded="false" aria-controls="audiovisualSpotifyPlayer"><span class="audiovisual-music-note" aria-hidden="true">♫</span><span id="audiovisualMusicButtonLabel">Escuchar música</span><span class="audiovisual-music-source">Spotify</span></button><button class="audiovisual-music-close" id="audiovisualMusicClose" type="button" aria-label="Cerrar reproductor de música" hidden>Cerrar ×</button>
 <div class="audiovisual-now-playing" id="audiovisualNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="audiovisualCurrentTrack">Cementerio</strong></div>
 <div class="audiovisual-music-embed is-preloaded" id="audiovisualSpotifyPlayer"><div id="audiovisualSpotifyFrame"></div></div>
 <a class="audiovisual-full-track" id="audiovisualFullTrack" href="https://open.spotify.com/track/5cYn0eG1YeDMvFeDpnU3qA" target="_blank" rel="noopener noreferrer" hidden>Escuchar tema entero en Spotify</a>
@@ -203,27 +206,36 @@ body > main:not(.cover) > h1,
 <script id="audiovisual-spotify-toggle">
 (()=>{
   const button=document.getElementById('audiovisualMusicToggle');
+  const closeButton=document.getElementById('audiovisualMusicClose');
   const buttonLabel=document.getElementById('audiovisualMusicButtonLabel');
   const player=document.getElementById('audiovisualSpotifyPlayer');
   const frame=document.getElementById('audiovisualSpotifyFrame');
   const nowPlaying=document.getElementById('audiovisualNowPlaying');
   const currentTrack=document.getElementById('audiovisualCurrentTrack');
   const fullTrack=document.getElementById('audiovisualFullTrack');
-  if(!button||!buttonLabel||!player||!frame||!nowPlaying||!currentTrack||!fullTrack)return;
+  if(!button||!closeButton||!buttonLabel||!player||!frame||!nowPlaying||!currentTrack||!fullTrack)return;
   const track={id:'5cYn0eG1YeDMvFeDpnU3qA',title:'Cementerio'};
-  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false;
+  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false,closing=false;
   button.disabled=true;
   const updateButton=()=>{buttonLabel.textContent=isPlaying?'Pausar música':(hasStarted?'Reanudar música':'Escuchar música');};
+  const closePlayer=()=>{
+    opened=false;button.setAttribute('aria-expanded','false');
+    player.classList.add('is-preloaded');closeButton.hidden=true;fullTrack.hidden=true;nowPlaying.hidden=true;
+    if(controller&&isPlaying){closing=true;try{controller.pause();}catch(error){closing=false;isPlaying=false;updateButton();}}
+    else{closing=false;isPlaying=false;updateButton();}
+  };
   const showPlayer=()=>{
     if(!api||controller)return;
     api.createController(frame,{uri:`spotify:track:${track.id}`,width:'100%',height:152},created=>{
       controller=created;
       controller.addListener('playback_started',()=>{
+        if(!opened){closing=true;try{controller.pause();}catch(error){closing=false;}isPlaying=true;hasStarted=true;updateButton();return;}
         currentTrack.textContent=track.title;fullTrack.href=`https://open.spotify.com/track/${track.id}`;nowPlaying.hidden=false;
         isPlaying=true;hasStarted=true;updateButton();
       });
       controller.addListener('playback_update',event=>{
         const state=event.data||{};
+        if(closing){if(state.isPaused){closing=false;isPlaying=false;updateButton();}return;}
         if(state.isPaused&&isPlaying){isPlaying=false;updateButton();}
         else if(!state.isPaused&&!isPlaying){isPlaying=true;hasStarted=true;updateButton();}
       });
@@ -239,8 +251,8 @@ body > main:not(.cover) > h1,
   button.addEventListener('click',()=>{
     if(!opened){
       opened=true;button.setAttribute('aria-expanded','true');
-      player.classList.remove('is-preloaded');fullTrack.hidden=false;
-      if(controller){try{controller.play();}catch(error){}}
+      closeButton.hidden=false;player.classList.remove('is-preloaded');fullTrack.hidden=false;nowPlaying.hidden=!hasStarted;
+      if(controller){try{if(hasStarted&&!isPlaying)controller.resume();else controller.play();}catch(error){}}
       else showPlayer();
       return;
     }
@@ -251,6 +263,7 @@ body > main:not(.cover) > h1,
       else controller.play();
     }catch(error){}
   });
+  closeButton.addEventListener('click',closePlayer);
 })();
 </script>
 </body>
