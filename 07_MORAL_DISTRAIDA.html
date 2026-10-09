@@ -94,7 +94,7 @@
 .moral-music-now-playing{margin-top:12px;color:#f7f2e8;font:500 13px/1.45 "Instrument Sans",Arial,sans-serif}
 .moral-music-now-playing[hidden]{display:none!important}
 .moral-music-now-playing span{display:block;color:#d9b76a;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
-.moral-music-embed{width:100%;max-width:280px;margin-top:10px;overflow:hidden;border-radius:12px;background:#121212}
+.moral-music-embed{width:100%;max-width:250px;margin-top:10px;overflow:hidden;border-radius:12px;background:#121212}
 .moral-music-embed[hidden]{display:none!important}
 .moral-music-embed.is-preloaded{position:absolute!important;left:-10000px!important;top:0!important;visibility:hidden!important;pointer-events:none!important}
 .moral-music-embed iframe{display:block;width:100%;height:152px;border:0}
@@ -284,38 +284,26 @@ body > main:not(.cover) > h1,
   const buttonLabel=document.getElementById('moralMusicButtonLabel');
   const fullTrack=document.getElementById('moralFullTrack');
   if(!button||!player||!frame||!nowPlaying||!currentTrack||!buttonLabel||!fullTrack)return;
-  const tracks=[
-    {id:'0V1S4aJ7NrtrsJNudnR4k2',title:'Al Mal Tiempo'},
-    {id:'0LRCzfOWfVoUXVHqRGCf53',title:'Los Hombres No Lloran'},
-    {id:'5Aqx566NjMjV1i89yvF7Qt',title:'Sencillo'}
-  ];
-  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false,advancing=false,currentIndex=0;
+  const track={id:'0V1S4aJ7NrtrsJNudnR4k2',title:'Al Mal Tiempo'};
+  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false;
   button.disabled=true;
   const updateButton=()=>{buttonLabel.textContent=isPlaying?'Pausar música':(hasStarted?'Reanudar música':'Escuchar música');};
   const showPlayer=()=>{
     if(!api||controller)return;
-    api.createController(frame,{uri:`spotify:track:${tracks[0].id}`,width:'100%',height:152},created=>{
+    api.createController(frame,{uri:`spotify:track:${track.id}`,width:'100%',height:152},created=>{
       controller=created;
-      controller.addListener('playback_started',event=>{
-        const id=(event.data.playingURI||'').split(':').pop();
-        const index=tracks.findIndex(track=>track.id===id);
-        if(index!==-1){currentIndex=index;currentTrack.textContent=tracks[index].title;fullTrack.href=`https://open.spotify.com/track/${tracks[index].id}`;nowPlaying.hidden=false;}
+      controller.addListener('playback_started',()=>{
+        currentTrack.textContent=track.title;fullTrack.href=`https://open.spotify.com/track/${track.id}`;nowPlaying.hidden=false;
         isPlaying=true;hasStarted=true;updateButton();
-        advancing=false;
       });
       controller.addListener('playback_update',event=>{
         const state=event.data||{};
         if(state.isPaused&&isPlaying){isPlaying=false;updateButton();}
         else if(!state.isPaused&&!isPlaying){isPlaying=true;hasStarted=true;updateButton();}
-        if(advancing||!state.isPaused||!state.duration||state.position<state.duration-1200)return;
-        advancing=true;
-        currentIndex=(currentIndex+1)%tracks.length;
-        currentTrack.textContent=tracks[currentIndex].title;
-        fullTrack.href=`https://open.spotify.com/track/${tracks[currentIndex].id}`;
-        try{controller.loadEntity(`spotify:track:${tracks[currentIndex].id}`,false,0);setTimeout(()=>controller.play(),400);}
-        catch(error){advancing=false;}
       });
-      controller.loadEntity(`spotify:track:${tracks[0].id}`,false,0);
+      controller.loadEntity(`spotify:track:${track.id}`,false,0);
+      const spotifyFrame=frame.querySelector('iframe');
+      if(spotifyFrame)spotifyFrame.setAttribute('allow','autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
       button.disabled=false;
       if(opened){player.classList.remove('is-preloaded');try{controller.play();}catch(error){}}
     });
