@@ -83,6 +83,7 @@
 .audiovisual-music-widget{margin-top:22px;min-width:0}
 .audiovisual-music-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:9px 15px;border:1px solid #d9b76a;border-radius:999px;background:rgba(217,183,106,.12);color:#f7f2e8;font:600 14px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease}
 .audiovisual-music-toggle:hover,.audiovisual-music-toggle:focus-visible{background:rgba(217,183,106,.22);border-color:#f1ce70;outline:2px solid rgba(241,206,112,.45);outline-offset:3px}
+.audiovisual-music-toggle[hidden]{display:none!important}
 .audiovisual-music-note{color:#d9b76a;font-size:18px;line-height:1}
 .audiovisual-music-source{color:#d9b76a;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .audiovisual-music-close{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;margin-left:8px;border:1px solid rgba(217,183,106,.55);border-radius:999px;background:transparent;color:#f7f2e8;font:600 12px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;vertical-align:middle}
@@ -99,10 +100,10 @@
 .audiovisual-full-track{display:inline-block;margin-top:10px;color:#d9b76a;font:600 12px/1.4 "Instrument Sans",Arial,sans-serif;text-decoration:underline;text-underline-offset:3px}
 </style>
 </head><body><main class="page"><h1>Música para proyectos audiovisuales</h1><div class="card">Creo música original para películas, series y documentales. Junto a Alekos Vuskovic, compongo y produzco música para distintos proyectos. Grabamos instrumentos y exploramos sonidos, trabajando en conjunto con las productoras y los equipos creativos para que la música acompañe las imágenes y aporte emoción, atmósfera y carácter a cada proyecto.</div><div class="audiovisual-music-widget">
-<button class="audiovisual-music-toggle" id="audiovisualMusicToggle" type="button" aria-expanded="false" aria-controls="audiovisualSpotifyPlayer"><span class="audiovisual-music-note" aria-hidden="true">♫</span><span id="audiovisualMusicButtonLabel">Escuchar música</span><span class="audiovisual-music-source">Spotify</span></button><button class="audiovisual-music-close" id="audiovisualMusicClose" type="button" aria-label="Cerrar reproductor de música" hidden>Cerrar ×</button>
+<button class="audiovisual-music-toggle" id="audiovisualMusicToggle" type="button" aria-expanded="true" aria-controls="audiovisualSpotifyPlayer" hidden><span class="audiovisual-music-note" aria-hidden="true">♫</span><span id="audiovisualMusicButtonLabel">Escuchar música</span><span class="audiovisual-music-source">Spotify</span></button><button class="audiovisual-music-close" id="audiovisualMusicClose" type="button" aria-label="Cerrar reproductor de música">Cerrar ×</button>
 <div class="audiovisual-now-playing" id="audiovisualNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="audiovisualCurrentTrack">Cementerio</strong></div>
-<div class="audiovisual-music-embed is-preloaded" id="audiovisualSpotifyPlayer"><div id="audiovisualSpotifyFrame"></div></div>
-<a class="audiovisual-full-track" id="audiovisualFullTrack" href="https://open.spotify.com/track/5cYn0eG1YeDMvFeDpnU3qA" target="_blank" rel="noopener noreferrer" hidden>Escuchar tema entero en Spotify</a>
+<div class="audiovisual-music-embed" id="audiovisualSpotifyPlayer"><div id="audiovisualSpotifyFrame"></div></div>
+<a class="audiovisual-full-track" id="audiovisualFullTrack" href="https://open.spotify.com/track/5cYn0eG1YeDMvFeDpnU3qA" target="_blank" rel="noopener noreferrer">Escuchar tema entero en Spotify</a>
 </div><div class="video-gallery"><div class="video-card"><a class="video-tile video-tile-portrait" href="./05_VIDEO_BASTARDO.html?v=videotitles-20261001" aria-label="Abrir Documental: Bastardo (2023)"><img src="./assets/poster-bastardo.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Bastardo</div></div><div class="video-card"><a class="video-tile" href="./05_VIDEO_6.html?v=videotitles-20261001" aria-label="Abrir Comunidad Tierra"><img src="./assets/poster-comunidad-tierra.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Comunidad Tierra</div></div><div class="video-card"><a class="video-tile video-tile-portrait" href="./05_VIDEO_NUEVO_MUNDO.html?v=videotitles-20261001" aria-label="Abrir Serie Nuevo Mundo"><img src="./assets/poster-nuevo-mundo.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Nuevo Mundo</div></div><div class="video-card"><a class="video-tile video-tile-portrait" href="./05_VIDEO_SIN_FRONTERAS.html?v=videotitles-20261001" aria-label="Abrir Sin Fronteras (2017)"><img src="./assets/poster-sin-fronteras.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Sin Fronteras</div></div><div class="video-card"><a class="video-tile video-tile-fit" href="./05_VIDEO_HABITANTES.html?v=videotitles-20261001" aria-label="Abrir Serie Habitantes del Pacífico (2014)"><img src="./assets/poster-habitantes-pacifico.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Habitantes del Pacífico</div></div><div class="video-card"><a class="video-tile video-tile-portrait" href="./05_VIDEO_SUPER.html?v=videotitles-20261001" aria-label="Abrir Super, la película (2009)"><img src="./assets/poster-super.png" alt="" loading="lazy"><span class="video-play" aria-hidden="true"></span></a><div class="video-title">Super</div></div></div></main><input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú"><header class="topbar"><span class="site-brand">Sebastián Abraham <span>Teare</span></span><button class="menu-button" id="menuOpenButton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuPanel"><span></span><span></span><span></span></button></header><nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label><label class="menu-close" for="menuToggle" aria-label="Cerrar menú"></label><div class="menu-links"><a href="./01_PORTADA.html?v=videotitles-20261001">Home</a><a href="./02_PRESENTACION.html?v=videotitles-20261001">Presentación</a><a href="./06_CLASES_DE_PIANO.html?v=videotitles-20261001">Clases de piano</a><a href="./04_BANDAS.html?v=videotitles-20261001">Bandas</a><a href="./05_MUSICA_AUDIOVISUAL.html?v=videotitles-20261001" aria-current="page">Música para proyectos audiovisuales</a><a href="./03_CANCIONERO.html?v=videotitles-20261001">Cancionero y Piano Bar</a><a href="./12_CONTACTO.html?v=contact-title-gold-20261006">Contacto</a></div></nav><style id="instrument-sans-and-shared-page-titles">body,body *{font-family:"Instrument Sans",Arial,sans-serif!important}body .site-brand,body .site-brand *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace!important}#presentacion>.wrap>header>h1,#cancionero .hero h1,main.page>h1{font-size:clamp(32px,5.2vw,42px)!important;line-height:1.08!important}</style><style id="site-brand-slightly-larger">body .site-brand,body .site-brand *{font-size:clamp(13px,3.7vw,18px)!important}</style><style id="audiovisual-parrafo-sin-marco">.page>.card{border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;background:transparent!important}</style><style id="audiovisual-grid-aligned">.video-gallery{column-gap:28px!important;row-gap:42px!important;margin-top:64px!important;align-items:start!important}.video-gallery .video-card,.video-gallery .video-card:nth-child(n){transform:none!important}@media(max-width:700px){.video-gallery{column-gap:18px!important;row-gap:30px!important}}</style><style id="menu-panel-button-state">
 body.menu-is-open #menuPanel{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
 body:not(.menu-is-open) #menuPanel{pointer-events:none!important}
@@ -215,11 +216,11 @@ body > main:not(.cover) > h1,
   const fullTrack=document.getElementById('audiovisualFullTrack');
   if(!button||!closeButton||!buttonLabel||!player||!frame||!nowPlaying||!currentTrack||!fullTrack)return;
   const track={id:'5cYn0eG1YeDMvFeDpnU3qA',title:'Cementerio'};
-  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false,closing=false;
+  let api=null,controller=null,opened=true,isPlaying=false,hasStarted=false,closing=false;
   button.disabled=true;
-  const updateButton=()=>{buttonLabel.textContent=isPlaying?'Pausar música':(hasStarted?'Reanudar música':'Escuchar música');};
+  const updateButton=()=>{buttonLabel.textContent='Escuchar música';};
   const closePlayer=()=>{
-    opened=false;button.setAttribute('aria-expanded','false');
+    opened=false;button.setAttribute('aria-expanded','false');button.hidden=false;
     player.classList.add('is-preloaded');closeButton.hidden=true;fullTrack.hidden=true;nowPlaying.hidden=true;
     if(controller&&isPlaying){closing=true;try{controller.pause();}catch(error){closing=false;isPlaying=false;updateButton();}}
     else{closing=false;isPlaying=false;updateButton();}
@@ -243,7 +244,6 @@ body > main:not(.cover) > h1,
       const spotifyFrame=frame.querySelector('iframe');
       if(spotifyFrame)spotifyFrame.setAttribute('allow','autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
       button.disabled=false;
-      if(opened){player.classList.remove('is-preloaded');try{controller.play();}catch(error){}}
     });
   };
   window.onSpotifyIframeApiReady=iframeApi=>{api=iframeApi;showPlayer();};
@@ -251,9 +251,9 @@ body > main:not(.cover) > h1,
   button.addEventListener('click',()=>{
     if(!opened){
       opened=true;button.setAttribute('aria-expanded','true');
+      button.hidden=true;
       closeButton.hidden=false;player.classList.remove('is-preloaded');fullTrack.hidden=false;nowPlaying.hidden=!hasStarted;
-      if(controller){try{if(hasStarted&&!isPlaying)controller.resume();else controller.play();}catch(error){}}
-      else showPlayer();
+      if(!controller)showPlayer();
       return;
     }
     if(!controller)return;
