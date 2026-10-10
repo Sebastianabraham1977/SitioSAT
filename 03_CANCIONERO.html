@@ -745,7 +745,7 @@ body:has(section#rock:target) .cover, body:has(section#baladas:target) .cover, b
 </style>
 <section id="cancionero">
 
-<div class="wrap"><h1 class="cancionero-page-title">Cancionero y Piano Bar</h1><header class="hero"><div class="hero-content"><div class="kicker">Piano Bar</div>
+<div class="wrap"><h1 class="cancionero-page-title">Cancionero y Piano Bar</h1><div class="piano-bar-intro"><p>En este formato de Piano Bar, el público elige canciones del cancionero y canta junto al piano. Lo he presentado en Bar Don Clan y actualmente en los restaurantes El Ciudadano y Montenegro, además de eventos privados.</p></div><header class="hero"><div class="hero-content"><div class="kicker">Piano Bar</div>
 <h1>🎹 Piano Bar</h1>
 <div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
 <div class="badge">ELIGE · ESCUCHA · DISFRUTA</div>
@@ -14909,6 +14909,17 @@ body:has(#cancionero:target) #cancionero .wrap { padding-top: 82px !important; }
   margin: 12px 0 0;
   background: #e3001d;
 }
+#cancionero .piano-bar-intro {
+  box-sizing: border-box;
+  width: 94%;
+  max-width: 760px;
+  margin: 0 auto 24px;
+  color: #f7f2e8;
+  font: 18px/1.6 "Instrument Sans", Arial, sans-serif;
+  text-align: justify;
+  text-align-last: left;
+}
+#cancionero .piano-bar-intro p { margin: 0; }
 #cancionero .hero .hero-content > .kicker,
 #cancionero .hero .hero-content > h1 { visibility: hidden !important; }
 @media (max-width: 520px) {
