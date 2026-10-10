@@ -117,9 +117,9 @@
           <span class="moral-music-note" aria-hidden="true">♫</span><span id="moralMusicButtonLabel">Escuchar música</span><span class="moral-music-source">Spotify</span>
         </button>
         <button class="moral-music-close" id="moralMusicClose" type="button" aria-label="Cerrar reproductor de música" hidden>Cerrar ×</button>
-        <div class="moral-music-now-playing" id="moralNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="moralCurrentTrack">Al Mal Tiempo</strong></div>
+        <div class="moral-music-now-playing" id="moralNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="moralCurrentTrack">Hacerlo de Día</strong></div>
         <div class="moral-music-embed is-preloaded" id="moralSpotifyPlayer"><div id="moralSpotifyFrame"></div></div>
-        <a class="moral-full-track" id="moralFullTrack" href="https://open.spotify.com/track/0V1S4aJ7NrtrsJNudnR4k2" target="_blank" rel="noopener noreferrer" hidden>Escuchar tema entero en Spotify</a>
+        <a class="moral-full-track" id="moralFullTrack" href="https://open.spotify.com/track/0nApFXPoSanA4n7j563Ind" target="_blank" rel="noopener noreferrer" hidden>Escuchar tema entero en Spotify</a>
       </div>
     </div>
   </div>
@@ -290,7 +290,7 @@ body > main:not(.cover) > h1,
   const buttonLabel=document.getElementById('moralMusicButtonLabel');
   const fullTrack=document.getElementById('moralFullTrack');
   if(!button||!closeButton||!player||!frame||!nowPlaying||!currentTrack||!buttonLabel||!fullTrack)return;
-  const track={id:'0V1S4aJ7NrtrsJNudnR4k2',title:'Al Mal Tiempo'};
+  const track={id:'0nApFXPoSanA4n7j563Ind',title:'Hacerlo de Día'};
   let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false,closing=false;
   button.disabled=true;
   const updateButton=()=>{buttonLabel.textContent='Escuchar música';};
