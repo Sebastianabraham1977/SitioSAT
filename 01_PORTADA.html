@@ -475,7 +475,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-arrows .piano-arrow-hit{stroke:transparent!important;stroke-width:18px!important;stroke-dasharray:none!important;filter:none!important;pointer-events:stroke}
 .home-piano-arrows marker path{fill:currentColor;stroke:none;stroke-dasharray:none;filter:none}
 .piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:210px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.86);font:600 14px/1.25 Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;box-shadow:0 2px 9px rgba(0,0,0,.35)}
-.piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
+.piano-prompt-lessons{color:#b00020}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
 .piano-prompt:hover{filter:brightness(1.2)}
 @media(max-width:640px){
 .home-virtual-piano-frame{padding:50px 0 62px}
@@ -494,7 +494,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  if(!stage)return;
  const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),keyboard=stage.querySelector('.home-piano-key-window iframe'),prompts=[...stage.querySelectorAll('.piano-prompt')];
  const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
- const keyNudges={lessons:.15,live:.23,sing:-.20,video:.06};
+ const keyNudges={lessons:0,live:0,sing:0,video:0};
  const desktopKeySlots={lessons:5,live:8,sing:3,video:7};
   const positions=[{left:'2%',top:'3px'},{right:'1%',top:'5px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
