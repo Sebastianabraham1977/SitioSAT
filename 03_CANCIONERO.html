@@ -15033,4 +15033,12 @@ body p { text-align: justify !important; text-align-last: left !important; text-
   }
   main .class-copy { width: 82% !important; }
 }
+
+/* PianoBarPhotoAfterIntro20261010: La foto comienza después del párrafo para que queden en bloques separados. */
+@media (min-width: 701px) {
+  body:has(#cancionero:target) #cancionero::before { top: 360px !important; }
+}
+@media (max-width: 700px) {
+  body:has(#cancionero:target) #cancionero::before { top: 420px !important; }
+}
 </style>
