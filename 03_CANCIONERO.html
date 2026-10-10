@@ -14746,6 +14746,28 @@ body > main:not(.cover) > h1,
 }
 </style>
 
+<style id="piano-bar-intro-small-italic-between-title-and-photo-20261010">
+body:has(#cancionero:target) #cancionero .piano-bar-intro {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 94% !important;
+  max-width: 760px !important;
+  margin: 0 auto 24px !important;
+  font-size: 16px !important;
+  font-style: italic !important;
+  line-height: 1.5 !important;
+}
+body:has(#cancionero:target) #cancionero .piano-bar-intro p {
+  margin: 0 !important;
+  font-size: inherit !important;
+  font-style: italic !important;
+}
+body:has(#cancionero:target) #cancionero::before { top: 300px !important; }
+@media (max-width: 700px) {
+  body:has(#cancionero:target) #cancionero .piano-bar-intro { font-size: 14px !important; }
+  body:has(#cancionero:target) #cancionero::before { top: 330px !important; }
+}
+</style>
 </body>
 
 
