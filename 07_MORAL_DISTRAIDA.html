@@ -86,10 +86,24 @@
 .band-profile-actions>.band-social-link{margin:0!important}
 .moral-music-widget{min-width:0}
 .moral-music-card{position:relative;width:min(420px,90vw);padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
-.moral-music-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:9px 15px;border:1px solid #d9b76a;border-radius:999px;background:rgba(217,183,106,.12);color:#f7f2e8;text-decoration:none;font:600 14px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.moral-music-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:9px 15px;border:1px solid #d9b76a;border-radius:999px;background:rgba(217,183,106,.12);color:#f7f2e8;font:600 14px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease}
 .moral-music-toggle:hover,.moral-music-toggle:focus-visible,.moral-music-toggle:focus{background:rgba(217,183,106,.22);border-color:#f1ce70;outline:0!important;box-shadow:none!important}
+.moral-music-toggle:disabled{cursor:wait;opacity:.75}
+.moral-music-toggle[hidden]{display:none!important}
+.moral-music-close{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;margin-left:8px;border:1px solid rgba(217,183,106,.55);border-radius:999px;background:transparent;color:#f7f2e8;font:600 12px/1.2 "Instrument Sans",Arial,sans-serif;cursor:pointer;vertical-align:middle}
+.moral-music-close:hover,.moral-music-close:focus-visible{border-color:#f1ce70;color:#f1ce70;outline:2px solid rgba(241,206,112,.35);outline-offset:2px}
+.moral-music-close[hidden]{display:none!important}
 .moral-music-note{color:#d9b76a;font-size:18px;line-height:1}
 .moral-music-source{color:#d9b76a;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.moral-music-now-playing{margin-top:12px;color:#f7f2e8;font:500 13px/1.45 "Instrument Sans",Arial,sans-serif}
+.moral-music-now-playing[hidden]{display:none!important}
+.moral-music-now-playing span{display:block;color:#d9b76a;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.moral-music-embed{width:100%;max-width:200px;margin-top:10px;overflow:hidden;border-radius:12px;background:#121212}
+.moral-music-embed[hidden]{display:none!important}
+.moral-music-embed.is-preloaded{position:absolute!important;left:-10000px!important;top:0!important;visibility:hidden!important;pointer-events:none!important}
+.moral-music-embed iframe{display:block;width:100%;height:152px;border:0}
+.moral-full-track{display:inline-block;margin-top:10px;color:#d9b76a;font:600 12px/1.4 "Instrument Sans",Arial,sans-serif;text-decoration:underline;text-underline-offset:3px}
+.moral-full-track[hidden]{display:none!important}
 @media(max-width:700px){.band-profile-actions{gap:10px}.moral-music-card{width:min(420px,calc(100vw - 36px));box-sizing:border-box}.moral-music-toggle{font-size:13px}}
 </style>
 </head><body><main class="page moral-page">
@@ -99,9 +113,13 @@
     <a class="band-instagram-profile band-social-link" href="https://www.instagram.com/moraldistraida/" target="_blank" rel="noopener noreferrer"><span class="band-social-label">INSTAGRAM</span><span class="band-social-detail">@moraldistraida</span></a>
     <div class="moral-music-widget">
       <div class="moral-music-card">
-        <a class="moral-music-toggle" href="https://open.spotify.com/artist/4IdI1p8OrVpot6dbdCl3wv?si=tIO3gqlhTeiErFTV9Rsbvg&amp;utm_source=whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Escuchar toda la música de Moral Distraída en Spotify">
-          <span class="moral-music-note" aria-hidden="true">♫</span><span>Escuchar música</span><span class="moral-music-source">Spotify</span>
-        </a>
+        <button class="moral-music-toggle" id="moralMusicToggle" type="button" aria-expanded="false" aria-controls="moralSpotifyPlayer">
+          <span class="moral-music-note" aria-hidden="true">♫</span><span id="moralMusicButtonLabel">Escuchar música</span><span class="moral-music-source">Spotify</span>
+        </button>
+        <button class="moral-music-close" id="moralMusicClose" type="button" aria-label="Cerrar reproductor de música" hidden>Cerrar ×</button>
+        <div class="moral-music-now-playing" id="moralNowPlaying" aria-live="polite" hidden><span>Sonando ahora</span><strong id="moralCurrentTrack">Al Mal Tiempo</strong></div>
+        <div class="moral-music-embed is-preloaded" id="moralSpotifyPlayer"><div id="moralSpotifyFrame"></div></div>
+        <a class="moral-full-track" id="moralFullTrack" href="https://open.spotify.com/track/0V1S4aJ7NrtrsJNudnR4k2" target="_blank" rel="noopener noreferrer" hidden>Escuchar tema entero en Spotify</a>
       </div>
     </div>
   </div>
@@ -261,6 +279,68 @@ body > main:not(.cover) > h1,
 </style>
 
 <style id="mobile-band-media-spacing">@media(max-width:700px){.moral-page>.moral-subtitle{margin-bottom:54px!important}}</style>
+<script id="moral-section-music-toggle">
+(()=>{
+  const button=document.getElementById('moralMusicToggle');
+  const closeButton=document.getElementById('moralMusicClose');
+  const player=document.getElementById('moralSpotifyPlayer');
+  const frame=document.getElementById('moralSpotifyFrame');
+  const nowPlaying=document.getElementById('moralNowPlaying');
+  const currentTrack=document.getElementById('moralCurrentTrack');
+  const buttonLabel=document.getElementById('moralMusicButtonLabel');
+  const fullTrack=document.getElementById('moralFullTrack');
+  if(!button||!closeButton||!player||!frame||!nowPlaying||!currentTrack||!buttonLabel||!fullTrack)return;
+  const track={id:'0V1S4aJ7NrtrsJNudnR4k2',title:'Al Mal Tiempo'};
+  let api=null,controller=null,opened=false,isPlaying=false,hasStarted=false,closing=false;
+  button.disabled=true;
+  const updateButton=()=>{buttonLabel.textContent='Escuchar música';};
+  const closePlayer=()=>{
+    opened=false;button.setAttribute('aria-expanded','false');button.hidden=false;
+    player.classList.add('is-preloaded');closeButton.hidden=true;fullTrack.hidden=true;nowPlaying.hidden=true;
+    if(controller&&isPlaying){closing=true;try{controller.pause();}catch(error){closing=false;isPlaying=false;updateButton();}}
+    else{closing=false;isPlaying=false;updateButton();}
+  };
+  const showPlayer=()=>{
+    if(!api||controller)return;
+    api.createController(frame,{uri:`spotify:track:${track.id}`,width:'100%',height:152},created=>{
+      controller=created;
+      controller.addListener('playback_started',()=>{
+        if(!opened){closing=true;try{controller.pause();}catch(error){closing=false;}isPlaying=true;hasStarted=true;updateButton();return;}
+        currentTrack.textContent=track.title;fullTrack.href=`https://open.spotify.com/track/${track.id}`;nowPlaying.hidden=false;
+        isPlaying=true;hasStarted=true;updateButton();
+      });
+      controller.addListener('playback_update',event=>{
+        const state=event.data||{};
+        if(closing){if(state.isPaused){closing=false;isPlaying=false;updateButton();}return;}
+        if(state.isPaused&&isPlaying){isPlaying=false;updateButton();}
+        else if(!state.isPaused&&!isPlaying){isPlaying=true;hasStarted=true;updateButton();}
+      });
+      controller.loadEntity(`spotify:track:${track.id}`,false,0);
+      const spotifyFrame=frame.querySelector('iframe');
+      if(spotifyFrame)spotifyFrame.setAttribute('allow','autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
+      button.disabled=false;
+    });
+  };
+  window.onSpotifyIframeApiReady=iframeApi=>{api=iframeApi;showPlayer();};
+  const script=document.createElement('script');script.src='https://open.spotify.com/embed/iframe-api/v1';script.async=true;document.body.appendChild(script);
+  button.addEventListener('click',()=>{
+    if(!opened){
+      opened=true;button.setAttribute('aria-expanded','true');
+      button.hidden=true;
+      closeButton.hidden=false;player.classList.remove('is-preloaded');fullTrack.hidden=false;nowPlaying.hidden=!hasStarted;
+      if(!controller)showPlayer();
+      return;
+    }
+    if(!controller)return;
+    try{
+      if(isPlaying)controller.pause();
+      else if(hasStarted)controller.resume();
+      else controller.play();
+    }catch(error){}
+  });
+  closeButton.addEventListener('click',closePlayer);
+})();
+</script>
 </body>
 
 </html>
