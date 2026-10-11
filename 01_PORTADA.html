@@ -500,18 +500,24 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,72,69];
  svg.addEventListener('pointerdown',event=>{const hit=event.target.closest?.('.piano-arrow-hit');if(!hit)return;const prompt=prompts.find(item=>item.dataset.destination===hit.dataset.destination);if(!prompt)return;event.preventDefault();playLinkedNote(+prompt.dataset.note);window.setTimeout(()=>window.location.assign(byDestination[hit.dataset.destination]),300)});
- const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},samplePlayers=new Map();
+ const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();
  let audioContext=null;const getAudioContext=()=>{const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return null;if(!audioContext)audioContext=new AudioContextClass();return audioContext};
+ const loadPianoSample=base=>{
+  const ctx=getAudioContext();if(!ctx)return Promise.reject(new Error('Web Audio unavailable'));
+  if(!sampleBuffers.has(base))sampleBuffers.set(base,fetch(`./assets/piano/salamander/${sampleNotes[base]}.mp3`).then(response=>{if(!response.ok)throw new Error(`Piano sample unavailable: ${base}`);return response.arrayBuffer()}).then(bytes=>ctx.decodeAudioData(bytes)));
+  return sampleBuffers.get(base);
+ };
  const playFallbackNote=midi=>{try{const ctx=getAudioContext();if(!ctx)return false;const now=ctx.currentTime,fundamental=440*Math.pow(2,(midi-69)/12),gain=ctx.createGain(),filter=ctx.createBiquadFilter();gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.24,now+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+1.35);filter.type='lowpass';filter.frequency.setValueAtTime(4200,now);filter.connect(gain);gain.connect(ctx.destination);[1,2,3,4].forEach((partial,index)=>{const osc=ctx.createOscillator(),partialGain=ctx.createGain();osc.type=index===0?'triangle':'sine';osc.frequency.setValueAtTime(fundamental*partial,now);partialGain.gain.value=[1,.32,.14,.06][index];osc.connect(partialGain);partialGain.connect(filter);osc.start(now);osc.stop(now+1.4)});return true}catch{return false}};
  const playLinkedNote=async midi=>{
   const ctx=getAudioContext(),unlock=ctx&&ctx.state!=='running'?ctx.resume():Promise.resolve();
   let base=null;for(const candidate of Object.keys(sampleNotes).map(Number))if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;
-  if(base!==null){
-   try{let sample=samplePlayers.get(base);if(!sample){sample=new Audio(`./assets/piano/salamander/${sampleNotes[base]}.mp3`);sample.preload='auto';samplePlayers.set(base,sample)}const player=sample.cloneNode();player.volume=.95;player.playbackRate=Math.pow(2,(midi-base)/12);if('preservesPitch'in player)player.preservesPitch=false;if('webkitPreservesPitch'in player)player.webkitPreservesPitch=false;if('mozPreservesPitch'in player)player.mozPreservesPitch=false;const playing=player.play();if(playing&&typeof playing.then==='function')await playing;return true}catch{}
+  if(base!==null&&ctx){
+   try{const buffer=await loadPianoSample(base);await unlock;const source=ctx.createBufferSource();source.buffer=buffer;source.playbackRate.value=Math.pow(2,(midi-base)/12);source.connect(ctx.destination);source.start();return true}catch{}
   }
   try{await unlock}catch{}
   return playFallbackNote(midi);
  };
+ Object.keys(sampleNotes).forEach(base=>loadPianoSample(+base).catch(()=>{}));
  prompts.forEach((prompt,i)=>{
   Object.assign(prompt.style,positions[i]);
   const note=chosen[i],key=document.createElement('a');
