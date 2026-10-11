@@ -442,6 +442,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
     <div class="home-piano-cabinet" aria-label="Mueble de piano clásico de madera">
       <div class="home-piano-key-window">
         <iframe src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="eager" fetchpriority="high" allow="autoplay"></iframe>
+        <div class="home-piano-static-keys" aria-hidden="true"><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-white-key"></span><span class="home-piano-static-black-key" style="--black-key-boundary:1"></span><span class="home-piano-static-black-key" style="--black-key-boundary:2"></span><span class="home-piano-static-black-key" style="--black-key-boundary:4"></span><span class="home-piano-static-black-key" style="--black-key-boundary:5"></span><span class="home-piano-static-black-key" style="--black-key-boundary:6"></span><span class="home-piano-static-black-key" style="--black-key-boundary:8"></span><span class="home-piano-static-black-key" style="--black-key-boundary:9"></span><span class="home-piano-static-black-key" style="--black-key-boundary:11"></span><span class="home-piano-static-black-key" style="--black-key-boundary:12"></span><span class="home-piano-static-black-key" style="--black-key-boundary:13"></span></div>
         <div class="home-piano-key-links" aria-label="Teclas con accesos a las secciones"></div>
       </div>
     </div>
@@ -459,6 +460,10 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  .home-piano-key-window{left:5.8%!important;right:5.8%!important;top:77px!important;height:219px!important}
  .home-piano-key-window iframe{left:-27.5%;top:-225px;width:155%;transform:none!important}
 }
+/* Keep the visible key artwork still while Piano Aura handles touch and audio below. */
+.home-piano-static-keys{position:absolute;z-index:2;inset:0 1%;display:grid;grid-template-columns:repeat(14,minmax(0,1fr));overflow:hidden;background:#11101a;pointer-events:none}
+.home-piano-static-white-key{position:relative;z-index:0;box-sizing:border-box;height:100%;border-right:1px solid #515157;border-left:1px solid rgba(255,255,255,.42);border-radius:0 0 7px 7px;background:linear-gradient(90deg,#cfd0d4 0%,#f1f1f3 15%,#fff 52%,#e7e7e9 100%);box-shadow:inset 0 -5px 5px rgba(0,0,0,.14)}
+.home-piano-static-black-key{position:absolute;z-index:1;top:0;left:calc((100% / 14) * var(--black-key-boundary) - (100% / 14) * .30);width:calc((100% / 14) * .60);height:66%;border:1px solid #080809;border-top:0;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#111114 0%,#29292d 45%,#09090b 100%);box-shadow:0 3px 4px rgba(0,0,0,.72)}
 .home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:visible;pointer-events:none}
 
 .home-piano-key-link{position:absolute;z-index:3;display:block;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
