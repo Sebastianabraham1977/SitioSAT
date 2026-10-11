@@ -521,8 +521,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 
  const alignKeys=()=>{
   const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
-  const desktop=window.matchMedia('(min-width: 641px)').matches,frameWidth=keyboard.clientWidth||keyboard.offsetWidth,scaleX=pianoRect.width/frameWidth,keySpanWidth=Math.min(646,Math.max(320,frameWidth-72)),whiteKeyWidth=keySpanWidth*scaleX/14;
-  const origin=pianoRect.left+((frameWidth-keySpanWidth)/2)*scaleX;
+  const desktop=window.matchMedia('(min-width: 641px)').matches,keySpanWidth=windowRect.width*(desktop?.853:.904),whiteKeyWidth=keySpanWidth/14;
+  const origin=windowRect.left+(windowRect.width-keySpanWidth)/2;
   whitePlayKeys.forEach(({key,index})=>{key.style.left=`${(origin+index*whiteKeyWidth-layerRect.left)/layerRect.width*100}%`;key.style.width=`${whiteKeyWidth/layerRect.width*100}%`});
   blackPlayKeys.forEach(({key,boundary})=>{const width=whiteKeyWidth*.58;key.style.left=`${(origin+boundary*whiteKeyWidth-width/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${width/layerRect.width*100}%`});
   prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=origin+index*whiteKeyWidth,hotspot=24,nudge=['lessons','live','sing'].includes(prompt.dataset.destination)?whiteKeyWidth*.2:0,targetX=left+whiteKeyWidth/2+nudge,targetY=desktop?windowRect.top+windowRect.height*.75:windowRect.top+windowRect.height/2+28;key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspot/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspot}px`});
