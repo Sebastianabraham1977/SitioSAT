@@ -484,7 +484,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  svg.addEventListener('click',event=>{const hit=event.target.closest?.('.piano-point-hit');if(!hit)return;event.preventDefault();window.location.assign(byDestination[hit.dataset.destination])});
  const staticKeys=document.createElement('div');staticKeys.className='home-piano-static-keys';staticKeys.setAttribute('aria-hidden','true');
  notes.forEach(()=>{const key=document.createElement('span');key.className='home-piano-static-white';staticKeys.appendChild(key)});
- const blackBoundaries=[.5,1.5,3.5,4.5,5.5,7.5,8.5,10.5,11.5,12.5];
+ const blackBoundaries=[1,2,4,5,6,8,9,11,12,13];
  blackBoundaries.forEach(boundary=>{const key=document.createElement('span');key.className='home-piano-static-black';key.style.left=`${(boundary-.29)/14*100}%`;staticKeys.appendChild(key)});
  keyboard.parentElement.appendChild(staticKeys);
  prompts.forEach((prompt,i)=>{
