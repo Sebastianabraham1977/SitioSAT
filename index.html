@@ -453,20 +453,22 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-key-player{z-index:1;opacity:0!important}
 
 .home-piano-key-link{position:absolute;z-index:6;display:block;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-.home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
-.home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000)}
+.home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:auto}
+.home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000);pointer-events:none}
 .home-piano-arrows .piano-arrow-hit{stroke:transparent!important;stroke-width:18px!important;stroke-dasharray:none!important;filter:none!important;pointer-events:stroke}
+.home-piano-arrows a{pointer-events:all;cursor:pointer}
+.home-piano-arrows .piano-point-hit{pointer-events:all!important;touch-action:manipulation}
 .home-piano-arrows marker path{fill:currentColor;stroke:none;stroke-dasharray:none;filter:none}
 .piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:210px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.86);font:600 14px/1.25 Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;box-shadow:0 2px 9px rgba(0,0,0,.35)}
-.piano-prompt-lessons{color:#f1d27a}.piano-prompt-live{color:#ff8278}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#c5a3ff}
+.piano-prompt-lessons{color:#b00020}.piano-prompt-live{color:#c5a3ff}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#e3001d}
 .piano-prompt:hover{filter:brightness(1.2)}
 @media(max-width:640px){
 .home-virtual-piano-frame{padding:50px 0 62px}
 .home-piano-cabinet{height:260px;background-size:100% 178%}
 .home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
 .home-piano-key-window iframe{left:calc(50% - 12px);top:-209px;transform:translateX(-50%) scaleX(1.15)}
-.home-piano-key-display{opacity:0!important}
-.home-piano-key-player{opacity:1!important}
+.home-piano-key-display{opacity:1!important}
+.home-piano-key-player{opacity:0!important}
  .home-piano-key-links{left:0;right:0}
 .piano-prompt{width:32%;max-width:145px;padding:4px 5px;font-size:11px}
 .home-piano-arrows path{stroke-width:2;stroke-dasharray:6 6}
@@ -494,7 +496,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
   const desktop=window.matchMedia('(min-width: 641px)').matches,keyCount=desktop?21:14,keySpanWidth=windowRect.width*.985,whiteKeyWidth=keySpanWidth/keyCount;
   const origin=windowRect.left+(windowRect.width-keySpanWidth)/2;
-  prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const keyIndex=desktop?desktopKeySlots[prompt.dataset.destination]:index,left=origin+keyIndex*whiteKeyWidth,hotspot=24,targetX=left+whiteKeyWidth/2,targetY=windowRect.top+windowRect.height*(desktop?.79:.74);key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspot/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspot}px`});
+  prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const keyIndex=desktop?desktopKeySlots[prompt.dataset.destination]:index,left=origin+keyIndex*whiteKeyWidth,hotspot=Math.min(whiteKeyWidth*.9,44),hotspotHeight=44,targetX=left+whiteKeyWidth/2,targetY=windowRect.top+windowRect.height*(desktop?.79:.74);key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspotHeight/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspotHeight}px`});
   if(desktop){const prompt=stage.querySelector('.piano-prompt-sing'),key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),keyRect=key.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();prompt.style.left=`${keyRect.left+keyRect.width/2-stageRect.left-prompt.offsetWidth/2}px`;prompt.style.right='auto'}
  };
  const draw=()=>{
@@ -510,7 +512,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
    const trackY=above?y2-distance:y2+distance;
    const mobileYellow=!desktop&&prompt.dataset.destination==='lessons';
    const route=desktop&&prompt.dataset.destination==='sing'?`M${x2},${y2} V${y1}`:mobileYellow?`M${x2},${y1} V${y2}`:purpleTurn?`M${x1},${y1} V${trackY} C${x1},${trackY-44} ${x2},${trackY-44} ${x2},${y2}`:`M${x1},${y1} V${trackY} H${x2} V${y2}`;
-   path.setAttribute('d',route);path.setAttribute('stroke',color);svg.appendChild(path);const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');hit.setAttribute('class','piano-point-hit');hit.setAttribute('cx',x2);hit.setAttribute('cy',y2);hit.setAttribute('r','14');hit.setAttribute('fill','transparent');hit.setAttribute('pointer-events','all');hit.dataset.destination=prompt.dataset.destination;svg.appendChild(hit);
+   path.setAttribute('d',route);path.setAttribute('stroke',color);svg.appendChild(path);const hitLink=document.createElementNS('http://www.w3.org/2000/svg','a');hitLink.setAttribute('href',byDestination[prompt.dataset.destination]);hitLink.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');hit.setAttribute('class','piano-point-hit');hit.setAttribute('cx',x2);hit.setAttribute('cy',y2);hit.setAttribute('r','18');hit.setAttribute('fill','transparent');hit.setAttribute('pointer-events','all');hit.dataset.destination=prompt.dataset.destination;hitLink.appendChild(hit);svg.appendChild(hitLink);
    const point=document.createElementNS('http://www.w3.org/2000/svg','circle');point.setAttribute('cx',x2);point.setAttribute('cy',y2);point.setAttribute('r','5');point.setAttribute('pointer-events','none');point.setAttribute('fill',color);point.setAttribute('stroke','#fff');point.setAttribute('stroke-width','1.5');svg.appendChild(point);
   });
  };
