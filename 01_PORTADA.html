@@ -453,17 +453,13 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 @media(min-width:641px){.home-piano-key-window{height:190px}}
-.home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:none!important}
+.home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:auto!important}
 @media(min-width:641px){
  .home-piano-cabinet{background-position:center calc(50% - 40px)!important}
  .home-piano-key-window{left:5.8%!important;right:5.8%!important;top:77px!important;height:219px!important}
  .home-piano-key-window iframe{top:-169px;transform:translateX(-50%) scaleX(1.08) scaleY(1.28);transform-origin:center 49%}
 }
 .home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:visible;pointer-events:none}
-.home-piano-play-key{position:absolute;z-index:2;display:block;margin:0;padding:0;border:0;border-radius:0;background:transparent!important;color:transparent!important;box-shadow:none!important;filter:none!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer;transform:none!important}
-.home-piano-play-key-white{inset-block:0}
-.home-piano-play-key-black{z-index:4;top:0;bottom:50%}
-.home-piano-play-key.is-pressed{transform:none!important;filter:none!important;box-shadow:none!important}
 .home-piano-key-link{position:absolute;z-index:3;display:block;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
 .home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000)}
@@ -493,32 +489,12 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,72,69];
  svg.addEventListener('click',event=>{const hit=event.target.closest?.('.piano-point-hit');if(!hit)return;event.preventDefault();window.location.assign(byDestination[hit.dataset.destination])});
- const sampleNotes={60:'C4',63:'Ds4',66:'Fs4',69:'A4',72:'C5',75:'Ds5',78:'Fs5',81:'A5'},sampleBuffers=new Map();
- let audioContext=null;const getAudioContext=()=>{const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return null;if(!audioContext)audioContext=new AudioContextClass();return audioContext};
- const loadPianoSample=base=>{
-  const ctx=getAudioContext();if(!ctx)return Promise.reject(new Error('Web Audio unavailable'));
-  if(!sampleBuffers.has(base))sampleBuffers.set(base,fetch(`./assets/piano/salamander/${sampleNotes[base]}.mp3`).then(response=>{if(!response.ok)throw new Error(`Piano sample unavailable: ${base}`);return response.arrayBuffer()}).then(bytes=>ctx.decodeAudioData(bytes)));
-  return sampleBuffers.get(base);
- };
- const playFallbackNote=midi=>{try{const ctx=getAudioContext();if(!ctx)return false;const now=ctx.currentTime,fundamental=440*Math.pow(2,(midi-69)/12),gain=ctx.createGain(),filter=ctx.createBiquadFilter();gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.24,now+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+1.35);filter.type='lowpass';filter.frequency.setValueAtTime(4200,now);filter.connect(gain);gain.connect(ctx.destination);[1,2,3,4].forEach((partial,index)=>{const osc=ctx.createOscillator(),partialGain=ctx.createGain();osc.type=index===0?'triangle':'sine';osc.frequency.setValueAtTime(fundamental*partial,now);partialGain.gain.value=[1,.32,.14,.06][index];osc.connect(partialGain);partialGain.connect(filter);osc.start(now);osc.stop(now+1.4)});return true}catch{return false}};
- const playPianoNote=async midi=>{
-  const ctx=getAudioContext();if(!ctx)return false;
-  const unlock=ctx.state==='running'?Promise.resolve():ctx.resume();
-  let base=null;for(const candidate of Object.keys(sampleNotes).map(Number))if(base===null||Math.abs(midi-candidate)<Math.abs(midi-base))base=candidate;
-  try{const [buffer]=await Promise.all([loadPianoSample(base),unlock]);const source=ctx.createBufferSource();source.buffer=buffer;source.playbackRate.value=Math.pow(2,(midi-base)/12);source.connect(ctx.destination);source.start();return true}catch{try{await unlock}catch{}return playFallbackNote(midi)}
- };
- Object.keys(sampleNotes).forEach(base=>loadPianoSample(+base).catch(()=>{}));
  prompts.forEach((prompt,i)=>{
   Object.assign(prompt.style,positions[i]);
   const note=chosen[i],key=document.createElement('a');
   prompt.dataset.note=String(note);key.className='home-piano-key-link';key.href=byDestination[prompt.dataset.destination];key.dataset.note=String(note);key.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);
   layer.appendChild(key);
  });
- const whitePlayKeys=[];
- notes.forEach((note,index)=>{const key=document.createElement('button');key.type='button';key.tabIndex=0;key.className='home-piano-play-key home-piano-play-key-white';key.dataset.note=String(note);key.setAttribute('aria-label',`Tocar nota MIDI ${note}`);layer.appendChild(key);whitePlayKeys.push({key,index})});
- const blackBoundaries=[.5,1.5,3.5,4.5,5.5,7.5,8.5,10.5,11.5,12.5],blackNotes=[61,63,66,68,70,73,75,78,80,82];
- const blackPlayKeys=blackNotes.map((note,index)=>{const key=document.createElement('button');key.type='button';key.tabIndex=0;key.className='home-piano-play-key home-piano-play-key-black';key.dataset.note=String(note);key.setAttribute('aria-label',`Tocar nota MIDI ${note}`);layer.appendChild(key);return{key,boundary:blackBoundaries[index]}});
-
  const alignKeys=()=>{
   const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
   const desktop=window.matchMedia('(min-width: 641px)').matches,keySpanWidth=windowRect.width*(desktop?.853:.904),whiteKeyWidth=keySpanWidth/14;
@@ -528,9 +504,6 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=origin+index*whiteKeyWidth,hotspot=24,nudge=['lessons','live','sing'].includes(prompt.dataset.destination)?whiteKeyWidth*.2:0,targetX=left+whiteKeyWidth/2+nudge,targetY=desktop?windowRect.top+windowRect.height*.75:windowRect.top+windowRect.height/2+28;key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspot/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspot}px`});
   if(desktop){const prompt=stage.querySelector('.piano-prompt-sing'),key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),keyRect=key.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();prompt.style.left=`${keyRect.left+keyRect.width/2-stageRect.left-prompt.offsetWidth/2}px`;prompt.style.right='auto'}
  };
- layer.addEventListener('pointerdown',event=>{const key=event.target.closest('.home-piano-play-key');if(!key)return;event.preventDefault();key.dataset.pressedAt=String(Date.now());key.classList.add('is-pressed');playPianoNote(+key.dataset.note)});
- ['pointerup','pointercancel','pointerleave'].forEach(type=>layer.addEventListener(type,event=>{const key=event.target.closest('.home-piano-play-key');if(key)key.classList.remove('is-pressed')}));
- layer.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('.home-piano-play-key')){event.preventDefault();playPianoNote(+event.target.dataset.note)}});
  const draw=()=>{
   const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
   prompts.forEach(prompt=>{
