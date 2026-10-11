@@ -441,11 +441,11 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
 @media(min-width:641px){.home-piano-key-window{height:190px}}
-.home-piano-key-window iframe{position:absolute;left:50%;top:-231px;width:100vw;height:900px;max-width:none;border:0;transform:translateX(-50%) scaleX(1.08);transform-origin:center top;pointer-events:auto!important}
+.home-piano-key-window iframe{position:absolute;left:0;top:-231px;width:100%;height:900px;max-width:none;border:0;transform:none;transform-origin:left top;pointer-events:auto!important}
 @media(min-width:641px){
  .home-piano-cabinet{background-position:center calc(50% - 40px)!important}
  .home-piano-key-window{left:5.8%!important;right:5.8%!important;top:77px!important;height:219px!important}
- .home-piano-key-window iframe{top:-231px;transform:translateX(-50%) scaleX(1.08);transform-origin:center top}
+ .home-piano-key-window iframe{left:0;top:-231px;width:100%;transform:none;transform-origin:left top}
 }
 /* Piano Aura draws and plays the original keys; the colored navigation points remain overlaid. */
 .home-piano-key-links{position:absolute;z-index:6;inset:0;display:block;visibility:visible;pointer-events:none}
@@ -466,7 +466,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-virtual-piano-frame{padding:50px 0 62px}
 .home-piano-cabinet{height:260px;background-size:100% 178%}
 .home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
-.home-piano-key-window iframe{left:calc(50% - 12px);top:-209px;transform:translateX(-50%) scaleX(1.15)}
+.home-piano-key-window iframe{left:0;top:-209px;width:100%;transform:none;transform-origin:left top}
 .home-piano-key-display{opacity:0!important}
 .home-piano-key-player{opacity:1!important}
  .home-piano-key-links{left:0;right:0}
@@ -494,9 +494,9 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  });
  const alignKeys=()=>{
   const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
-  const desktop=window.matchMedia('(min-width: 641px)').matches,keyCount=desktop?21:14,keySpanWidth=pianoRect.width*.985,whiteKeyWidth=keySpanWidth/keyCount;
-  const origin=pianoRect.left+(pianoRect.width-keySpanWidth)/2;
-  prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const keyIndex=desktop?desktopKeySlots[prompt.dataset.destination]:index,left=origin+keyIndex*whiteKeyWidth,hotspot=Math.min(whiteKeyWidth*.9,44),hotspotHeight=44,targetX=left+whiteKeyWidth/2,targetY=windowRect.top+windowRect.height*(desktop?.79:.74);key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspotHeight/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspotHeight}px`});
+  const desktop=window.matchMedia('(min-width: 641px)').matches,keyCount=14,keySpanWidth=windowRect.width*(desktop?.853:.904),whiteKeyWidth=keySpanWidth/keyCount;
+  const origin=windowRect.left+(windowRect.width-keySpanWidth)/2;
+  prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const keyIndex=index,left=origin+keyIndex*whiteKeyWidth,hotspot=Math.min(whiteKeyWidth*.9,44),hotspotHeight=44,targetX=left+whiteKeyWidth/2,targetY=windowRect.top+windowRect.height*.5;key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspotHeight/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspotHeight}px`});
   if(desktop){const prompt=stage.querySelector('.piano-prompt-sing'),key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),keyRect=key.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();prompt.style.left=`${keyRect.left+keyRect.width/2-stageRect.left-prompt.offsetWidth/2}px`;prompt.style.right='auto'}
  };
  const draw=()=>{
@@ -520,7 +520,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 })();
 </script>
 <style id="home-mobile-piano-wood-raised">
-@media (max-width: 640px) { .home-piano-cabinet { background-position: center calc(50% - 100px) !important; } .home-piano-key-window { top: 27px !important; height: 160px !important; } .home-piano-cabinet::before { content: ""; position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 27px; pointer-events: none; background-image: url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004'); background-size: 100% 178%; background-position: center top; background-repeat: no-repeat; } .home-piano-key-window iframe { transform:translateX(-50%) scaleX(1.15) !important; transform-origin:center top !important; } }
+@media (max-width: 640px) { .home-piano-cabinet { background-position: center calc(50% - 100px) !important; } .home-piano-key-window { top: 27px !important; height: 160px !important; } .home-piano-cabinet::before { content: ""; position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 27px; pointer-events: none; background-image: url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004'); background-size: 100% 178%; background-position: center top; background-repeat: no-repeat; } .home-piano-key-window iframe { left:0 !important; width:100% !important; transform:none !important; transform-origin:left top !important; } }
 @media(max-width:360px){.home-piano-key-links{left:6%;right:6%}}
 </style>
 
