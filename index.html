@@ -447,6 +447,10 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  .home-piano-key-window iframe{top:-169px;transform:translateX(-50%) scaleX(1.08) scaleY(1.28);transform-origin:center 49%}
 }
 .home-piano-key-links{position:absolute;z-index:3;inset:0;display:block;visibility:visible;pointer-events:none}
+.home-piano-static-keys{position:absolute;z-index:2;top:0;bottom:0;left:6.85%;right:6.85%;display:grid;grid-template-columns:repeat(14,minmax(0,1fr));pointer-events:none}
+.home-piano-static-white{height:100%;box-sizing:border-box;border-left:1px solid rgba(32,28,25,.65);border-right:1px solid rgba(62,55,49,.6);border-bottom:3px solid rgba(45,38,32,.9);border-radius:0 0 6px 6px;background:linear-gradient(90deg,#c9c8c6 0%,#f4f4f3 11%,#fff 53%,#f3f3f2 89%,#d1d0ce 100%);box-shadow:inset 1px 0 rgba(255,255,255,.55),inset -2px 0 rgba(50,45,40,.14),0 2px 2px rgba(0,0,0,.16)}
+.home-piano-static-black{position:absolute;z-index:1;top:0;width:calc(58% / 14);height:78%;border:1px solid #090909;border-top:0;border-radius:0 0 5px 5px;box-sizing:border-box;background:linear-gradient(90deg,#080808 0%,#333 38%,#101010 78%,#050505 100%);box-shadow:inset 1px 0 rgba(255,255,255,.18),inset -2px 0 rgba(0,0,0,.8),0 5px 5px rgba(0,0,0,.62)}
+
 .home-piano-key-link{position:absolute;z-index:3;display:block;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
 .home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000)}
@@ -461,6 +465,8 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
 .home-piano-key-window iframe{left:calc(50% - 12px);top:-209px;transform:translateX(-50%) scaleX(1.15)}
  .home-piano-key-links{left:0;right:0}
+.home-piano-static-keys{left:4.8%;right:4.8%}
+.home-piano-static-black{height:50%}
 .piano-prompt{width:32%;max-width:145px;padding:4px 5px;font-size:11px}
 .home-piano-arrows path{stroke-width:2;stroke-dasharray:6 6}
 }
@@ -477,6 +483,11 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
  const chosen=[65,77,72,69];
  svg.addEventListener('click',event=>{const hit=event.target.closest?.('.piano-point-hit');if(!hit)return;event.preventDefault();window.location.assign(byDestination[hit.dataset.destination])});
+ const staticKeys=document.createElement("div");staticKeys.className="home-piano-static-keys";staticKeys.setAttribute("aria-hidden","true");
+ notes.forEach(()=>{const key=document.createElement("span");key.className="home-piano-static-white";staticKeys.appendChild(key)});
+ const blackBoundaries=[1,2,4,5,6,8,9,11,12,13];
+ blackBoundaries.forEach(boundary=>{const key=document.createElement("span");key.className="home-piano-static-black";key.style.left=`${(boundary-.29)/14*100}%`;staticKeys.appendChild(key)});
+ keyboard.parentElement.appendChild(staticKeys);
  prompts.forEach((prompt,i)=>{
   Object.assign(prompt.style,positions[i]);
   const note=chosen[i],key=document.createElement('a');
