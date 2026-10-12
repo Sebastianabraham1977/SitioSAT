@@ -56,7 +56,7 @@ const scene=new THREE.Scene();
 scene.background=new THREE.Color('#171310');
 scene.fog=new THREE.Fog('#171310',11,24);
 const camera=new THREE.PerspectiveCamera(33,1,.1,80);
-camera.position.set(0,6.25,10.6); camera.lookAt(0,1.0,.48);
+camera.position.set(0,11.2,10.6); camera.lookAt(0,.82,.52);
 
 scene.add(new THREE.HemisphereLight(0xffe7c0,0x211711,2.15));
 const keyLight=new THREE.DirectionalLight(0xffe6c3,3.3);keyLight.position.set(-4,8,7);keyLight.castShadow=true;keyLight.shadow.mapSize.set(2048,2048);keyLight.shadow.camera.left=-7;keyLight.shadow.camera.right=7;keyLight.shadow.camera.top=6;keyLight.shadow.camera.bottom=-3;scene.add(keyLight);
