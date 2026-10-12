@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080808">
+<title>Prueba piano vertical 3D</title>
+<style>
+  :root{color-scheme:dark;--gold:#d5b56e;--cream:#eee9df;--muted:#aaa49a}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 36%,#25211d 0,#11100f 43%,#070707 78%);color:var(--cream);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:flex;flex-direction:column;align-items:center;padding:clamp(18px,4vw,48px) 14px 30px}
+  main{width:min(100%,1100px);margin:auto}
+  header{text-align:center;margin:0 auto 12px;max-width:720px}
+  h1{font:500 clamp(1.35rem,3vw,2rem)/1.2 Georgia,serif;letter-spacing:.045em;color:var(--gold);margin:0 0 9px}
+  header p{color:#c4bdb1;margin:0;font-size:clamp(.88rem,1.5vw,1rem)}
+  .stage{width:100%;height:min(68vw,570px);min-height:310px;max-height:570px;position:relative;touch-action:none;overflow:hidden;border-radius:18px;background:radial-gradient(ellipse at 50% 72%,#40352b 0,#211a15 39%,#101010 78%);box-shadow:0 28px 65px #000b,inset 0 1px #ffffff16}
+  canvas{display:block;width:100%;height:100%;touch-action:none;outline:none}
+  .hint{position:absolute;left:12px;right:12px;bottom:12px;text-align:center;color:#d8c9a7;font-size:.78rem;letter-spacing:.03em;text-shadow:0 1px 6px #000;pointer-events:none}
+  .status{min-height:1.5em;text-align:center;color:#bfb5a2;font-size:.84rem;margin:12px 0 0}
+  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #8c7144;border-radius:99px;padding:7px 14px;color:var(--gold);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:10px auto 0}
+  .badge:before{content:"";width:7px;height:7px;background:#9bc6b6;border-radius:50%;box-shadow:0 0 9px #9bc6b6}
+  footer{text-align:center;color:#89847d;font-size:.75rem;margin:16px 0 0}
+  @media(max-width:600px){body{padding:20px 10px}.stage{height:78vw;min-height:290px;max-height:430px;border-radius:12px}.hint{font-size:.69rem}.status{font-size:.8rem}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Piano vertical — prueba 3D</h1>
+    <p>Una escena 3D de prueba: toca las teclas blancas o negras y escucha cada nota.</p>
+    <div class="badge">Prueba independiente · el piano actual sigue intacto</div>
+  </header>
+  <section class="stage" aria-label="Piano vertical de madera interactivo">
+    <canvas id="piano" tabindex="0" aria-label="Toca una tecla para escucharla"></canvas>
+    <div class="hint">Toca o mantén una tecla · también puedes usar A–L y W–U en escritorio</div>
+  </section>
+  <p class="status" id="status" aria-live="polite">Preparando el piano 3D…</p>
+  <footer>Prototipo visual y sonoro para revisar. No modifica ni reemplaza el piano de Home.</footer>
+</main>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+const canvas=document.querySelector('#piano'),stage=canvas.parentElement,status=document.querySelector('#status');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.15;
+
+const scene=new THREE.Scene();
+scene.background=new THREE.Color('#171310');
+scene.fog=new THREE.Fog('#171310',11,24);
+const camera=new THREE.PerspectiveCamera(33,1,.1,80);
+camera.position.set(0,4.25,10.7); camera.lookAt(0,1.12,.1);
+
+scene.add(new THREE.HemisphereLight(0xffe7c0,0x211711,2.15));
+const keyLight=new THREE.DirectionalLight(0xffe6c3,3.3);keyLight.position.set(-4,8,7);scene.add(keyLight);
+const rim=new THREE.DirectionalLight(0xc78e55,2.0);rim.position.set(5,5,-5);scene.add(rim);
+const fill=new THREE.PointLight(0xf2c887,25,15,2);fill.position.set(0,3,5);scene.add(fill);
+
+function woodTexture(){
+  const c=document.createElement('canvas');c.width=1024;c.height=512;const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,1024,0);g.addColorStop(0,'#30170f');g.addColorStop(.18,'#5c2b19');g.addColorStop(.42,'#3b1d14');g.addColorStop(.68,'#6e3820');g.addColorStop(1,'#32180f');x.fillStyle=g;x.fillRect(0,0,1024,512);
+  for(let i=0;i<1250;i++){
+    const y=Math.random()*512,amp=Math.random()*8+1,phase=Math.random()*6.28;
+    x.beginPath();x.moveTo(0,y);for(let a=0;a<=1024;a+=16)x.lineTo(a,y+Math.sin(a/36+phase)*amp+Math.sin(a/9+phase)*amp*.15);
+    x.strokeStyle=i%5===0?'rgba(221,153,91,.10)':'rgba(11,4,2,.11)';x.lineWidth=Math.random()*2+.25;x.stroke();
+  }
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(1,1);return t;
+}
+const walnut=woodTexture();
+const wood=new THREE.MeshStandardMaterial({map:walnut,roughness:.28,metalness:.08});
+const darkWood=new THREE.MeshStandardMaterial({color:'#26120d',roughness:.3,metalness:.08});
+const brass=new THREE.MeshStandardMaterial({color:'#b88c49',metalness:.72,roughness:.26});
+const ivory=new THREE.MeshStandardMaterial({color:'#f1eee5',roughness:.27,metalness:.02});
+const ebony=new THREE.MeshStandardMaterial({color:'#101011',roughness:.2,metalness:.12});
+const groundMat=new THREE.MeshStandardMaterial({color:'#18130f',roughness:.76});
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),groundMat);floor.rotation.x=-Math.PI/2;floor.position.y=-.06;scene.add(floor);
+
+const piano=new THREE.Group();scene.add(piano);
+function box(parent,mat,w,h,d,x,y,z,bevel=0){
+  const geo=new THREE.BoxGeometry(w,h,d);const mesh=new THREE.Mesh(geo,mat);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;
+}
+// Upright cabinet: continuous 3D shell, front panel, top, cheek blocks and lower apron.
+box(piano,wood,9.25,2.45,1.26,0,1.58,-.12);
+box(piano,darkWood,8.35,.94,.12,0,1.94,.56);
+box(piano,wood,9.55,.19,1.65,0,2.91,-.05);
+box(piano,wood,9.3,.17,1.28,0,.29,-.06);
+box(piano,wood,9.1,.48,.2,0,.53,.56);
+box(piano,wood,.34,2.42,1.22,-4.44,1.58,.01);
+box(piano,wood,.34,2.42,1.22,4.44,1.58,.01);
+// Fallboard and music rest create recognizable upright-piano silhouette.
+box(piano,wood,8.45,.16,.38,0,2.54,.62);
+box(piano,darkWood,7.85,.12,.16,0,2.47,.83);
+box(piano,brass,8.48,.025,.018,0,2.42,.837);
+// Decorative front moulding and pedal rail.
+for(const y of [2.93,.82,.32]){
+  box(piano,brass,9.2,.025,.018,0,y,.545);
+  box(piano,darkWood,9.22,.06,.028,0,y-.045,.55);
+}
+box(piano,wood,7.95,.10,.55,0,.05,.08);
+for(const x of [-1.12,0,1.12]){
+  const p=new THREE.Mesh(new THREE.CylinderGeometry(.045,.065,.18,16),brass);p.position.set(x,.05,.46);p.rotation.x=.16;p.castShadow=true;piano.add(p);
+}
+// Two-octave key bed, modeled as individual pivoting meshes (not a photo overlay).
+const pitches=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const blackSet=new Set(['C#','D#','F#','G#','A#']);
+const startMidi=48,endMidi=72; // C3 through C5: two octaves
+const whiteNotes=[];for(let n=startMidi;n<=endMidi;n++){const name=pitches[n%12];if(!blackSet.has(name))whiteNotes.push({midi:n,name,octave:Math.floor(n/12)-1});}
+const keyWidth=.335,keyGap=.012,keyDepth=1.12,keyY=.76,keyBack=.48;
+const totalW=whiteNotes.length*(keyWidth+keyGap)-keyGap;
+const firstX=-totalW/2+keyWidth/2;
+const keys=[];
+function keyMesh(note,x,isBlack){
+  const group=new THREE.Group();group.position.set(x,keyY,isBlack?.42:keyBack);piano.add(group);
+  const w=isBlack?keyWidth*.61:keyWidth,h=isBlack?.16:.115,d=isBlack?.72:keyDepth;
+  const pivot=group;
+  const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),isBlack?ebony:ivory);mesh.position.set(0,-h/2,d/2);mesh.castShadow=true;mesh.receiveShadow=true;pivot.add(mesh);
+  // Subtle front key lip improves depth cues without changing note geometry.
+  const lip=new THREE.Mesh(new THREE.BoxGeometry(w*.92,.025,.025),isBlack?darkWood:new THREE.MeshStandardMaterial({color:'#d0c9b8',roughness:.42}));lip.position.set(0,-h+.008,d-.025);pivot.add(lip);
+  pivot.userData={note,midi:note.midi,isBlack,pressed:false,velocity:0,releaseAt:0,baseY:keyY};keys.push(pivot);return pivot;
+}
+whiteNotes.forEach((note,i)=>keyMesh(note,firstX+i*(keyWidth+keyGap),false));
+for(let n=startMidi;n<endMidi;n++){
+  const name=pitches[n%12];if(!blackSet.has(name))continue;
+  const blackMidi=n;const idx=whiteNotes.findIndex(w=>w.midi>n);
+  if(idx<0)continue;
+  const x=firstX+idx*(keyWidth+keyGap)-(keyWidth+keyGap)/2;
+  keyMesh({midi:blackMidi,name,octave:Math.floor(blackMidi/12)-1},x,true);
+}
+// Put key tops at the intended shelf height and retain exact pivot positions.
+piano.position.y=0;
+
+const raycaster=new THREE.Raycaster();const pointer=new THREE.Vector2();let activePointer=null;
+function findKey(e){const r=canvas.getBoundingClientRect();pointer.x=((e.clientX-r.left)/r.width)*2-1;pointer.y=-((e.clientY-r.top)/r.height)*2+1;raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(keys.flatMap(k=>k.children),false);return hits.length?hits[0].object.parent:null;}
+let sampler=null,audioLoad=null,ToneRef=null;
+async function startAudio(){
+  if(!audioLoad){audioLoad=(async()=>{
+    const Tone=await import('https://cdn.jsdelivr.net/npm/tone@15.1.22/+esm');
+    ToneRef=Tone;
+    await Tone.start();
+    sampler=new Tone.Sampler({urls:{C3:'C3.mp3','D#3':'Ds3.mp3',F#3:'Fs3.mp3',A3:'A3.mp3',C4:'C4.mp3','D#4':'Ds4.mp3',F#4:'Fs4.mp3',A4:'A4.mp3',C5:'C5.mp3'},release:.65,baseUrl:'https://tonejs.github.io/audio/salamander/'}).toDestination();
+    await Tone.loaded();
+  })();}await audioLoad;
+}
+function noteName(midi){return ToneRef.Frequency(midi,'midi').toNote();}
+function press(k){if(!k||k.userData.pressed)return;k.userData.pressed=true;k.userData.velocity=0;k.userData.releaseAt=0;startAudio().then(()=>sampler.triggerAttack(noteName(k.userData.midi),undefined,.82)).catch(err=>{status.textContent='No se cargó el sonido. Comprueba la conexión y vuelve a tocar.';console.error(err)});status.textContent=`Nota ${pitches[k.userData.midi%12]}${Math.floor(k.userData.midi/12)-1}`;}
+function release(k){if(!k||!k.userData.pressed)return;k.userData.pressed=false;k.userData.releaseAt=performance.now()+90;if(sampler&&ToneRef){try{sampler.triggerRelease(noteName(k.userData.midi));}catch{}}}
+canvas.addEventListener('pointerdown',e=>{e.preventDefault();canvas.focus({preventScroll:true});const k=findKey(e);if(!k)return;activePointer=e.pointerId;canvas.setPointerCapture(e.pointerId);press(k);});
+canvas.addEventListener('pointerup',e=>{if(activePointer!==e.pointerId)return;release(keys.find(k=>k.userData.pressed));activePointer=null;});
+canvas.addEventListener('pointercancel',e=>{if(activePointer!==e.pointerId)return;release(keys.find(k=>k.userData.pressed));activePointer=null;});
+const keyboardMap=['a','w','s','e','d','f','t','g','y','h','u','j','k','o','l','p',';'];
+const keyboardKeys=keys.filter(k=>k.userData.midi>=60&&k.userData.midi<=76).sort((a,b)=>a.userData.midi-b.userData.midi);
+const held=new Map();window.addEventListener('keydown',e=>{if(e.repeat||e.target instanceof HTMLInputElement)return;const i=keyboardMap.indexOf(e.key.toLowerCase());if(i<0||!keyboardKeys[i])return;e.preventDefault();held.set(e.key,keyboardKeys[i]);press(keyboardKeys[i]);});window.addEventListener('keyup',e=>{const k=held.get(e.key);if(k){release(k);held.delete(e.key);}});window.addEventListener('blur',()=>{for(const k of held.values())release(k);held.clear();});
+
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(stage);resize();
+const clock=new THREE.Clock();
+function render(){requestAnimationFrame(render);const dt=Math.min(clock.getDelta(),.04),now=performance.now();for(const k of keys){const u=k.userData;if(u.pressed)u.velocity=Math.min(1,u.velocity+dt*12);else u.velocity=Math.max(0,u.velocity-dt*9);const target=u.velocity*(u.isBlack?.12:.10);k.rotation.x+=(target-k.rotation.x)*Math.min(1,dt*22);}renderer.render(scene,camera);}
+render();
+status.textContent='Listo. Toca una tecla; el audio se activa con el primer toque.';
+</script>
+</body>
+</html>
