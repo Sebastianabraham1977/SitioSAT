@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>Piano vintage — prueba</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:30px 16px 48px;background:#080808;color:#f0ece3;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  main{max-width:1120px;margin:0 auto}
+  header{text-align:center;margin:0 auto 22px;max-width:760px}
+  h1{margin:0 0 8px;color:#d6b76d;font:500 clamp(1.5rem,4vw,2.2rem)/1.2 Georgia,serif}
+  p{margin:0;color:#c1bbb0}
+  .note{display:inline-block;margin:14px 0 0;padding:6px 12px;border:1px solid #6c5736;border-radius:99px;color:#d6b76d;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase}
+  .frame{overflow:hidden;border:1px solid #59482e;border-radius:16px;background:#101010;box-shadow:0 20px 55px #0009}
+  iframe{display:block;width:100%;height:1050px;border:0;background:#111}
+  .fallback{text-align:center;margin:14px 0 0;font-size:.9rem}
+  a{color:#d6b76d}
+  footer{text-align:center;color:#8f8a82;font-size:.78rem;margin-top:18px}
+  @media(max-width:600px){body{padding:20px 10px 32px}.frame{border-radius:10px}iframe{height:900px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Piano vintage interactivo</h1>
+    <p>Prueba el instrumento vintage de ScoreFlip. Toca las teclas en pantalla y escucha sus voces.</p>
+    <span class="note">Prueba independiente · Home sigue intacto</span>
+  </header>
+  <div class="frame">
+    <iframe src="https://www.roovemusic.com/scoreflip/tools/online-piano" title="Piano vintage interactivo de ScoreFlip" loading="eager" allow="autoplay"></iframe>
+  </div>
+  <p class="fallback">Si el reproductor no aparece, <a href="https://www.roovemusic.com/scoreflip/tools/online-piano" target="_blank" rel="noopener">ábrelo directamente en ScoreFlip</a>.</p>
+  <footer>Este instrumento pertenece a ScoreFlip y funciona como piano digital vintage de escenario, no como piano acústico vertical.</footer>
+</main>
+</body>
+</html>
