@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080706">
+<title>Prueba de piano realista | Sebastián Abraham Teare</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#080706;color:#f5eee5;font-family:Arial,Helvetica,sans-serif;min-height:100vh;display:grid;place-items:center;padding:20px}
+.demo{width:min(100%,1050px);text-align:center}.badge{display:inline-block;color:#d9b66e;border:1px solid #8c7045;border-radius:99px;padding:7px 13px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}.demo h1{font-size:clamp(22px,4vw,36px);font-weight:500;margin:0 0 8px}.demo p{color:#c6bdb2;margin:0 auto 18px;max-width:660px;line-height:1.5}
+.piano{position:relative;width:100%;aspect-ratio:1672/940;background-image:url('./assets/piano-wood-prototype.png');background-repeat:no-repeat;background-size:100% 210%;background-position:center 47%;overflow:hidden;touch-action:manipulation;user-select:none}
+.keyboard{position:absolute;left:15%;top:17.5%;width:70%;height:56.5%;display:flex;align-items:stretch;filter:drop-shadow(0 5px 5px #0009)}
+.white{position:relative;flex:1;min-width:0;border:1px solid #bcb8b2;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#d7d5d1 0%,#fff 14%,#fbfaf6 83%,#ccc9c4 100%);box-shadow:inset 0 -4px 5px #7775;cursor:pointer;transition:background-color .08s,filter .08s;}
+.white:active,.white.pressed{background:linear-gradient(90deg,#bfbcb6,#e6d9bd 20%,#f5e9cf 82%,#aaa69f);filter:brightness(.9)}
+.black{position:absolute;z-index:3;top:0;height:61%;width:5.05%;transform:translateX(-50%);border-radius:0 0 5px 5px;background:linear-gradient(90deg,#060606,#282625 22%,#151413 76%,#000);box-shadow:0 5px 5px #000b,inset 1px 0 #7778,inset -1px 0 #000;cursor:pointer;transition:filter .08s}
+.black:active,.black.pressed{filter:brightness(1.45)}
+.key:focus-visible,.link-dot:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.link-dot{position:absolute;z-index:5;width:clamp(19px,3vw,27px);height:clamp(19px,3vw,27px);border-radius:50%;border:2px solid #f5eee5;box-shadow:0 1px 8px #000c;transform:translate(-50%,-50%);display:grid;place-items:center;color:#fff;text-decoration:none;font-size:0;transition:transform .15s,box-shadow .15s}
+.link-dot:hover{transform:translate(-50%,-50%) scale(1.18);box-shadow:0 0 0 4px #fff4,0 1px 8px #000c}.dot-red{background:#9d2437}.dot-green{background:#62b9a9}.dot-purple{background:#b997d9}.dot-gold{background:#d4b86b}
+.route-label{position:absolute;z-index:4;transform:translateX(-50%);font-size:clamp(10px,1.35vw,14px);font-weight:600;line-height:1.25;text-shadow:0 1px 4px #000;max-width:20%;pointer-events:none}.route-label.red{color:#ffb8c0}.route-label.green{color:#b7f0e4}.route-label.purple{color:#e0c9ff}.route-label.gold{color:#f2d990}
+.status{min-height:22px;margin:4px 0 0!important;color:#d8c8aa!important;font-size:13px}.note{font-size:12px;color:#a59a8d!important;margin:0 auto!important}
+@media(max-width:600px){body{padding:12px}.demo p{font-size:14px;margin-bottom:12px}.keyboard{left:15%;width:70%;top:17.5%;height:56.5%}.black{width:5.2%;height:59%}.route-label{font-size:9px;max-width:22%}}
+</style>
+</head>
+<body>
+<main class="demo">
+<span class="badge">Prototipo independiente</span>
+<h1>Piano de madera · octava y media</h1>
+<p>Prueba visual y táctil: toca las teclas para escuchar notas de piano. Dejé madera visible alrededor del teclado; los puntos de color abren las secciones del sitio. Esta página no cambia el piano actual.</p>
+<section class="piano" aria-label="Piano digital de prueba">
+  <div class="keyboard" id="keyboard" aria-label="Teclado de una octava y media">
+    <button type="button" class="white key" data-note="C3" aria-label="C3"></button>
+    <button type="button" class="white key" data-note="D3" aria-label="D3"></button>
+    <button type="button" class="white key" data-note="E3" aria-label="E3"></button>
+    <button type="button" class="white key" data-note="F3" aria-label="F3"></button>
+    <button type="button" class="white key" data-note="G3" aria-label="G3"></button>
+    <button type="button" class="white key" data-note="A3" aria-label="A3"></button>
+    <button type="button" class="white key" data-note="B3" aria-label="B3"></button>
+    <button type="button" class="white key" data-note="C4" aria-label="C4"></button>
+    <button type="button" class="white key" data-note="D4" aria-label="D4"></button>
+    <button type="button" class="white key" data-note="E4" aria-label="E4"></button>
+    <button type="button" class="white key" data-note="F4" aria-label="F4"></button>
+    <button type="button" class="black key" data-note="C#3" aria-label="C#3" style="left:9.0909%"></button>
+    <button type="button" class="black key" data-note="D#3" aria-label="D#3" style="left:18.1818%"></button>
+    <button type="button" class="black key" data-note="F#3" aria-label="F#3" style="left:36.3636%"></button>
+    <button type="button" class="black key" data-note="G#3" aria-label="G#3" style="left:45.4545%"></button>
+    <button type="button" class="black key" data-note="A#3" aria-label="A#3" style="left:54.5455%"></button>
+    <button type="button" class="black key" data-note="C#4" aria-label="C#4" style="left:72.7273%"></button>
+    <button type="button" class="black key" data-note="D#4" aria-label="D#4" style="left:81.8182%"></button>
+  </div>
+  <span class="route-label red" style="left:30.9%;top:8%">Clases<br>de piano</span>
+  <span class="route-label green" style="left:50%;top:81%">Piano bar</span>
+  <span class="route-label purple" style="left:69.1%;top:8%">Bandas</span>
+  <span class="route-label gold" style="left:81.8%;top:81%">Música para<br>proyectos audiovisuales</span>
+  <a class="link-dot dot-red" style="left:30.9%;top:45.8%" href="./06_CLASES_DE_PIANO.html" aria-label="Ir a Clases de piano">Clases de piano</a>
+  <a class="link-dot dot-green" style="left:50%;top:45.8%" href="./03_CANCIONERO.html#cancionero" aria-label="Ir a Cancionero y Piano Bar">Piano bar</a>
+  <a class="link-dot dot-purple" style="left:69.1%;top:45.8%" href="./04_BANDAS.html" aria-label="Ir a Bandas">Bandas</a>
+  <a class="link-dot dot-gold" style="left:81.8%;top:45.8%" href="./05_MUSICA_AUDIOVISUAL.html" aria-label="Ir a Música para proyectos audiovisuales">Audiovisual</a>
+</section>
+<p id="status" class="status" aria-live="polite">Toca una tecla para probar el sonido.</p>
+<p class="note">El audio necesita conexión a internet la primera vez para cargar las muestras del piano.</p>
+</main>
+<script type="module">
+const host=document.querySelector('#keyboard');
+const status=document.querySelector('#status'); let synth;
+let audioReady;
+async function startAudio(){
+ if(!audioReady){audioReady=(async()=>{const Tone=await import('https://esm.sh/tone@15.1.22');await Tone.start();synth=new Tone.Sampler({urls:{C3:'C3.mp3',"D#3":'Ds3.mp3',F#3:'Fs3.mp3',A3:'A3.mp3',C4:'C4.mp3',"D#4":'Ds4.mp3',F#4:'Fs4.mp3',A4:'A4.mp3',C5:'C5.mp3'},release:1,baseUrl:'https://tonejs.github.io/audio/salamander/'}).toDestination();await Tone.loaded();})();}
+ await audioReady;
+}
+let activePointers=new Map();
+host.addEventListener('pointerdown',async e=>{const key=e.target.closest('.key');if(!key)return;e.preventDefault();key.classList.add('pressed');activePointers.set(e.pointerId,key);try{await startAudio();synth.triggerAttack(key.dataset.note,undefined,.9);status.textContent=`Sonando ${key.dataset.note}`;}catch(err){status.textContent='No se pudo cargar el audio. Comprueba tu conexión y vuelve a tocar.';console.error(err)}});
+function release(e){const key=activePointers.get(e.pointerId);if(!key)return;key.classList.remove('pressed');activePointers.delete(e.pointerId);synth?.triggerRelease(key.dataset.note)}
+host.addEventListener('pointerup',release);host.addEventListener('pointercancel',release);host.addEventListener('lostpointercapture',release);
+</script>
+</body>
+</html>

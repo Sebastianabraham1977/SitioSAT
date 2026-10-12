@@ -432,110 +432,98 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 </section>
 </main>
 
-<section class="home-virtual-piano" aria-label="Piano virtual interactivo">
-  <div class="home-virtual-piano-frame" id="homePianoStage">
-    <svg class="home-piano-arrows" aria-hidden="true" preserveAspectRatio="none"><defs></defs></svg>
-    <a class="piano-prompt piano-prompt-lessons" data-destination="lessons" href="./06_CLASES_DE_PIANO.html">¿Quieres tomar clases de piano?</a>
-    <a class="piano-prompt piano-prompt-live" data-destination="live" href="./04_BANDAS.html">¿Quieres música en vivo para tu evento?</a>
-    <a class="piano-prompt piano-prompt-sing" data-destination="sing" href="./03_CANCIONERO.html#cancionero">¿Quieres cantar junto al piano?</a>
-    <a class="piano-prompt piano-prompt-video" data-destination="video" href="./05_MUSICA_AUDIOVISUAL.html">¿O conocer mi música para proyectos audiovisuales?</a>
-    <div class="home-piano-cabinet" aria-label="Mueble de piano clásico de madera">
-      <div class="home-piano-key-window">
-        <iframe class="home-piano-key-display" src="https://pianoaura.app/embed/keyboard/" title="Teclado de piano" aria-hidden="true" tabindex="-1" loading="eager" fetchpriority="high" sandbox="allow-scripts" allow="autoplay"></iframe>
-        <iframe class="home-piano-key-player" src="https://pianoaura.app/embed/keyboard/" title="Teclado interactivo Piano Aura" loading="eager" fetchpriority="high" allow="autoplay"></iframe>
-        <div class="home-piano-key-links" aria-label="Teclas con accesos a las secciones"></div>
+<section class="home-virtual-piano" aria-label="Piano digital de madera">
+  <div class="home-piano-stage" id="homePianoStage">
+    <div class="home-piano-board">
+      <div class="home-piano-keyboard" id="homePianoKeyboard" aria-label="Teclado de dos octavas">
+        <button type="button" class="home-white-key" data-note="A2" aria-label="La 2"></button>
+        <button type="button" class="home-white-key" data-note="B2" aria-label="Si 2"></button>
+        <button type="button" class="home-white-key" data-note="C3" aria-label="Do 3"></button>
+        <button type="button" class="home-white-key" data-note="D3" aria-label="Re 3"></button>
+        <button type="button" class="home-white-key" data-note="E3" aria-label="Mi 3"></button>
+        <button type="button" class="home-white-key" data-note="F3" aria-label="Fa 3"></button>
+        <button type="button" class="home-white-key" data-note="G3" aria-label="Sol 3"></button>
+        <button type="button" class="home-white-key" data-note="A3" aria-label="La 3"></button>
+        <button type="button" class="home-white-key" data-note="B3" aria-label="Si 3"></button>
+        <button type="button" class="home-white-key" data-note="C4" aria-label="Do 4"></button>
+        <button type="button" class="home-white-key" data-note="D4" aria-label="Re 4"></button>
+        <button type="button" class="home-white-key" data-note="E4" aria-label="Mi 4"></button>
+        <button type="button" class="home-white-key" data-note="F4" aria-label="Fa 4"></button>
+        <button type="button" class="home-white-key" data-note="G4" aria-label="Sol 4"></button>
+        <button type="button" class="home-white-key" data-note="A4" aria-label="La 4"></button>
+        <button type="button" class="home-black-key" data-note="A#2" aria-label="La sostenido 2" style="left:6.6667%"></button>
+        <button type="button" class="home-black-key" data-note="C#3" aria-label="Do sostenido 3" style="left:20%"></button>
+        <button type="button" class="home-black-key" data-note="D#3" aria-label="Re sostenido 3" style="left:26.6667%"></button>
+        <button type="button" class="home-black-key" data-note="F#3" aria-label="Fa sostenido 3" style="left:40%"></button>
+        <button type="button" class="home-black-key" data-note="G#3" aria-label="Sol sostenido 3" style="left:46.6667%"></button>
+        <button type="button" class="home-black-key" data-note="A#3" aria-label="La sostenido 3" style="left:53.3333%"></button>
+        <button type="button" class="home-black-key" data-note="C#4" aria-label="Do sostenido 4" style="left:66.6667%"></button>
+        <button type="button" class="home-black-key" data-note="D#4" aria-label="Re sostenido 4" style="left:73.3333%"></button>
+        <button type="button" class="home-black-key" data-note="F#4" aria-label="Fa sostenido 4" style="left:86.6667%"></button>
+        <button type="button" class="home-black-key" data-note="G#4" aria-label="Sol sostenido 4" style="left:93.3333%"></button>
       </div>
     </div>
+    <svg class="home-piano-routes" aria-hidden="true" preserveAspectRatio="none"></svg>
+    <a class="home-piano-label lessons" href="./06_CLASES_DE_PIANO.html" data-key="B2">¿Quieres tomar<br>clases de piano?</a>
+    <a class="home-piano-label bands" href="./04_BANDAS.html" data-key="F3">¿Quieres música en<br>vivo para tu evento?</a>
+    <a class="home-piano-label songbook" href="./03_CANCIONERO.html#cancionero" data-key="C4">¿Quieres cantar junto<br>al piano?</a>
+    <a class="home-piano-label audiovisual" href="./05_MUSICA_AUDIOVISUAL.html" data-key="G4">¿Quieres conocer mi música<br>para proyectos audiovisuales?</a>
+    <a class="home-piano-dot lessons" href="./06_CLASES_DE_PIANO.html" data-key="B2" aria-label="Ir a Clases de piano"></a>
+    <a class="home-piano-dot bands" href="./04_BANDAS.html" data-key="F3" aria-label="Ir a Música en vivo"></a>
+    <a class="home-piano-dot songbook" href="./03_CANCIONERO.html#cancionero" data-key="C4" aria-label="Ir a Cancionero y Piano Bar"></a>
+    <a class="home-piano-dot audiovisual" href="./05_MUSICA_AUDIOVISUAL.html" data-key="G4" aria-label="Ir a Proyectos audiovisuales"></a>
+    <p class="home-piano-sound-status" aria-live="polite"></p>
   </div>
 </section>
 <style>
-.home-virtual-piano{box-sizing:border-box;width:min(100%,844px);margin:34px auto 56px;padding:0 12px}
-@media(min-width:900px){.home-virtual-piano{width:min(100%,1100px)}}
-.home-virtual-piano-frame{position:relative;width:100%;box-sizing:border-box;padding:60px 0 70px;isolation:isolate}
-.home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
-.home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
-@media(min-width:641px){.home-piano-key-window{height:190px}}
-.home-piano-key-window iframe{position:absolute;left:0;top:-231px;width:100%;height:900px;max-width:none;border:0;transform:none;transform-origin:left top;pointer-events:auto!important}
-@media(min-width:641px){
- .home-piano-cabinet{background-position:center calc(50% - 40px)!important}
- .home-piano-key-window{left:5.8%!important;right:5.8%!important;top:77px!important;height:219px!important}
- .home-piano-key-window iframe{left:0;top:-231px;width:100%;transform:none;transform-origin:left top}
-}
-/* Piano Aura draws and plays the original keys; the colored navigation points remain overlaid. */
-.home-piano-key-links{position:absolute;z-index:6;inset:0;display:block;visibility:visible;pointer-events:none!important}
-.home-piano-key-display{z-index:0;opacity:0!important;pointer-events:none!important}
-.home-piano-key-player{z-index:1;opacity:1!important}
-
-.home-piano-key-link{position:absolute;z-index:6;display:block;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;filter:none!important;visibility:visible!important;pointer-events:none!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-.home-piano-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none!important}
-.home-piano-arrows path{fill:none;stroke-width:2.3;stroke-dasharray:8 7;stroke-linecap:square;stroke-linejoin:miter;filter:drop-shadow(0 1px 2px #000);pointer-events:none}
-.home-piano-arrows .piano-arrow-hit{stroke:transparent!important;stroke-width:18px!important;stroke-dasharray:none!important;filter:none!important;pointer-events:stroke}
-.home-piano-arrows a{pointer-events:all;cursor:pointer}
-.home-piano-arrows .piano-point-hit{pointer-events:all!important;touch-action:manipulation}
-.home-piano-arrows marker path{fill:currentColor;stroke:none;stroke-dasharray:none;filter:none}
-.piano-prompt{position:absolute;z-index:5;display:block;box-sizing:border-box;width:25%;max-width:210px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.86);font:600 14px/1.25 Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;box-shadow:0 2px 9px rgba(0,0,0,.35)}
-.piano-prompt-lessons{color:#b00020}.piano-prompt-live{color:#c5a3ff}.piano-prompt-sing{color:#84d9c3}.piano-prompt-video{color:#ff7f50}
-.piano-prompt:hover{filter:brightness(1.2)}
-@media(max-width:640px){
-.home-virtual-piano-frame{padding:50px 0 62px}
-.home-piano-cabinet{height:260px;background-size:100% 178%}
-.home-piano-key-window{left:3%;right:3%;top:36px;height:192px}
-.home-piano-key-window iframe{left:calc(50% - 12px);top:-209px;width:100vw;transform:translateX(-50%) scaleX(1.15);transform-origin:center top}
-.home-piano-key-display{z-index:0!important;opacity:0!important;pointer-events:none!important}
-.home-piano-key-player{z-index:1!important;opacity:1!important;pointer-events:auto!important}
- .home-piano-key-links{left:0;right:0}
-.piano-prompt{width:32%;max-width:145px;padding:4px 5px;font-size:11px}
-.home-piano-arrows path{stroke-width:2;stroke-dasharray:6 6}
-}
-@media(max-width:360px){.home-piano-key-links{left:6%;right:6%}}
+.home-virtual-piano{box-sizing:border-box;width:min(100%,1050px);margin:34px auto 56px;padding:0 14px}
+.home-piano-stage{position:relative;width:100%;aspect-ratio:1672/940;background:#080706 url('./assets/piano-wood-prototype.png') center 47%/100% 210% no-repeat;overflow:visible;isolation:isolate;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.home-piano-board{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.home-piano-keyboard{position:absolute;left:15%;top:17.5%;width:70%;height:56.5%;display:flex;align-items:stretch;filter:drop-shadow(0 5px 5px #0009);pointer-events:auto;touch-action:none}
+.home-white-key,.home-black-key{appearance:none;-webkit-appearance:none;margin:0;padding:0;line-height:0;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
+.home-white-key{position:relative;z-index:1;flex:1;min-width:0;border:1px solid #bcb8b2;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#d7d5d1 0%,#fff 14%,#fbfaf6 83%,#ccc9c4 100%);box-shadow:inset 0 -4px 5px #7775;transition:background .08s,filter .08s}
+.home-white-key.is-pressed{background:linear-gradient(90deg,#bfbcb6,#e6d9bd 20%,#f5e9cf 82%,#aaa69f);filter:brightness(.92)}
+.home-black-key{position:absolute;z-index:3;top:0;height:61%;width:4.8%;transform:translateX(-50%);border:0;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#060606,#282625 22%,#151413 76%,#000);box-shadow:0 5px 5px #000b,inset 1px 0 #7778,inset -1px 0 #000;transition:filter .08s}
+.home-black-key.is-pressed{filter:brightness(1.4)}
+.home-white-key:focus-visible,.home-black-key:focus-visible,.home-piano-dot:focus-visible{outline:3px solid white;outline-offset:2px}
+.home-piano-routes{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
+.home-piano-routes path{fill:none;stroke-width:2.2;stroke-dasharray:8 7;filter:drop-shadow(0 1px 2px #000)}
+.home-piano-label{position:absolute;z-index:5;transform:translateX(-50%);width:17%;max-width:210px;padding:5px 7px;border-radius:5px;background:#080706d9;text-align:center;text-decoration:none;font:600 clamp(10px,1.3vw,14px)/1.25 Arial,sans-serif;text-shadow:0 1px 4px #000}
+.home-piano-label.lessons,.home-piano-dot.lessons{color:#b00020}.home-piano-label.bands,.home-piano-dot.bands{color:#c5a3ff}.home-piano-label.songbook,.home-piano-dot.songbook{color:#84d9c3}.home-piano-label.audiovisual,.home-piano-dot.audiovisual{color:#d4b86b}
+.home-piano-dot{position:absolute;z-index:7;width:clamp(19px,2.7vw,27px);height:clamp(19px,2.7vw,27px);border:2px solid #fff;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 1px 8px #000c;text-decoration:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.home-piano-dot.lessons{background:#b00020}.home-piano-dot.bands{background:#c5a3ff}.home-piano-dot.songbook{background:#84d9c3}.home-piano-dot.audiovisual{background:#d4b86b}
+.home-piano-sound-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.home-piano-label:hover{filter:brightness(1.2)}
+@media(max-width:640px){.home-virtual-piano{padding:0 8px;margin:20px auto 38px}.home-piano-label{width:20%;max-width:110px;padding:4px 5px;font-size:clamp(9px,2.35vw,11px)}.home-piano-routes path{stroke-width:2;stroke-dasharray:6 6}.home-piano-dot{width:20px;height:20px}}
 </style>
 <script>
 (()=>{
- const stage=document.getElementById('homePianoStage');
- if(!stage)return;
- const layer=stage.querySelector('.home-piano-key-links'),svg=stage.querySelector('.home-piano-arrows'),keyboard=stage.querySelector('.home-piano-key-player'),prompts=[...stage.querySelectorAll('.piano-prompt')];
- const notes=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
- const desktopKeySlots={lessons:5,live:8,sing:7,video:3};
- const positions=[{left:'2%',top:'3px'},{right:'1%',top:'5px'},{left:'9%',bottom:'6px'},{right:'7%',bottom:'0'}];
- const byDestination={lessons:'./06_CLASES_DE_PIANO.html',live:'./04_BANDAS.html',sing:'./03_CANCIONERO.html#cancionero',video:'./05_MUSICA_AUDIOVISUAL.html'};
- const chosen=[65,77,72,69];
- svg.addEventListener('click',event=>{const hit=event.target.closest?.('.piano-point-hit');if(!hit)return;event.preventDefault();window.location.assign(byDestination[hit.dataset.destination])});
- prompts.forEach((prompt,i)=>{
-  Object.assign(prompt.style,positions[i]);
-  const note=chosen[i],key=document.createElement('a');
-  prompt.dataset.note=String(note);key.className='home-piano-key-link';key.href=byDestination[prompt.dataset.destination];key.dataset.note=String(note);key.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);
-  layer.appendChild(key);
- });
- const alignKeys=()=>{
-  const pianoRect=keyboard.getBoundingClientRect(),windowRect=keyboard.parentElement.getBoundingClientRect(),layerRect=layer.getBoundingClientRect();if(!pianoRect.width||!windowRect.width||!layerRect.width)return;
-  const desktop=window.matchMedia('(min-width: 641px)').matches,keyCount=14;
-  /* The mobile iframe is scaled and cropped; these ratios match the actual 14 white-key bed inside Piano Aura. */
-  const keySpanWidth=desktop?windowRect.width*.853:pianoRect.width*.814,whiteKeyWidth=keySpanWidth/keyCount;
-  const origin=desktop?windowRect.left+(windowRect.width-keySpanWidth)/2:pianoRect.left+pianoRect.width*.12;
-  const rawKeyTop=windowRect.top-(desktop?54.5:46.5),rawKeyBottom=rawKeyTop+(desktop?224:192),visibleKeyTop=Math.max(windowRect.top,rawKeyTop),visibleKeyBottom=Math.min(windowRect.bottom,rawKeyBottom),targetY=desktop?(visibleKeyTop+visibleKeyBottom)/2:visibleKeyTop+(visibleKeyBottom-visibleKeyTop)*.58;
-  prompts.forEach(prompt=>{const key=layer.querySelector(`.home-piano-key-link[data-note="${prompt.dataset.note}"]`),index=notes.indexOf(+prompt.dataset.note);if(!key||index<0)return;const left=origin+index*whiteKeyWidth,hotspot=24,targetX=left+whiteKeyWidth/2;key.style.left=`${(targetX-hotspot/2-layerRect.left)/layerRect.width*100}%`;key.style.width=`${hotspot/layerRect.width*100}%`;key.style.top=`${targetY-hotspot/2-layerRect.top}px`;key.style.bottom='auto';key.style.height=`${hotspot}px`});
-  if(desktop){const prompt=stage.querySelector('.piano-prompt-sing'),key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`),keyRect=key.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();prompt.style.left=`${keyRect.left+keyRect.width/2-stageRect.left-prompt.offsetWidth/2}px`;prompt.style.right='auto'}
- };
- const draw=()=>{
-  const frame=stage.getBoundingClientRect(),defs=svg.querySelector('defs');svg.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);svg.replaceChildren(defs);defs.replaceChildren();
-  prompts.forEach(prompt=>{
-   const key=layer.querySelector(`[data-note="${prompt.dataset.note}"]`);if(!key)return;
-   const a=prompt.getBoundingClientRect(),b=key.getBoundingClientRect(),above=a.bottom<frame.top+stage.clientHeight/2;
-   const x1=a.left-frame.left+a.width/2,y1=(above?a.bottom:a.top)-frame.top,x2=b.left-frame.left+b.width/2,y2=b.top-frame.top+b.height/2;
-   const color=getComputedStyle(prompt).color,path=document.createElementNS('http://www.w3.org/2000/svg','path');
-   const desktop=window.matchMedia('(min-width: 641px)').matches;
-   const purpleTurn=desktop&&prompt.dataset.destination==='video';
-   const wideTurn=['lessons','video'].includes(prompt.dataset.destination),distance=purpleTurn?Math.max(104,b.height*1.45):Math.max(wideTurn?58:28,b.height*(wideTurn?1.08:.82));
-   const trackY=above?y2-distance:y2+distance;
-   const mobileYellow=!desktop&&prompt.dataset.destination==='lessons';
-   const route=desktop&&prompt.dataset.destination==='sing'?`M${x2},${y2} V${y1}`:mobileYellow?`M${x2},${y1} V${y2}`:purpleTurn?`M${x1},${y1} V${trackY} C${x1},${trackY-44} ${x2},${trackY-44} ${x2},${y2}`:`M${x1},${y1} V${trackY} H${x2} V${y2}`;
-   path.setAttribute('d',route);path.setAttribute('stroke',color);svg.appendChild(path);const hitLink=document.createElementNS('http://www.w3.org/2000/svg','a');hitLink.setAttribute('href',byDestination[prompt.dataset.destination]);hitLink.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');hit.setAttribute('class','piano-point-hit');hit.setAttribute('cx',x2);hit.setAttribute('cy',y2);hit.setAttribute('r','26');hit.setAttribute('fill','transparent');hit.setAttribute('pointer-events','all');hit.dataset.destination=prompt.dataset.destination;hitLink.appendChild(hit);svg.appendChild(hitLink);
-   const point=document.createElementNS('http://www.w3.org/2000/svg','circle');point.setAttribute('cx',x2);point.setAttribute('cy',y2);point.setAttribute('r','5');point.setAttribute('pointer-events','none');point.setAttribute('fill',color);point.setAttribute('stroke','#fff');point.setAttribute('stroke-width','1.5');svg.appendChild(point);
-  });
- };
- const layout=()=>{alignKeys();draw()};requestAnimationFrame(layout);keyboard.addEventListener('load',()=>requestAnimationFrame(layout));window.addEventListener('resize',()=>requestAnimationFrame(layout));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(layout)).observe(stage);
+ const stage=document.getElementById('homePianoStage'),keyboard=document.getElementById('homePianoKeyboard');
+ if(!stage||!keyboard)return;
+ const status=stage.querySelector('.home-piano-sound-status'),keys=[...keyboard.querySelectorAll('button[data-note]')],dots=[...stage.querySelectorAll('.home-piano-dot')],labels=[...stage.querySelectorAll('.home-piano-label')],svg=stage.querySelector('.home-piano-routes');
+ const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+ const audio=AudioContextClass?new AudioContextClass():null;
+ const roots=[['C4',60],['Ds4',63],['Fs4',66],['A4',69],['C5',72],['Ds5',75],['Fs5',78],['A5',81]];
+ const midiFor=(name)=>{const m=name.match(/^([A-G])(#?)(-?\d+)$/);if(!m)return 60;const semitones={C:0,D:2,E:4,F:5,G:7,A:9,B:11};return(+m[3]+1)*12+semitones[m[1]]+(m[2]?1:0)};
+ const active=new Map();let buffersReady;
+ function loadSamples(){if(!audio)return Promise.reject(new Error('Web Audio no disponible'));if(!buffersReady)buffersReady=Promise.all(roots.map(async([name])=>{const file=name.replace('#','s');const response=await fetch(`./assets/piano/salamander/${file}.mp3`);if(!response.ok)throw new Error(`No se pudo cargar ${file}`);const data=await response.arrayBuffer();return[name,await audio.decodeAudioData(data)]}));return buffersReady}
+ loadSamples().catch(error=>{status.textContent='No se pudo preparar el sonido del piano.';console.error(error)});
+ async function startNote(pointerId,key){if(!audio)return;const press=active.get(pointerId);if(!press)return;try{if(audio.state!=='running')await audio.resume();const buffers=await loadSamples();const midi=midiFor(key.dataset.note);let root=buffers[0];for(const candidate of buffers)if(Math.abs(candidate[1]-midi)<Math.abs(root[1]-midi))root=candidate;
+  const source=audio.createBufferSource(),gain=audio.createGain();source.buffer=root[1];source.playbackRate.value=2**((midi-root[1])/12);gain.gain.setValueAtTime(.0001,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.72,audio.currentTime+.012);gain.gain.exponentialRampToValueAtTime(.42,audio.currentTime+.10);source.connect(gain);gain.connect(audio.destination);source.start();if(press.released){gain.gain.setTargetAtTime(.0001,audio.currentTime+.12,.08);source.stop(audio.currentTime+.52)}else{press.source=source;press.gain=gain;}
+ }catch(error){status.textContent='No se pudo cargar el sonido del piano.';console.error(error)}}
+ function pointerDown(event){const key=event.target.closest('button[data-note]');if(!key)return;event.preventDefault();key.setPointerCapture?.(event.pointerId);key.classList.add('is-pressed');active.set(event.pointerId,{key,released:false});startNote(event.pointerId,key)}
+ function pointerUp(event){const press=active.get(event.pointerId);if(!press)return;press.released=true;press.key.classList.remove('is-pressed');if(press.gain&&audio){const now=audio.currentTime;press.gain.gain.cancelScheduledValues(now);press.gain.gain.setValueAtTime(Math.max(press.gain.gain.value,.0001),now);press.gain.gain.exponentialRampToValueAtTime(.0001,now+.75);press.source.stop(now+.78)}active.delete(event.pointerId)}
+ keyboard.addEventListener('pointerdown',pointerDown);keyboard.addEventListener('pointerup',pointerUp);keyboard.addEventListener('pointercancel',pointerUp);keyboard.addEventListener('lostpointercapture',pointerUp);window.addEventListener('blur',()=>{for(const id of [...active.keys()])pointerUp({pointerId:id})});
+ function layout(){const r=stage.getBoundingClientRect(),wkeys=[...keyboard.querySelectorAll('.home-white-key')];if(!r.width||!wkeys.length)return;
+  const centerFor=(note)=>{const key=wkeys.find(k=>k.dataset.note===note);if(!key)return null;const b=key.getBoundingClientRect();return{x:b.left-r.left+b.width/2,y:b.top-r.top+b.height*.82}};
+  dots.forEach(dot=>{const p=centerFor(dot.dataset.key);if(!p)return;dot.style.left=`${p.x/r.width*100}%`;dot.style.top=`${p.y/r.height*100}%`});
+  const labelsTop={lessons:'7%',bands:'7%',songbook:'82%',audiovisual:'82%'};labels.forEach(label=>{const p=centerFor(label.dataset.key);if(!p)return;const section=['lessons','bands','songbook','audiovisual'].find(c=>label.classList.contains(c));label.style.left=`${p.x/r.width*100}%`;label.style.top=labelsTop[section]});
+  svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();dots.forEach(dot=>{const p=centerFor(dot.dataset.key);if(!p)return;const a=dot.getBoundingClientRect(),label=labels.find(l=>l.dataset.key===dot.dataset.key),b=label.getBoundingClientRect();const labelAbove=b.bottom<r.top+p.y;const x1=a.left-r.left+a.width/2,y1=a.top-r.top+a.height/2,x2=b.left-r.left+b.width/2,y2=labelAbove?b.bottom-r.top:b.top-r.top;const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',`M${x1},${y1} V${(y1+y2)/2} H${x2} V${y2}`);path.setAttribute('stroke',getComputedStyle(dot).backgroundColor);svg.appendChild(path)});
+ }
+ requestAnimationFrame(layout);window.addEventListener('resize',()=>requestAnimationFrame(layout));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(layout)).observe(stage);
 })();
 </script>
+
 <header class="topbar"><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
 
 <nav id="menuPanel" class="menu-panel" aria-label="Menú principal"><label class="menu-outside" for="menuToggle" aria-label="Cerrar menú"></label>
