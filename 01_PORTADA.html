@@ -436,21 +436,21 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   <div class="home-piano-stage" id="homePianoStage">
     <div class="home-piano-board">
       <div class="home-piano-keyboard" id="homePianoKeyboard" aria-label="Teclado de dos octavas">
-        <button type="button" class="home-white-key" data-note="A2" aria-label="La 2"></button>
-        <button type="button" class="home-white-key" data-note="B2" aria-label="Si 2"></button>
-        <button type="button" class="home-white-key" data-note="C3" aria-label="Do 3"></button>
-        <button type="button" class="home-white-key" data-note="D3" aria-label="Re 3"></button>
-        <button type="button" class="home-white-key" data-note="E3" aria-label="Mi 3"></button>
-        <button type="button" class="home-white-key" data-note="F3" aria-label="Fa 3"></button>
-        <button type="button" class="home-white-key" data-note="G3" aria-label="Sol 3"></button>
-        <button type="button" class="home-white-key" data-note="A3" aria-label="La 3"></button>
-        <button type="button" class="home-white-key" data-note="B3" aria-label="Si 3"></button>
-        <button type="button" class="home-white-key" data-note="C4" aria-label="Do 4"></button>
-        <button type="button" class="home-white-key" data-note="D4" aria-label="Re 4"></button>
-        <button type="button" class="home-white-key" data-note="E4" aria-label="Mi 4"></button>
-        <button type="button" class="home-white-key" data-note="F4" aria-label="Fa 4"></button>
-        <button type="button" class="home-white-key" data-note="G4" aria-label="Sol 4"></button>
-        <button type="button" class="home-white-key" data-note="A4" aria-label="La 4"></button>
+        <button type="button" class="home-white-key" data-note="A2" aria-label="La 2" style="--key-left:0.0000%"></button>
+        <button type="button" class="home-white-key" data-note="B2" aria-label="Si 2" style="--key-left:6.6667%"></button>
+        <button type="button" class="home-white-key" data-note="C3" aria-label="Do 3" style="--key-left:13.3333%"></button>
+        <button type="button" class="home-white-key" data-note="D3" aria-label="Re 3" style="--key-left:20.0000%"></button>
+        <button type="button" class="home-white-key" data-note="E3" aria-label="Mi 3" style="--key-left:26.6667%"></button>
+        <button type="button" class="home-white-key" data-note="F3" aria-label="Fa 3" style="--key-left:33.3333%"></button>
+        <button type="button" class="home-white-key" data-note="G3" aria-label="Sol 3" style="--key-left:40.0000%"></button>
+        <button type="button" class="home-white-key" data-note="A3" aria-label="La 3" style="--key-left:46.6667%"></button>
+        <button type="button" class="home-white-key" data-note="B3" aria-label="Si 3" style="--key-left:53.3333%"></button>
+        <button type="button" class="home-white-key" data-note="C4" aria-label="Do 4" style="--key-left:60.0000%"></button>
+        <button type="button" class="home-white-key" data-note="D4" aria-label="Re 4" style="--key-left:66.6667%"></button>
+        <button type="button" class="home-white-key" data-note="E4" aria-label="Mi 4" style="--key-left:73.3333%"></button>
+        <button type="button" class="home-white-key" data-note="F4" aria-label="Fa 4" style="--key-left:80.0000%"></button>
+        <button type="button" class="home-white-key" data-note="G4" aria-label="Sol 4" style="--key-left:86.6667%"></button>
+        <button type="button" class="home-white-key" data-note="A4" aria-label="La 4" style="--key-left:93.3333%"></button>
         <button type="button" class="home-black-key" data-note="A#2" aria-label="La sostenido 2" style="left:6.6667%"></button>
         <button type="button" class="home-black-key" data-note="C#3" aria-label="Do sostenido 3" style="left:20%"></button>
         <button type="button" class="home-black-key" data-note="D#3" aria-label="Re sostenido 3" style="left:26.6667%"></button>
@@ -477,14 +477,15 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 </section>
 <style>
 .home-virtual-piano{box-sizing:border-box;width:min(100%,1050px);margin:34px auto 56px;padding:0 14px}
-.home-piano-stage{position:relative;width:100%;aspect-ratio:1672/940;background:#080706 url('./assets/piano-wood-prototype.png') center 47%/100% 210% no-repeat;overflow:visible;isolation:isolate;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.home-piano-stage{position:relative;width:100%;aspect-ratio:1185/390;background:#080706;overflow:visible;isolation:isolate;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.home-piano-stage::before{content:"";position:absolute;inset:0;background:url('./assets/home-piano-wood-keys.png') center 66%/183.3% auto no-repeat;pointer-events:none}
 .home-piano-board{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.home-piano-keyboard{position:absolute;left:15%;top:17.5%;width:70%;height:56.5%;display:flex;align-items:stretch;filter:drop-shadow(0 5px 5px #0009);pointer-events:auto;touch-action:none}
-.home-white-key,.home-black-key{appearance:none;-webkit-appearance:none;margin:0;padding:0;line-height:0;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
-.home-white-key{position:relative;z-index:1;flex:1;min-width:0;border:1px solid #bcb8b2;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#d7d5d1 0%,#fff 14%,#fbfaf6 83%,#ccc9c4 100%);box-shadow:inset 0 -4px 5px #7775;transition:background .08s,filter .08s}
-.home-white-key.is-pressed{background:linear-gradient(90deg,#bfbcb6,#e6d9bd 20%,#f5e9cf 82%,#aaa69f);filter:brightness(.92)}
-.home-black-key{position:absolute;z-index:3;top:0;height:61%;width:4.8%;transform:translateX(-50%);border:0;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#060606,#282625 22%,#151413 76%,#000);box-shadow:0 5px 5px #000b,inset 1px 0 #7778,inset -1px 0 #000;transition:filter .08s}
-.home-black-key.is-pressed{filter:brightness(1.4)}
+.home-piano-keyboard{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:auto;touch-action:none}
+.home-white-key,.home-black-key{appearance:none;-webkit-appearance:none;position:absolute;margin:0;padding:0;line-height:0;border:0;background:transparent;box-shadow:none;border-radius:0;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.home-white-key{z-index:1;left:var(--key-left);top:60.5%;width:6.6667%;height:34%;}
+.home-white-key.is-pressed{background:rgba(255,255,255,.16)}
+.home-black-key{z-index:3;top:13%;height:43%;width:4.8%;transform:translateX(-50%)}
+.home-black-key.is-pressed{background:rgba(255,255,255,.18)}
 .home-white-key:focus-visible,.home-black-key:focus-visible,.home-piano-dot:focus-visible{outline:3px solid white;outline-offset:2px}
 .home-piano-routes{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
 .home-piano-routes path{fill:none;stroke-width:2.2;stroke-dasharray:8 7;filter:drop-shadow(0 1px 2px #000)}
@@ -515,7 +516,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
  function pointerUp(event){const press=active.get(event.pointerId);if(!press)return;press.released=true;press.key.classList.remove('is-pressed');if(press.gain&&audio){const now=audio.currentTime;press.gain.gain.cancelScheduledValues(now);press.gain.gain.setValueAtTime(Math.max(press.gain.gain.value,.0001),now);press.gain.gain.exponentialRampToValueAtTime(.0001,now+.75);press.source.stop(now+.78)}active.delete(event.pointerId)}
  keyboard.addEventListener('pointerdown',pointerDown);keyboard.addEventListener('pointerup',pointerUp);keyboard.addEventListener('pointercancel',pointerUp);keyboard.addEventListener('lostpointercapture',pointerUp);window.addEventListener('blur',()=>{for(const id of [...active.keys()])pointerUp({pointerId:id})});
  function layout(){const r=stage.getBoundingClientRect(),wkeys=[...keyboard.querySelectorAll('.home-white-key')];if(!r.width||!wkeys.length)return;
-  const centerFor=(note)=>{const key=wkeys.find(k=>k.dataset.note===note);if(!key)return null;const b=key.getBoundingClientRect();return{x:b.left-r.left+b.width/2,y:b.top-r.top+b.height*.82}};
+  const centerFor=(note)=>{const key=wkeys.find(k=>k.dataset.note===note);if(!key)return null;const b=key.getBoundingClientRect();return{x:b.left-r.left+b.width/2,y:b.top-r.top+b.height*.5}};
   dots.forEach(dot=>{const p=centerFor(dot.dataset.key);if(!p)return;dot.style.left=`${p.x/r.width*100}%`;dot.style.top=`${p.y/r.height*100}%`});
   const labelsTop={lessons:'7%',bands:'7%',songbook:'82%',audiovisual:'82%'};labels.forEach(label=>{const p=centerFor(label.dataset.key);if(!p)return;const section=['lessons','bands','songbook','audiovisual'].find(c=>label.classList.contains(c));label.style.left=`${p.x/r.width*100}%`;label.style.top=labelsTop[section]});
   svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();dots.forEach(dot=>{const p=centerFor(dot.dataset.key);if(!p)return;const a=dot.getBoundingClientRect(),label=labels.find(l=>l.dataset.key===dot.dataset.key),b=label.getBoundingClientRect();const labelAbove=b.bottom<r.top+p.y;const x1=a.left-r.left+a.width/2,y1=a.top-r.top+a.height/2,x2=b.left-r.left+b.width/2,y2=labelAbove?b.bottom-r.top:b.top-r.top;const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',`M${x1},${y1} V${(y1+y2)/2} H${x2} V${y2}`);path.setAttribute('stroke',getComputedStyle(dot).backgroundColor);svg.appendChild(path)});
