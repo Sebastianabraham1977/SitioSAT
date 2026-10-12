@@ -437,6 +437,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 </section>
 <style>
 .home-virtual-piano{box-sizing:border-box;width:min(100%,844px);margin:34px auto 56px;padding:0 12px}
+@media(min-width:900px){.home-virtual-piano{width:min(100%,1100px)}}
 .home-virtual-piano-frame{position:relative;width:100%;box-sizing:border-box;padding:60px 0 70px;isolation:isolate}
 .home-piano-cabinet{position:relative;width:100%;height:461px;overflow:hidden;border-radius:4px;background:#140b07 url('./assets/piano-walnut-frame-aura.png?v=walnut-aura-frame-20261004') center/100% 120% no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 8px rgba(0,0,0,.45)}
 .home-piano-key-window{position:absolute;left:4%;right:4%;top:68px;height:224px;overflow:hidden}
@@ -515,7 +516,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
    const trackY=above?y2-distance:y2+distance;
    const mobileYellow=!desktop&&prompt.dataset.destination==='lessons';
    const route=desktop&&prompt.dataset.destination==='sing'?`M${x2},${y2} V${y1}`:mobileYellow?`M${x2},${y1} V${y2}`:purpleTurn?`M${x1},${y1} V${trackY} C${x1},${trackY-44} ${x2},${trackY-44} ${x2},${y2}`:`M${x1},${y1} V${trackY} H${x2} V${y2}`;
-   path.setAttribute('d',route);path.setAttribute('stroke',color);svg.appendChild(path);const hitLink=document.createElementNS('http://www.w3.org/2000/svg','a');hitLink.setAttribute('href',byDestination[prompt.dataset.destination]);hitLink.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');hit.setAttribute('class','piano-point-hit');hit.setAttribute('cx',x2);hit.setAttribute('cy',y2);hit.setAttribute('r','18');hit.setAttribute('fill','transparent');hit.setAttribute('pointer-events','all');hit.dataset.destination=prompt.dataset.destination;hitLink.appendChild(hit);svg.appendChild(hitLink);
+   path.setAttribute('d',route);path.setAttribute('stroke',color);svg.appendChild(path);const hitLink=document.createElementNS('http://www.w3.org/2000/svg','a');hitLink.setAttribute('href',byDestination[prompt.dataset.destination]);hitLink.setAttribute('aria-label',`Abrir sección: ${prompt.textContent.trim()}`);const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');hit.setAttribute('class','piano-point-hit');hit.setAttribute('cx',x2);hit.setAttribute('cy',y2);hit.setAttribute('r','26');hit.setAttribute('fill','transparent');hit.setAttribute('pointer-events','all');hit.dataset.destination=prompt.dataset.destination;hitLink.appendChild(hit);svg.appendChild(hitLink);
    const point=document.createElementNS('http://www.w3.org/2000/svg','circle');point.setAttribute('cx',x2);point.setAttribute('cy',y2);point.setAttribute('r','5');point.setAttribute('pointer-events','none');point.setAttribute('fill',color);point.setAttribute('stroke','#fff');point.setAttribute('stroke-width','1.5');svg.appendChild(point);
   });
  };
