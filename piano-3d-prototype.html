@@ -53,8 +53,8 @@ renderer.toneMappingExposure=1.15;
 const scene=new THREE.Scene();
 scene.background=new THREE.Color('#171310');
 scene.fog=new THREE.Fog('#171310',11,24);
-const camera=new THREE.PerspectiveCamera(33,1,.1,80);
-camera.position.set(0,4.25,10.7); camera.lookAt(0,1.12,.1);
+const camera=new THREE.PerspectiveCamera(27,1,.1,80);
+camera.position.set(0,6.25,10.6); camera.lookAt(0,1.0,.48);
 
 scene.add(new THREE.HemisphereLight(0xffe7c0,0x211711,2.15));
 const keyLight=new THREE.DirectionalLight(0xffe6c3,3.3);keyLight.position.set(-4,8,7);scene.add(keyLight);
@@ -63,16 +63,16 @@ const fill=new THREE.PointLight(0xf2c887,25,15,2);fill.position.set(0,3,5);scene
 
 function woodTexture(){
   const c=document.createElement('canvas');c.width=1024;c.height=512;const x=c.getContext('2d');
-  const g=x.createLinearGradient(0,0,1024,0);g.addColorStop(0,'#30170f');g.addColorStop(.18,'#5c2b19');g.addColorStop(.42,'#3b1d14');g.addColorStop(.68,'#6e3820');g.addColorStop(1,'#32180f');x.fillStyle=g;x.fillRect(0,0,1024,512);
-  for(let i=0;i<1250;i++){
-    const y=Math.random()*512,amp=Math.random()*8+1,phase=Math.random()*6.28;
-    x.beginPath();x.moveTo(0,y);for(let a=0;a<=1024;a+=16)x.lineTo(a,y+Math.sin(a/36+phase)*amp+Math.sin(a/9+phase)*amp*.15);
-    x.strokeStyle=i%5===0?'rgba(221,153,91,.10)':'rgba(11,4,2,.11)';x.lineWidth=Math.random()*2+.25;x.stroke();
+  const g=x.createLinearGradient(0,0,0,512);g.addColorStop(0,'#51291c');g.addColorStop(.2,'#683a28');g.addColorStop(.52,'#48251a');g.addColorStop(.82,'#70432d');g.addColorStop(1,'#3d2017');x.fillStyle=g;x.fillRect(0,0,1024,512);
+  for(let i=0;i<190;i++){
+    const y=Math.random()*512,amp=Math.random()*1.7+.25,phase=Math.random()*6.28;
+    x.beginPath();x.moveTo(0,y);for(let a=0;a<=1024;a+=16)x.lineTo(a,y+Math.sin(a/74+phase)*amp+Math.sin(a/19+phase)*amp*.12);
+    x.strokeStyle=i%7===0?'rgba(217,164,113,.075)':'rgba(12,5,2,.055)';x.lineWidth=Math.random()*.85+.2;x.stroke();
   }
   const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(1,1);return t;
 }
 const walnut=woodTexture();
-const wood=new THREE.MeshStandardMaterial({map:walnut,roughness:.28,metalness:.08});
+const wood=new THREE.MeshStandardMaterial({map:walnut,roughness:.34,metalness:.025});
 const darkWood=new THREE.MeshStandardMaterial({color:'#26120d',roughness:.3,metalness:.08});
 const brass=new THREE.MeshStandardMaterial({color:'#b88c49',metalness:.72,roughness:.26});
 const ivory=new THREE.MeshStandardMaterial({color:'#f1eee5',roughness:.27,metalness:.02});
