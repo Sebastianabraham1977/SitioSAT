@@ -115,8 +115,8 @@ const totalW=whiteNotes.length*(keyWidth+keyGap)-keyGap;
 const firstX=-totalW/2+keyWidth/2;
 const keys=[];
 function keyMesh(note,x,isBlack){
-  const group=new THREE.Group();group.position.set(x,keyY,isBlack?.42:keyBack);piano.add(group);
-  const w=isBlack?keyWidth*.61:keyWidth,h=isBlack?.16:.115,d=isBlack?.72:keyDepth;
+  const group=new THREE.Group();group.position.set(x,keyY,isBlack ? .42 : keyBack);piano.add(group);
+  const w=isBlack?keyWidth*.61:keyWidth,h=isBlack ? .16 : .115,d=isBlack ? .72 : keyDepth;
   const pivot=group;
   const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),isBlack?ebony:ivory);mesh.position.set(0,-h/2,d/2);mesh.castShadow=true;mesh.receiveShadow=true;pivot.add(mesh);
   // Subtle front key lip improves depth cues without changing note geometry.
@@ -159,7 +159,7 @@ const held=new Map();window.addEventListener('keydown',e=>{if(e.repeat||e.target
 function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
 new ResizeObserver(resize).observe(stage);resize();
 const clock=new THREE.Clock();
-function render(){requestAnimationFrame(render);const dt=Math.min(clock.getDelta(),.04),now=performance.now();for(const k of keys){const u=k.userData;if(u.pressed)u.velocity=Math.min(1,u.velocity+dt*12);else u.velocity=Math.max(0,u.velocity-dt*9);const target=u.velocity*(u.isBlack?.12:.10);k.rotation.x+=(target-k.rotation.x)*Math.min(1,dt*22);}renderer.render(scene,camera);}
+function render(){requestAnimationFrame(render);const dt=Math.min(clock.getDelta(),.04),now=performance.now();for(const k of keys){const u=k.userData;if(u.pressed)u.velocity=Math.min(1,u.velocity+dt*12);else u.velocity=Math.max(0,u.velocity-dt*9);const target=u.velocity*(u.isBlack ? .12 : .10);k.rotation.x+=(target-k.rotation.x)*Math.min(1,dt*22);}renderer.render(scene,camera);}
 render();
 status.textContent='Listo. Toca una tecla; el audio se activa con el primer toque.';
 </script>
