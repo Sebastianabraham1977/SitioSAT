@@ -115,7 +115,7 @@ const totalW=whiteNotes.length*(keyWidth+keyGap)-keyGap;
 const firstX=-totalW/2+keyWidth/2;
 const keys=[];
 function keyMesh(note,x,isBlack){
-  const group=new THREE.Group();group.position.set(x,keyY,isBlack ? .42 : keyBack);piano.add(group);
+  const group=new THREE.Group();group.position.set(x,keyY+(isBlack ? .16 : 0),isBlack ? .34 : keyBack);piano.add(group);
   const w=isBlack?keyWidth*.61:keyWidth,h=isBlack ? .16 : .115,d=isBlack ? .72 : keyDepth;
   const pivot=group;
   const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),isBlack?ebony:ivory);mesh.position.set(0,-h/2,d/2);mesh.castShadow=true;mesh.receiveShadow=true;pivot.add(mesh);
