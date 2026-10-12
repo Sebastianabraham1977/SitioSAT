@@ -451,7 +451,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 .home-piano-vintage .home-piano-stage{position:relative;width:100%;height:500px;overflow:visible;isolation:isolate;background:transparent;touch-action:manipulation}
 .home-piano-vintage .home-piano-screen{position:absolute;top:58px;left:0;width:100%;height:200px;overflow:hidden;background:#080706;border:1px solid #59482e;border-radius:14px}
 .home-piano-vintage .home-piano-screen{z-index:0;box-shadow:0 10px 28px #000b,inset 0 0 0 1px #d1a36b}
-.home-piano-vintage .home-piano-screen::after{content:"";position:absolute;inset:0;z-index:1;box-sizing:border-box;border:11px solid transparent;border-radius:inherit;background:linear-gradient(transparent,transparent) padding-box,repeating-linear-gradient(90deg,#3b2114 0 3px,#684326 3px 7px,#92613a 7px 9px,#56331d 9px 13px) border-box;box-shadow:inset 0 0 0 1px #d7ae79, inset 0 2px 5px #f3d69b55;pointer-events:none}
+.home-piano-vintage .home-piano-screen::after{content:"";position:absolute;inset:0;z-index:1;box-sizing:border-box;border:11px solid transparent;border-radius:inherit;border-image:repeating-linear-gradient(90deg,#3b2114 0 3px,#684326 3px 7px,#92613a 7px 9px,#56331d 9px 13px) 1;box-shadow:inset 0 0 0 1px #d7ae79, inset 0 2px 5px #f3d69b55;pointer-events:none}
 .home-piano-vintage .home-piano-instrument{position:absolute;left:-20%;top:0;width:140%;height:1500px;border:0;background:#111;transform:translateY(-840px)}
 .home-piano-vintage .home-piano-routes{position:absolute;inset:0;width:100%;height:100%;z-index:2;overflow:visible;pointer-events:none}
 .home-piano-vintage .home-piano-routes path{fill:none;stroke-width:2.2;stroke-dasharray:8 7;filter:drop-shadow(0 1px 2px #000)}
