@@ -46,6 +46,8 @@ import * as THREE from 'three';
 const canvas=document.querySelector('#piano'),stage=canvas.parentElement,status=document.querySelector('#status');
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=1.15;
@@ -53,11 +55,11 @@ renderer.toneMappingExposure=1.15;
 const scene=new THREE.Scene();
 scene.background=new THREE.Color('#171310');
 scene.fog=new THREE.Fog('#171310',11,24);
-const camera=new THREE.PerspectiveCamera(27,1,.1,80);
+const camera=new THREE.PerspectiveCamera(33,1,.1,80);
 camera.position.set(0,6.25,10.6); camera.lookAt(0,1.0,.48);
 
 scene.add(new THREE.HemisphereLight(0xffe7c0,0x211711,2.15));
-const keyLight=new THREE.DirectionalLight(0xffe6c3,3.3);keyLight.position.set(-4,8,7);scene.add(keyLight);
+const keyLight=new THREE.DirectionalLight(0xffe6c3,3.3);keyLight.position.set(-4,8,7);keyLight.castShadow=true;keyLight.shadow.mapSize.set(2048,2048);keyLight.shadow.camera.left=-7;keyLight.shadow.camera.right=7;keyLight.shadow.camera.top=6;keyLight.shadow.camera.bottom=-3;scene.add(keyLight);
 const rim=new THREE.DirectionalLight(0xc78e55,2.0);rim.position.set(5,5,-5);scene.add(rim);
 const fill=new THREE.PointLight(0xf2c887,25,15,2);fill.position.set(0,3,5);scene.add(fill);
 
@@ -78,7 +80,7 @@ const brass=new THREE.MeshStandardMaterial({color:'#b88c49',metalness:.72,roughn
 const ivory=new THREE.MeshStandardMaterial({color:'#f1eee5',roughness:.27,metalness:.02});
 const ebony=new THREE.MeshStandardMaterial({color:'#101011',roughness:.2,metalness:.12});
 const groundMat=new THREE.MeshStandardMaterial({color:'#18130f',roughness:.76});
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),groundMat);floor.rotation.x=-Math.PI/2;floor.position.y=-.06;scene.add(floor);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),groundMat);floor.rotation.x=-Math.PI/2;floor.position.y=-.06;floor.receiveShadow=true;scene.add(floor);
 
 const piano=new THREE.Group();scene.add(piano);
 function box(parent,mat,w,h,d,x,y,z,bevel=0){
