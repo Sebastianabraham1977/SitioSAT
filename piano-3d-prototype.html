@@ -142,7 +142,7 @@ async function startAudio(){
     const Tone=await import('https://cdn.jsdelivr.net/npm/tone@15.1.22/+esm');
     ToneRef=Tone;
     await Tone.start();
-    sampler=new Tone.Sampler({urls:{C3:'C3.mp3','D#3':'Ds3.mp3',F#3:'Fs3.mp3',A3:'A3.mp3',C4:'C4.mp3','D#4':'Ds4.mp3',F#4:'Fs4.mp3',A4:'A4.mp3',C5:'C5.mp3'},release:.65,baseUrl:'https://tonejs.github.io/audio/salamander/'}).toDestination();
+    sampler=new Tone.Sampler({urls:{C3:'C3.mp3','D#3':'Ds3.mp3','F#3':'Fs3.mp3',A3:'A3.mp3',C4:'C4.mp3','D#4':'Ds4.mp3','F#4':'Fs4.mp3',A4:'A4.mp3',C5:'C5.mp3'},release:.65,baseUrl:'https://tonejs.github.io/audio/salamander/'}).toDestination();
     await Tone.loaded();
   })();}await audioLoad;
 }
