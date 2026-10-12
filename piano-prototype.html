@@ -28,7 +28,10 @@
 <h1>Piano de madera · octava y media</h1>
 <p>Prueba visual y táctil: toca las teclas para escuchar notas de piano. Dejé madera visible alrededor del teclado; los puntos de color abren las secciones del sitio. Esta página no cambia el piano actual.</p>
 <section class="piano" aria-label="Piano digital de prueba">
-  <div class="keyboard" id="keyboard" aria-label="Teclado de una octava y media"></div>
+  <div class="keyboard" id="keyboard" aria-label="Teclado de una octava y media">
+    <button type="button" class="white key" data-note="C3" aria-label="C3"></button><button type="button" class="white key" data-note="D3" aria-label="D3"></button><button type="button" class="white key" data-note="E3" aria-label="E3"></button><button type="button" class="white key" data-note="F3" aria-label="F3"></button><button type="button" class="white key" data-note="G3" aria-label="G3"></button><button type="button" class="white key" data-note="A3" aria-label="A3"></button><button type="button" class="white key" data-note="B3" aria-label="B3"></button><button type="button" class="white key" data-note="C4" aria-label="C4"></button><button type="button" class="white key" data-note="D4" aria-label="D4"></button><button type="button" class="white key" data-note="E4" aria-label="E4"></button><button type="button" class="white key" data-note="F4" aria-label="F4"></button>
+    <button type="button" class="black key" data-note="C#3" aria-label="C#3" style="left:9.0909%"></button><button type="button" class="black key" data-note="D#3" aria-label="D#3" style="left:18.1818%"></button><button type="button" class="black key" data-note="F#3" aria-label="F#3" style="left:36.3636%"></button><button type="button" class="black key" data-note="G#3" aria-label="G#3" style="left:45.4545%"></button><button type="button" class="black key" data-note="A#3" aria-label="A#3" style="left:54.5455%"></button><button type="button" class="black key" data-note="C#4" aria-label="C#4" style="left:72.7273%"></button><button type="button" class="black key" data-note="D#4" aria-label="D#4" style="left:81.8182%"></button>
+  </div>
   <span class="route-label red" style="left:30.9%;top:8%">Clases<br>de piano</span>
   <span class="route-label green" style="left:50%;top:81%">Piano bar</span>
   <span class="route-label purple" style="left:69.1%;top:8%">Bandas</span>
@@ -43,10 +46,6 @@
 </main>
 <script type="module">
 const host=document.querySelector('#keyboard');
-const whiteNotes=['C3','D3','E3','F3','G3','A3','B3','C4','D4','E4','F4'];
-const blackAfter=[0,1,3,4,5,7,8];
-whiteNotes.forEach((note,i)=>{const key=document.createElement('button');key.type='button';key.className='white key';key.dataset.note=note;key.setAttribute('aria-label',note);host.append(key)});
-blackAfter.forEach(i=>{const key=document.createElement('button');key.type='button';key.className='black key';key.dataset.note=whiteNotes[i].replace(/\d/,'')+'#'+whiteNotes[i].match(/\d/)[0];key.setAttribute('aria-label',key.dataset.note);key.style.left=((i+1)*100/whiteNotes.length)+'%';host.append(key)});
 const status=document.querySelector('#status'); let synth;
 let audioReady;
 async function startAudio(){
