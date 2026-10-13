@@ -22,11 +22,12 @@
     .duo-photo{display:block;width:100%;height:auto;border:1px solid rgba(217,183,106,.5);border-radius:4px}
     .video-card{overflow:hidden;position:relative;border:1px solid rgba(217,183,106,.53);border-radius:8px;background:#080808;box-shadow:0 12px 36px #0009}
     .duo-cover{position:relative;aspect-ratio:1/1;overflow:hidden;background:#141414}
-    .duo-cover iframe{display:block;position:absolute;top:-72px;left:0;width:100%;height:calc(100% + 144px);border:0;pointer-events:none;background:#080808}
-    /* El quinto elemento es una publicación /p y necesita más recorte inferior que los reels. */
-    .media-grid>.video-card:nth-child(5) .duo-cover iframe{top:-96px;height:calc(100% + 192px);clip-path:inset(0 0 56px 0);transform:scale(1.2);transform-origin:center center}
-    .media-grid>.video-card:nth-child(4) .duo-cover iframe{transform:scale(1.08);transform-origin:center center}
-    .duo-cover-link{position:absolute;inset:0;z-index:2}
+    .duo-cover>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .media-grid>.video-card:nth-child(4) .duo-cover>img{transform:scale(1.08)}
+    .duo-cover-link{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-decoration:none;-webkit-tap-highlight-color:transparent}
+    .duo-cover-link::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:2px solid rgba(255,255,255,.95);border-radius:50%;background:rgba(0,0,0,.16)}
+    .duo-cover-link::after{content:"";width:0;height:0;margin-left:4px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}
+    .duo-cover-link:focus-visible{outline:2px solid #fff;outline-offset:-5px}
     .topbar{position:fixed;z-index:10;top:0;left:0;right:0;min-height:54px;display:flex;justify-content:flex-end;align-items:center;padding:8px 22px;background:#0008;backdrop-filter:blur(5px)}
     .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;color:var(--paper);font:500 clamp(13px,3.7vw,18px)/1.05 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.09em;text-shadow:0 1px 8px #000a}.brand span{color:var(--gold)}
     .menu-toggle{position:absolute;width:1px;height:1px;opacity:0}
@@ -84,27 +85,27 @@
     <img class="duo-photo" src="./assets/bands/pianycello-duo.jpg" alt="Dúo PianyCello: violonchelo y piano tocando juntos">
     <section class="media-grid" aria-label="Videos de PianyCello">
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/reel/DLihq3JyySy/embed/" title="Portada del reel de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-01.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/reel/DLihq3JyySy/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el reel de PianyCello en Instagram"></a>
       </div></article>
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/reel/ClZDh7OjInc/embed/" title="Portada del reel de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-02.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/reel/ClZDh7OjInc/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el reel de PianyCello en Instagram"></a>
       </div></article>
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/reel/ClRQstzDDAu/embed/" title="Portada del reel de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-03.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/reel/ClRQstzDDAu/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el reel de PianyCello en Instagram"></a>
       </div></article>
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/reel/CcO2kUtjCA2/embed/" title="Portada del reel de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-04.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/reel/CcO2kUtjCA2/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el reel de PianyCello en Instagram"></a>
       </div></article>
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/p/CSdYJYJDcXS/embed/" title="Portada del video de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-05.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/p/CSdYJYJDcXS/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el video de PianyCello en Instagram"></a>
       </div></article>
       <article class="video-card"><div class="duo-cover">
-        <iframe src="https://www.instagram.com/reel/DScLgS3jvU0/embed/" title="Portada del reel de PianyCello" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+        <img src="./assets/bands/pianycello-instagram-06.jpg" alt="" loading="lazy">
         <a class="duo-cover-link" href="https://www.instagram.com/reel/DScLgS3jvU0/" target="_blank" rel="noopener noreferrer" aria-label="Reproducir el reel de PianyCello en Instagram"></a>
       </div></article>
     </section>
