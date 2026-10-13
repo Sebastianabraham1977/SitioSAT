@@ -14446,6 +14446,25 @@ body>.topbar .menu-button span{pointer-events:none!important}
 
 </body>
 
+<style id="home-desktop-photo-and-piano-finish">
+@media(min-width:701px){
+  .cover-photo{-webkit-mask-image:linear-gradient(to right,#000 0%,#000 calc(50% + 44vh),transparent calc(50% + 50vh),transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 calc(50% + 44vh),transparent calc(50% + 50vh),transparent 100%)}
+}
+@media(min-width:641px){
+  .home-virtual-piano.home-piano-vintage{margin-top:86px!important}
+  .home-piano-vintage .home-piano-screen::after{padding:24px 11px 11px!important}
+  .home-piano-vintage .home-piano-note-mask{top:55%!important;width:5%!important;height:8%!important;border-radius:50%!important;background:radial-gradient(ellipse at center,#e9dcb0 0 42%,rgba(233,220,176,.82) 62%,rgba(233,220,176,0) 100%)!important;backdrop-filter:blur(1px)!important}
+  .home-piano-vintage .home-piano-note-mask.c4{left:8.1%!important}
+  .home-piano-vintage .home-piano-note-mask.c5{left:74.1%!important}
+}
+</style>
+<style id="menu-panel-over-header-fix">
+body>#menuPanel{z-index:2147483647!important}
+#menuToggle:checked~.topbar{pointer-events:none!important}
+#menuToggle:checked~#menuPanel{z-index:2147483647!important;inset:0!important}
+#menuPanel .menu-close{z-index:2147483647!important;pointer-events:auto!important}
+</style>
+
 <style id="separacion-grande-boton-presentacion-recuperada">
 /* Recupera la separación grande entre el botón rojo y Presentación */
 #presentacion > .volver-portada{
