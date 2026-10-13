@@ -383,16 +383,15 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 <style id="bandas-mobile-corner-heading-menu-20261013">
 @media(max-width:700px){
   body>main.page>h1{
-    position:fixed!important;
-    top:calc(env(safe-area-inset-top,0px) + 8px)!important;
-    left:10px!important;
+    position:relative!important;
+    top:0!important;
     z-index:1000004!important;
-    margin:0!important;
-    transform:none!important;
+    margin:0 0 28px!important;
+    transform:translate(8px,-96px)!important;
     max-width:calc(100vw - 96px)!important;
   }
   #menuToggle+.topbar{
-    top:0!important;
+    top:10px!important;
     right:0!important;
     left:0!important;
     height:54px!important;
@@ -408,6 +407,6 @@ body p { text-align: justify !important; text-align-last: left !important; text-
     padding:4px!important;
     transform:none!important;
   }
-  body>main.page .bandas-poster{padding-top:265px!important}
+  body>main.page .bandas-poster{padding-top:175px!important}
 }
 </style>
