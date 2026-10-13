@@ -20,6 +20,10 @@
     .gallery-title{margin:30px 0 16px;color:#d9b76a!important;font-size:clamp(17px,2.4vw,22px);letter-spacing:.06em;font-weight:500}
     .media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;max-width:900px}
     .duo-photo{display:block;width:100%;height:auto;border:1px solid rgba(217,183,106,.5);border-radius:4px}
+    .duo-reel{width:100%;max-width:540px;margin:22px 0 0;overflow:hidden;border:1px solid rgba(217,183,106,.42);border-radius:6px;background:#111}
+    .duo-reel blockquote{margin:0!important;width:100%!important;max-width:100%!important;min-width:326px!important}
+    .duo-reel-fallback{display:inline-block;margin:10px 0 0;color:var(--gold);font-size:14px;text-decoration:none}
+    .duo-reel-fallback:hover,.duo-reel-fallback:focus-visible{text-decoration:underline;text-underline-offset:4px}
     .topbar{position:fixed;z-index:10;top:0;left:0;right:0;min-height:54px;display:flex;justify-content:flex-end;align-items:center;padding:8px 22px;background:#0008;backdrop-filter:blur(5px)}
     .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;color:var(--paper);font:500 clamp(13px,3.7vw,18px)/1.05 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.09em;text-shadow:0 1px 8px #000a}.brand span{color:var(--gold)}
     .menu-toggle{position:absolute;width:1px;height:1px;opacity:0}
@@ -74,6 +78,12 @@
     <a class="profile band-social-link" href="https://www.instagram.com/pianycello?stkn=MXh1czk4c290Y3ZvNQ==" target="_blank" rel="noopener noreferrer"><span class="band-social-label">INSTAGRAM</span><span class="band-social-detail">@pianycello</span></a>
     <h2 class="gallery-title">Fotos y videos</h2>
     <img class="duo-photo" src="./assets/bands/pianycello-duo.jpg" alt="Dúo PianyCello: violonchelo y piano tocando juntos">
+    <div class="duo-reel" aria-label="Video de PianyCello: Cumpleañero feliz">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLihq3JyySy/" data-instgrm-version="14" style="background:#111;border:0;border-radius:0;box-shadow:none;margin:0 auto;max-width:540px;min-width:326px;padding:0;width:100%">
+        <a href="https://www.instagram.com/reel/DLihq3JyySy/" target="_blank" rel="noopener noreferrer">Ver el video de PianyCello: Cumpleañero feliz en Instagram</a>
+      </blockquote>
+    </div>
+    <a class="duo-reel-fallback" href="https://www.instagram.com/reel/DLihq3JyySy/" target="_blank" rel="noopener noreferrer">Abrir el reel en Instagram ↗</a>
   </main>
   <input id="menuToggle" class="menu-toggle" type="checkbox" aria-label="Abrir menú">
   <header class="topbar"><span class="brand">Sebastián Abraham <span>Teare</span></span><label class="menu-button" for="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></label></header>
@@ -180,6 +190,7 @@ body > main:not(.cover) > h1,
 .band-social-detail{color:#fff;font-size:15px;font-weight:600}
 .band-social-link:hover,.band-social-link:focus-visible{border-color:#d9b76a;background:rgba(217,183,106,.15);text-decoration:none}
 </style>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 
 
