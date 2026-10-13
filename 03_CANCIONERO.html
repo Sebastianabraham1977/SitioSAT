@@ -15054,3 +15054,13 @@ body p { text-align: justify !important; text-align-last: left !important; text-
   body:has(#cancionero:target) #cancionero .hero { min-height: 375px !important; }
 }
 </style>
+
+<style id="cancionero-fade-photo-edges-desktop">
+@media (min-width: 701px) {
+  body:has(#cancionero:target) #cancionero .hero::after {
+    background:
+      linear-gradient(90deg, #000 0%, transparent 18%, transparent 82%, #000 100%),
+      linear-gradient(0deg, #000 0%, transparent 14%, transparent 86%, #000 100%) !important;
+  }
+}
+</style>
