@@ -477,12 +477,11 @@ requestAnimationFrame(layout);window.addEventListener('resize',()=>requestAnimat
  const whiteMidi=[57,59,60,62,64,65,67,69,71,72,74];
  const blackAfter=[0,2,3,5,6,7,9];
  const blackMidi=[58,61,63,66,68,70,73];
- const keysByMidi=new Map();
  whiteMidi.forEach((midi,index)=>{
-  const key=document.createElement('button');key.type='button';key.className='home-piano-game-key white';key.style.left=`${index*keyWidth+firstKeyOffset}%`;key.style.width=`${keyWidth}%`;key.dataset.midi=midi;key.setAttribute('aria-label',`Nota ${midi}`);layer.appendChild(key);keysByMidi.set(midi,key);
+  const key=document.createElement('button');key.type='button';key.className='home-piano-game-key white';key.style.left=`${index*keyWidth+firstKeyOffset}%`;key.style.width=`${keyWidth}%`;key.dataset.midi=midi;key.setAttribute('aria-label',`Nota ${midi}`);layer.appendChild(key);
  });
  blackAfter.forEach((after,index)=>{
-  const blackWidth=keyWidth*.6;const key=document.createElement('button');key.type='button';key.className='home-piano-game-key black';key.style.left=`${(after+1)*keyWidth+firstKeyOffset-blackWidth/2}%`;key.style.width=`${blackWidth}%`;key.dataset.midi=blackMidi[index];key.setAttribute('aria-label',`Nota ${blackMidi[index]}`);layer.appendChild(key);keysByMidi.set(blackMidi[index],key);
+  const blackWidth=keyWidth*.6;const key=document.createElement('button');key.type='button';key.className='home-piano-game-key black';key.style.left=`${(after+1)*keyWidth+firstKeyOffset-blackWidth/2}%`;key.style.width=`${blackWidth}%`;key.dataset.midi=blackMidi[index];key.setAttribute('aria-label',`Nota ${blackMidi[index]}`);layer.appendChild(key);
  });
  const AudioContextClass=window.AudioContext||window.webkitAudioContext;let audio=null;const active=new Map();
  function noteOn(key,pointerId){
@@ -498,18 +497,7 @@ requestAnimationFrame(layout);window.addEventListener('resize',()=>requestAnimat
   const voice=active.get(pointerId);if(!voice)return;active.delete(pointerId);voice.key.classList.remove('is-pressed');
   const now=audio.currentTime;voice.gain.gain.cancelScheduledValues(now);voice.gain.gain.setValueAtTime(Math.max(.0001,voice.gain.gain.value),now);voice.gain.gain.exponentialRampToValueAtTime(.0001,now+.065);voice.osc.stop(now+.07);
  }
- function keyAtPoint(event){
-  const rect=layer.getBoundingClientRect();if(!rect.width||!rect.height)return null;
-  const x=(event.clientX-rect.left)/rect.width*100,y=(event.clientY-rect.top)/rect.height*100;
-  const blackWidth=keyWidth*.6;
-  for(let i=0;i<blackAfter.length;i++){
-   const center=(blackAfter[i]+1)*keyWidth+firstKeyOffset;
-   if(y<=42&&Math.abs(x-center)<=blackWidth/2)return keysByMidi.get(blackMidi[i]);
-  }
-  const index=Math.floor((x-firstKeyOffset)/keyWidth);
-  return index>=0&&index<whiteMidi.length?keysByMidi.get(whiteMidi[index]):null;
- }
- layer.addEventListener('pointerdown',event=>{const key=keyAtPoint(event);if(!key)return;event.preventDefault();layer.setPointerCapture?.(event.pointerId);noteOn(key,event.pointerId)});
+ layer.addEventListener('pointerdown',event=>{const key=event.target.closest('.home-piano-game-key');if(!key)return;event.preventDefault();layer.setPointerCapture?.(event.pointerId);noteOn(key,event.pointerId)});
  layer.addEventListener('pointerup',event=>noteOff(event.pointerId));layer.addEventListener('pointercancel',event=>noteOff(event.pointerId));
  layer.addEventListener('lostpointercapture',event=>noteOff(event.pointerId));
 })();
