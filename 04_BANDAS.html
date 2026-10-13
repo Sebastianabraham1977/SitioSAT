@@ -380,3 +380,34 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 .menu-panel::before,.menu-panel .menu-links{width:min(78vw,520px)!important}
 @media(max-width:600px){.menu-panel::before,.menu-panel .menu-links{width:74vw!important}}
 </style>
+<style id="bandas-mobile-corner-heading-menu-20261013">
+@media(max-width:700px){
+  body>main.page>h1{
+    position:fixed!important;
+    top:calc(env(safe-area-inset-top,0px) + 8px)!important;
+    left:10px!important;
+    z-index:1000004!important;
+    margin:0!important;
+    transform:none!important;
+    max-width:calc(100vw - 96px)!important;
+  }
+  #menuToggle+.topbar{
+    top:0!important;
+    right:0!important;
+    left:0!important;
+    height:54px!important;
+    min-height:0!important;
+    padding:0 6px 0 0!important;
+    justify-content:flex-end!important;
+    align-items:flex-start!important;
+  }
+  #menuToggle+.topbar .menu-button{
+    width:54px!important;
+    height:48px!important;
+    margin:0!important;
+    padding:4px!important;
+    transform:none!important;
+  }
+  body>main.page .bandas-poster{padding-top:265px!important}
+}
+</style>
