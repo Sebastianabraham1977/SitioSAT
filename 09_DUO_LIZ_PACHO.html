@@ -18,7 +18,7 @@
     .subtitle{margin:0 0 28px;color:#d9b76a!important;font-size:clamp(17px,2.4vw,22px);letter-spacing:.06em}
     .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start;max-width:900px}
     .video-card{overflow:hidden;position:relative;border:1px solid #d9b76a88;border-radius:8px;background:#080808;box-shadow:0 12px 36px #0009}
-    .duo-cover{position:relative;aspect-ratio:4/5;overflow:hidden;background:#141414}.duo-cover iframe{display:block;position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:#080808}.duo-cover-link{position:absolute;inset:0;z-index:2}.cover-play{position:absolute;z-index:5;left:50%;top:54%;transform:translate(-50%,-50%);display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:#000;color:#fff;font-size:18px;pointer-events:none}.video-card iframe{height:100%}.uploaded-video{display:block;width:100%;height:auto;max-height:70vh;background:#000}
+    .duo-cover{position:relative;aspect-ratio:4/5;overflow:hidden;background:#141414}.duo-cover>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.duo-cover-link{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-decoration:none;-webkit-tap-highlight-color:transparent}.duo-cover-link::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:2px solid rgba(255,255,255,.95);border-radius:50%;background:rgba(0,0,0,.16)}.duo-cover-link::after{content:"";width:0;height:0;margin-left:4px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}.duo-cover-link:focus-visible{outline:2px solid #fff;outline-offset:-5px}.video-card iframe{height:100%}.uploaded-video{display:block;width:100%;height:auto;max-height:70vh;background:#000}
     .video-caption{padding:12px 16px;color:var(--paper);font-weight:650}
     .photo-card{display:grid;place-items:center;height:250px;overflow:hidden;border:1px solid rgba(217,183,106,.45);border-radius:8px;background:#080808;line-height:0}
     .photo-card img{display:block;width:100%;height:100%;object-fit:contain}
@@ -76,10 +76,6 @@
 </style>
 <style id="mobile-band-title-spacing">@media(max-width:700px){main.page>.moral-back+h1,main.page>.back+h1{margin-top:52px!important}}</style>
 <style id="band-return-title-gap">main.page>a.back+h1,main.page>a.moral-back+h1{margin-top:72px!important}@media(min-width:701px){main.page>a.back+h1,main.page>a.moral-back+h1{margin-top:96px!important}main.page>a.back,main.page>a.moral-back{font-size:16px!important}main.page>a.back+h1+p.duo-review+p.subtitle{margin:72px 0 80px!important}}</style>
-<style id="liz-pacho-instagram-chrome-crop">
-/* Oculta cabecera y controles incrustados de Instagram, mostrando solo el área del reel. */
-.gallery>.video-card:first-child .duo-cover iframe{top:-72px!important;left:0!important;width:100%!important;height:calc(100% + 144px)!important;min-height:0!important}
-</style>
 </head>
 <body>
   <main class="page">
@@ -90,7 +86,7 @@
     <section class="gallery" aria-label="Galería de fotos y videos del Dúo con Liz Pacho">
       <article class="video-card">
         <div class="duo-cover">
-          <iframe src="https://www.instagram.com/reel/CnqD9A5K1x7/embed/" title="Portada del video del Dúo con Liz Pacho" loading="lazy" aria-hidden="true" tabindex="-1"></iframe>
+          <img src="./assets/bands/liz-pacho-instagram-cover.jpg" alt="" loading="lazy">
           <a class="duo-cover-link" href="https://www.instagram.com/reel/CnqD9A5K1x7/?stkn=MXR5aGEzOHM3YW5xbQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver el video del Dúo con Liz Pacho en Instagram"></a>
         </div>
       </article>
