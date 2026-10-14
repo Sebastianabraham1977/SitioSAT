@@ -478,7 +478,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 (()=>{
  const stage=document.getElementById('homePianoStage');if(!stage)return;
  const dots=[...stage.querySelectorAll('.home-piano-dot')],labels=[...stage.querySelectorAll('.home-piano-label')],svg=stage.querySelector('.home-piano-routes');
- function layout(){const r=stage.getBoundingClientRect();if(!r.width||!r.height)return;const mobile=r.width<=640,instrument=stage.querySelector('.home-piano-instrument');if(mobile)instrument.removeAttribute('scrolling');else instrument.setAttribute('scrolling','no');const screen=stage.querySelector('.home-piano-screen').getBoundingClientRect(),positions=mobile?[15,40.5,58,76.1]:[12,50,40.5,78.5];dots.forEach((dot,index)=>{const x=screen.left-r.left+positions[index]*screen.width/100;dot.style.left=`${x/r.width*100}%`;dot.style.top=mobile?'52%':'27%'});svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();dots.forEach(dot=>{const box=dot.getBoundingClientRect(),category=['lessons','bands','songbook','audiovisual'].find(name=>dot.classList.contains(name)),label=labels.find(item=>item.classList.contains(category));if(!label)return;const x1=box.left-r.left+box.width/2,y1=box.top-r.top+box.height/2,b=label.getBoundingClientRect(),x2=b.left-r.left+b.width/2,top=label.classList.contains('lessons')||label.classList.contains('bands'),y2=top?b.bottom-r.top:b.top-r.top,mid=y1+(y2-y1)*(mobile||category!=='bands'?.52:.32),path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',category==='audiovisual'?`M${x1},${y1} V${y2}`:`M${x1},${y1} V${mid} H${x2} V${y2}`);path.setAttribute('stroke',getComputedStyle(dot).backgroundColor);svg.appendChild(path)});}
+ function layout(){const r=stage.getBoundingClientRect();if(!r.width||!r.height)return;const mobile=r.width<=640,screen=stage.querySelector('.home-piano-screen').getBoundingClientRect(),positions=mobile?[15,40.5,58,76.1]:[11,49,39.5,77.5];dots.forEach((dot,index)=>{const x=screen.left-r.left+positions[index]*screen.width/100;dot.style.left=`${x/r.width*100}%`;dot.style.top=mobile?'52%':'27%'});svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();dots.forEach(dot=>{const box=dot.getBoundingClientRect(),category=['lessons','bands','songbook','audiovisual'].find(name=>dot.classList.contains(name)),label=labels.find(item=>item.classList.contains(category));if(!label)return;const x1=box.left-r.left+box.width/2,y1=box.top-r.top+box.height/2,b=label.getBoundingClientRect(),x2=b.left-r.left+b.width/2,top=label.classList.contains('lessons')||label.classList.contains('bands'),y2=top?b.bottom-r.top:b.top-r.top,mid=y1+(y2-y1)*(mobile||category!=='bands'?.52:.32),path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',category==='audiovisual'?`M${x1},${y1} V${y2}`:`M${x1},${y1} V${mid} H${x2} V${y2}`);path.setAttribute('stroke',getComputedStyle(dot).backgroundColor);svg.appendChild(path)});}
  requestAnimationFrame(layout);window.addEventListener('resize',()=>requestAnimationFrame(layout));if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(layout)).observe(stage);
 })();
 </script>
@@ -14448,15 +14448,13 @@ body>.topbar .menu-button span{pointer-events:none!important}
 
 <style id="home-desktop-photo-and-piano-finish">
 @media(min-width:641px){
-  .home-virtual-piano.home-piano-vintage{margin-top:176px!important}
+  .home-virtual-piano.home-piano-vintage{margin-top:86px!important}
   .home-piano-vintage .home-piano-screen{top:26px!important;height:206px!important}
   .home-piano-vintage .home-piano-instrument{top:16px!important}
   .home-piano-vintage .home-piano-screen::after{padding:16px 11px 7px!important}
   .home-piano-vintage .home-piano-note-mask{top:59.25%!important;width:3.8%!important;height:5.7%!important;border-radius:50%!important;clip-path:inset(0 0 15% 0)!important;background:radial-gradient(ellipse at center,#e5ddc5 0 28%,rgba(229,221,197,.78) 48%,rgba(229,221,197,0) 92%)!important;backdrop-filter:blur(1.8px)!important}
   .home-piano-vintage .home-piano-note-mask.c4{left:8.7%!important}
   .home-piano-vintage .home-piano-note-mask.c5{left:74.7%!important}
-  .home-piano-vintage .home-piano-note-mask{clip-path:inset(0 0 38% 0)!important}
-  .home-piano-vintage .home-piano-dot{transform:translate(-50%,calc(-50% - 3px))!important}
 }
 </style>
 <style id="menu-panel-over-header-fix">
