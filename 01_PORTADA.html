@@ -434,7 +434,7 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
 
 <section class="home-virtual-piano home-piano-vintage" aria-label="Piano vintage interactivo">
   <div class="home-piano-stage" id="homePianoStage">
-    <div class="home-piano-screen"><iframe class="home-piano-instrument" src="https://www.roovemusic.com/scoreflip/tools/online-piano" title="Piano vintage interactivo de ScoreFlip" loading="eager" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe><span class="home-piano-helper-mask" aria-hidden="true"></span><span class="home-piano-note-mask c4" aria-hidden="true"></span><span class="home-piano-note-mask c5" aria-hidden="true"></span></div>
+    <div class="home-piano-screen"><iframe class="home-piano-instrument" src="https://www.roovemusic.com/scoreflip/tools/online-piano" title="Piano vintage interactivo de ScoreFlip" loading="eager" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe><span class="home-piano-left-key-crop" aria-hidden="true"></span><span class="home-piano-helper-mask" aria-hidden="true"></span><span class="home-piano-note-mask c4" aria-hidden="true"></span><span class="home-piano-note-mask c5" aria-hidden="true"></span></div>
     <svg class="home-piano-routes" aria-hidden="true" preserveAspectRatio="none"></svg>
     <a class="home-piano-label lessons" href="./06_CLASES_DE_PIANO.html">¿Quieres tomar<br>clases de piano?</a>
     <a class="home-piano-label bands" href="./04_BANDAS.html"><span class="bands-label-desktop">¿Quieres música en<br>vivo para tu evento?</span><span class="bands-label-mobile">¿Quieres música<br>en vivo para<br>tu evento?</span></a>
@@ -14452,6 +14452,7 @@ body>.topbar .menu-button span{pointer-events:none!important}
   .home-piano-vintage .home-piano-screen{top:26px!important;height:206px!important}
   .home-piano-vintage .home-piano-instrument{top:16px!important}
   .home-piano-vintage .home-piano-screen::after{padding:16px 11px 7px!important}
+  .home-piano-vintage .home-piano-left-key-crop{position:absolute;z-index:2;left:0;top:12%;bottom:16%;width:3%;background:url("assets/piano-walnut-frame-aura.png") left center/4000% 100% no-repeat;pointer-events:none}
   .home-piano-vintage .home-piano-note-mask{top:59.25%!important;width:3.8%!important;height:5.7%!important;border-radius:50%!important;clip-path:inset(0 0 15% 0)!important;background:radial-gradient(ellipse at center,#e5ddc5 0 55%,rgba(229,221,197,.9) 76%,rgba(229,221,197,0) 100%)!important;backdrop-filter:blur(1.8px)!important}
   .home-piano-vintage .home-piano-note-mask.c4{left:9.1%!important}
   .home-piano-vintage .home-piano-note-mask.c5{left:75.6%!important}
