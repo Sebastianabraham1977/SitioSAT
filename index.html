@@ -29,7 +29,7 @@ body{font-family:Arial,sans-serif;overflow:hidden}
 </section>
 </main>
 <script>
-(()=>{const site=document.getElementById('site-content'),dock=document.getElementById('radio-dock'),player=document.getElementById('radio-player'),hide=document.getElementById('radio-hide');let loaded=false;window.addEventListener('message',event=>{if(event.source!==site.contentWindow||event.origin!==location.origin||event.data?.type!=='open-sebastian-radio')return;dock.hidden=false;if(!loaded){player.src='https://open.spotify.com/embed/playlist/0ieS2HGoiqeu5K5mWmn7L9?utm_source=generator&theme=0';loaded=true}});hide.addEventListener('click',()=>{dock.hidden=true});})();
+(()=>{const site=document.getElementById('site-content'),dock=document.getElementById('radio-dock'),player=document.getElementById('radio-player'),hide=document.getElementById('radio-hide');let loaded=false;site.addEventListener('load',()=>{try{const doc=site.contentDocument;if(!doc)return;doc.addEventListener('click',event=>{const link=event.target.closest?.('a[href]');if(!link||link.target==='_blank'||link.hasAttribute('download'))return;const destination=new URL(link.href,doc.location.href);if(destination.origin!==location.origin)return;event.preventDefault();event.stopImmediatePropagation();site.contentWindow.location.assign(destination.href)},true)}catch(error){}});window.addEventListener('message',event=>{if(event.source!==site.contentWindow||event.origin!==location.origin||event.data?.type!=='open-sebastian-radio')return;dock.hidden=false;if(!loaded){player.src='https://open.spotify.com/embed/playlist/0ieS2HGoiqeu5K5mWmn7L9?utm_source=generator&theme=0';loaded=true}});hide.addEventListener('click',()=>{dock.hidden=true});})();
 </script>
 </body>
 </html>
