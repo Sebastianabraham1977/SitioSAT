@@ -14486,7 +14486,7 @@ body>.topbar .menu-button span{pointer-events:none!important}
 #portada-media-controls #portada-video{position:relative!important;inset:auto!important;display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:center!important;width:auto!important;margin:0!important;padding:0!important;background:transparent!important}
 #portada-media-controls #portada-video .portada-video-card{width:88px!important;aspect-ratio:1!important;border:1px solid #fff!important;background:#000!important}
 #portada-media-controls #portada-video .portada-video-play{border-color:#fff!important;color:#fff!important}
-@media(max-width:600px){#portada-media-controls{gap:12px!important;padding:10px 16px!important}#portada-media-controls #portada-radio .portada-music-card{width:min(280px,calc(100vw - 110px))!important}#portada-media-controls #portada-video .portada-video-card{width:66px!important}}
+@media(max-width:600px){#portada-media-controls{gap:12px!important;padding:2px 16px 10px!important}#portada-media-controls #portada-radio .portada-music-card{width:min(280px,calc(100vw - 110px))!important}#portada-media-controls #portada-video .portada-video-card{width:66px!important}}
 </style>
 <script id="persistent-radio-bridge">
 (()=>{const details=document.querySelector('#portada-radio .portada-music-card');const summary=details?.querySelector('summary');if(!summary)return;summary.addEventListener('click',event=>{if(window.parent!==window){event.preventDefault();window.parent.postMessage({type:'open-sebastian-radio'},location.origin);}});})();
