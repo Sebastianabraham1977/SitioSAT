@@ -14488,6 +14488,9 @@ body>.topbar .menu-button span{pointer-events:none!important}
 #portada-media-controls #portada-video .portada-video-play{border-color:#fff!important;color:#fff!important}
 @media(max-width:600px){#portada-media-controls{gap:12px!important;padding:10px 16px!important}#portada-media-controls #portada-radio .portada-music-card{width:min(280px,calc(100vw - 110px))!important}#portada-media-controls #portada-video .portada-video-card{width:66px!important}}
 </style>
+<script id="persistent-radio-bridge">
+(()=>{const details=document.querySelector('#portada-radio .portada-music-card');const summary=details?.querySelector('summary');if(!summary)return;summary.addEventListener('click',event=>{if(window.parent!==window){event.preventDefault();window.parent.postMessage({type:'open-sebastian-radio'},location.origin);}});})();
+</script>
 </body>
 
 <style id="home-desktop-photo-and-piano-finish">
