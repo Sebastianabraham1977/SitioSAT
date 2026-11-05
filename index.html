@@ -16,8 +16,9 @@ body{font-family:Arial,sans-serif;overflow:hidden}
 #radio-header{height:30px;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:0 0 5px;padding:0 3px}
 #radio-title{font-size:12px;letter-spacing:.04em;color:#eee}
 #radio-hide{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;cursor:pointer}
-#radio-player{display:block;width:100%;height:152px;border:0;border-radius:12px;margin:0;background:#121212}
-@media(max-width:600px){#radio-dock{width:100%;margin-right:0;padding:6px 8px calc(6px + env(safe-area-inset-bottom));border-radius:14px 14px 0 0}#radio-player{height:152px}}
+#radio-link{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 12px;border:1px solid rgba(255,255,255,.24);border-radius:12px;background:#181818;color:#fff;text-decoration:none;font-size:14px}#radio-link:hover,#radio-link:focus-visible{border-color:#fff;outline:2px solid #fff;outline-offset:2px}
+.radio-link-play{display:grid;width:34px;height:34px;flex:0 0 auto;place-items:center;border:1px solid #fff;border-radius:50%}.radio-link-play:after{content:"";width:0;height:0;margin-left:2px;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #fff}.radio-link-arrow{margin-left:auto;font-size:18px}
+@media(max-width:600px){#radio-dock{width:100%;margin-right:0;padding:6px 8px calc(6px + env(safe-area-inset-bottom));border-radius:14px 14px 0 0}}
 </style>
 </head>
 <body>
@@ -25,11 +26,11 @@ body{font-family:Arial,sans-serif;overflow:hidden}
 <iframe id="site-content" name="site-content" src="./01_PORTADA.html" title="Sitio de Sebastián Abraham"></iframe>
 <section id="radio-dock" aria-label="Reproductor de radio" hidden>
 <div id="radio-header"><span id="radio-title">Radio · Playlist de Sebastián Abraham</span><button id="radio-hide" type="button">Ocultar</button></div>
-<iframe id="radio-player" title="Playlist de Sebastián Abraham en Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<a id="radio-link" href="https://open.spotify.com/playlist/0ieS2HGoiqeu5K5mWmn7L9" target="_blank" rel="noopener noreferrer"><span class="radio-link-play" aria-hidden="true"></span><span>Escuchar mi radio en Spotify</span><span class="radio-link-arrow" aria-hidden="true">↗</span></a>
 </section>
 </main>
 <script>
-(()=>{const site=document.getElementById('site-content'),dock=document.getElementById('radio-dock'),player=document.getElementById('radio-player'),hide=document.getElementById('radio-hide');let loaded=false;site.addEventListener('load',()=>{try{const doc=site.contentDocument;if(!doc)return;if(!doc.location.hash)site.contentWindow.scrollTo(0,0);doc.addEventListener('click',event=>{const link=event.target.closest?.('a[href]');if(!link||link.target==='_blank'||link.hasAttribute('download'))return;const destination=new URL(link.href,doc.location.href);if(destination.origin!==location.origin)return;event.preventDefault();event.stopImmediatePropagation();site.contentWindow.location.assign(destination.href)},true)}catch(error){}});window.addEventListener('message',event=>{if(event.source!==site.contentWindow||event.origin!==location.origin||event.data?.type!=='open-sebastian-radio')return;dock.hidden=false;if(!loaded){player.src='https://open.spotify.com/embed/playlist/0ieS2HGoiqeu5K5mWmn7L9?utm_source=generator&theme=0';loaded=true}});hide.addEventListener('click',()=>{dock.hidden=true});})();
+(()=>{const site=document.getElementById('site-content'),dock=document.getElementById('radio-dock'),hide=document.getElementById('radio-hide');site.addEventListener('load',()=>{try{const doc=site.contentDocument;if(!doc)return;if(!doc.location.hash)site.contentWindow.scrollTo(0,0);doc.addEventListener('click',event=>{const link=event.target.closest?.('a[href]');if(!link||link.target==='_blank'||link.hasAttribute('download'))return;const destination=new URL(link.href,doc.location.href);if(destination.origin!==location.origin)return;event.preventDefault();event.stopImmediatePropagation();site.contentWindow.location.assign(destination.href)},true)}catch(error){}});window.addEventListener('message',event=>{if(event.source!==site.contentWindow||event.origin!==location.origin||event.data?.type!=='open-sebastian-radio')return;dock.hidden=false});hide.addEventListener('click',()=>{dock.hidden=true});})();
 </script>
 </body>
 </html>
