@@ -1,3 +1,62 @@
 exclude:
   - backup/
   - assets/videos/moral-distraida-clip.mov
+
+# Unreferenced static assets omitted from the Pages artifact to keep deployments reliable.
+  - assets/covers/ana-belen-young.jpg
+  - assets/covers/ana-belen.jpg
+  - assets/covers/andres-calamaro.jpg
+  - assets/covers/bacilos.jpg
+  - assets/covers/billy-joel.jpg
+  - assets/covers/britney-spears-2011.jpg
+  - assets/covers/cafe-tacuba.jpg
+  - assets/covers/cafe-tacvba-studio.png
+  - assets/covers/cecilia.jpg
+  - assets/covers/charly-garcia-close.jpg
+  - assets/covers/charly-garcia.jpg
+  - assets/covers/cher.jpg
+  - assets/covers/coldplay.jpg
+  - assets/covers/daniela-romo.jpg
+  - assets/covers/david-bowie.jpg
+  - assets/covers/duo-dinamico.jpg
+  - assets/covers/emmanuel.jpg
+  - assets/covers/faith-no-more.jpg
+  - assets/covers/fito-paez.jpg
+  - assets/covers/francisca-valenzuela-close.jpg
+  - assets/covers/francisca-valenzuela.jpg
+  - assets/covers/gondwana.jpg
+  - assets/covers/guns-n-roses.jpg
+  - assets/covers/gustavo-cerati.jpg
+  - assets/covers/jarabe-de-palo.jpg
+  - assets/covers/juan-gabriel.jpg
+  - assets/covers/la-ley.jpg
+  - assets/covers/los-bunkers-studio.png
+  - assets/covers/los-bunkers.jpg
+  - assets/covers/los-enanitos-verdes.jpg
+  - assets/covers/los-panchos.jpg
+  - assets/covers/los-rodriguez.jpg
+  - assets/covers/los-tres.jpg
+  - assets/covers/luis-miguel.jpg
+  - assets/covers/mecano.jpg
+  - assets/covers/michael-jackson.jpg
+  - assets/covers/miguel-bose.jpg
+  - assets/covers/miranda-studio.jpg
+  - assets/covers/miranda.jpg
+  - assets/covers/pedro-aznar.jpg
+  - assets/covers/presuntos-implicados.jpg
+  - assets/covers/roxette.jpg
+  - assets/covers/santana.jpg
+  - assets/covers/silvio-rodriguez.jpg
+  - assets/covers/soda-stereo.jpg
+  - assets/covers/stone-temple-pilots.jpg
+  - assets/covers/xtreme.jpg
+  - assets/papyrus-grain.svg
+  - assets/piano-walnut-cabinet.jpg
+  - assets/piano/salamander/A5.mp3
+  - assets/piano/salamander/CREDITS.txt
+  - assets/piano/salamander/Ds5.mp3
+  - assets/piano/salamander/Fs5.mp3
+  - assets/site-whatsapp-dock.css
+  - assets/vendor/react-piano/LICENSE-REACT
+  - assets/vendor/react-piano/LICENSE-REACT-DOM
+  - assets/vendor/react-piano/styles.css
