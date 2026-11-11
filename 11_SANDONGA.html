@@ -174,7 +174,7 @@ body > main:not(.cover) > h1,
 @media(max-width:700px){.menu-panel::before,.menu-panel .menu-links{width:min(70vw,500px)!important}}
 </style>
 <style id="site-spotify-direct-dock-style">
-#site-spotify-direct-dock{position:fixed;z-index:2147483000;right:16px;bottom:82px;width:min(320px,calc(100vw - 32px));padding:4px;background:transparent;font-family:"Instrument Sans",Arial,sans-serif}
+#site-spotify-direct-dock{position:fixed;z-index:2147483000;right:16px;bottom:0;width:min(320px,calc(100vw - 32px));padding:4px;background:transparent;font-family:"Instrument Sans",Arial,sans-serif}
 #site-spotify-direct-dock[hidden]{display:none!important}
 #site-spotify-direct-dock .site-spotify-direct-header{height:20px;display:flex;justify-content:flex-end;align-items:center;margin:0 0 2px;padding:0 3px}
 #site-spotify-direct-dock .site-spotify-direct-close{display:grid;place-items:center;width:18px;height:18px;padding:0;border:1px solid #d9b76a;border-radius:50%;background:#000;color:#d9b76a;font:14px/1 Arial,sans-serif;cursor:pointer}
@@ -182,14 +182,18 @@ body > main:not(.cover) > h1,
 #site-spotify-direct-dock .site-spotify-direct-note{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:#d9b76a;font-size:18px;line-height:1}
 #site-spotify-direct-dock .site-spotify-direct-label{min-width:0}
 #site-spotify-direct-dock .site-spotify-direct-brand{margin-left:auto;color:#d4bc70;font-size:11px;font-weight:700;letter-spacing:.07em}
-@media(max-width:600px){#site-spotify-direct-dock{right:10px;bottom:calc(72px + env(safe-area-inset-bottom));width:calc(100vw - 20px);padding:3px}#site-spotify-direct-dock .site-spotify-direct-header{height:18px;margin-bottom:1px}#site-spotify-direct-dock .site-spotify-direct-close{width:18px;height:18px}#site-spotify-direct-dock .site-spotify-direct-link{min-height:40px;padding:6px 10px;gap:7px;font-size:12px}#site-spotify-direct-dock .site-spotify-direct-note{font-size:16px}#site-spotify-direct-dock .site-spotify-direct-brand{font-size:10px}}
+@media(max-width:600px){#site-spotify-direct-dock{right:10px;bottom:env(safe-area-inset-bottom,0px);width:calc(100vw - 20px);padding:3px}#site-spotify-direct-dock .site-spotify-direct-header{height:18px;margin-bottom:1px}#site-spotify-direct-dock .site-spotify-direct-close{width:18px;height:18px}#site-spotify-direct-dock .site-spotify-direct-link{min-height:40px;padding:6px 10px;gap:7px;font-size:12px}#site-spotify-direct-dock .site-spotify-direct-note{font-size:16px}#site-spotify-direct-dock .site-spotify-direct-brand{font-size:10px}}
+
+body.site-direct-spotify-active{padding-bottom:156px!important;scroll-padding-bottom:156px!important}
+body.site-direct-spotify-active>.site-whatsapp-dock{bottom:72px!important}
+@media(max-width:700px){body.site-direct-spotify-active{padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important;scroll-padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important}body.site-direct-spotify-active>.site-whatsapp-dock{bottom:calc(72px + env(safe-area-inset-bottom,0px))!important}}
 </style>
 <aside id="site-spotify-direct-dock" aria-label="Spotify" hidden>
 <div class="site-spotify-direct-header"><button class="site-spotify-direct-close" type="button" aria-label="Cerrar Spotify">×</button></div>
 <a class="site-spotify-direct-link" href="https://open.spotify.com/playlist/0ieS2HGoiqeu5K5mWmn7L9" target="_blank" rel="noopener noreferrer" aria-label="Escucha música de Sebastián en Spotify"><span class="site-spotify-direct-note" aria-hidden="true">♫</span><span class="site-spotify-direct-label">Escucha música de Sebastián</span><span class="site-spotify-direct-brand" aria-hidden="true">SPOTIFY</span></a>
 </aside>
 <script id="site-spotify-direct-dock-logic">
-(()=>{const dock=document.getElementById('site-spotify-direct-dock');if(!dock)return;if(window.top!==window){dock.remove();return}dock.hidden=false;dock.querySelector('.site-spotify-direct-close')?.addEventListener('click',()=>{dock.hidden=true})})();
+(()=>{const dock=document.getElementById('site-spotify-direct-dock');if(!dock)return;if(window.top!==window){dock.remove();return}document.body.classList.add('site-direct-spotify-active');dock.hidden=false;dock.querySelector('.site-spotify-direct-close')?.addEventListener('click',()=>{dock.hidden=true;document.body.classList.remove('site-direct-spotify-active')})})();
 </script>
 </body>
 
