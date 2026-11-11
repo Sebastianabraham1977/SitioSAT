@@ -327,15 +327,14 @@ body:has(#cancionero:target) #cancionero .hero{margin:0!important;min-height:594
   border-color:#e3001d !important;
   position:fixed !important;
   right:18px !important;
-  bottom:20px !important;
+  bottom:88px !important;
   z-index:1000002 !important;
   display:flex !important;
   visibility:visible !important;
   opacity:1 !important;
   pointer-events:auto !important;
 }
-@media (max-width:600px) {
-  #cancionero .top-btn{ bottom:48px !important; }
+@media (max-width:600px) { #cancionero .top-btn{ bottom:48px !important; }
 }
 </style>
 
@@ -14787,6 +14786,14 @@ body:has(#cancionero:target) #cancionero::before { top: 300px !important; }
     text-align-last: left !important;
   }
 }
+</style>
+
+<style id="site-bottom-dock-edge-fix-20261111">
+@media (min-width:701px){body>.site-whatsapp-dock{bottom:-4px!important;min-height:34px!important;padding-bottom:4px!important;background:#050505!important}}
+</style>
+
+<style id="mobile-menu-narrower-20261111">
+@media(max-width:700px){.menu-panel::before,.menu-panel .menu-links{width:min(70vw,500px)!important}}
 </style>
 </body>
 

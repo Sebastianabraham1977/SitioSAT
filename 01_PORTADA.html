@@ -14483,6 +14483,14 @@ body>.topbar .menu-button span{pointer-events:none!important}
 <script id="persistent-radio-bridge">
 (()=>{const details=document.querySelector('#portada-radio .portada-music-card');const summary=details?.querySelector('summary');if(!summary)return;summary.addEventListener('click',event=>{if(window.parent!==window){event.preventDefault();window.parent.postMessage({type:'open-sebastian-radio'},location.origin);}});})();
 </script>
+
+<style id="site-bottom-dock-edge-fix-20261111">
+@media (min-width:701px){body>.site-whatsapp-dock{bottom:-4px!important;min-height:34px!important;padding-bottom:4px!important;background:#050505!important}}
+</style>
+
+<style id="mobile-menu-narrower-20261111">
+@media(max-width:700px){.menu-panel::before,.menu-panel .menu-links{width:min(70vw,500px)!important}}
+</style>
 </body>
 
 <style id="home-desktop-photo-and-piano-finish">

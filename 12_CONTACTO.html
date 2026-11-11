@@ -166,7 +166,18 @@ body > main:not(.cover) > h1,
 }
 </style>
 <!-- Pages redeploy trigger 2026-11-11 -->
-  </body>
+  
+<style id="mobile-menu-narrower-20261111">
+@media(max-width:700px){.menu-panel::before,.menu-panel .menu-links{width:min(70vw,500px)!important}}
+</style>
+
+<style id="contact-controls-compact-final-20261111">
+.contact-form input{height:42px!important;padding-top:9px!important;padding-bottom:9px!important;box-sizing:border-box!important}
+.contact-form textarea{min-height:clamp(115px,16vh,170px)!important;box-sizing:border-box!important}
+.contact-form button{min-width:126px!important;min-height:34px!important;padding:6px 18px!important;font-size:13px!important}
+@media(max-width:700px){.contact-form textarea{min-height:clamp(140px,18vh,170px)!important}}
+</style>
+</body>
 
 </html>
 <style id="final-title-spacing-and-alignment-20261006">
