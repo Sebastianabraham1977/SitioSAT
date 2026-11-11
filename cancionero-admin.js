@@ -91,6 +91,7 @@
     ['charly garcia', './assets/covers/charly-garcia-1982-close.jpg?v=close-portrait-20260929'],
     ['duo dinamico', './assets/covers/duo-dinamico-close.png?v=duo-portrait-20260929'],
     ['silvio rodriguez', './assets/covers/silvio-rodriguez-1969.jpg?v=young-face-20260929'],
+    ['violeta parra', './assets/covers/violeta-parra.jpg?v=violeta-thumbnail-20261111'],
     ['stone temple pilots', './assets/covers/stone-temple-pilots-1993.jpg?v=1993-band-portrait-20260929'],
     ['billy joel', './assets/covers/billy-joel-young.jpg?v=young-face-20260929'],
     ['francisca valenzuela', './assets/covers/francisca-valenzuela-full-face.jpg?v=full-face-20260929'],
