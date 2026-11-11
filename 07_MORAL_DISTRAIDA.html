@@ -365,8 +365,9 @@ body > main:not(.cover) > h1,
 @media(max-width:600px){#site-spotify-direct-dock{right:10px;bottom:env(safe-area-inset-bottom,0px);width:calc(100vw - 20px);padding:3px}#site-spotify-direct-dock .site-spotify-direct-header{height:18px;margin-bottom:1px}#site-spotify-direct-dock .site-spotify-direct-close{width:18px;height:18px}#site-spotify-direct-dock .site-spotify-direct-link{min-height:40px;padding:6px 10px;gap:7px;font-size:12px}#site-spotify-direct-dock .site-spotify-direct-note{font-size:16px}#site-spotify-direct-dock .site-spotify-direct-brand{font-size:10px}}
 
 body.site-direct-spotify-active{padding-bottom:156px!important;scroll-padding-bottom:156px!important}
-body.site-direct-spotify-active>.site-whatsapp-dock{bottom:72px!important}
-@media(max-width:700px){body.site-direct-spotify-active{padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important;scroll-padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important}body.site-direct-spotify-active>.site-whatsapp-dock{bottom:calc(72px + env(safe-area-inset-bottom,0px))!important}}
+body.site-direct-spotify-active>.site-whatsapp-dock{bottom:0!important}
+body.site-direct-spotify-active>#site-spotify-direct-dock{bottom:68px!important}
+@media(max-width:700px){body.site-direct-spotify-active{padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important;scroll-padding-bottom:calc(102px + 2*env(safe-area-inset-bottom,0px))!important}body.site-direct-spotify-active>.site-whatsapp-dock{bottom:0!important}body.site-direct-spotify-active>#site-spotify-direct-dock{bottom:calc(30px + env(safe-area-inset-bottom,0px))!important}}
 </style>
 <aside id="site-spotify-direct-dock" aria-label="Spotify" hidden>
 <div class="site-spotify-direct-header"><button class="site-spotify-direct-close" type="button" aria-label="Cerrar Spotify">×</button></div>
