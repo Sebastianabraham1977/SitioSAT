@@ -14,15 +14,15 @@ html,body{width:100%;height:100%;margin:0;background:#000;color:#fff}
 body{font-family:Arial,sans-serif;overflow:hidden}
 #app{height:100%;height:100dvh;display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden}
 #site-content{display:block;width:100%;height:100%;min-height:0;border:0;background:#000}
-#radio-dock{justify-self:center;width:min(280px,calc(100% - 32px));margin-right:0;padding:4px 0;background:transparent}
+#radio-dock{justify-self:center;width:min(260px,calc(100% - 32px));margin-right:0;padding:4px 0;background:transparent}
 #radio-dock[hidden]{display:none}
 #radio-header{height:20px;display:flex;align-items:center;justify-content:flex-end;width:100%;margin:0 0 2px;padding:0 3px}
 
 #radio-hide{display:grid;place-items:center;width:18px;height:18px;padding:0;border:1px solid #d9b76a;border-radius:50%;background:#000;color:#d9b76a;font:14px/1 Arial,sans-serif;cursor:pointer}
-#radio-link{display:flex;align-items:center;gap:8px;width:100%;min-height:42px;padding:6px 12px;border:1px solid #c9ad64;border-radius:0;background:rgba(34,29,17,.94);color:#f6f3e9;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 0 18px rgba(201,173,100,.12);transition:background .18s ease,border-color .18s ease}
+#radio-link{display:flex;align-items:center;gap:8px;width:100%;min-height:42px;padding:6px 12px;border:1px solid #c9ad64;border-radius:0;background:rgba(34,29,17,.94);color:#f6f3e9;text-decoration:none;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 0 18px rgba(201,173,100,.12);transition:background .18s ease,border-color .18s ease}
 #radio-link:hover,#radio-link:focus-visible{border-color:#f0d47c;background:#302817;outline:2px solid #e3c66f;outline-offset:2px}
-.radio-link-note{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:#d9b76a;font-size:18px;line-height:1}.radio-link-brand{margin-left:auto;color:#d4bc70;font-size:12px;font-weight:700;letter-spacing:.07em}
-@media(max-width:600px){#radio-dock{justify-self:center;width:min(250px,calc(100% - 32px));margin-right:0;padding:3px 0 calc(3px + env(safe-area-inset-bottom));background:transparent}#radio-header{height:17px;margin-bottom:1px}#radio-hide{width:18px;height:18px;font-size:14px}#radio-link{min-height:38px;padding:5px 10px;gap:7px;font-size:12px}.radio-link-note{font-size:16px}.radio-link-brand{font-size:10px}}
+.radio-link-note{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:#d9b76a;font-size:15px;line-height:1}.radio-link-brand{margin-left:auto;color:#d4bc70;font-size:9px;font-weight:700;letter-spacing:.07em}
+@media(max-width:600px){#radio-dock{justify-self:center;width:min(250px,calc(100% - 32px));margin-right:0;padding:3px 0 calc(3px + env(safe-area-inset-bottom));background:transparent}#radio-header{height:17px;margin-bottom:1px}#radio-hide{width:18px;height:18px;font-size:14px}#radio-link{min-height:38px;padding:5px 10px;gap:7px;font-size:10.5px}.radio-link-note{font-size:14px}.radio-link-brand{font-size:9px}}
 #home-radio-spotify-link{display:inline-flex;align-items:center;justify-content:flex-start;gap:9px;max-width:calc(100vw - 124px);min-height:44px;padding:9px 15px;border:1px solid #d9b76a;border-radius:999px;background:rgba(217,183,106,.12);color:#f7f2e8;text-decoration:none;font:600 14px/1.2 "Instrument Sans",Arial,sans-serif;box-shadow:0 0 18px rgba(201,173,100,.12)}
 #home-radio-spotify-link:hover,#home-radio-spotify-link:focus-visible{background:rgba(217,183,106,.22);border-color:#f1ce70;outline:0;box-shadow:none}
 #home-radio-spotify-link .home-radio-note{color:#d9b76a;font-size:18px;line-height:1;flex:0 0 auto}
