@@ -228,25 +228,25 @@
     },
     {
       "artist": "Cher",
-      "externalUrl": "https://music.apple.com/us/song/73273491",
+      "externalUrl": "https://www.cifraclub.com/cher/believe/",
       "image": "./assets/covers/cher-young.jpg?v=cher-young-1970s-20261004",
       "lyrics": null,
       "title": "BELIEVE",
       "imageCredit": "Mondadori Collection",
       "imageLicenseUrl": null,
       "imageSource": "https://commons.wikimedia.org/wiki/File:Cher_-_Casablanca_(cropped).jpg",
-      "imageTitle": "Cher en un retrato de sus primeros años"
+      "imageTitle": "Retrato de Cher"
     },
     {
       "artist": "Riccardo Cocciante",
-      "externalUrl": "https://music.apple.com/us/song/272537775",
+      "externalUrl": "https://www.cifraclub.com/riccardo-cocciante/bella-sin-alma/",
       "image": "./assets/covers/riccardo-cocciante-1975.jpg?v=face-portrait-1975-20261004",
       "lyrics": null,
       "title": "BELLA SIN ALMA (CUERPO SIN ALMA)",
       "imageCredit": "Mondadori Publishers",
       "imageLicenseUrl": "https://commons.wikimedia.org/wiki/File:Riccardo_Cocciante_1975.jpg",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Riccardo_Cocciante_1975.jpg",
-      "imageTitle": "Retrato de Riccardo Cocciante, 1975"
+      "imageTitle": "Retrato de Riccardo Cocciante"
     },
     {
       "artist": "Los Panchos",
@@ -315,10 +315,11 @@
     },
     {
       "artist": "Bacilos",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22CARALUNA%22%20%22Bacilos%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/bacilos/cara-luna/",
+      "image": "./assets/covers/bacilos-trio-close.jpg?v=trio-portrait-20260929",
       "lyrics": null,
-      "title": "CARALUNA"
+      "title": "CARALUNA",
+      "imageTitle": "Los tres integrantes de Bacilos"
     },
     {
       "artist": "Palmenia Pizarro",
@@ -343,10 +344,11 @@
     },
     {
       "artist": "Shakira",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22CIEGA%2C%20SORDOMUDA%22%20%22Shakira%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/shakira/ciega-sordomuda/",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shakira.PNG",
       "lyrics": null,
-      "title": "CIEGA, SORDOMUDA"
+      "title": "CIEGA, SORDOMUDA",
+      "imageTitle": "Retrato de Shakira"
     },
     {
       "artist": "Carpenters ",
@@ -361,10 +363,11 @@
     },
     {
       "artist": "Elton John & Dua Lipa",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22COLD%20HEART%22%20%22Elton%20John%20%26%20Dua%20Lipa%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/dua-lipa/cold-heart-pnau-remix-feat-elton-john/",
+      "image": "https://assets.vogue.com/photos/6086c49e3cd0cfd7bb1c9f90/master/w_1024%2Cc_limit/2.%2520Dua%2520Lipa%2520and%2520Sir%2520Elton%2520John.jpg",
       "lyrics": null,
-      "title": "COLD HEART"
+      "title": "COLD HEART",
+      "imageTitle": "Elton John y Dua Lipa juntos"
     },
     {
       "artist": "Presuntos Implicados",
@@ -416,7 +419,7 @@
       "lyrics": null,
       "title": "CREEP",
       "imageCredit": "Raph_PH",
-      "imageTitle": "Radiohead: los cinco integrantes en una foto de grupo (2025)",
+      "imageTitle": "Los integrantes de Radiohead",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "imageSource": "https://commons.wikimedia.org/wiki/File:RadioheadO2211125_composite.jpg"
     },
@@ -443,10 +446,11 @@
     },
     {
       "artist": "Nicole",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22DAME%20LUZ%22%20%22Nicole%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/nicole/dame-luz/",
+      "image": "https://r2.theaudiodb.com/images/media/artist/thumb/rqvuvt1490374538.jpg",
       "lyrics": null,
-      "title": "DAME LUZ"
+      "title": "DAME LUZ",
+      "imageTitle": "Retrato de Nicole"
     },
     {
       "artist": "Soda Stereo",
@@ -735,7 +739,7 @@
       "image": "./assets/covers/los-tres-full-band.jpg",
       "lyrics": null,
       "title": "HE BARRIDO EL SOL",
-      "imageTitle": "Retrato de Los Tres con sus cuatro integrantes",
+      "imageTitle": "Los integrantes de Los Tres",
       "imageSource": "https://www.latercera.com/resizer/v2/TMAI7FYVWBCCXDVB46GDL4KGBA.jpg?auth=4b362e84684ab69a2aff26f16f0f0e8efaad88b19e54f5ac250a3a7046b0e7f2&height=790&quality=80&smart=true&width=790"
     },
     {
@@ -773,10 +777,11 @@
     },
     {
       "artist": "Olivia Newton-John",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22HOPELESSLY%20DEVOTED%20TO%20YOU%22%20%22Olivia%20Newton-John%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/olivia-newton-john/hopelessly-devoted-to-you/",
+      "image": "https://cdn.sanity.io/images/dhoneoxg/production/5767ea0eb2e15689b85d655243c9b8de317a2733-2000x2573.jpg",
       "lyrics": null,
-      "title": "HOPELESSLY DEVOTED TO YOU"
+      "title": "HOPELESSLY DEVOTED TO YOU",
+      "imageTitle": "Retrato de Olivia Newton-John"
     },
     {
       "artist": "Eagles",
@@ -813,20 +818,21 @@
     },
     {
       "artist": "Faith No More",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22I%20STARTED%20A%20JOKE%22%20%22Faith%20No%20More%22",
-      "image": "./assets/covers/faith-no-more-studio.jpg",
+      "externalUrl": "https://www.cifraclub.com/faith-no-more/started-joke/",
+      "image": "https://cdn.mos.cms.futurecdn.net/h7mSLGZ98nMU3ijKRwMwhm-1200-80.jpg",
       "lyrics": null,
       "title": "I STARTED A JOKE",
       "imageCredit": "FNM Followers",
       "imageSource": "https://www.fnmfollowers.com/post/faith-no-more-first-played-in-chile-30-years-ago",
-      "imageTitle": "Faith No More, retrato promocional de la banda"
+      "imageTitle": "Los integrantes de Faith No More"
     },
     {
       "artist": "Backstreet Boys",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22I%20WANT%20IT%20THAT%20WAY%22%20%22Backstreet%20Boys%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/backstreet-boys/i-want-it-that-way/",
+      "image": "https://p2.trrsf.com/image/fget/cf/1200/900/middle/images.terra.com/2025/09/12/294814484-backstreet-boys-1999-foto-jeff-kravitz-filmmagic-inc.jpg",
       "lyrics": null,
-      "title": "I WANT IT THAT WAY"
+      "title": "I WANT IT THAT WAY",
+      "imageTitle": "Los cinco integrantes de Backstreet Boys"
     },
     {
       "artist": "Gloria Gaynor",
@@ -852,17 +858,19 @@
     },
     {
       "artist": "John Lennon",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22IMAGINE%22%20%22John%20Lennon%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/john-lennon/imagine/letra/",
+      "image": "https://www.headlinerhub.com/assets/image-cache/img/articles/crops/Small.d102a0fe.johnlennon.65d63dff.jpg",
       "lyrics": null,
-      "title": "IMAGINE"
+      "title": "IMAGINE",
+      "imageTitle": "Retrato de John Lennon"
     },
     {
       "artist": "Shakira",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22INEVITABLE%22%20%22Shakira%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/shakira/inevitable/",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shakira.PNG",
       "lyrics": null,
-      "title": "INEVITABLE"
+      "title": "INEVITABLE",
+      "imageTitle": "Retrato de Shakira"
     },
     {
       "artist": "Roxette",
@@ -886,14 +894,14 @@
     },
     {
       "artist": "Luis Miguel",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22LA%20BIKINA%22%20%22Luis%20Miguel%22",
+      "externalUrl": "https://www.cifraclub.com/luis-miguel/la-bikina/",
       "image": "./assets/covers/luis-miguel-young.jpg",
       "lyrics": null,
       "title": "LA BIKINA",
       "imageCredit": "Trome",
       "imageLicenseUrl": "",
       "imageSource": "https://trome.com/espectaculos/celebridades/luis-miguel-lo-estresante-que-fue-para-el-cantante-grabar-el-video-la-incondicional-cantantes-sol-de-mexico-nnda-nnlt-noticia/",
-      "imageTitle": "Luis Miguel joven durante la época de La Incondicional"
+      "imageTitle": "Retrato de Luis Miguel"
     },
     {
       "artist": "Emmanuel",
@@ -1011,10 +1019,11 @@
     },
     {
       "artist": "Madonna",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22LIKE%20A%20PRAYER%22%20%22Madonna%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/madonna/like-prayer/",
+      "image": "https://cdn.mos.cms.futurecdn.net/ULAM6rHXxnkCjQbcxksif.jpg",
       "lyrics": null,
-      "title": "LIKE A PRAYER"
+      "title": "LIKE A PRAYER",
+      "imageTitle": "Madonna en 1987"
     },
     {
       "artist": "Los Bunkers",
@@ -1205,12 +1214,12 @@
     },
     {
       "artist": "Zalo Reyes",
-      "externalUrl": "https://www.cifraclub.com/zalo-reyes/mi-prisionera/letra/",
+      "externalUrl": "https://www.cifraclub.com/zalo-reyes/mi-prisionera/",
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zalo_Reyes-1983.jpg?width=280",
       "lyrics": null,
       "title": "MI PRISIONERA",
       "imageCredit": "Diario La Nación Chile",
-      "imageTitle": "Zalo Reyes en 1983",
+      "imageTitle": "Retrato de Zalo Reyes",
       "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Zalo_Reyes-1983.jpg"
     },
@@ -1269,10 +1278,11 @@
     },
     {
       "artist": "L. A. Spinetta",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22MUCHACHA%20OJOS%20DE%20PAPEL%22%20%22L.%20A.%20Spinetta%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/luis-alberto-spinetta/muchacha-ojos-de-papel/",
+      "image": "./assets/covers/luis-alberto-spinetta.jpg",
       "lyrics": null,
-      "title": "MUCHACHA OJOS DE PAPEL"
+      "title": "MUCHACHA OJOS DE PAPEL",
+      "imageTitle": "Retrato de Luis Alberto Spinetta"
     },
     {
       "artist": "Luis Alberto Spinetta",
@@ -1297,19 +1307,20 @@
     },
     {
       "artist": "Shakira",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22NO%20CREO%22%20%22Shakira%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/shakira/no-creo/",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shakira.PNG",
       "lyrics": null,
-      "title": "NO CREO"
+      "title": "NO CREO",
+      "imageTitle": "Retrato de Shakira"
     },
     {
       "title": "NO LE DIJO NADA",
       "artist": "Los Ladrones Sueltos",
       "lyrics": null,
       "externalUrl": "https://www.cifraclub.com/los-ladrones-sueltos/no-le-dijo-nada/",
-      "image": "https://cdn.rock.com.ar/wp-content/uploads/2023/07/los-ladrones-sueltos.jpeg",
+      "image": "https://larz.com.ar/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-02-at-13.40.48.jpeg",
       "imageCredit": "Rock.com.ar",
-      "imageTitle": "Fotografía de Los Ladrones Sueltos",
+      "imageTitle": "Retrato de Christian Puga, voz de Los Ladrones Sueltos",
       "imageLicenseUrl": null,
       "imageSource": "https://rock.com.ar/artistas/los-ladrones-sueltos/"
     },
@@ -1357,10 +1368,11 @@
     },
     {
       "artist": "Pimpinela",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22OLV%C3%8DDAME%20Y%20PEGA%20LA%20VUELTA%22%20%22Pimpinela%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/pimpinela/olvidame-pega-la-vuelta/",
+      "image": "https://media.timeout.com/images/106035957/image.jpg",
       "lyrics": null,
-      "title": "OLVÍDAME Y PEGA LA VUELTA"
+      "title": "OLVÍDAME Y PEGA LA VUELTA",
+      "imageTitle": "Lucía y Joaquín Galán, Pimpinela"
     },
     {
       "artist": "Eros Ramazzotti",
@@ -1486,10 +1498,11 @@
     },
     {
       "artist": "Cami",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22QUERIDA%20ROSA%22%20%22Cami%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/camila-gallardo/querida-rosa/",
+      "image": "https://resizer.glanacion.com/resizer/v2/cam-S6XTLMM6FZCFFCR3ZW4QN5E55M.jpg?auth=be6393df9970b8c78fc98e86484c1eaa202e4c515fc5f735c5cf784bf83b590d&height=620&quality=70&smart=true&width=420",
       "lyrics": null,
-      "title": "QUERIDA ROSA"
+      "title": "QUERIDA ROSA",
+      "imageTitle": "Retrato de Cami"
     },
     {
       "artist": "Silvio Rodriguez",
@@ -1557,10 +1570,11 @@
     },
     {
       "artist": "Adele",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22ROLLING%20IN%20THE%20DEEP%22%20%22Adele%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/adele/rolling-in-the-deep/",
+      "image": "https://adeleonline.com.br/gallery/albums/Ensaios%20Fotograficos/2011/2011%2021/002.jpg",
       "lyrics": null,
-      "title": "ROLLING IN THE DEEP"
+      "title": "ROLLING IN THE DEEP",
+      "imageTitle": "Retrato de Adele"
     },
     {
       "artist": "Los Panchos",
@@ -1596,10 +1610,11 @@
     },
     {
       "artist": "Ed Sheeran",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22SHAPE%20OF%20YOU%22%20%22Ed%20Sheeran%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/ed-sheeran/shape-of-you/",
+      "image": "https://assets.capitalfm.com/2014/39/ed-sheeran-press-shot-2014-1-1412071068-custom-1.jpg",
       "lyrics": null,
-      "title": "SHAPE OF YOU"
+      "title": "SHAPE OF YOU",
+      "imageTitle": "Retrato de Ed Sheeran"
     },
     {
       "artist": "Miguel Bosé",
@@ -1644,13 +1659,14 @@
     },
     {
       "artist": "Sin Bandera",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22SIRENA%22%20%22Sin%20Bandera%22",
+      "externalUrl": "https://www.cifraclub.com/sin-bandera/sirena/",
       "image": "./assets/covers/sin-bandera.jpg",
       "lyrics": null,
       "title": "SIRENA",
       "imageCredit": "FESTIVALDEVINACHILE",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "imageSource": "https://commons.wikimedia.org/wiki/File%3ASin_Bandera_singing_at_Festival_Vi%C3%B1a_del_Mar.jpg"
+      "imageSource": "https://commons.wikimedia.org/wiki/File%3ASin_Bandera_singing_at_Festival_Vi%C3%B1a_del_Mar.jpg",
+      "imageTitle": "Leonel García y Noel Schajris, Sin Bandera"
     },
     {
       "artist": "Los Panchos",
@@ -1676,10 +1692,11 @@
     },
     {
       "artist": "Adele",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22SOMEONE%20LIKE%20YOU%22%20%22Adele%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/adele/someone-like-you/",
+      "image": "https://adeleonline.com.br/gallery/albums/Ensaios%20Fotograficos/2011/2011%2021/002.jpg",
       "lyrics": null,
-      "title": "SOMEONE LIKE YOU"
+      "title": "SOMEONE LIKE YOU",
+      "imageTitle": "Retrato de Adele"
     },
     {
       "artist": "Led Zeppelin",
@@ -1855,10 +1872,11 @@
     },
     {
       "artist": "Luz Casal",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22UN%20A%C3%91O%20DE%20AMOR%22%20%22Luz%20Casal%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/luz-casal/un-ao-de-amor/",
+      "image": "https://d31u1w5651ly23.cloudfront.net/articulos/articulos-1824929.jpg",
       "lyrics": null,
-      "title": "UN AÑO DE AMOR"
+      "title": "UN AÑO DE AMOR",
+      "imageTitle": "Retrato de Luz Casal"
     },
     {
       "artist": "Nino Bravo",
@@ -1883,34 +1901,34 @@
     },
     {
       "artist": "Fito Páez",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22UN%20VESTIDO%20Y%20UN%20AMOR%22%20%22Fito%20P%C3%A1ez%22",
+      "externalUrl": "https://www.cifraclub.com/fito-paez/un-vestido-un-amor/",
       "image": "./assets/covers/fito-paez-1992.jpg",
       "lyrics": null,
       "title": "UN VESTIDO Y UN AMOR",
       "imageCredit": "La Nación",
       "imageLicenseUrl": "",
       "imageSource": "https://www.lanacion.com.ar/espectaculos/musica/el-amor-despues-del-amor-el-disco-que-consagro-a-fito-paez-y-que-inmortalizo-sus-relaciones-con-nid19092022/",
-      "imageTitle": "Fito Páez durante la época de El amor después del amor"
+      "imageTitle": "Retrato de Fito Páez"
     },
     {
       "artist": "Red Hot Chili Peppers",
-      "externalUrl": null,
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/RedHotChiliPeppersAdam1989.jpg?width=280",
+      "externalUrl": "https://www.cifraclub.com/red-hot-chili-peppers/under-the-bridge/",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/RedHotChiliPeppersAdam1989.jpg?width=720",
       "lyrics": null,
       "title": "UNDER THE BRIDGE",
       "imageCredit": "Rob C. Croes / ANEFO",
-      "imageTitle": "Red Hot Chili Peppers en 1989",
+      "imageTitle": "Los integrantes de Red Hot Chili Peppers",
       "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
       "imageSource": "https://commons.wikimedia.org/wiki/File:RedHotChiliPeppersAdam1989.jpg"
     },
     {
       "artist": "Los Fabulosos Cadillacs",
-      "externalUrl": null,
-      "image": "./assets/covers/vicentico.jpg",
+      "externalUrl": "https://www.cifraclub.com/los-fabulosos-cadillacs/vasos-vacios/",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/ea/94/1e/ea941e78-7449-58e9-89e8-56c450171600/mzl.xfpkfzqi.jpg/486x486bb.png",
       "lyrics": null,
       "title": "VASOS VACÍOS",
       "imageCredit": "Cancha General",
-      "imageTitle": "Vicentico, vocalista de Los Fabulosos Cadillacs",
+      "imageTitle": "Los integrantes de Los Fabulosos Cadillacs",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Vicentico_-_Movistar_Arena,_2013_(11956858003).jpg"
     },
@@ -1949,10 +1967,11 @@
     },
     {
       "artist": "Bruno Mars",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22WHEN%20I%20WAS%20YOUR%20MAN%22%20%22Bruno%20Mars%22",
-      "image": null,
+      "externalUrl": "https://www.cifraclub.com/bruno-mars/when-i-was-your-man/",
+      "image": "https://static1.purepeople.com/articles/1/23/82/91/%40/3321583-bruno-mars-22-11-2012-1200x0-2.jpg",
       "lyrics": null,
-      "title": "WHEN I WAS YOUR MAN"
+      "title": "WHEN I WAS YOUR MAN",
+      "imageTitle": "Retrato de Bruno Mars"
     },
     {
       "artist": "Joaquín Sabina",
@@ -1978,14 +1997,14 @@
     },
     {
       "artist": "Pedro Aznar",
-      "externalUrl": "https://www.google.com/search?q=site%3Acifraclub.com%20%22YA%20NO%20HAY%20FORMA%20DE%20PEDIR%20PERD%C3%93N%22%20%22Pedro%20Aznar%22",
+      "externalUrl": "https://www.cifraclub.com/pedro-aznar/ya-no-hay-forma-de-pedir-perdon/",
       "image": "./assets/covers/pedro-aznar-color.jpg?v=color-portrait-2018-20261004",
       "lyrics": null,
       "title": "YA NO HAY FORMA DE PEDIR PERDÓN",
       "imageCredit": "Secretaría de Cultura de la Ciudad de México",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Pedro_Aznar_2018.jpg",
-      "imageTitle": "Pedro Aznar en retrato a color, 2018"
+      "imageTitle": "Retrato de Pedro Aznar"
     },
     {
       "artist": "Paulina Rubio",

@@ -200,12 +200,33 @@
   function showCover(detail, song) {
     const summary = detail.querySelector('summary');
     if (!summary) return;
-    let image = summary.querySelector('.song-cover-thumbnail');
-    let frame = summary.querySelector('.song-cover-frame');
+    const body = detail.querySelector('.song-lyrics');
+    if (!body) return;
+    let image = body.querySelector('.song-cover-thumbnail');
+    let frame = body.querySelector('.song-cover-frame');
+    const noEmbeddedLyrics = !song || !String(song.lyrics || '').trim();
+    if (song && noEmbeddedLyrics && song.externalUrl) {
+      let source = body.querySelector('.song-lyrics-source');
+      if (!source) {
+        source = document.createElement('p');
+        source.className = 'song-lyrics-source';
+        body.appendChild(source);
+      }
+      let link = source.querySelector('a');
+      if (!link) {
+        source.textContent = '';
+        link = document.createElement('a');
+        source.appendChild(link);
+      }
+      link.href = song.externalUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Ver letra en Cifra Club';
+    }
     if (!detail.open || !song || !song.image) {
       if (frame) frame.remove();
       else if (image) image.remove();
-      const credit = summary.querySelector('.song-cover-credit');
+      const credit = body.querySelector('.song-cover-credit');
       if (credit) credit.remove();
       summary.classList.remove('has-cover');
       return;
@@ -242,11 +263,12 @@
     image.classList.toggle('song-cover-billy-face', artistKey === 'billy joel');
     image.classList.toggle('song-cover-sergio-face', artistKey === 'sergio dalma');
     image.classList.toggle('song-cover-francisca-face', artistKey === 'francisca valenzuela');
-    const text = summary.querySelector('.song-summary-text');
-    if (text) summary.insertBefore(frame, text);
-    const credit = summary.querySelector('.song-cover-credit');
+    const source = body.querySelector('.song-lyrics-source');
+    if (source) body.insertBefore(frame, source);
+    else body.insertBefore(frame, body.firstChild);
+    const credit = body.querySelector('.song-cover-credit');
     if (credit) credit.remove();
-    summary.classList.add('has-cover');
+    summary.classList.remove('has-cover');
   }
 
   function refreshCovers() {
@@ -304,7 +326,16 @@
   function applyLocalImages() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-      if (saved && Array.isArray(saved.songs)) songs = mergeSongs(saved.songs);
+      if (saved && Array.isArray(saved.songs)) {
+        const localImages = saved.songs.filter((candidate) => {
+          const current = songs.find((song) => keyFor(song) === keyFor(candidate));
+          // For songs whose lyrics are not embedded, the JSON catalog is the
+          // source of truth for the image and lyric link; stale browser storage
+          // must not restore an old cover into their details.
+          return current && (String(current.lyrics || '').trim() || !current.image);
+        });
+        songs = mergeSongs(localImages);
+      }
     } catch (error) {
       // The page remains usable if browser storage is unavailable.
     }
