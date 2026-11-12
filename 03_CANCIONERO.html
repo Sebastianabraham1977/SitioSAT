@@ -750,7 +750,7 @@ body:has(section#rock:target) .cover, body:has(section#baladas:target) .cover, b
 <div class="hero-text">Un repertorio para elegir tu canción y disfrutar de una experiencia musical en vivo.</div>
 <div class="badge">ELIGE · ESCUCHA · DISFRUTA</div>
 </div></header>
-<div class="search-box"><input id="search" type="search" aria-label="Buscar canción o artista" placeholder="🔎 Buscar canción o artista..."/>
+<div class="search-box"><div class="search-input-wrap"><span class="search-icon" aria-hidden="true">🔎</span><input id="search" type="search" aria-label="Buscar canción o artista" placeholder="Buscar canción o artista..."/><button class="search-clear" type="button" aria-label="Borrar búsqueda" title="Borrar búsqueda" hidden>×</button></div>
 <div class="styles-title">EXPLORA POR ESTILO</div>
 <div class="style-grid">
 <a href="#rock">🎸<span>Rock</span></a>
@@ -15130,3 +15130,27 @@ body p { text-align: justify !important; text-align-last: left !important; text-
   html body #cancionero .top-btn { right:300px!important; }
 }
 </style>
+<style id="cancionero-search-clear-styles">
+.search-input-wrap{position:relative;width:100%}
+.search-input-wrap #search{display:block;box-sizing:border-box;width:100%;padding-left:52px;padding-right:52px}
+.search-input-wrap #search::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.search-input-wrap .search-icon{position:absolute;z-index:1;left:16px;top:50%;transform:translateY(-50%);font-size:20px;line-height:1;pointer-events:none}
+.search-input-wrap .search-clear{position:absolute;z-index:2;right:12px;top:50%;transform:translateY(-50%);width:30px;height:30px;padding:0;border:1px solid #806b3d;border-radius:50%;background:#151515;color:#d9b76a;font:24px/26px Arial,sans-serif;text-align:center;cursor:pointer}
+.search-input-wrap .search-clear[hidden]{display:none!important}
+</style>
+<script id="cancionero-search-clear-behavior">
+(function(){
+  var input=document.getElementById('search');
+  var clear=input&&input.parentElement.querySelector('.search-clear');
+  if(!input||!clear)return;
+  function syncClear(){clear.hidden=!input.value;}
+  input.addEventListener('input',syncClear);
+  clear.addEventListener('click',function(){
+    input.value='';
+    input.dispatchEvent(new Event('input',{bubbles:true}));
+    input.focus();
+    syncClear();
+  });
+  syncClear();
+})();
+</script>
