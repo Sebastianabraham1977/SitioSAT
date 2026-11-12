@@ -110,20 +110,28 @@ body.site-direct-spotify-active>#site-spotify-direct-dock{bottom:68px!important}
 (()=>{const dock=document.getElementById('site-spotify-direct-dock');if(!dock)return;if(window.top!==window){dock.remove();return}document.body.classList.add('site-direct-spotify-active');dock.hidden=false;dock.querySelector('.site-spotify-direct-close')?.addEventListener('click',()=>{dock.hidden=true;document.body.classList.remove('site-direct-spotify-active')})})();
 </script>
 
-<style id="spotify-dock-mobile-right-20261111">
-@media(max-width:600px){body.site-direct-spotify-active>#site-spotify-direct-dock{left:auto!important;right:12px!important;transform:none!important;width:min(260px,calc(100vw - 32px))!important;bottom:calc(30px + env(safe-area-inset-bottom,0px))!important}}
-</style>
-<style id="spotify-dock-mobile-right-20261111">
-@media(max-width:600px){
- body.site-direct-spotify-active>#site-spotify-direct-dock{z-index:999999!important;left:auto!important;right:12px!important;transform:none!important;width:min(260px,calc(100vw - 32px))!important;bottom:calc(30px + env(safe-area-inset-bottom,0px))!important;padding:3px!important}
+
+</body>
+
+<style id="spotify-dock-unified-size-position-menu-20261112">
+#site-spotify-direct-dock{z-index:999999!important;width:260px!important;max-width:calc(100vw - 48px)!important;padding:4px!important}
+#site-spotify-direct-dock .site-spotify-direct-header{height:20px!important;margin:0 0 2px!important;padding:0 3px!important}
+#site-spotify-direct-dock .site-spotify-direct-close{width:18px!important;height:18px!important}
+#site-spotify-direct-dock .site-spotify-direct-link{display:flex!important;align-items:center!important;gap:8px!important;width:100%!important;min-height:42px!important;padding:6px 12px!important;border:1px solid #d9b76a!important;border-radius:0!important;background:#17140e!important;color:#f7f2e8!important;font:600 11px/1.2 "Instrument Sans",Arial,sans-serif!important;white-space:nowrap!important}
+#site-spotify-direct-dock .site-spotify-direct-note{font-size:18px!important}
+#site-spotify-direct-dock .site-spotify-direct-brand{font-size:11px!important}
+@media(min-width:701px){
+ body.site-direct-spotify-active>#site-spotify-direct-dock{left:auto!important;right:clamp(28px,4vw,56px)!important;bottom:68px!important;transform:none!important;width:260px!important;max-width:calc(100vw - 48px)!important}
+}
+@media(max-width:700px){
+ body.site-direct-spotify-active>#site-spotify-direct-dock{left:auto!important;right:12px!important;bottom:calc(30px + env(safe-area-inset-bottom,0px))!important;transform:none!important;width:min(260px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;padding:3px!important}
  body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-header{height:18px!important;margin:0 0 1px!important;padding:0 3px!important}
  body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-close{width:18px!important;height:18px!important}
- body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-link{width:100%!important;min-height:40px!important;padding:6px 10px!important;gap:7px!important;font-size:10.5px!important}
+ body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-link{min-height:40px!important;padding:6px 10px!important;gap:7px!important;font-size:10.5px!important}
  body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-note{font-size:14px!important}
  body.site-direct-spotify-active>#site-spotify-direct-dock .site-spotify-direct-brand{font-size:9px!important}
 }
-</style></body>
-
+</style>
 </html>
 <style id="final-title-spacing-and-alignment-20261006">
 /* Final shared rule placed after legacy trailing styles so every page honors it. */
@@ -212,6 +220,6 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 }
 </style>
 
-<style id="spotify-direct-dock-desktop-right-20261111">@media(min-width:701px){body.site-direct-spotify-active>#site-spotify-direct-dock{left:auto!important;right:clamp(28px,4vw,56px)!important;transform:none!important}}</style>
 
-<style id="spotify-dock-mobile-right-same-size-20261111">@media(max-width:600px){body.site-direct-spotify-active>#site-spotify-direct-dock{left:auto!important;right:12px!important;transform:none!important;width:min(260px,calc(100vw - 24px))!important;padding:3px!important}}</style>
+
+
