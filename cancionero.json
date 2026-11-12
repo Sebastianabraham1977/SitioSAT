@@ -410,6 +410,17 @@
       "imageSource": "https://commons.wikimedia.org/wiki/File:Queen_A_Night_At_The_Opera_(1975_Elektra_publicity_photo_02).jpg"
     },
     {
+      "artist": "Radiohead",
+      "externalUrl": null,
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Radiohead.jpg?width=280",
+      "lyrics": null,
+      "title": "CREEP",
+      "imageCredit": "Samuel Wiki",
+      "imageTitle": "Radiohead en 2007",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Radiohead.jpg"
+    },
+    {
       "artist": "Gustavo Cerati",
       "externalUrl": null,
       "image": "./assets/covers/gustavo-cerati-closeup.jpg",
@@ -717,6 +728,15 @@
       "imageTitle": "Raffaella Carrà en 1974, posando con los brazos levantados",
       "imageLicenseUrl": "https://commons.wikimedia.org/wiki/File:Raffaella_Carrà_74.jpg",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Raffaella_Carrà_74.jpg"
+    },
+    {
+      "artist": "Los Tres",
+      "externalUrl": null,
+      "image": "./assets/covers/los-tres-full-band.jpg",
+      "lyrics": null,
+      "title": "HE BARRIDO EL SOL",
+      "imageTitle": "Retrato de Los Tres con sus cuatro integrantes",
+      "imageSource": "https://www.latercera.com/resizer/v2/TMAI7FYVWBCCXDVB46GDL4KGBA.jpg?auth=4b362e84684ab69a2aff26f16f0f0e8efaad88b19e54f5ac250a3a7046b0e7f2&height=790&quality=80&smart=true&width=790"
     },
     {
       "artist": "Michael Jackson",
@@ -1182,6 +1202,17 @@
       "imageTitle": "File:Raphael.jpg",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/es/",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Raphael.jpg"
+    },
+    {
+      "artist": "Zalo Reyes",
+      "externalUrl": null,
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zalo_Reyes-1983.jpg?width=280",
+      "lyrics": null,
+      "title": "MI PRISIONERA",
+      "imageCredit": "Diario La Nación Chile",
+      "imageTitle": "Zalo Reyes en 1983",
+      "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Zalo_Reyes-1983.jpg"
     },
     {
       "artist": "Charly García",
@@ -1849,6 +1880,28 @@
       "imageLicenseUrl": "",
       "imageSource": "https://www.lanacion.com.ar/espectaculos/musica/el-amor-despues-del-amor-el-disco-que-consagro-a-fito-paez-y-que-inmortalizo-sus-relaciones-con-nid19092022/",
       "imageTitle": "Fito Páez durante la época de El amor después del amor"
+    },
+    {
+      "artist": "Red Hot Chili Peppers",
+      "externalUrl": null,
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/RedHotChiliPeppersAdam1989.jpg?width=280",
+      "lyrics": null,
+      "title": "UNDER THE BRIDGE",
+      "imageCredit": "Rob C. Croes / ANEFO",
+      "imageTitle": "Red Hot Chili Peppers en 1989",
+      "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:RedHotChiliPeppersAdam1989.jpg"
+    },
+    {
+      "artist": "Los Fabulosos Cadillacs",
+      "externalUrl": null,
+      "image": "./assets/covers/vicentico.jpg",
+      "lyrics": null,
+      "title": "VASOS VACÍOS",
+      "imageCredit": "Cancha General",
+      "imageTitle": "Vicentico, vocalista de Los Fabulosos Cadillacs",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Vicentico_-_Movistar_Arena,_2013_(11956858003).jpg"
     },
     {
       "artist": "Camilo Sesto",
