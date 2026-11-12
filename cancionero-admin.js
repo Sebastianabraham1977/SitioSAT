@@ -76,7 +76,8 @@
     [keyFor({ title: 'YO NO TE PIDO LA LUNA', artist: 'Daniela Romo' }), './assets/covers/daniela-romo-studio.jpg?v=daniela-80s-20261001'],
     [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927'],
     [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-schoolgirl.jpg?v=schoolgirl-20261004'],
-    [keyFor({ title: 'BELIEVE', artist: 'Cher' }), './assets/covers/cher-young.jpg?v=cher-young-1970s-20261004']
+    [keyFor({ title: 'BELIEVE', artist: 'Cher' }), './assets/covers/cher-young.jpg?v=cher-young-1970s-20261004'],
+    [keyFor({ title: 'CREEP', artist: 'Radiohead' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/RadioheadO2211125_composite.jpg?width=720&v=radiohead-full-five-20261112']
   ]);
   const artistCoverOverrides = new Map([
     ['fito paez', './assets/covers/fito-paez-1992.jpg?v=full-face-20260927'],
@@ -233,7 +234,7 @@
     image.classList.toggle('song-cover-sabina-face', artistKey === 'joaquin sabina');
     image.classList.toggle('song-cover-nino-face', artistKey === 'nino bravo');
     image.classList.toggle('song-cover-group-portrait', ['faith no more', 'los rodriguez', 'cafe tacvba', 'cafe tacuba', 'miranda!', 'soda stereo', 'coldplay', 'la ley', 'los bunkers', 'duo dinamico', 'erasure', 'stone temple pilots', 'virus', 'fugees', 'roxette', 'enanitos verdes', 'jarabe de palo', "guns n' roses"].includes(artistKey));
-    image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos');
+    image.classList.toggle('song-cover-full-band', artistKey === 'los tres' || artistKey === 'los panchos' || artistKey === 'radiohead');
     image.classList.toggle('song-cover-bacilos', artistKey === 'bacilos');
     image.classList.toggle('song-cover-miguel-face', artistKey === 'miguel bose');
     image.classList.toggle('song-cover-silvio-face', artistKey === 'silvio rodriguez');

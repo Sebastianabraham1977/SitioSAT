@@ -411,14 +411,14 @@
     },
     {
       "artist": "Radiohead",
-      "externalUrl": null,
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Radiohead.jpg?width=280",
+      "externalUrl": "https://www.cifraclub.com/radiohead/creep/letra/",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/RadioheadO2211125_composite.jpg?width=720&v=radiohead-full-five-20261112",
       "lyrics": null,
       "title": "CREEP",
-      "imageCredit": "Samuel Wiki",
-      "imageTitle": "Radiohead en 2007",
-      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
-      "imageSource": "https://commons.wikimedia.org/wiki/File:Radiohead.jpg"
+      "imageCredit": "Raph_PH",
+      "imageTitle": "Radiohead: los cinco integrantes en una foto de grupo (2025)",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:RadioheadO2211125_composite.jpg"
     },
     {
       "artist": "Gustavo Cerati",
@@ -1205,7 +1205,7 @@
     },
     {
       "artist": "Zalo Reyes",
-      "externalUrl": null,
+      "externalUrl": "https://www.cifraclub.com/zalo-reyes/mi-prisionera/letra/",
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zalo_Reyes-1983.jpg?width=280",
       "lyrics": null,
       "title": "MI PRISIONERA",
