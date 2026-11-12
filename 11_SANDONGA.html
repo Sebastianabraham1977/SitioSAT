@@ -319,3 +319,5 @@ body p { text-align: justify !important; text-align-last: left !important; text-
 </style>
 
 <script id="spotify-contact-flush-position-20261112">(()=>{const dock=document.getElementById('site-spotify-direct-dock'),contacts=document.querySelector('body>.site-whatsapp-dock');if(window.top!==window||!dock||!contacts)return;const sync=()=>{const top=contacts.getBoundingClientRect().top;const h=window.innerHeight;dock.style.setProperty('bottom',Math.max(0,h-top)+'px','important')};requestAnimationFrame(sync);setTimeout(sync,80);if(window.__spotifyContactFlushSync){window.removeEventListener('resize',window.__spotifyContactFlushSync);window.visualViewport?.removeEventListener('resize',window.__spotifyContactFlushSync)}window.__spotifyContactFlushSync=sync;window.addEventListener('resize',sync,{passive:true});window.visualViewport?.addEventListener('resize',sync,{passive:true})})();</script>
+
+<style id="menu-overlay-above-everything-20261112">.menu-panel{z-index:2147483647!important}body>.site-whatsapp-dock{z-index:2147483000!important}#site-spotify-direct-dock{z-index:2147483001!important}</style>
