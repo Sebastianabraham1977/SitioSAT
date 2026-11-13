@@ -380,6 +380,17 @@
       "imageSource": "https://www.cmtv.com.ar/biografia/show.php?banda=Presuntos_Implicados&bnid=3657"
     },
     {
+      "title": "COMPLETAMENTE ENAMORADOS",
+      "artist": "Chayanne",
+      "lyrics": null,
+      "externalUrl": "https://www.cifraclub.com/chayanne/completamente-enamorado/",
+      "image": "./assets/covers/chayanne.jpg",
+      "imageCredit": "Gozamos",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "imageSource": "https://commons.wikimedia.org/wiki/File%3AChayanne_-_Chicago_2010-11-24.jpg",
+      "imageTitle": "Chayanne en Chicago, 2010"
+    },
+    {
       "artist": "Gervasio",
       "externalUrl": null,
       "image": "./assets/covers/gervasio.jpg?v=artist-focus-20260927",
@@ -752,6 +763,17 @@
       "imageTitle": "Michael Jackson en primer plano (1983)",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg",
       "imageLicenseUrl": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg"
+    },
+    {
+      "title": "HERIDA",
+      "artist": "Myriam Hernández",
+      "lyrics": null,
+      "externalUrl": "https://www.cifraclub.com/myriam-hernandez/herida/",
+      "image": "./assets/covers/myriam-hernandez.jpg",
+      "imageCredit": "Jorge Morales Piderit",
+      "imageLicenseUrl": null,
+      "imageSource": "https://commons.wikimedia.org/wiki/File%3AMyriam_Hern%C3%A1ndez.jpg",
+      "imageTitle": "Retrato de Myriam Hernández"
     },
     {
       "artist": "The Beatles",
@@ -1953,6 +1975,17 @@
       "imageTitle": "File:Andrea Bocelli 20190511 017-2 (cropped).jpg",
       "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "imageSource": "https://commons.wikimedia.org/wiki/File%3AAndrea_Bocelli_20190511_017-2_%28cropped%29.jpg"
+    },
+    {
+      "title": "VOLVER A AMAR",
+      "artist": "Cristian Castro",
+      "lyrics": null,
+      "externalUrl": "https://www.cifraclub.com/castro-cristian/volver-a-amar/",
+      "image": "./assets/covers/cristian-castro-commons.jpg",
+      "imageCredit": "Amortotal / Wikimedia Commons",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:CristianCastro.jpg",
+      "imageTitle": "Retrato de Cristian Castro, 2013"
     },
     {
       "artist": "Queen",

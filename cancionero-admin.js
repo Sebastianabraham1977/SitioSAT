@@ -266,8 +266,30 @@
     const source = body.querySelector('.song-lyrics-source');
     if (source) body.insertBefore(frame, source);
     else body.insertBefore(frame, body.firstChild);
-    const credit = body.querySelector('.song-cover-credit');
-    if (credit) credit.remove();
+    let credit = body.querySelector('.song-cover-credit');
+    if (song.imageCredit && song.imageSource && song.imageLicenseUrl) {
+      if (!credit) {
+        credit = document.createElement('p');
+        credit.className = 'song-cover-credit';
+      }
+      credit.replaceChildren();
+      const sourceLink = document.createElement('a');
+      sourceLink.href = song.imageSource;
+      sourceLink.target = '_blank';
+      sourceLink.rel = 'noopener';
+      sourceLink.textContent = 'Foto: ' + song.imageCredit;
+      const separator = document.createTextNode(' · ');
+      const licenseLink = document.createElement('a');
+      licenseLink.href = song.imageLicenseUrl;
+      licenseLink.target = '_blank';
+      licenseLink.rel = 'noopener';
+      licenseLink.textContent = 'Licencia';
+      credit.append(sourceLink, separator, licenseLink);
+      if (source) body.insertBefore(credit, source);
+      else frame.after(credit);
+    } else if (credit) {
+      credit.remove();
+    }
     summary.classList.remove('has-cover');
   }
 
