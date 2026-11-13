@@ -77,6 +77,8 @@
     [keyFor({ title: 'ASÍ FUE', artist: 'Juan Gabriel' }), './assets/covers/juan-gabriel-1985.jpg?v=full-face-20260927'],
     [keyFor({ title: 'BABY ONE MORE TIME', artist: 'Britney Spears' }), './assets/covers/britney-spears-schoolgirl.jpg?v=schoolgirl-20261004'],
     [keyFor({ title: 'BELIEVE', artist: 'Cher' }), './assets/covers/cher-young.jpg?v=cher-young-1970s-20261004'],
+    [keyFor({ title: 'VIVIR ASÍ ES MORIR DE AMOR', artist: 'Camilo Sesto' }), './assets/covers/camilo-sesto-1974.jpg?v=young-close-album-20261113'],
+    [keyFor({ title: 'VIVO POR ELLA', artist: 'Andrea Bocelli' }), './assets/covers/andrea-bocelli-1994.jpg?v=debut-close-album-20261113'],
     [keyFor({ title: 'CREEP', artist: 'Radiohead' }), 'https://commons.wikimedia.org/wiki/Special:FilePath/RadioheadO2211125_composite.jpg?width=720&v=radiohead-full-five-20261112']
   ]);
   const artistCoverOverrides = new Map([
