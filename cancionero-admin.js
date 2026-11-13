@@ -277,13 +277,14 @@
       sourceLink.href = song.imageSource;
       sourceLink.target = '_blank';
       sourceLink.rel = 'noopener';
-      sourceLink.textContent = 'Foto: ' + song.imageCredit;
+      sourceLink.textContent = 'Crédito de la foto';
+      sourceLink.setAttribute('aria-label', 'Crédito de la foto: ' + song.imageCredit);
       const separator = document.createTextNode(' · ');
       const licenseLink = document.createElement('a');
       licenseLink.href = song.imageLicenseUrl;
       licenseLink.target = '_blank';
       licenseLink.rel = 'noopener';
-      licenseLink.textContent = 'Licencia';
+      licenseLink.textContent = 'Licencia CC BY-SA';
       credit.append(sourceLink, separator, licenseLink);
       if (source) body.insertBefore(credit, source);
       else frame.after(credit);
