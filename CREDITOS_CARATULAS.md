@@ -143,6 +143,7 @@ Estas imágenes provienen de las páginas enlazadas; los derechos pertenecen a s
 | Charly García | [Rock & Pop](https://www.rockandpop.cl/2019/06/10-datos-curiosos-que-tal-vez-no-sabias-de-charly-garcia/) | [archivo](./assets/covers/charly-garcia-close.jpg) |
 | Michael Jackson | [Wikimedia Commons, imagen de prensa de 1983](https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_(close_up).jpg) | [archivo](./assets/covers/michael-jackson-close.jpg) |
 | Los Bunkers | [OCESA Seitrack](https://www.seitrack.mx/los-bunkers) | [archivo](./assets/covers/los-bunkers-studio.png) |
+
 | Los Auténticos Decadentes | [El Informador](https://www.informador.mx/entretenimiento/Los-Autenticos-Decadentes-se-dan-unos-Golpes-en-el-corazon-20211014-0003.html) | [archivo](./assets/covers/los-autenticos-decadentes-group.jpg) |
 | Café Tacvba | [KCRW](https://www.kcrw.com/shows/morning-becomes-eclectic/stories/cafe-tacvba) | [archivo](./assets/covers/cafe-tacvba-studio.png) |
 | Miranda! | [Efemérides Musicales](https://efemeridesynoticiasmusicales.blogspot.com/2012/07/miranda-un-27-de-julio-es-creada-la.html) | [archivo](./assets/covers/miranda-studio.jpg) |
@@ -154,3 +155,10 @@ Estas imágenes provienen de las páginas enlazadas; los derechos pertenecen a s
 | Bart Howard | Greater Burlington Partnership | https://www.greaterburlington.com/media-resources/blogs/bart-howard-gift-to-the-great-american-songbook | Retrato fotográfico | [archivo](./assets/covers/bart-howard-portrait.jpg) |
 
 | Gondwana | La Cuarta | https://www.lacuarta.com/el-faro/noticia/no-ha-sido-muy-reconocido-nuestro-aporte-a-la-musica-chilena-gondwana-prepara-su-cumpleanos-35/JB7G4N34PZFNDJ3NDRFMFUAHAU/ | Retrato grupal de los músicos | [archivo](./assets/covers/gondwana-band-portrait.jpg) |
+
+
+## Imagen añadida 2026-11-13
+
+| Artista | Fuente | Archivo |
+|---|---|---|
+| Cristian Castro | Portada del álbum *Un segundo en el tiempo* (1993), recortada para mostrar el retrato sin rótulos | [archivo](./assets/covers/cristian-castro-un-segundo.jpg) |
